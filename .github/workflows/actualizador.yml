@@ -1,0 +1,34 @@
+name: Actualizador de Datos Shopify
+
+on:
+  schedule:
+    - cron: '*/10 * * * *' # Se ejecuta cada 10 minutos
+  workflow_dispatch: # Te deja un botón manual por si querés correrlo a mano
+
+jobs:
+  actualizar-csv:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v3
+
+      - name: Preparar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Instalar librerías
+        run: pip install -r requirements.txt
+
+      - name: Ejecutar el Extractor de Shopify
+        run: python extractor.py
+
+      - name: Guardar el nuevo CSV en GitHub
+        run: |
+          git config --global user.name "Robot Distrinando"
+          git config --global user.email "robot@distrinando.com"
+          git add ventas_hot_sale.csv
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 Datos actualizados desde Shopify" && git push)
