@@ -234,7 +234,7 @@ try:
                                         <a href="{item['url_web']}" target="_blank" class="btn-link">Ver en Tienda</a>
                                     </div>""", unsafe_allow_html=True)
 
-        # --- SECCIÓN 5: DESCUENTOS ---
+        # --- SECCIÓN 5: DESCUENTOS EN CASCADA ---
         st.divider()
         st.markdown('<div class="discount-container">', unsafe_allow_html=True)
         st.subheader("🎟️ Análisis de Promociones")
@@ -243,12 +243,24 @@ try:
         col_f1, col_f2 = st.columns([1, 2])
         with col_f1:
             desc_marcas_sel = st.multiselect("Marca (Promo)", marcas_disponibles, default=marcas_disponibles, key="desc_marca")
+        
         with col_f2:
+            # 1. Obtenemos toda la base de pedidos con algún descuento real
             df_desc_base = df_raw[(df_raw['descuento'] != 'SIN DESCUENTO') & (df_raw['descuento'] != '')]
-            desc_disponibles = sorted(df_desc_base['descuento'].astype(str).unique())
-            desc_sel = st.multiselect("Código Promocional", desc_disponibles, default=desc_disponibles[:5] if desc_disponibles else [], key="desc_promo")
+            
+            # 2. LÓGICA DE CASCADA: Filtramos la base para que solo queden las marcas seleccionadas en col_f1
+            df_desc_filtrado_marcas = df_desc_base[df_desc_base['marca'].isin(desc_marcas_sel)]
+            
+            # 3. Extraemos los códigos únicos SOLO de ese dataframe filtrado
+            desc_disponibles = sorted(df_desc_filtrado_marcas['descuento'].astype(str).unique())
+            
+            # 4. Seleccionamos los primeros 5 por defecto (si hay) para no saturar la vista
+            default_descs = desc_disponibles[:5] if len(desc_disponibles) > 0 else []
+            
+            desc_sel = st.multiselect("Código Promocional", desc_disponibles, default=default_descs, key="desc_promo")
 
-        df_promo = df_desc_base[(df_desc_base['marca'].isin(desc_marcas_sel)) & (df_desc_base['descuento'].isin(desc_sel))]
+        # Aplicamos filtro de fecha y armamos los gráficos
+        df_promo = df_desc_filtrado_marcas[df_desc_filtrado_marcas['descuento'].isin(desc_sel)]
         if len(rango_fecha) == 2:
             df_promo = df_promo[(df_promo['fecha'].dt.date >= rango_fecha[0]) & (df_promo['fecha'].dt.date <= rango_fecha[1])]
             
