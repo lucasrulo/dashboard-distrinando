@@ -70,10 +70,8 @@ st.markdown("""
     
     /* --- CAPA DE OPTIMIZACIÓN EXCLUSIVA PARA MÓVILES (No toca Desktop) --- */
     @media (max-width: 768px) {
-        /* Evita que los bordes de la app se coman pantalla en el celular */
         .block-container { padding-left: 0.8rem !important; padding-right: 0.8rem !important; }
         
-        /* Compactamos las tarjetas para que no generen un scroll vertical infinito */
         .metric-container { padding: 12px !important; margin-bottom: 8px !important; }
         .metric-title { font-size: 10px !important; margin-bottom: 4px !important; }
         .metric-value { font-size: 22px !important; }
@@ -90,7 +88,6 @@ st.markdown("""
         
         .discount-container { padding: 12px !important; }
         
-        /* Forzamos a que las columnas nativas de Streamlit se acomoden más compactas en móvil */
         div[data-testid="stHorizontalBlock"] { gap: 0.5rem !important; }
     }
     </style>
@@ -131,7 +128,7 @@ def configurar_grafico(fig):
         paper_bgcolor="rgba(0,0,0,0)", 
         plot_bgcolor="rgba(0,0,0,0)", 
         font=dict(color="#94A3B8"),
-        margin=dict(l=10, r=10, t=40, b=10) # Márgenes optimizados para que no se corten en móvil
+        margin=dict(l=10, r=10, t=40, b=10)
     )
     return fig
 
@@ -165,7 +162,7 @@ try:
         st.title("📊 Panel de datos")
         st.caption(f"Última actualización: {datetime.now().strftime('%d/%m/%Y %H:%M')} | Filtros Activos: {len(marcas_sel)} Marcas")
         
-        # --- SECCIÓN 1: EL PULSO DE HOY (Estructura Python Desktop Original) ---
+        # --- SECCIÓN 1: EL PULSO DE HOY ---
         st.subheader("⭐ Actividad de Hoy")
         df_hoy = df_f[df_f['fecha'].dt.date == hoy_dt]
         
@@ -185,7 +182,7 @@ try:
 
         st.markdown("<br>", unsafe_allow_html=True)
 
-        # --- SECCIÓN 2: KPIs GLOBALES (Estructura Python Desktop Original) ---
+        # --- SECCIÓN 2: KPIs GLOBALES ---
         p_global = df_f.groupby('id_pedido').first()
         fact_g = p_global['total_pedido'].sum()
         pedi_g = len(p_global)
@@ -204,7 +201,7 @@ try:
         render_kpi(k4, "Ticket Promedio", f"${tkt_g:,.0f}", "#FBBF24")
         render_kpi(k5, "Tasa Devolución", f"{dev_g:.2f}%", "#F87171")
 
-        # --- SECCIÓN 3: DESGLOSE POR MARCA (Estructura Python Desktop Original con UPT, AOV, ASP) ---
+        # --- SECCIÓN 3: DESGLOSE POR MARCA ---
         st.write("##")
         st.subheader("🏢 Rendimiento por Unidad de Negocio")
         m_cols = st.columns(len(marcas_sel)) if marcas_sel else []
@@ -231,7 +228,7 @@ try:
                         <div class="brand-stat" title="Average Selling Price (Precio Promedio)"><span>ASP:</span><span class="brand-stat-val">${asp:,.0f}</span></div>
                     </div>""", unsafe_allow_html=True)
 
-        # --- SECCIÓN 4: RANKING DUAL (Estructura Python Desktop Original) ---
+        # --- SECCIÓN 4: RANKING DUAL ---
         st.divider()
         c_title, c_toggle = st.columns([1, 1])
         with c_title:
@@ -310,50 +307,55 @@ try:
                 st.plotly_chart(configurar_grafico(fig_desc_unid), use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
-        # --- SECCIÓN FINANZAS Y LOGÍSTICA (Con Colores MP/Mobbex y Filtro Logístico) ---
+        # --- SECCIÓN FINANZAS Y LOGÍSTICA (REDISEÑADA SIN CUOTAS Y CON FILTRO MULTIMARCA) ---
         st.divider()
         col_fin, col_log = st.columns([1.5, 1])
         
         with col_fin:
             st.subheader("💳 Finanzas")
-            f1, f2 = st.columns(2)
-            with f1:
-                cuotas_df = df_f.groupby('id_pedido').first()['cuotas'].value_counts().reset_index()
-                fig_c = px.pie(cuotas_df, values='count', names='cuotas', hole=0.5, color_discrete_sequence=['#38BDF8', '#818CF8', '#34D399', '#FBBF24'], title="Financiación")
-                fig_c.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
-                st.plotly_chart(configurar_grafico(fig_c), use_container_width=True)
             
-            with f2:
-                def limpiar_gateway(val):
-                    v = str(val).lower()
-                    if 'mercado pago' in v or 'mercadopago' in v: return 'Mercado Pago'
-                    if 'mobbex' in v: return 'Mobbex'
-                    if 'reversso' in v: return 'Reversso'
-                    return 'Otros Gateways'
+            # 1. Desplegable nativo para aislar la lectura financiera por marca
+            opciones_finanzas = ["Todas las marcas"] + sorted(df_f['marca'].unique())
+            fin_marca_sel = st.selectbox("Filtrar pasarela por Marca:", opciones_finanzas, key="fin_sel_marca")
+            
+            # 2. Aislamos la base financiera
+            df_fin = df_f.copy()
+            if fin_marca_sel != "Todas las marcas":
+                df_fin = df_fin[df_fin['marca'] == fin_marca_sel]
                 
-                p_finanzas = df_f.groupby('id_pedido').first().reset_index()
-                p_finanzas['gateway_agrupado'] = p_finanzas['medio_pago'].apply(limpiar_gateway)
-                gate_fc = p_finanzas.groupby('gateway_agrupado')['total_pedido'].sum().reset_index()
-                
-                colores_gateways = {
-                    'Mercado Pago': '#009EE3',     
-                    'Mobbex': '#818CF8',           
-                    'Reversso': '#F472B6',         
-                    'Otros Gateways': '#94A3B8'    
-                }
-                
-                fig_g = px.pie(
-                    gate_fc, 
-                    values='total_pedido', 
-                    names='gateway_agrupado', 
-                    hole=0.5, 
-                    color='gateway_agrupado', 
-                    color_discrete_map=colores_gateways,
-                    title="Share de Facturación por Pasarela"
-                )
-                fig_g.update_traces(textposition='inside', textinfo='percent+label')
-                fig_g.update_layout(showlegend=False)
-                st.plotly_chart(configurar_grafico(fig_g), use_container_width=True)
+            def limpiar_gateway(val):
+                v = str(val).lower()
+                if 'mercado pago' in v or 'mercadopago' in v: return 'Mercado Pago'
+                if 'mobbex' in v: return 'Mobbex'
+                if 'reversso' in v: return 'Reversso'
+                return 'Otros Gateways'
+            
+            p_finanzas = df_fin.groupby('id_pedido').first().reset_index()
+            p_finanzas['gateway_agrupado'] = p_finanzas['medio_pago'].apply(limpiar_gateway)
+            gate_fc = p_finanzas.groupby('gateway_agrupado')['total_pedido'].sum().reset_index()
+            
+            colores_gateways = {
+                'Mercado Pago': '#009EE3',     
+                'Mobbex': '#818CF8',           
+                'Reversso': '#F472B6',         
+                'Otros Gateways': '#94A3B8'    
+            }
+            
+            titulo_fin = "Share de Facturación por Pasarela (Global)" if fin_marca_sel == "Todas las marcas" else f"Share de Facturación por Pasarela ({fin_marca_sel})"
+            
+            # 3. Al haber eliminado la columna f1 (cuotas), la dona de pasarelas aprovecha el 100% del espacio visual de su bloque
+            fig_g = px.pie(
+                gate_fc, 
+                values='total_pedido', 
+                names='gateway_agrupado', 
+                hole=0.5, 
+                color='gateway_agrupado', 
+                color_discrete_map=colores_gateways,
+                title=titulo_fin
+            )
+            fig_g.update_traces(textposition='inside', textinfo='percent+label')
+            fig_g.update_layout(showlegend=False)
+            st.plotly_chart(configurar_grafico(fig_g), use_container_width=True)
 
         with col_log:
             st.subheader("📦 Logística")
