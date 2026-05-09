@@ -5,95 +5,93 @@ import os
 from datetime import datetime
 from streamlit_autorefresh import st_autorefresh  # <--- PASO B: Va en la línea 6
 
-# 1. CONFIGURACIÓN DE PÁGINA (Optimizada para auto-detectar mobile)
+# 1. CONFIGURACIÓN DE PÁGINA
 st.set_page_config(
     page_title="Analítica Distrinando | Centro de Comando",
     layout="wide",
-    initial_sidebar_state="auto" # Cambiado a auto para que colapse en celulares y no tape la pantalla
+    initial_sidebar_state="expanded"
 )
 st_autorefresh(interval=300000, limit=None, key="auto_refresh") # <--- PASO C: Va justo en la línea 13 (después de set_page_config)
 
-# 2. CSS CORPORATIVO DARK NAVY + PARCHES MOBILE RESPONSIVOS
+# 2. CSS CORPORATIVO DARK NAVY + OPTIMIZACIÓN MOBILE SILENCIOSA
 st.markdown("""
     <style>
-    /* Estructura base para evitar scroll horizontal en celulares */
-    .block-container {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-        max-width: 100% !important;
-        overflow-x: hidden;
-    }
-
-    /* Tarjetas de Métricas Globales */
+    /* Tarjetas de Métricas Globales (Desktop Base) */
     .metric-container {
         background-color: #1E293B; 
         border: 1px solid #334155;
-        padding: 16px;
+        padding: 24px;
         border-radius: 12px;
         text-align: center;
-        margin-bottom: 12px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        margin-bottom: 15px;
+        transition: all 0.2s ease;
     }
-    .metric-title { font-size: 11px; text-transform: uppercase; color: #94A3B8; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 6px; }
-    .metric-value { font-size: 24px; font-weight: 800; color: #38BDF8; letter-spacing: -0.5px; }
+    .metric-title { font-size: 12px; text-transform: uppercase; color: #94A3B8; font-weight: 700; letter-spacing: 1px; margin-bottom: 10px; }
+    .metric-value { font-size: 30px; font-weight: 800; color: #38BDF8; letter-spacing: -1px; }
     
-    /* Tarjetas de Marcas */
+    /* Tarjetas de Marcas (Desktop Base) */
     .brand-card {
         background-color: #1E293B;
         border: 1px solid #334155;
         border-radius: 12px;
-        padding: 15px;
-        margin-bottom: 12px;
+        padding: 18px;
+        margin-bottom: 15px;
         transition: all 0.3s ease;
     }
     .brand-card:hover { border-color: #38BDF8; }
-    .brand-header { font-size: 16px; font-weight: 800; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-bottom: 10px; color: #F8FAFC; }
-    .brand-stat { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 12px; color: #94A3B8; }
+    .brand-header { font-size: 17px; font-weight: 800; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-bottom: 12px; color: #F8FAFC; }
+    .brand-stat { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 13px; color: #94A3B8; }
     .brand-stat-val { font-weight: 700; color: #E2E8F0; }
 
-    /* Tarjetas de Productos */
+    /* Tarjetas de Productos (Desktop Base) */
     .product-box {
         background: #1E293B; border: 1px solid #334155; border-radius: 12px;
-        padding: 12px; text-align: center; transition: 0.3s ease; height: 100%;
+        padding: 15px; text-align: center; transition: 0.3s ease; height: 100%;
         display: flex; flex-direction: column; justify-content: space-between;
     }
     .product-box:hover { border-color: #38BDF8; } 
-    .product-img { width: 100%; height: 120px; object-fit: contain; border-radius: 8px; margin-bottom: 10px; background: white; padding: 5px; }
-    .product-name { font-size: 11px; font-weight: 600; color: #E2E8F0; height: 32px; overflow: hidden; line-height: 1.2; margin-bottom: 10px; }
-    .product-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 8px 0; border-top: 1px solid #334155; padding-top: 8px;}
-    .product-stat-label { font-size: 8px; color: #94A3B8; text-transform: uppercase; font-weight: 700; }
-    .product-stat-val { font-size: 13px; font-weight: 800; color: #38BDF8; }
+    .product-img { width: 100%; height: 160px; object-fit: contain; border-radius: 8px; margin-bottom: 12px; background: white; padding: 5px; }
+    .product-name { font-size: 12px; font-weight: 600; color: #E2E8F0; height: 40px; overflow: hidden; line-height: 1.3; margin-bottom: 12px; }
+    .product-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; border-top: 1px solid #334155; padding-top: 10px;}
+    .product-stat-label { font-size: 9px; color: #94A3B8; text-transform: uppercase; font-weight: 700; }
+    .product-stat-val { font-size: 14px; font-weight: 800; color: #38BDF8; }
     .btn-link {
         display: block; background: #2563EB; color: #FFFFFF !important; 
-        text-decoration: none; padding: 8px; border-radius: 8px;
-        font-size: 10px; font-weight: 700; margin-top: 8px; text-transform: uppercase; transition: background 0.2s;
+        text-decoration: none; padding: 10px; border-radius: 8px;
+        font-size: 11px; font-weight: 700; margin-top: 10px; text-transform: uppercase; transition: background 0.2s;
     }
     .btn-link:hover { background: #3B82F6; }
     
     /* Contenedor de Descuentos Independiente */
-    .discount-container { background: #0F172A; border: 1px dashed #334155; border-radius: 12px; padding: 15px; margin-top: 15px; }
+    .discount-container { background: #0F172A; border: 1px dashed #334155; border-radius: 12px; padding: 20px; margin-top: 20px; }
     
-    /* --- MEDIA QUERIES: LA MAGIA MOBILE --- */
-    /* Forzar a que en celulares las tarjetas y métricas se vean en 2 columnas lado a lado (Grid) en vez de una sola fila vertical eterna */
+    /* Ajustes visuales nativos */
+    span[data-baseweb="tag"] { background-color: #1E3A8A !important; color: #F8FAFC !important; border: 1px solid #3B82F6 !important; border-radius: 4px !important; }
+    
+    /* --- CAPA DE OPTIMIZACIÓN EXCLUSIVA PARA MÓVILES (No toca Desktop) --- */
     @media (max-width: 768px) {
-        .metric-value { font-size: 20px; }
-        .metric-title { font-size: 10px; }
+        /* Evita que los bordes de la app se coman pantalla en el celular */
+        .block-container { padding-left: 0.8rem !important; padding-right: 0.8rem !important; }
         
-        /* Contenedor inyectado para agrupar tarjetas en móvil */
-        .mobile-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-        /* Forzar que la primera tarjeta (ej. Facturación) ocupe el ancho completo arriba */
-        .mobile-grid > div:first-child {
-            grid-column: span 2;
-        }
+        /* Compactamos las tarjetas para que no generen un scroll vertical infinito */
+        .metric-container { padding: 12px !important; margin-bottom: 8px !important; }
+        .metric-title { font-size: 10px !important; margin-bottom: 4px !important; }
+        .metric-value { font-size: 22px !important; }
         
-        /* Ajuste nativo para elementos de formulario de Streamlit en móviles */
-        .stMultiSelect, .stSelectbox, .stDateInput {
-            margin-bottom: 10px;
-        }
+        .brand-card { padding: 12px !important; margin-bottom: 8px !important; }
+        .brand-header { font-size: 15px !important; margin-bottom: 8px !important; }
+        .brand-stat { font-size: 11px !important; margin-bottom: 4px !important; }
+        
+        .product-box { padding: 10px !important; margin-bottom: 8px !important; }
+        .product-img { height: 110px !important; margin-bottom: 8px !important; }
+        .product-name { font-size: 11px !important; height: 32px !important; margin-bottom: 8px !important; }
+        .product-stat-val { font-size: 12px !important; }
+        .btn-link { padding: 8px !important; font-size: 10px !important; margin-top: 6px !important; }
+        
+        .discount-container { padding: 12px !important; }
+        
+        /* Forzamos a que las columnas nativas de Streamlit se acomoden más compactas en móvil */
+        div[data-testid="stHorizontalBlock"] { gap: 0.5rem !important; }
     }
     </style>
     """, unsafe_allow_html=True)
@@ -128,14 +126,12 @@ def load_data():
     return df
 
 def configurar_grafico(fig):
-    # Optimizaciones nativas de Plotly para no romper la pantalla en celulares
     fig.update_layout(
         template="plotly_dark", 
         paper_bgcolor="rgba(0,0,0,0)", 
         plot_bgcolor="rgba(0,0,0,0)", 
-        font=dict(color="#94A3B8", size=10),
-        margin=dict(l=10, r=10, t=30, b=10), # Márgenes super reducidos para ganar espacio mobile
-        autosize=True
+        font=dict(color="#94A3B8"),
+        margin=dict(l=10, r=10, t=40, b=10) # Márgenes optimizados para que no se corten en móvil
     )
     return fig
 
@@ -169,46 +165,27 @@ try:
         st.title("📊 Panel de datos")
         st.caption(f"Última actualización: {datetime.now().strftime('%d/%m/%Y %H:%M')} | Filtros Activos: {len(marcas_sel)} Marcas")
         
-        # --- SECCIÓN 1: EL PULSO DE HOY (Renderizado Híbrido PC/Mobile) ---
+        # --- SECCIÓN 1: EL PULSO DE HOY (Estructura Python Desktop Original) ---
         st.subheader("⭐ Actividad de Hoy")
         df_hoy = df_f[df_f['fecha'].dt.date == hoy_dt]
         
         if df_hoy.empty:
             st.info("Sin registros para la fecha actual con los filtros seleccionados.")
         else:
+            h1, h2, h3, h4, h5 = st.columns(5)
             p_hoy = df_hoy.groupby('id_pedido').first()
             fact_hoy = p_hoy['total_pedido'].sum()
-            ord_hoy = len(p_hoy)
-            art_hoy = df_hoy['cantidad'].sum()
-            tkt_hoy = fact_hoy / ord_hoy if ord_hoy > 0 else 0
-            
+            h1.metric("Facturación", f"${fact_hoy:,.0f}")
+            h2.metric("Órdenes", f"{len(p_hoy):,}")
+            h3.metric("Artículos", f"{df_hoy['cantidad'].sum():,}")
+            h4.metric("Ticket Prom.", f"${(fact_hoy/len(p_hoy)):,.0f}")
             df_hoy['h'] = df_hoy['fecha'].dt.hour
             h_pico = df_hoy.groupby('h')['id_pedido'].nunique().idxmax() if not df_hoy.groupby('h')['id_pedido'].nunique().empty else 0
-            
-            # Envolvemos las métricas en nuestro grid HTML responsivo para móviles
-            st.markdown(f"""
-            <div class="mobile-grid">
-                <div class="metric-container" style="border-top: 3px solid #38BDF8;">
-                    <div class="metric-title">Facturación</div><div class="metric-value">${fact_hoy:,.0f}</div>
-                </div>
-                <div class="metric-container" style="border-top: 3px solid #818CF8;">
-                    <div class="metric-title">Órdenes</div><div class="metric-value">{ord_hoy:,}</div>
-                </div>
-                <div class="metric-container" style="border-top: 3px solid #34D399;">
-                    <div class="metric-title">Artículos</div><div class="metric-value">{art_hoy:,}</div>
-                </div>
-                <div class="metric-container" style="border-top: 3px solid #FBBF24;">
-                    <div class="metric-title">Ticket Prom.</div><div class="metric-value">${tkt_hoy:,.0f}</div>
-                </div>
-                <div class="metric-container" style="border-top: 3px solid #F472B6;">
-                    <div class="metric-title">Hora Pico</div><div class="metric-value">{h_pico}:00 hs</div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
+            h5.metric("Hora Pico", f"{h_pico}:00 hs")
 
         st.markdown("<br>", unsafe_allow_html=True)
 
-        # --- SECCIÓN 2: KPIs GLOBALES (Renderizado Híbrido PC/Mobile) ---
+        # --- SECCIÓN 2: KPIs GLOBALES (Estructura Python Desktop Original) ---
         p_global = df_f.groupby('id_pedido').first()
         fact_g = p_global['total_pedido'].sum()
         pedi_g = len(p_global)
@@ -216,33 +193,22 @@ try:
         tkt_g = fact_g / pedi_g if pedi_g > 0 else 0
         dev_g = (p_global['es_reverso'].sum() / pedi_g * 100) if pedi_g > 0 else 0
 
-        st.markdown(f"""
-        <div class="mobile-grid">
-            <div class="metric-container" style="border-top: 3px solid #38BDF8;">
-                <div class="metric-title">Facturación Total</div><div class="metric-value">${fact_g:,.0f}</div>
-            </div>
-            <div class="metric-container" style="border-top: 3px solid #818CF8;">
-                <div class="metric-title">Total Órdenes</div><div class="metric-value">{pedi_g:,}</div>
-            </div>
-            <div class="metric-container" style="border-top: 3px solid #34D399;">
-                <div class="metric-title">Total Unidades</div><div class="metric-value">{unid_g:,}</div>
-            </div>
-            <div class="metric-container" style="border-top: 3px solid #FBBF24;">
-                <div class="metric-title">Ticket Promedio</div><div class="metric-value">${tkt_g:,.0f}</div>
-            </div>
-            <div class="metric-container" style="border-top: 3px solid #F87171;">
-                <div class="metric-title">Tasa Devolución</div><div class="metric-value">{dev_g:.2f}%</div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        k1, k2, k3, k4, k5 = st.columns(5)
+        def render_kpi(col, titulo, valor, color_borde):
+            col.markdown(f"""<div class="metric-container" style="border-top: 4px solid {color_borde};">
+                <div class="metric-title">{titulo}</div><div class="metric-value">{valor}</div></div>""", unsafe_allow_html=True)
 
-        # --- SECCIÓN 3: DESGLOSE POR MARCA (UPT, AOV, ASP en Grid Responsivo) ---
+        render_kpi(k1, "Facturación Total", f"${fact_g:,.0f}", "#38BDF8")
+        render_kpi(k2, "Total Órdenes", f"{pedi_g:,}", "#818CF8")
+        render_kpi(k3, "Total Unidades", f"{unid_g:,}", "#34D399")
+        render_kpi(k4, "Ticket Promedio", f"${tkt_g:,.0f}", "#FBBF24")
+        render_kpi(k5, "Tasa Devolución", f"{dev_g:.2f}%", "#F87171")
+
+        # --- SECCIÓN 3: DESGLOSE POR MARCA (Estructura Python Desktop Original con UPT, AOV, ASP) ---
         st.write("##")
         st.subheader("🏢 Rendimiento por Unidad de Negocio")
-        
-        # Envolvemos las marcas en un grid que se auto-adapta
-        html_brands = '<div class="mobile-grid">'
-        for m_nombre in marcas_sel:
+        m_cols = st.columns(len(marcas_sel)) if marcas_sel else []
+        for i, m_nombre in enumerate(marcas_sel):
             df_m = df_f[df_f['marca'] == m_nombre]
             if not df_m.empty:
                 f_m = df_m['subtotal_producto'].sum()
@@ -254,7 +220,7 @@ try:
                 asp = f_m / u_m if u_m > 0 else 0
                 
                 accent = PALETA_MARCAS.get(m_nombre, "#94A3B8")
-                html_brands += f"""
+                m_cols[i].markdown(f"""
                     <div class="brand-card" style="border-top: 4px solid {accent};">
                         <div class="brand-header" style="color: {accent};">{m_nombre}</div>
                         <div class="brand-stat"><span>Venta:</span><span class="brand-stat-val">${f_m:,.0f}</span></div>
@@ -263,11 +229,9 @@ try:
                         <div class="brand-stat" title="Average Order Value (Ticket Promedio)"><span>AOV:</span><span class="brand-stat-val">${aov:,.0f}</span></div>
                         <div class="brand-stat" title="Units Per Transaction (Unidades por Ticket)"><span>UPT:</span><span class="brand-stat-val">{upt:,.2f}</span></div>
                         <div class="brand-stat" title="Average Selling Price (Precio Promedio)"><span>ASP:</span><span class="brand-stat-val">${asp:,.0f}</span></div>
-                    </div>"""
-        html_brands += '</div>'
-        st.markdown(html_brands, unsafe_allow_html=True)
+                    </div>""", unsafe_allow_html=True)
 
-        # --- SECCIÓN 4: RANKING DUAL (MODELO VS SKU) ---
+        # --- SECCIÓN 4: RANKING DUAL (Estructura Python Desktop Original) ---
         st.divider()
         c_title, c_toggle = st.columns([1, 1])
         with c_title:
@@ -292,22 +256,22 @@ try:
                         col_nom = 'producto'
                         top_10 = df_p.groupby([col_nom, 'img_url', 'url_web']).agg({'cantidad': 'sum', 'subtotal_producto': 'sum'}).sort_values(by='cantidad', ascending=False).head(10).reset_index()
                     
-                    # RENDERIZADO OPTIMIZADO PARA MÓVIL: Forzamos pares de productos en celulares usando HTML/CSS
-                    html_products = '<div class="mobile-grid">'
-                    for idx, item in top_10.iterrows():
-                        img = item['img_url'] if str(item['img_url']) != 'nan' and item['img_url'] != '' else 'https://via.placeholder.com/150'
-                        html_products += f"""
-                            <div class="product-box">
-                                <img src="{img}" class="product-img">
-                                <div class="product-name">{item[col_nom]}</div>
-                                <div class="product-info-grid">
-                                    <div><div class="product-stat-label">Unidades</div><div class="product-stat-val">{int(item['cantidad']):,}</div></div>
-                                    <div><div class="product-stat-label">Total FC</div><div class="product-stat-val">${item['subtotal_producto']:,.0f}</div></div>
-                                </div>
-                                <a href="{item['url_web']}" target="_blank" class="btn-link">Ver en Tienda</a>
-                            </div>"""
-                    html_products += '</div>'
-                    st.markdown(html_products, unsafe_allow_html=True)
+                    for r_idx in range(0, len(top_10), 5):
+                        filas_p = st.columns(5)
+                        for c_idx, s_idx in enumerate(range(r_idx, r_idx + 5)):
+                            if s_idx < len(top_10):
+                                item = top_10.iloc[s_idx]
+                                img = item['img_url'] if str(item['img_url']) != 'nan' and item['img_url'] != '' else 'https://via.placeholder.com/150'
+                                filas_p[c_idx].markdown(f"""
+                                    <div class="product-box">
+                                        <img src="{img}" class="product-img">
+                                        <div class="product-name">{item[col_nom]}</div>
+                                        <div class="product-info-grid">
+                                            <div><div class="product-stat-label">Unidades</div><div class="product-stat-val">{int(item['cantidad']):,}</div></div>
+                                            <div><div class="product-stat-label">Total FC</div><div class="product-stat-val">${item['subtotal_producto']:,.0f}</div></div>
+                                        </div>
+                                        <a href="{item['url_web']}" target="_blank" class="btn-link">Ver en Tienda</a>
+                                    </div>""", unsafe_allow_html=True)
 
         # --- SECCIÓN 5: DESCUENTOS EN CASCADA ---
         st.divider()
@@ -315,14 +279,16 @@ try:
         st.subheader("🎟️ Análisis de Promociones")
         st.caption("Filtros exclusivos para medir el impacto de las campañas sin alterar el tablero global.")
         
-        # En móvil, forzamos a que los selectores bajen verticalmente de forma fluida
-        desc_marcas_sel = st.multiselect("Marca (Promo)", marcas_disponibles, default=marcas_disponibles, key="desc_marca")
+        col_f1, col_f2 = st.columns([1, 2])
+        with col_f1:
+            desc_marcas_sel = st.multiselect("Marca (Promo)", marcas_disponibles, default=marcas_disponibles, key="desc_marca")
         
-        df_desc_base = df_raw[(df_raw['descuento'] != 'SIN DESCUENTO') & (df_raw['descuento'] != '')]
-        df_desc_filtrado_marcas = df_desc_base[df_desc_base['marca'].isin(desc_marcas_sel)]
-        desc_disponibles = sorted(df_desc_filtrado_marcas['descuento'].astype(str).unique())
-        default_descs = desc_disponibles[:5] if len(desc_disponibles) > 0 else []
-        desc_sel = st.multiselect("Código Promocional", desc_disponibles, default=default_descs, key="desc_promo")
+        with col_f2:
+            df_desc_base = df_raw[(df_raw['descuento'] != 'SIN DESCUENTO') & (df_raw['descuento'] != '')]
+            df_desc_filtrado_marcas = df_desc_base[df_desc_base['marca'].isin(desc_marcas_sel)]
+            desc_disponibles = sorted(df_desc_filtrado_marcas['descuento'].astype(str).unique())
+            default_descs = desc_disponibles[:5] if len(desc_disponibles) > 0 else []
+            desc_sel = st.multiselect("Código Promocional", desc_disponibles, default=default_descs, key="desc_promo")
 
         df_promo = df_desc_filtrado_marcas[df_desc_filtrado_marcas['descuento'].isin(desc_sel)]
         if len(rango_fecha) == 2:
@@ -331,99 +297,108 @@ try:
         if df_promo.empty:
             st.info("Seleccione códigos válidos para analizar.")
         else:
-            desc_fc = df_promo.groupby(['descuento', 'marca'])['subtotal_producto'].sum().reset_index()
-            fig_desc_fc = px.bar(desc_fc, x='subtotal_producto', y='descuento', color='marca', orientation='h', text_auto='.0f', color_discrete_map=PALETA_MARCAS, title="Facturación por Código")
-            fig_desc_fc.update_layout(showlegend=False) # Ocultar leyenda en móvil para ganar espacio visual
-            st.plotly_chart(configurar_grafico(fig_desc_fc), use_container_width=True)
-            
-            desc_unid = df_promo.groupby(['descuento', 'marca'])['cantidad'].sum().reset_index()
-            fig_desc_unid = px.bar(desc_unid, x='cantidad', y='descuento', color='marca', orientation='h', text_auto=True, color_discrete_map=PALETA_MARCAS, title="Unidades por Código")
-            fig_desc_unid.update_layout(showlegend=False)
-            st.plotly_chart(configurar_grafico(fig_desc_unid), use_container_width=True)
-            
+            col_d1, col_d2 = st.columns([1, 1])
+            with col_d1:
+                desc_fc = df_promo.groupby(['descuento', 'marca'])['subtotal_producto'].sum().reset_index()
+                fig_desc_fc = px.bar(desc_fc, x='subtotal_producto', y='descuento', color='marca', orientation='h', text_auto='.0f', color_discrete_map=PALETA_MARCAS, title="Facturación por Código")
+                fig_desc_fc.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
+                st.plotly_chart(configurar_grafico(fig_desc_fc), use_container_width=True)
+            with col_d2:
+                desc_unid = df_promo.groupby(['descuento', 'marca'])['cantidad'].sum().reset_index()
+                fig_desc_unid = px.bar(desc_unid, x='cantidad', y='descuento', color='marca', orientation='h', text_auto=True, color_discrete_map=PALETA_MARCAS, title="Unidades por Código")
+                fig_desc_unid.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
+                st.plotly_chart(configurar_grafico(fig_desc_unid), use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
-        # --- SECCIÓN FINANZAS Y LOGÍSTICA ---
+        # --- SECCIÓN FINANZAS Y LOGÍSTICA (Con Colores MP/Mobbex y Filtro Logístico) ---
         st.divider()
+        col_fin, col_log = st.columns([1.5, 1])
         
-        st.subheader("💳 Finanzas")
-        cuotas_df = df_f.groupby('id_pedido').first()['cuotas'].value_counts().reset_index()
-        fig_c = px.pie(cuotas_df, values='count', names='cuotas', hole=0.5, color_discrete_sequence=['#38BDF8', '#818CF8', '#34D399', '#FBBF24'], title="Financiación")
-        fig_c.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5)) # Leyenda horizontal abajo para mobile
-        st.plotly_chart(configurar_grafico(fig_c), use_container_width=True)
-        
-        def limpiar_gateway(val):
-            v = str(val).lower()
-            if 'mercado pago' in v or 'mercadopago' in v: return 'Mercado Pago'
-            if 'mobbex' in v: return 'Mobbex'
-            if 'reversso' in v: return 'Reversso'
-            return 'Otros Gateways'
-        
-        p_finanzas = df_f.groupby('id_pedido').first().reset_index()
-        p_finanzas['gateway_agrupado'] = p_finanzas['medio_pago'].apply(limpiar_gateway)
-        gate_fc = p_finanzas.groupby('gateway_agrupado')['total_pedido'].sum().reset_index()
-        
-        colores_gateways = {
-            'Mercado Pago': '#009EE3',     
-            'Mobbex': '#818CF8',           
-            'Reversso': '#F472B6',         
-            'Otros Gateways': '#94A3B8'    
-        }
-        
-        fig_g = px.pie(
-            gate_fc, 
-            values='total_pedido', 
-            names='gateway_agrupado', 
-            hole=0.5, 
-            color='gateway_agrupado', 
-            color_discrete_map=colores_gateways,
-            title="Share de Facturación por Pasarela"
-        )
-        fig_g.update_traces(textposition='inside', textinfo='percent+label')
-        fig_g.update_layout(showlegend=False)
-        st.plotly_chart(configurar_grafico(fig_g), use_container_width=True)
-
-        st.divider()
-        st.subheader("📦 Logística")
-        
-        opciones_logistica = ["Todas las marcas"] + sorted(df_f['marca'].unique())
-        log_marca_sel = st.selectbox("Filtrar estado por Marca:", opciones_logistica, key="log_sel_marca")
-        
-        df_log = df_f.copy()
-        if log_marca_sel != "Todas las marcas":
-            df_log = df_log[df_log['marca'] == log_marca_sel]
+        with col_fin:
+            st.subheader("💳 Finanzas")
+            f1, f2 = st.columns(2)
+            with f1:
+                cuotas_df = df_f.groupby('id_pedido').first()['cuotas'].value_counts().reset_index()
+                fig_c = px.pie(cuotas_df, values='count', names='cuotas', hole=0.5, color_discrete_sequence=['#38BDF8', '#818CF8', '#34D399', '#FBBF24'], title="Financiación")
+                fig_c.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
+                st.plotly_chart(configurar_grafico(fig_c), use_container_width=True)
             
-        df_log['fulfillment_status_es'] = df_log['fulfillment_status'].fillna('null').map(ESTADO_MAPA)
-        log_stat = df_log.groupby('fulfillment_status_es')['id_pedido'].nunique().reset_index()
-        
-        titulo_log = "Estados de Envío (Global)" if log_marca_sel == "Todas las marcas" else f"Estados de Envío ({log_marca_sel})"
-        
-        fig_log = px.pie(
-            log_stat, 
-            values='id_pedido', 
-            names='fulfillment_status_es', 
-            title=titulo_log, 
-            hole=0.6, 
-            color_discrete_sequence=['#818CF8', '#34D399', '#F472B6', '#FBBF24']
-        )
-        fig_log.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
-        st.plotly_chart(configurar_grafico(fig_log), use_container_width=True)
+            with f2:
+                def limpiar_gateway(val):
+                    v = str(val).lower()
+                    if 'mercado pago' in v or 'mercadopago' in v: return 'Mercado Pago'
+                    if 'mobbex' in v: return 'Mobbex'
+                    if 'reversso' in v: return 'Reversso'
+                    return 'Otros Gateways'
+                
+                p_finanzas = df_f.groupby('id_pedido').first().reset_index()
+                p_finanzas['gateway_agrupado'] = p_finanzas['medio_pago'].apply(limpiar_gateway)
+                gate_fc = p_finanzas.groupby('gateway_agrupado')['total_pedido'].sum().reset_index()
+                
+                colores_gateways = {
+                    'Mercado Pago': '#009EE3',     
+                    'Mobbex': '#818CF8',           
+                    'Reversso': '#F472B6',         
+                    'Otros Gateways': '#94A3B8'    
+                }
+                
+                fig_g = px.pie(
+                    gate_fc, 
+                    values='total_pedido', 
+                    names='gateway_agrupado', 
+                    hole=0.5, 
+                    color='gateway_agrupado', 
+                    color_discrete_map=colores_gateways,
+                    title="Share de Facturación por Pasarela"
+                )
+                fig_g.update_traces(textposition='inside', textinfo='percent+label')
+                fig_g.update_layout(showlegend=False)
+                st.plotly_chart(configurar_grafico(fig_g), use_container_width=True)
+
+        with col_log:
+            st.subheader("📦 Logística")
+            
+            opciones_logistica = ["Todas las marcas"] + sorted(df_f['marca'].unique())
+            log_marca_sel = st.selectbox("Filtrar estado por Marca:", opciones_logistica, key="log_sel_marca")
+            
+            df_log = df_f.copy()
+            if log_marca_sel != "Todas las marcas":
+                df_log = df_log[df_log['marca'] == log_marca_sel]
+                
+            df_log['fulfillment_status_es'] = df_log['fulfillment_status'].fillna('null').map(ESTADO_MAPA)
+            log_stat = df_log.groupby('fulfillment_status_es')['id_pedido'].nunique().reset_index()
+            
+            titulo_log = "Estados de Envío (Global)" if log_marca_sel == "Todas las marcas" else f"Estados de Envío ({log_marca_sel})"
+            
+            fig_log = px.pie(
+                log_stat, 
+                values='id_pedido', 
+                names='fulfillment_status_es', 
+                title=titulo_log, 
+                hole=0.6, 
+                color_discrete_sequence=['#818CF8', '#34D399', '#F472B6', '#FBBF24']
+            )
+            fig_log.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
+            st.plotly_chart(configurar_grafico(fig_log), use_container_width=True)
 
         # --- SECCIÓN TEMPORAL ---
         st.divider()
         st.subheader("📅 Análisis Temporal y Eficiencia")
+        g1, g2 = st.columns([2, 1])
         
-        df_f['hora'] = df_f['fecha'].dt.hour
-        v_h = df_f.groupby(['hora', 'marca'])['total_pedido'].sum().reset_index()
-        fig_l = px.line(v_h, x='hora', y='total_pedido', color='marca', markers=True, line_shape="spline", color_discrete_map=PALETA_MARCAS, title="Facturación por Hora")
-        fig_l.update_layout(xaxis_title="Hora del Día", yaxis_title="Facturación ($)", legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
-        st.plotly_chart(configurar_grafico(fig_l), use_container_width=True)
+        with g1:
+            df_f['hora'] = df_f['fecha'].dt.hour
+            v_h = df_f.groupby(['hora', 'marca'])['total_pedido'].sum().reset_index()
+            fig_l = px.line(v_h, x='hora', y='total_pedido', color='marca', markers=True, line_shape="spline", color_discrete_map=PALETA_MARCAS, title="Facturación por Hora")
+            fig_l.update_layout(xaxis_title="Hora del Día", yaxis_title="Facturación ($)", legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
+            st.plotly_chart(configurar_grafico(fig_l), use_container_width=True)
 
-        st.markdown("#### Resumen Operativo")
-        resumen_tec = df_f.groupby('marca').agg({'id_pedido': 'nunique', 'cantidad': 'sum', 'subtotal_producto': 'sum'}).reset_index()
-        resumen_tec.columns = ['Marca', 'Órdenes', 'Unidades', 'Facturación']
-        resumen_tec['Ticket Med.'] = (resumen_tec['Facturación'] / resumen_tec['Órdenes']).round(0)
-        st.dataframe(resumen_tec, use_container_width=True, hide_index=True)
+        with g2:
+            st.markdown("#### Resumen Operativo")
+            resumen_tec = df_f.groupby('marca').agg({'id_pedido': 'nunique', 'cantidad': 'sum', 'subtotal_producto': 'sum'}).reset_index()
+            resumen_tec.columns = ['Marca', 'Órdenes', 'Unidades', 'Facturación']
+            resumen_tec['Ticket Med.'] = (resumen_tec['Facturación'] / resumen_tec['Órdenes']).round(0)
+            st.dataframe(resumen_tec, use_container_width=True, hide_index=True)
 
 except Exception as e:
     st.error(f"Se ha producido un error técnico: {e}")
