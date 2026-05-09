@@ -104,16 +104,26 @@ def load_data():
         
     return df
 
-# GESTIÓN PERSISTENTE DE OBJETIVOS (JSON LOCAL)
+# GESTIÓN DE OBJETIVOS (CON ANCLAJE DURO EN CÓDIGO PARA NUBE)
 def load_objetivos():
     archivo = "objetivos_hot_sale.json"
-    marcas_base = ["Reebok", "Columbia", "Crocs", "Kappa", "Piccadilly"]
+    
+    # 🎯 DICCIONARIO DURO: Escribí acá tus metas fijas reales para que NUNCA se borren en GitHub
+    objetivos_por_defecto = {
+        "Reebok": {"unidades": 5000, "facturacion": 250000000},
+        "Columbia": {"unidades": 3000, "facturacion": 300000000},
+        "Crocs": {"unidades": 10000, "facturacion": 400000000},
+        "Kappa": {"unidades": 4000, "facturacion": 150000000},
+        "Piccadilly": {"unidades": 2000, "facturacion": 100000000}
+    }
+    
+    # Si el usuario modificó la sesión actual, lee el temporal, sino usa el fijo de arriba
     if os.path.exists(archivo):
         try:
             with open(archivo, "r") as f:
                 return json.load(f)
         except: pass
-    return {m: {"unidades": 0, "facturacion": 0} for m in marcas_base}
+    return objetivos_por_defecto
 
 def guardar_objetivos(datos):
     with open("objetivos_hot_sale.json", "w") as f:
@@ -123,29 +133,50 @@ def configurar_grafico(fig):
     fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", font=dict(color="#94A3B8"), margin=dict(l=10, r=10, t=40, b=10))
     return fig
 
-def crear_velocimetro(valor_actual, objetivo, titulo, es_moneda=False):
+# VELOCÍMETROS REINGENIERIZADOS (CON FORMATO COMPLETO Y % DE CUMPLIMIENTO)
+def crear_velocimetro(valor_actual, objetivo, titulo_base, es_moneda=False):
     prefijo = "$" if es_moneda else ""
     sufijo = "" if es_moneda else " un."
     
+    # Evitar división por cero
+    porcentaje = (valor_actual / objetivo * 100) if objetivo > 0 else 0
+    
+    # Construir un título robusto con el % visible
+    titulo_completo = f"<b>{titulo_base}</b><br><span style='font-size:16px; color:#34D399;'>Cumplimiento: {porcentaje:.1f}%</span>"
+    
+    # Forzar formato de números enteros separados por comas (sin 'B' ni 'k')
+    formato_num = f"{prefijo}{valor_actual:,.0f}{sufijo}"
+    
     fig = go.Figure(go.Indicator(
-        mode="gauge+number",
+        mode="gauge",
         value=valor_actual,
-        number={"prefix": prefijo, "suffix": sufijo, "font": {"size": 22, "color": "#38BDF8", "weight": "bold"}},
         domain={'x': [0, 1], 'y': [0, 1]},
-        title={'text': titulo, 'font': {"size": 13, "color": "#F8FAFC"}},
+        title={'text': titulo_completo, 'font': {"size": 14, "color": "#F8FAFC"}},
         gauge={
-            'axis': {'range': [0, max(objetivo * 1.2, valor_actual * 1.1, 10)]},
-            'bar': {'color': "#38BDF8", 'thickness': 0.75},
-            'bgcolor': "#334155",
+            'axis': {
+                'range': [0, max(objetivo * 1.2, valor_actual * 1.1, 10)],
+                'tickwidth': 1,
+                'tickcolor': "#94A3B8"
+            },
+            'bar': {'color': "#38BDF8", 'thickness': 0.8},
+            'bgcolor': "#1E293B", # Fondo más oscuro para mayor contraste
             'steps': [
-                {'range': [0, objetivo * 0.5], 'color': 'rgba(248, 113, 113, 0.3)'},
-                {'range': [objetivo * 0.5, objetivo * 0.9], 'color': 'rgba(251, 191, 36, 0.3)'},
-                {'range': [objetivo * 0.9, max(objetivo * 1.2, valor_actual * 1.1)], 'color': 'rgba(52, 211, 153, 0.3)'}
+                {'range': [0, objetivo * 0.5], 'color': 'rgba(248, 113, 113, 0.25)'},
+                {'range': [objetivo * 0.5, objetivo * 0.9], 'color': 'rgba(251, 191, 36, 0.25)'},
+                {'range': [objetivo * 0.9, max(objetivo * 1.2, valor_actual * 1.1)], 'color': 'rgba(52, 211, 153, 0.25)'}
             ],
-            'threshold': {'line': {'color': "#F8FAFC", 'width': 4}, 'thickness': 0.85, 'value': objetivo}
+            'threshold': {'line': {'color': "#FFFFFF", 'width': 5}, 'thickness': 0.85, 'value': objetivo}
         }
     ))
-    fig.update_layout(height=220, margin=dict(l=10, r=10, t=30, b=10), paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
+    
+    # Inyectamos el valor exacto formateado en el centro mediante una anotación para evadir el auto-formateo de Plotly
+    fig.add_annotation(
+        x=0.5, y=0.15,
+        text=f"<span style='font-size:24px; font-weight:bold; color:#38BDF8;'>{formato_num}</span>",
+        showarrow=False
+    )
+    
+    fig.update_layout(height=240, margin=dict(l=15, r=15, t=50, b=10), paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
     return fig
 
 try:
@@ -168,10 +199,10 @@ try:
         f_min, f_max = df_raw['fecha'].min().date(), df_raw['fecha'].max().date()
         rango_fecha = st.sidebar.date_input("Rango de Fechas", [f_min, f_max])
 
-        # INTEGRACIÓN DEL DATA ENTRY FIJO EN LA BARRA LATERAL
+        # DATA ENTRY EN BARRA LATERAL
         st.sidebar.markdown("---")
         st.sidebar.markdown("### 🎯 Metas Comerciales")
-        st.sidebar.caption("Edite los valores en la tabla para actualizar las agujas de los medidores.")
+        st.sidebar.caption("Edite los valores en la tabla para ajustar las agujas temporalmente.")
         
         marcas_base = ["Reebok", "Columbia", "Crocs", "Kappa", "Piccadilly"]
         df_edit_obj = pd.DataFrame([
@@ -202,7 +233,7 @@ try:
                 }
             guardar_objetivos(nuevo_json)
             st.sidebar.success("¡Guardado!")
-            st.rerun() # Forzamos recarga para impactar las agujas al instante
+            st.rerun()
 
         df_f = df_raw[df_raw['marca'].isin(marcas_sel)]
         if len(rango_fecha) == 2: df_f = df_f[(df_f['fecha'].dt.date >= rango_fecha[0]) & (df_f['fecha'].dt.date <= rango_fecha[1])]
@@ -267,7 +298,7 @@ try:
                         <div class="brand-stat" title="Average Selling Price"><span>ASP:</span><span class="brand-stat-val">${asp:,.0f}</span></div>
                     </div>""", unsafe_allow_html=True)
 
-        # --- SECCIÓN 4: MEDIDORES ---
+        # --- SECCIÓN 4: MEDIDORES DE ALTA PRECISIÓN ---
         st.divider()
         st.subheader("🚀 Cumplimiento de Metas (Real vs. Objetivo)")
         st.caption("La línea blanca marca la meta comercial. Los colores indican el avance: Rojo (<50%), Amarillo (50-90%), Verde (>90%).")
@@ -394,7 +425,7 @@ try:
             fig_log.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
             st.plotly_chart(configurar_grafico(fig_log), use_container_width=True)
 
-        # --- SECCIÓN GEOGRAFÍA (REDISEÑADA: DOBLE TOP 10 SIN MAPA) Y EMBUDO ---
+        # --- SECCIÓN GEOGRAFÍA (REDISEÑADA: DOBLE TOP 10 LIMPIO SIN MAPA) Y EMBUDO ---
         st.divider()
         col_geo, col_fun = st.columns([1.2, 1])
         with col_geo:
@@ -405,10 +436,10 @@ try:
             df_geo = df_f[df_f['marca'].isin(marcas_g_activas)].copy()
             df_geo['prov_limpia'] = df_geo['provincia'].apply(lambda x: PROVINCIAS_MAPA.get(str(x).lower().strip(), 'Buenos Aires'))
             
-            # Agrupamos los dos indicadores
+            # Agrupamos los dos indicadores clave
             prov_stat = df_geo.groupby('prov_limpia').agg({'total_pedido': 'sum', 'cantidad': 'sum'}).reset_index()
             
-            # Dibujamos dos sub-columnas para mostrar Facturación y Unidades al unísono
+            # Dibujamos dos sub-columnas para ver Facturación y Unidades al unísono
             cg1, cg2 = st.columns(2)
             
             with cg1:
