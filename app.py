@@ -95,17 +95,29 @@ DIAS_MAPA = {'Monday': 'Lunes', 'Tuesday': 'Martes', 'Wednesday': 'Miércoles', 
 ESTADO_MAPA = {'fulfilled': 'Enviado', 'null': 'Pendiente', 'pending': 'En Preparación', 'restocked': 'Devuelto', 'unfulfilled': 'No Enviado'}
 PALETA_MARCAS = {'Reebok': '#38BDF8', 'Columbia': '#818CF8', 'Crocs': '#34D399', 'Kappa': '#F472B6', 'Piccadilly': '#FBBF24'}
 
-# Normalizador robusto de Provincias Argentinas
+# Normalizador estricto: Aísla CABA de la Provincia de Buenos Aires
 PROVINCIAS_MAPA = {
-    'caba': 'CABA', 'ciudad autónoma de buenos aires': 'CABA', 'capital federal': 'CABA',
-    'buenos aires': 'Buenos Aires', 'pba': 'Buenos Aires', 'provincia de buenos aires': 'Buenos Aires',
-    'catamarca': 'Catamarca', 'chaco': 'Catamarca', 'chubut': 'Chubut', 'córdoba': 'Córdoba', 'cordoba': 'Córdoba',
+    'caba': 'CABA', 'ciudad autónoma de buenos aires': 'CABA', 'capital federal': 'CABA', 'distrito federal': 'CABA',
+    'buenos aires': 'Buenos Aires', 'pba': 'Buenos Aires', 'provincia de buenos aires': 'Buenos Aires', 'bs as': 'Buenos Aires',
+    'catamarca': 'Catamarca', 'chaco': 'Chaco', 'chubut': 'Chubut', 'córdoba': 'Córdoba', 'cordoba': 'Córdoba',
     'corrientes': 'Corrientes', 'entre ríos': 'Entre Ríos', 'entre rios': 'Entre Ríos', 'formosa': 'Formosa',
     'jujuy': 'Jujuy', 'la pampa': 'La Pampa', 'la rioja': 'La Rioja', 'mendoza': 'Mendoza', 'misiones': 'Misiones',
     'neuquén': 'Neuquén', 'neuquen': 'Neuquén', 'río negro': 'Río Negro', 'rio negro': 'Río Negro',
     'salta': 'Salta', 'san juan': 'San Juan', 'san luis': 'San Luis', 'santa cruz': 'Santa Cruz',
     'santa fe': 'Santa Fe', 'santiago del estero': 'Santiago del Estero', 
     'tierra del fuego': 'Tierra del Fuego', 'tdf': 'Tierra del Fuego', 'tucumán': 'Tucumán', 'tucuman': 'Tucumán'
+}
+
+# Coordenadas geográficas de las 24 jurisdicciones para inyectar los Pins en el mapa
+COORDENADAS_ARG = {
+    'CABA': [-34.6037, -58.3816], 'Buenos Aires': [-37.0000, -60.0000], 'Catamarca': [-28.4696, -65.7852],
+    'Chaco': [-26.3333, -60.5000], 'Chubut': [-43.3002, -65.1023], 'Córdoba': [-31.4167, -64.1833],
+    'Corrientes': [-28.4667, -58.8333], 'Entre Ríos': [-32.0589, -59.3000], 'Formosa': [-26.1849, -58.1731],
+    'Jujuy': [-24.1858, -65.2995], 'La Pampa': [-37.3288, -65.4382], 'La Rioja': [-29.4131, -66.8558],
+    'Mendoza': [-32.8908, -68.8272], 'Misiones': [-26.8833, -54.3167], 'Neuquén': [-38.9516, -68.0591],
+    'Río Negro': [-40.8135, -63.0000], 'Salta': [-24.7821, -65.4232], 'San Juan': [-31.5375, -68.5364],
+    'San Luis': [-33.2950, -66.3356], 'Santa Cruz': [-48.9954, -69.2171], 'Santa Fe': [-31.6333, -60.7000],
+    'Santiago del Estero': [-27.7833, -64.2667], 'Tierra del Fuego': [-54.8019, -68.3030], 'Tucumán': [-26.8241, -65.2226]
 }
 
 # 4. CARGA DE DATOS
@@ -130,10 +142,9 @@ def load_data():
     if 'producto_base' not in df.columns: df['producto_base'] = df['producto'].apply(lambda x: str(x).split(' / ')[0])
     if 'modelo_color' not in df.columns: df['modelo_color'] = df['sku'].apply(lambda x: str(x).rsplit('-', 1)[0] if '-' in str(x) else x)
     
-    # Parche logístico: asegurar que exista columna de provincia y fecha de despacho
-    if 'provincia' not in df.columns: df['provincia'] = 'Buenos Aires' # Default fallback
+    # Parche logístico y geográfico
+    if 'provincia' not in df.columns: df['provincia'] = 'Buenos Aires'
     if 'fecha_despacho' not in df.columns: 
-        # Si no existe en la API, simulamos despachos para órdenes enviadas como fallback de demostración
         df['fecha_despacho'] = df['fecha'] + pd.to_timedelta(np.random.randint(1, 4, size=len(df)), unit='D')
     else:
         df['fecha_despacho'] = pd.to_datetime(df['fecha_despacho'], errors='coerce')
@@ -325,25 +336,24 @@ try:
                 st.plotly_chart(configurar_grafico(fig_desc_unid), use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
-        # --- SECCIÓN FINANZAS Y LOGÍSTICA (ALINEACIÓN VISUAL 100% SIMÉTRICA) ---
+        # --- SECCIÓN FINANZAS Y LOGÍSTICA (MULTISELECTORES INTELIGENTES) ---
         st.divider()
-        col_fin, col_log = st.columns([1, 1]) # Mismo ancho relativo para garantizar simetría visual
+        col_fin, col_log = st.columns([1, 1]) 
         
         with col_fin:
             st.subheader("💳 Finanzas")
-            
-            # 1. Doble filtro en cascada en la misma fila para no romper alturas
             cf1, cf2 = st.columns(2)
-            opciones_finanzas = ["Todas las marcas"] + sorted(df_f['marca'].unique())
-            fin_marca_sel = cf1.selectbox("Marca:", opciones_finanzas, key="fin_sel_marca")
             
-            opciones_pasarelas = ["Todas las pasarelas", "Mercado Pago", "Mobbex", "Reversso", "Otros Gateways"]
-            fin_pass_sel = cf2.selectbox("Pasarela:", opciones_pasarelas, key="fin_sel_pass")
+            # 1. Multiselectores donde vacío = Todas
+            fin_marca_sel = cf1.multiselect("Marca:", marcas_disponibles, default=marcas_disponibles, key="fin_sel_marca")
+            opciones_pasarelas = ["Mercado Pago", "Mobbex", "Reversso", "Otros Gateways"]
+            fin_pass_sel = cf2.multiselect("Pasarela:", opciones_pasarelas, default=opciones_pasarelas, key="fin_sel_pass")
             
-            # 2. Aislamos la base financiera según los filtros elegidos
-            df_fin = df_f.copy()
-            if fin_marca_sel != "Todas las marcas":
-                df_fin = df_fin[df_fin['marca'] == fin_marca_sel]
+            # Lógica de autocompletar si dejan vacío
+            marcas_f_activas = fin_marca_sel if fin_marca_sel else marcas_disponibles
+            pass_f_activas = fin_pass_sel if fin_pass_sel else opciones_pasarelas
+            
+            df_fin = df_f[df_f['marca'].isin(marcas_f_activas)].copy()
                 
             def limpiar_gateway(val):
                 v = str(val).lower()
@@ -354,122 +364,99 @@ try:
             
             p_finanzas = df_fin.groupby('id_pedido').first().reset_index()
             p_finanzas['gateway_agrupado'] = p_finanzas['medio_pago'].apply(limpiar_gateway)
-            
-            if fin_pass_sel != "Todas las pasarelas":
-                p_finanzas = p_finanzas[p_finanzas['gateway_agrupado'] == fin_pass_sel]
+            p_finanzas = p_finanzas[p_finanzas['gateway_agrupado'].isin(pass_f_activas)]
                 
             gate_fc = p_finanzas.groupby('gateway_agrupado')['total_pedido'].sum().reset_index()
             
-            colores_gateways = {
-                'Mercado Pago': '#009EE3',     
-                'Mobbex': '#818CF8',           
-                'Reversso': '#F472B6',         
-                'Otros Gateways': '#94A3B8'    
-            }
+            colores_gateways = {'Mercado Pago': '#009EE3', 'Mobbex': '#818CF8', 'Reversso': '#F472B6', 'Otros Gateways': '#94A3B8'}
             
-            titulo_fin = "Share de Facturación por Pasarela"
-            
-            # 3. Forzamos dimensiones idénticas al gráfico de logística
             fig_g = px.pie(
-                gate_fc, 
-                values='total_pedido', 
-                names='gateway_agrupado', 
-                hole=0.55, 
-                color='gateway_agrupado', 
-                color_discrete_map=colores_gateways,
-                title=titulo_fin,
-                height=380 # Altura fija inyectada
+                gate_fc, values='total_pedido', names='gateway_agrupado', hole=0.55, 
+                color='gateway_agrupado', color_discrete_map=colores_gateways,
+                title="Share de Facturación por Pasarela", height=380
             )
             fig_g.update_traces(textposition='inside', textinfo='percent+label')
-            # Leyenda forzada horizontal abajo idéntica a logística
             fig_g.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
             st.plotly_chart(configurar_grafico(fig_g), use_container_width=True)
 
         with col_log:
             st.subheader("📦 Logística")
+            log_marca_sel = st.multiselect("Filtrar estado por Marca:", marcas_disponibles, default=marcas_disponibles, key="log_sel_marca")
+            marcas_l_activas = log_marca_sel if log_marca_sel else marcas_disponibles
             
-            # Filtro logístico que ocupa el mismo espacio vertical que los de finanzas
-            opciones_logistica = ["Todas las marcas"] + sorted(df_f['marca'].unique())
-            log_marca_sel = st.selectbox("Filtrar estado por Marca:", opciones_logistica, key="log_sel_marca")
-            
-            df_log = df_f.copy()
-            if log_marca_sel != "Todas las marcas":
-                df_log = df_log[df_log['marca'] == log_marca_sel]
-                
+            df_log = df_f[df_f['marca'].isin(marcas_l_activas)].copy()
             df_log['fulfillment_status_es'] = df_log['fulfillment_status'].fillna('null').map(ESTADO_MAPA)
             log_stat = df_log.groupby('fulfillment_status_es')['id_pedido'].nunique().reset_index()
             
-            titulo_log = "Estados de Envío"
-            
             fig_log = px.pie(
-                log_stat, 
-                values='id_pedido', 
-                names='fulfillment_status_es', 
-                title=titulo_log, 
-                hole=0.55, 
-                color_discrete_sequence=['#818CF8', '#34D399', '#F472B6', '#FBBF24'],
-                height=380 # Altura fija inyectada simétrica
+                log_stat, values='id_pedido', names='fulfillment_status_es', hole=0.55, 
+                title="Estados de Envío", color_discrete_sequence=['#818CF8', '#34D399', '#F472B6', '#FBBF24'], height=380
             )
             fig_log.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
             st.plotly_chart(configurar_grafico(fig_log), use_container_width=True)
 
-        # --- SECCIÓN 6: MAPA GEOGRÁFICO Y EMBUDO DE ENVÍOS (NUEVO) ---
+        # --- SECCIÓN 6: MAPA INTERACTIVO CON PINS Y EMBUDO DE ENVÍOS ---
         st.divider()
         col_geo, col_fun = st.columns([1.2, 1])
         
         with col_geo:
-            st.subheader("🗺️ Distribución Geográfica")
+            st.subheader("🗺️ Distribución Geográfica (Mapa + TOP 10)")
+            geo_marca_sel = st.multiselect("Filtrar jurisdicción por Marca:", marcas_disponibles, default=marcas_disponibles, key="geo_sel")
+            marcas_g_activas = geo_marca_sel if geo_marca_sel else marcas_disponibles
             
-            # Filtro exclusivo para el mapa
-            geo_marca_sel = st.selectbox("Filtrar provincia por Marca:", ["Todas las marcas"] + marcas_disponibles, key="geo_sel")
-            df_geo = df_f.copy()
-            if geo_marca_sel != "Todas las marcas":
-                df_geo = df_geo[df_geo['marca'] == geo_marca_sel]
-                
-            # Normalizamos provincias usando nuestro diccionario robusto
+            df_geo = df_f[df_f['marca'].isin(marcas_g_activas)].copy()
             df_geo['prov_limpia'] = df_geo['provincia'].apply(lambda x: PROVINCIAS_MAPA.get(str(x).lower().strip(), 'Buenos Aires'))
-            prov_stat = df_geo.groupby('prov_limpia')['total_pedido'].sum().reset_index()
-            prov_stat = prov_stat.sort_values(by='total_pedido', ascending=True).tail(10) # TOP 10 Provincias
             
-            fig_geo = px.bar(
-                prov_stat, 
-                x='total_pedido', 
-                y='prov_limpia', 
-                orientation='h', 
-                title="TOP 10 Provincias por Facturación",
-                text_auto='.0f',
-                color_discrete_sequence=['#38BDF8']
+            # Agrupamos Facturación y Conteo de Pedidos
+            prov_stat = df_geo.groupby('prov_limpia').agg({'total_pedido': 'sum', 'id_pedido': 'nunique'}).reset_index()
+            prov_stat.columns = ['Provincia', 'Facturacion', 'Pedidos']
+            
+            # 1. MAPA INTERACTIVO DE PINS (Burbujas)
+            # Inyectamos latitud y longitud cruzando con el diccionario COORDENADAS_ARG
+            prov_stat['lat'] = prov_stat['Provincia'].apply(lambda x: COORDENADAS_ARG.get(x, [-37, -60])[0])
+            prov_stat['lon'] = prov_stat['Provincia'].apply(lambda x: COORDENADAS_ARG.get(x, [-37, -60])[1])
+            
+            fig_map = px.scatter_geo(
+                prov_stat, lat='lat', lon='lon', size='Pedidos', color='Facturacion',
+                hover_name='Provincia', hover_data={'lat': False, 'lon': False, 'Facturacion': ':,.0f', 'Pedidos': True},
+                scope='south america', title="Mapa Nacional de Pedidos (Pase el mouse sobre los Pins)",
+                color_continuous_scale='Blues'
             )
-            fig_geo.update_layout(yaxis_title="", xaxis_title="Facturación ($)", height=350)
-            st.plotly_chart(configurar_grafico(fig_geo), use_container_width=True)
+            fig_map.update_geos(
+                fitbounds="locations", visible=True, resolution=50,
+                showcountries=True, countrycolor="#334155", showland=True, landcolor="#0F172A"
+            )
+            fig_map.update_layout(height=400, margin=dict(l=0, r=0, t=40, b=0))
+            st.plotly_chart(configurar_grafico(fig_map), use_container_width=True)
+            
+            # 2. GRÁFICO TOP 10 (CABA estricto y separado de PBA)
+            top_10_prov = prov_stat.sort_values(by='Facturacion', ascending=True).tail(10)
+            fig_geo_bar = px.bar(
+                top_10_prov, x='Facturacion', y='Provincia', orientation='h', 
+                title="TOP 10 Jurisdicciones por Facturación", text_auto='.0f', color_discrete_sequence=['#38BDF8']
+            )
+            fig_geo_bar.update_layout(yaxis_title="", xaxis_title="Facturación ($)", height=300)
+            st.plotly_chart(configurar_grafico(fig_geo_bar), use_container_width=True)
             
         with col_fun:
             st.subheader("⏳ Eficiencia de Depósito (SLA)")
             st.caption("Fulfillment Lead Time medido en **Días Hábiles** (Excluye sábados y domingos).")
             
-            # Filtro exclusivo para el embudo
-            fun_marca_sel = st.selectbox("Auditar SLA por Marca:", ["Todas las marcas"] + marcas_disponibles, key="fun_sel")
-            df_fun = df_f.copy()
-            if fun_marca_sel != "Todas las marcas":
-                df_fun = df_fun[df_fun['marca'] == fun_marca_sel]
-                
-            # Aislamos solo pedidos enviados que tengan fecha de despacho válida
+            fun_marca_sel = st.multiselect("Auditar SLA por Marca:", marcas_disponibles, default=marcas_disponibles, key="fun_sel")
+            marcas_fun_activas = fun_marca_sel if fun_marca_sel else marcas_disponibles
+            
+            df_fun = df_f[df_f['marca'].isin(marcas_fun_activas)].copy()
             df_env = df_fun[df_fun['fulfillment_status'].fillna('null').map(ESTADO_MAPA) == 'Enviado'].copy()
             
             if df_env.empty or 'fecha_despacho' not in df_env.columns:
                 st.info("No hay suficientes datos de despacho registrados para calcular el SLA.")
             else:
-                # CÁLCULO MATEMÁTICO DE DÍAS HÁBILES (Fulfillment Lead Time)
-                # Convertimos a fechas puras (sin horas) para la función de numpy
                 fechas_compra = df_env['fecha'].dt.date.values.astype('datetime64[D]')
                 fechas_desp = df_env['fecha_despacho'].dt.date.values.astype('datetime64[D]')
                 
-                # np.busday_count resta automáticamente fines de semana
                 df_env['lead_time_habiles'] = np.busday_count(fechas_compra, fechas_desp)
-                # Evitamos negativos si hay desfasajes de zona horaria
                 df_env['lead_time_habiles'] = df_env['lead_time_habiles'].apply(lambda x: max(0, x))
                 
-                # Agrupamos en un embudo de tramos de atención
                 def categorizar_sla(dias):
                     if dias == 0: return "1. Mismo Día (Same Day)"
                     if dias == 1: return "2. En 24 hs hábiles"
@@ -480,13 +467,7 @@ try:
                 fun_stat = df_env.groupby('tramo_sla')['id_pedido'].nunique().reset_index()
                 fun_stat = fun_stat.sort_values(by='tramo_sla')
                 
-                fig_fun = px.funnel(
-                    fun_stat, 
-                    x='id_pedido', 
-                    y='tramo_sla', 
-                    title="Órdenes despachadas según SLA",
-                    color_discrete_sequence=['#34D399']
-                )
+                fig_fun = px.funnel(fun_stat, x='id_pedido', y='tramo_sla', title="Órdenes despachadas según SLA", color_discrete_sequence=['#34D399'])
                 fig_fun.update_layout(yaxis_title="Tiempo de Procesamiento", xaxis_title="Órdenes", height=350)
                 st.plotly_chart(configurar_grafico(fig_fun), use_container_width=True)
 
