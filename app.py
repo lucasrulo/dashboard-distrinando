@@ -171,23 +171,31 @@ try:
         render_kpi(k4, "Ticket Promedio", f"${tkt_g:,.0f}", "#FBBF24")
         render_kpi(k5, "Tasa Devolución", f"{dev_g:.2f}%", "#F87171")
 
-        # --- SECCIÓN 3: DESGLOSE POR MARCA ---
+        # --- SECCIÓN 3: DESGLOSE POR MARCA (ACTUALIZADO CON UPT, AOV, ASP) ---
         st.write("##")
         st.subheader("🏢 Rendimiento por Unidad de Negocio")
         m_cols = st.columns(len(marcas_sel)) if marcas_sel else []
         for i, m_nombre in enumerate(marcas_sel):
             df_m = df_f[df_f['marca'] == m_nombre]
             if not df_m.empty:
-                p_m = df_m.groupby('id_pedido').first()
-                f_m, c_m = p_m['total_pedido'].sum(), len(p_m)
+                f_m = df_m['subtotal_producto'].sum()
+                c_m = df_m['id_pedido'].nunique()
+                u_m = df_m['cantidad'].sum()
+                
+                aov = f_m / c_m if c_m > 0 else 0
+                upt = u_m / c_m if c_m > 0 else 0
+                asp = f_m / u_m if u_m > 0 else 0
+                
                 accent = PALETA_MARCAS.get(m_nombre, "#94A3B8")
                 m_cols[i].markdown(f"""
                     <div class="brand-card" style="border-top: 4px solid {accent};">
                         <div class="brand-header" style="color: {accent};">{m_nombre}</div>
                         <div class="brand-stat"><span>Venta:</span><span class="brand-stat-val">${f_m:,.0f}</span></div>
                         <div class="brand-stat"><span>Órdenes:</span><span class="brand-stat-val">{c_m:,}</span></div>
-                        <div class="brand-stat"><span>Unidades:</span><span class="brand-stat-val">{df_m['cantidad'].sum():,}</span></div>
-                        <div class="brand-stat"><span>TK Prom.:</span><span class="brand-stat-val">${(f_m/c_m if c_m>0 else 0):,.0f}</span></div>
+                        <div class="brand-stat"><span>Unidades:</span><span class="brand-stat-val">{u_m:,}</span></div>
+                        <div class="brand-stat" title="Average Order Value (Ticket Promedio)"><span>AOV:</span><span class="brand-stat-val">${aov:,.0f}</span></div>
+                        <div class="brand-stat" title="Units Per Transaction (Unidades por Ticket)"><span>UPT:</span><span class="brand-stat-val">{upt:,.2f}</span></div>
+                        <div class="brand-stat" title="Average Selling Price (Precio Promedio)"><span>ASP:</span><span class="brand-stat-val">${asp:,.0f}</span></div>
                     </div>""", unsafe_allow_html=True)
 
         # --- SECCIÓN 4: RANKING DUAL (MODELO VS SKU) ---
@@ -208,8 +216,6 @@ try:
             with tabs_prod[i]:
                 df_p = df_f[df_f['marca'] == m_tab]
                 if not df_p.empty:
-                    
-                    # Lógica de agrupación según el switch elegido
                     if "Modelo/Color" in tipo_agrupacion:
                         col_nom = 'producto_base'
                         top_10 = df_p.groupby([col_nom, 'img_url', 'url_web']).agg({'cantidad': 'sum', 'subtotal_producto': 'sum'}).sort_values(by='cantidad', ascending=False).head(10).reset_index()
@@ -245,21 +251,12 @@ try:
             desc_marcas_sel = st.multiselect("Marca (Promo)", marcas_disponibles, default=marcas_disponibles, key="desc_marca")
         
         with col_f2:
-            # 1. Obtenemos toda la base de pedidos con algún descuento real
             df_desc_base = df_raw[(df_raw['descuento'] != 'SIN DESCUENTO') & (df_raw['descuento'] != '')]
-            
-            # 2. LÓGICA DE CASCADA: Filtramos la base para que solo queden las marcas seleccionadas en col_f1
             df_desc_filtrado_marcas = df_desc_base[df_desc_base['marca'].isin(desc_marcas_sel)]
-            
-            # 3. Extraemos los códigos únicos SOLO de ese dataframe filtrado
             desc_disponibles = sorted(df_desc_filtrado_marcas['descuento'].astype(str).unique())
-            
-            # 4. Seleccionamos los primeros 5 por defecto (si hay) para no saturar la vista
             default_descs = desc_disponibles[:5] if len(desc_disponibles) > 0 else []
-            
             desc_sel = st.multiselect("Código Promocional", desc_disponibles, default=default_descs, key="desc_promo")
 
-        # Aplicamos filtro de fecha y armamos los gráficos
         df_promo = df_desc_filtrado_marcas[df_desc_filtrado_marcas['descuento'].isin(desc_sel)]
         if len(rango_fecha) == 2:
             df_promo = df_promo[(df_promo['fecha'].dt.date >= rango_fecha[0]) & (df_promo['fecha'].dt.date <= rango_fecha[1])]
@@ -278,7 +275,7 @@ try:
                 st.plotly_chart(configurar_grafico(fig_desc_unid), use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
-        # --- SECCIÓN FINANZAS Y LOGÍSTICA ---
+        # --- SECCIÓN FINANZAS Y LOGÍSTICA (ACTUALIZADA) ---
         st.divider()
         col_fin, col_log = st.columns([1.5, 1])
         
@@ -289,17 +286,71 @@ try:
                 cuotas_df = df_f.groupby('id_pedido').first()['cuotas'].value_counts().reset_index()
                 fig_c = px.pie(cuotas_df, values='count', names='cuotas', hole=0.5, color_discrete_sequence=['#38BDF8', '#818CF8', '#34D399', '#FBBF24'], title="Financiación")
                 st.plotly_chart(configurar_grafico(fig_c), use_container_width=True)
+            
             with f2:
-                gate_df = df_f.groupby('id_pedido').first()['medio_pago'].value_counts().reset_index()
-                fig_g = px.bar(gate_df, x='count', y='medio_pago', orientation='h', text_auto=True, title="Gateways", color_discrete_sequence=['#38BDF8'])
-                fig_g.update_layout(showlegend=False, yaxis_title="")
+                # 1. Función de limpieza y agrupación de nomenclaturas
+                def limpiar_gateway(val):
+                    v = str(val).lower()
+                    if 'mercado pago' in v or 'mercadopago' in v: return 'Mercado Pago'
+                    if 'mobbex' in v: return 'Mobbex'
+                    if 'reversso' in v: return 'Reversso'
+                    return 'Otros Gateways'
+                
+                # 2. Tomamos una fila por pedido con su facturación total
+                p_finanzas = df_f.groupby('id_pedido').first().reset_index()
+                p_finanzas['gateway_agrupado'] = p_finanzas['medio_pago'].apply(limpiar_gateway)
+                
+                # 3. Sumamos la Facturación (100% de la FC) en lugar de contar órdenes
+                gate_fc = p_finanzas.groupby('gateway_agrupado')['total_pedido'].sum().reset_index()
+                
+                # 4. Mapeo de colores exacto: Azul MP y Violeta Mobbex
+                colores_gateways = {
+                    'Mercado Pago': '#009EE3',     # Azul característico de MP
+                    'Mobbex': '#818CF8',           # Violeta Mobbex / Distrinando
+                    'Reversso': '#F472B6',         # Rosa
+                    'Otros Gateways': '#94A3B8'    # Gris neutro
+                }
+                
+                # 5. Gráfico de Dona representando el 100% del Share de Facturación
+                fig_g = px.pie(
+                    gate_fc, 
+                    values='total_pedido', 
+                    names='gateway_agrupado', 
+                    hole=0.5, 
+                    color='gateway_agrupado', 
+                    color_discrete_map=colores_gateways,
+                    title="Share de Facturación por Pasarela"
+                )
+                fig_g.update_traces(textposition='inside', textinfo='percent+label')
+                fig_g.update_layout(showlegend=False)
                 st.plotly_chart(configurar_grafico(fig_g), use_container_width=True)
 
         with col_log:
             st.subheader("📦 Logística")
-            df_f['fulfillment_status_es'] = df_f['fulfillment_status'].fillna('null').map(ESTADO_MAPA)
-            log_stat = df_f.groupby('fulfillment_status_es')['id_pedido'].nunique().reset_index()
-            fig_log = px.pie(log_stat, values='id_pedido', names='fulfillment_status_es', title="Estados de Envío", hole=0.6, color_discrete_sequence=['#818CF8', '#34D399', '#F472B6'])
+            
+            # 1. Desplegable nativo para filtrar exclusivamente el bloque de logística
+            opciones_logistica = ["Todas las marcas"] + sorted(df_f['marca'].unique())
+            log_marca_sel = st.selectbox("Filtrar estado por Marca:", opciones_logistica, key="log_sel_marca")
+            
+            # 2. Aislamos el dataframe logístico
+            df_log = df_f.copy()
+            if log_marca_sel != "Todas las marcas":
+                df_log = df_log[df_log['marca'] == log_marca_sel]
+                
+            df_log['fulfillment_status_es'] = df_log['fulfillment_status'].fillna('null').map(ESTADO_MAPA)
+            log_stat = df_log.groupby('fulfillment_status_es')['id_pedido'].nunique().reset_index()
+            
+            # 3. Título dinámico que avisa qué marca estamos viendo
+            titulo_log = "Estados de Envío (Global)" if log_marca_sel == "Todas las marcas" else f"Estados de Envío ({log_marca_sel})"
+            
+            fig_log = px.pie(
+                log_stat, 
+                values='id_pedido', 
+                names='fulfillment_status_es', 
+                title=titulo_log, 
+                hole=0.6, 
+                color_discrete_sequence=['#818CF8', '#34D399', '#F472B6', '#FBBF24']
+            )
             st.plotly_chart(configurar_grafico(fig_log), use_container_width=True)
 
         # --- SECCIÓN TEMPORAL ---
