@@ -24,6 +24,12 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Ejecutar el Extractor de Shopify
+        env:
+          TOKEN_REEBOK: ${{ secrets.TOKEN_REEBOK }}
+          TOKEN_COLUMBIA: ${{ secrets.TOKEN_COLUMBIA }}
+          TOKEN_CROCS: ${{ secrets.TOKEN_CROCS }}
+          TOKEN_KAPPA: ${{ secrets.TOKEN_KAPPA }}
+          TOKEN_PICCADILLY: ${{ secrets.TOKEN_PICCADILLY }}
         run: python extractor.py
 
       - name: Guardar el nuevo CSV en GitHub
