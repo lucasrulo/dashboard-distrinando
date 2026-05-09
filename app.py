@@ -76,17 +76,6 @@ PROVINCIAS_MAPA = {
     'tierra del fuego': 'Tierra del Fuego', 'tdf': 'Tierra del Fuego', 'tucumán': 'Tucumán', 'tucuman': 'Tucumán'
 }
 
-COORDENADAS_ARG = {
-    'CABA': [-34.6037, -58.3816], 'Buenos Aires': [-37.0000, -60.0000], 'Catamarca': [-28.4696, -65.7852],
-    'Chaco': [-26.3333, -60.5000], 'Chubut': [-43.3002, -65.1023], 'Córdoba': [-31.4167, -64.1833],
-    'Corrientes': [-28.4667, -58.8333], 'Entre Ríos': [-32.0589, -59.3000], 'Formosa': [-26.1849, -58.1731],
-    'Jujuy': [-24.1858, -65.2995], 'La Pampa': [-37.3288, -65.4382], 'La Rioja': [-29.4131, -66.8558],
-    'Mendoza': [-32.8908, -68.8272], 'Misiones': [-26.8833, -54.3167], 'Neuquén': [-38.9516, -68.0591],
-    'Río Negro': [-40.8135, -63.0000], 'Salta': [-24.7821, -65.4232], 'San Juan': [-31.5375, -68.5364],
-    'San Luis': [-33.2950, -66.3356], 'Santa Cruz': [-48.9954, -69.2171], 'Santa Fe': [-31.6333, -60.7000],
-    'Santiago del Estero': [-27.7833, -64.2667], 'Tierra del Fuego': [-54.8019, -68.3030], 'Tucumán': [-26.8241, -65.2226]
-}
-
 # 4. CARGA DE DATOS
 @st.cache_data(ttl=60)
 def load_data():
@@ -115,7 +104,7 @@ def load_data():
         
     return df
 
-# LECTURA DE OBJETIVOS DESDE LA NUBE
+# GESTIÓN PERSISTENTE DE OBJETIVOS (JSON LOCAL)
 def load_objetivos():
     archivo = "objetivos_hot_sale.json"
     marcas_base = ["Reebok", "Columbia", "Crocs", "Kappa", "Piccadilly"]
@@ -125,6 +114,10 @@ def load_objetivos():
                 return json.load(f)
         except: pass
     return {m: {"unidades": 0, "facturacion": 0} for m in marcas_base}
+
+def guardar_objetivos(datos):
+    with open("objetivos_hot_sale.json", "w") as f:
+        json.dump(datos, f, indent=4)
 
 def configurar_grafico(fig):
     fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", font=dict(color="#94A3B8"), margin=dict(l=10, r=10, t=40, b=10))
@@ -157,12 +150,13 @@ def crear_velocimetro(valor_actual, objetivo, titulo, es_moneda=False):
 
 try:
     df_raw = load_data()
-    objetivos = load_objetivos()
+    objetivos_actuales = load_objetivos()
     
     if df_raw.empty: st.warning("⚠️ No se encontró la base de datos.")
     else:
         hoy_dt = datetime.now().date()
 
+        # --- BARRA LATERAL CON DATA ENTRY INTEGRADO ---
         try: st.sidebar.image("image_2ab136.jpg", use_container_width=True)
         except: st.sidebar.markdown("<h2 style='text-align: center; color: #38BDF8;'>DISTRINANDO</h2>", unsafe_allow_html=True)
             
@@ -174,9 +168,46 @@ try:
         f_min, f_max = df_raw['fecha'].min().date(), df_raw['fecha'].max().date()
         rango_fecha = st.sidebar.date_input("Rango de Fechas", [f_min, f_max])
 
+        # INTEGRACIÓN DEL DATA ENTRY FIJO EN LA BARRA LATERAL
+        st.sidebar.markdown("---")
+        st.sidebar.markdown("### 🎯 Metas Comerciales")
+        st.sidebar.caption("Edite los valores en la tabla para actualizar las agujas de los medidores.")
+        
+        marcas_base = ["Reebok", "Columbia", "Crocs", "Kappa", "Piccadilly"]
+        df_edit_obj = pd.DataFrame([
+            {"Marca": m, 
+             "Unidades": objetivos_actuales.get(m, {}).get("unidades", 0), 
+             "Facturación ($)": objetivos_actuales.get(m, {}).get("facturacion", 0)}
+            for m in marcas_base
+        ])
+        
+        df_guardado = st.sidebar.data_editor(
+            df_edit_obj,
+            column_config={
+                "Marca": st.column_config.TextColumn("Marca", disabled=True),
+                "Unidades": st.column_config.NumberColumn("Unidades", min_value=0, step=1, format="%d"),
+                "Facturación ($)": st.column_config.NumberColumn("Facturación ($)", min_value=0, step=1000, format="$%d")
+            },
+            hide_index=True,
+            use_container_width=True,
+            key="editor_metas"
+        )
+        
+        if st.sidebar.button("💾 Aplicar Metas", type="primary", use_container_width=True):
+            nuevo_json = {}
+            for idx, row in df_guardado.iterrows():
+                nuevo_json[row["Marca"]] = {
+                    "unidades": int(row["Unidades"]),
+                    "facturacion": int(row["Facturación ($)"])
+                }
+            guardar_objetivos(nuevo_json)
+            st.sidebar.success("¡Guardado!")
+            st.rerun() # Forzamos recarga para impactar las agujas al instante
+
         df_f = df_raw[df_raw['marca'].isin(marcas_sel)]
         if len(rango_fecha) == 2: df_f = df_f[(df_f['fecha'].dt.date >= rango_fecha[0]) & (df_f['fecha'].dt.date <= rango_fecha[1])]
 
+        # --- TÍTULO PRINCIPAL ---
         st.title("📊 Panel de datos")
         st.caption(f"Última actualización: {datetime.now().strftime('%d/%m/%Y %H:%M')} | Filtros Activos: {len(marcas_sel)} Marcas")
         
@@ -236,7 +267,7 @@ try:
                         <div class="brand-stat" title="Average Selling Price"><span>ASP:</span><span class="brand-stat-val">${asp:,.0f}</span></div>
                     </div>""", unsafe_allow_html=True)
 
-        # --- SECCIÓN 4: MEDIDORES (NUBE) ---
+        # --- SECCIÓN 4: MEDIDORES ---
         st.divider()
         st.subheader("🚀 Cumplimiento de Metas (Real vs. Objetivo)")
         st.caption("La línea blanca marca la meta comercial. Los colores indican el avance: Rojo (<50%), Amarillo (50-90%), Verde (>90%).")
@@ -246,16 +277,16 @@ try:
         
         v1, v2 = st.columns(2)
         if vel_sel == "Global (Acumulado)":
-            obj_fc_acum = sum([objetivos.get(m, {}).get("facturacion", 0) for m in marcas_sel])
-            obj_un_acum = sum([objetivos.get(m, {}).get("unidades", 0) for m in marcas_sel])
+            obj_fc_acum = sum([objetivos_actuales.get(m, {}).get("facturacion", 0) for m in marcas_sel])
+            obj_un_acum = sum([objetivos_actuales.get(m, {}).get("unidades", 0) for m in marcas_sel])
             fig_fc = crear_velocimetro(fact_g, obj_fc_acum, f"Facturación Global ({len(marcas_sel)} marcas)", es_moneda=True)
             fig_un = crear_velocimetro(unid_g, obj_un_acum, f"Unidades Globales ({len(marcas_sel)} marcas)")
         else:
             df_v = df_f[df_f['marca'] == vel_sel]
             fc_real = df_v['subtotal_producto'].sum() if not df_v.empty else 0
             un_real = df_v['cantidad'].sum() if not df_v.empty else 0
-            obj_fc = objetivos.get(vel_sel, {}).get("facturacion", 0)
-            obj_un = objetivos.get(vel_sel, {}).get("unidades", 0)
+            obj_fc = objetivos_actuales.get(vel_sel, {}).get("facturacion", 0)
+            obj_un = objetivos_actuales.get(vel_sel, {}).get("unidades", 0)
             fig_fc = crear_velocimetro(fc_real, obj_fc, f"Facturación: {vel_sel}", es_moneda=True)
             fig_un = crear_velocimetro(un_real, obj_un, f"Unidades: {vel_sel}")
             
@@ -362,6 +393,62 @@ try:
                              title="Estados de Envío", color_discrete_sequence=['#818CF8', '#34D399', '#F472B6', '#FBBF24'], height=380)
             fig_log.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
             st.plotly_chart(configurar_grafico(fig_log), use_container_width=True)
+
+        # --- SECCIÓN GEOGRAFÍA (REDISEÑADA: DOBLE TOP 10 SIN MAPA) Y EMBUDO ---
+        st.divider()
+        col_geo, col_fun = st.columns([1.2, 1])
+        with col_geo:
+            st.subheader("🗺️ Distribución Geográfica (TOP 10 Provincias)")
+            geo_marca_sel = st.multiselect("Filtrar provincia por Marca:", marcas_disponibles, default=marcas_disponibles, key="geo_sel")
+            marcas_g_activas = geo_marca_sel if geo_marca_sel else marcas_disponibles
+            
+            df_geo = df_f[df_f['marca'].isin(marcas_g_activas)].copy()
+            df_geo['prov_limpia'] = df_geo['provincia'].apply(lambda x: PROVINCIAS_MAPA.get(str(x).lower().strip(), 'Buenos Aires'))
+            
+            # Agrupamos los dos indicadores
+            prov_stat = df_geo.groupby('prov_limpia').agg({'total_pedido': 'sum', 'cantidad': 'sum'}).reset_index()
+            
+            # Dibujamos dos sub-columnas para mostrar Facturación y Unidades al unísono
+            cg1, cg2 = st.columns(2)
+            
+            with cg1:
+                top_fc = prov_stat.sort_values(by='total_pedido', ascending=True).tail(10)
+                fig_geo_fc = px.bar(top_fc, x='total_pedido', y='prov_limpia', orientation='h', title="TOP 10 por Facturación ($)", text_auto='.0f', color_discrete_sequence=['#38BDF8'])
+                fig_geo_fc.update_layout(yaxis_title="", xaxis_title="Facturación ($)", height=350)
+                st.plotly_chart(configurar_grafico(fig_geo_fc), use_container_width=True)
+                
+            with cg2:
+                top_un = prov_stat.sort_values(by='cantidad', ascending=True).tail(10)
+                fig_geo_un = px.bar(top_un, x='cantidad', y='prov_limpia', orientation='h', title="TOP 10 por Unidades (un.)", text_auto=True, color_discrete_sequence=['#34D399'])
+                fig_geo_un.update_layout(yaxis_title="", xaxis_title="Unidades Vendidas", height=350)
+                st.plotly_chart(configurar_grafico(fig_geo_un), use_container_width=True)
+            
+        with col_fun:
+            st.subheader("⏳ Eficiencia de Depósito (SLA)")
+            st.caption("Fulfillment Lead Time medido en **Días Hábiles** (Excluye sábados y domingos).")
+            fun_marca_sel = st.multiselect("Auditar SLA por Marca:", marcas_disponibles, default=marcas_disponibles, key="fun_sel")
+            marcas_fun_activas = fun_marca_sel if fun_marca_sel else marcas_disponibles
+            df_fun = df_f[df_f['marca'].isin(marcas_fun_activas)].copy()
+            df_env = df_fun[df_fun['fulfillment_status'].fillna('null').map(ESTADO_MAPA) == 'Enviado'].copy()
+            
+            if df_env.empty or 'fecha_despacho' not in df_env.columns: st.info("No hay suficientes datos de despacho registrados para calcular el SLA.")
+            else:
+                fechas_compra, fechas_desp = df_env['fecha'].dt.date.values.astype('datetime64[D]'), df_env['fecha_despacho'].dt.date.values.astype('datetime64[D]')
+                df_env['lead_time_habiles'] = np.busday_count(fechas_compra, fechas_desp)
+                df_env['lead_time_habiles'] = df_env['lead_time_habiles'].apply(lambda x: max(0, x))
+                
+                def categorizar_sla(dias):
+                    if dias == 0: return "1. Mismo Día (Same Day)"
+                    if dias == 1: return "2. En 24 hs hábiles"
+                    if dias == 2: return "3. En 48 hs hábiles"
+                    return "4. Más de 48 hs hábiles"
+                    
+                df_env['tramo_sla'] = df_env['lead_time_habiles'].apply(categorizar_sla)
+                fun_stat = df_env.groupby('tramo_sla')['id_pedido'].nunique().reset_index()
+                fun_stat = fun_stat.sort_values(by='tramo_sla')
+                fig_fun = px.funnel(fun_stat, x='id_pedido', y='tramo_sla', title="Órdenes despachadas según SLA", color_discrete_sequence=['#34D399'])
+                fig_fun.update_layout(yaxis_title="Tiempo de Procesamiento", xaxis_title="Órdenes", height=350)
+                st.plotly_chart(configurar_grafico(fig_fun), use_container_width=True)
 
         # --- SECCIÓN TEMPORAL ---
         st.divider()
