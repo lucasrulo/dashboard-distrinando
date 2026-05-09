@@ -363,60 +363,6 @@ try:
             fig_log.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
             st.plotly_chart(configurar_grafico(fig_log), use_container_width=True)
 
-        # --- SECCIÓN GEOGRAFÍA Y EMBUDO ---
-        st.divider()
-        col_geo, col_fun = st.columns([1.2, 1])
-        with col_geo:
-            st.subheader("🗺️ Distribución Geográfica (Mapa + TOP 10)")
-            geo_marca_sel = st.multiselect("Filtrar jurisdicción por Marca:", marcas_disponibles, default=marcas_disponibles, key="geo_sel")
-            marcas_g_activas = geo_marca_sel if geo_marca_sel else marcas_disponibles
-            df_geo = df_f[df_f['marca'].isin(marcas_g_activas)].copy()
-            df_geo['prov_limpia'] = df_geo['provincia'].apply(lambda x: PROVINCIAS_MAPA.get(str(x).lower().strip(), 'Buenos Aires'))
-            prov_stat = df_geo.groupby('prov_limpia').agg({'total_pedido': 'sum', 'id_pedido': 'nunique'}).reset_index()
-            prov_stat.columns = ['Provincia', 'Facturacion', 'Pedidos']
-            
-            prov_stat['lat'] = prov_stat['Provincia'].apply(lambda x: COORDENADAS_ARG.get(x, [-37, -60])[0])
-            prov_stat['lon'] = prov_stat['Provincia'].apply(lambda x: COORDENADAS_ARG.get(x, [-37, -60])[1])
-            
-            fig_map = px.scatter_geo(prov_stat, lat='lat', lon='lon', size='Pedidos', color='Facturacion',
-                                     hover_name='Provincia', hover_data={'lat': False, 'lon': False, 'Facturacion': ':,.0f', 'Pedidos': True},
-                                     scope='south america', title="Mapa Nacional de Pedidos", color_continuous_scale='Blues')
-            fig_map.update_geos(fitbounds="locations", visible=True, resolution=50, showcountries=True, countrycolor="#334155", showland=True, landcolor="#0F172A")
-            fig_map.update_layout(height=400, margin=dict(l=0, r=0, t=40, b=0))
-            st.plotly_chart(configurar_grafico(fig_map), use_container_width=True)
-            
-            top_10_prov = prov_stat.sort_values(by='Facturacion', ascending=True).tail(10)
-            fig_geo_bar = px.bar(top_10_prov, x='Facturacion', y='Provincia', orientation='h', title="TOP 10 Jurisdicciones por Facturación", text_auto='.0f', color_discrete_sequence=['#38BDF8'])
-            fig_geo_bar.update_layout(yaxis_title="", xaxis_title="Facturación ($)", height=300)
-            st.plotly_chart(configurar_grafico(fig_geo_bar), use_container_width=True)
-            
-        with col_fun:
-            st.subheader("⏳ Eficiencia de Depósito (SLA)")
-            st.caption("Fulfillment Lead Time medido en **Días Hábiles** (Excluye sábados y domingos).")
-            fun_marca_sel = st.multiselect("Auditar SLA por Marca:", marcas_disponibles, default=marcas_disponibles, key="fun_sel")
-            marcas_fun_activas = fun_marca_sel if fun_marca_sel else marcas_disponibles
-            df_fun = df_f[df_f['marca'].isin(marcas_fun_activas)].copy()
-            df_env = df_fun[df_fun['fulfillment_status'].fillna('null').map(ESTADO_MAPA) == 'Enviado'].copy()
-            
-            if df_env.empty or 'fecha_despacho' not in df_env.columns: st.info("No hay suficientes datos de despacho registrados para calcular el SLA.")
-            else:
-                fechas_compra, fechas_desp = df_env['fecha'].dt.date.values.astype('datetime64[D]'), df_env['fecha_despacho'].dt.date.values.astype('datetime64[D]')
-                df_env['lead_time_habiles'] = np.busday_count(fechas_compra, fechas_desp)
-                df_env['lead_time_habiles'] = df_env['lead_time_habiles'].apply(lambda x: max(0, x))
-                
-                def categorizar_sla(dias):
-                    if dias == 0: return "1. Mismo Día (Same Day)"
-                    if dias == 1: return "2. En 24 hs hábiles"
-                    if dias == 2: return "3. En 48 hs hábiles"
-                    return "4. Más de 48 hs hábiles"
-                    
-                df_env['tramo_sla'] = df_env['lead_time_habiles'].apply(categorizar_sla)
-                fun_stat = df_env.groupby('tramo_sla')['id_pedido'].nunique().reset_index()
-                fun_stat = fun_stat.sort_values(by='tramo_sla')
-                fig_fun = px.funnel(fun_stat, x='id_pedido', y='tramo_sla', title="Órdenes despachadas según SLA", color_discrete_sequence=['#34D399'])
-                fig_fun.update_layout(yaxis_title="Tiempo de Procesamiento", xaxis_title="Órdenes", height=350)
-                st.plotly_chart(configurar_grafico(fig_fun), use_container_width=True)
-
         # --- SECCIÓN TEMPORAL ---
         st.divider()
         st.subheader("📅 Análisis Temporal y Eficiencia")
