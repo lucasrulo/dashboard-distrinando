@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 import numpy as np
 import os
 import json
-import subprocess
+import requests
 from datetime import datetime, timedelta, timezone
 from streamlit_autorefresh import st_autorefresh
 
@@ -217,7 +217,7 @@ try:
         if len(rango_fecha) == 2: df_f = df_f[(df_f['fecha'].dt.date >= rango_fecha[0]) & (df_f['fecha'].dt.date <= rango_fecha[1])]
 
         # ======================================================================
-        # --- TÍTULO PRINCIPAL Y BOTÓN ON-DEMAND ALINEADOS ARRIBA A LA DERECHA
+        # --- TÍTULO PRINCIPAL Y BOTÓN TRIGGER ALINEADOS ARRIBA A LA DERECHA
         # ======================================================================
         col_titu, col_bot = st.columns([4.5, 1])
         
@@ -226,15 +226,33 @@ try:
             st.caption(f"Última actualización: {ahora_ar.strftime('%d/%m/%Y %H:%M')} hs (ARG) | Filtros Activos: {len(marcas_sel)} Marcas")
             
         with col_bot:
-            st.write("") # Pequeño espaciador para centrar verticalmente con el título
+            st.write("") # Espaciador vertical
             if st.button("🔄 Actualizar Datos Ahora", type="primary", use_container_width=True):
-                with st.spinner("Descargando datos en vivo de Shopify..."):
+                # ⚠️ PARÁMETROS DEL CONTROL REMOTO: CAMBIAR POR TUS DATOS REALES DE GITHUB
+                owner = "lucasrulo"       # Ejemplo: "lucasruiz1996"
+                repo = "dashboard-distrinando" # Ejemplo: "distrinando-analytics"
+                workflow_id = "actualizador.yml"  # Nombre exacto de tu archivo en .github/workflows/
+                
+                token = st.secrets["GH_TOKEN"]
+                url_github = f"https://api.github.com/repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches"
+                headers_github = {
+                    "Authorization": f"token {token}",
+                    "Accept": "application/vnd.github.v3+json"
+                }
+                
+                with st.spinner("Despertando al robot en GitHub Actions..."):
                     try:
-                        subprocess.run(["python", "extractor.py"])
-                        st.cache_data.clear()
-                        st.rerun()
+                        # Enviamos el pulso para disparar el evento workflow_dispatch
+                        res = requests.post(url_github, headers=headers_github, json={"ref": "main"})
+                        
+                        if res.status_code == 204:
+                            st.success("🚀 ¡Orden enviada! El robot está extrayendo datos. Presioná F5 en 60 segundos.")
+                            # Forzamos la limpieza de la memoria caché local para estar listos
+                            st.cache_data.clear()
+                        else:
+                            st.error(f"Error al conectar con GitHub (Código {res.status_code})")
                     except Exception as e:
-                        st.error(f"Error técnico al forzar actualización: {e}")
+                        st.error(f"Excepción técnica: {e}")
 
         # --- SECCIÓN 1: HOY ---
         st.subheader(f"⭐ Actividad de Hoy ({hoy_dt.strftime('%d/%m/%Y')})")
