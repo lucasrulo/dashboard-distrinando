@@ -94,7 +94,7 @@ def load_data():
     if not os.path.exists("ventas_hot_sale.csv"): return pd.DataFrame()
     df = pd.read_csv("ventas_hot_sale.csv")
     
-    # 🎯 LECTURA LIMPIA: Leemos directo asumiendo que el extractor ya unificó todo el texto
+    # 🎯 LECTURA PLANA: Infiriendo el texto simple idéntico al offset generado por el robot
     df['fecha'] = pd.to_datetime(df['fecha'], errors='coerce')
     
     if 'total_orden' in df.columns and 'total_pedido' not in df.columns: df.rename(columns={'total_orden': 'total_pedido'}, inplace=True)
