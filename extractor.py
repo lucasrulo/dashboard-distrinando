@@ -4,19 +4,30 @@ import time
 import os
 from datetime import datetime, timedelta, timezone
 
-# Versión Segura: Lee las contraseñas desde la caja fuerte de GitHub
+# 1. FUNCIÓN INTELIGENTE PARA LEER TOKENS (SOPORTA GITHUB Y STREAMLIT CLOUD)
+def obtener_token(nombre_secret):
+    # Primero intenta leer de los Secrets nativos de Streamlit Cloud
+    try:
+        from streamlit import secrets
+        if nombre_secret in secrets:
+            return secrets[nombre_secret]
+    except ImportError:
+        pass
+        
+    # Si falla (ej. corriendo en GitHub Actions), lee del sistema operativo
+    return os.environ.get(nombre_secret)
+
+# 2. CONFIGURACIÓN DE TIENDAS
 STORES = {
-    "Reebok": {"url": "reebok-ar", "token": os.environ.get("TOKEN_REEBOK")},
-    "Columbia": {"url": "columbia-ar", "token": os.environ.get("TOKEN_COLUMBIA")},
-    "Crocs": {"url": "crocs-ar", "token": os.environ.get("TOKEN_CROCS")},
-    "Kappa": {"url": "kappa-ar", "token": os.environ.get("TOKEN_KAPPA")},
-    "Piccadilly": {"url": "piccadilly-ar", "token": os.environ.get("TOKEN_PICCADILLY")}
+    "Reebok": {"url": "reebok-ar", "token": obtener_token("TOKEN_REEBOK")},
+    "Columbia": {"url": "columbia-ar", "token": obtener_token("TOKEN_COLUMBIA")},
+    "Crocs": {"url": "crocs-ar", "token": obtener_token("TOKEN_CROCS")},
+    "Kappa": {"url": "kappa-ar", "token": obtener_token("TOKEN_KAPPA")},
+    "Piccadilly": {"url": "piccadilly-ar", "token": obtener_token("TOKEN_PICCADILLY")}
 }
 
 FILENAME = "ventas_hot_sale.csv"
 FECHA_INICIO = "2026-01-01T00:00:00-03:00"
-
-# HUSO HORARIO LOCAL ARGENTINA
 ZONA_AR = timezone(timedelta(hours=-3))
 
 class ShopifyManager:
