@@ -2,7 +2,7 @@ name: Actualizador de Datos Shopify
 
 on:
   schedule:
-    - cron: '*/10 * * * *' # Se ejecuta cada 10 minutos
+    - cron: '*/7 * * * *' # Se ejecuta cada 10 minutos
   workflow_dispatch: # Te deja un botón manual por si querés correrlo a mano
 
 jobs:
