@@ -93,7 +93,9 @@ def obtener_hora_argentina():
 def load_data():
     if not os.path.exists("ventas_hot_sale.csv"): return pd.DataFrame()
     df = pd.read_csv("ventas_hot_sale.csv")
-    df['fecha'] = pd.to_datetime(df['fecha'])
+    
+    # 🎯 CORRECCIÓN ESTRICTA: format='mixed' previene crasheos por mezcla de ISO 8601 vs texto simple
+    df['fecha'] = pd.to_datetime(df['fecha'], format='mixed', errors='coerce')
     
     if 'total_orden' in df.columns and 'total_pedido' not in df.columns: df.rename(columns={'total_orden': 'total_pedido'}, inplace=True)
     if 'total_pedido' not in df.columns: df['total_pedido'] = 0
@@ -112,7 +114,7 @@ def load_data():
     if 'fecha_despacho' not in df.columns: 
         df['fecha_despacho'] = df['fecha'] + pd.to_timedelta(np.random.randint(1, 4, size=len(df)), unit='D')
     else:
-        df['fecha_despacho'] = pd.to_datetime(df['fecha_despacho'], errors='coerce')
+        df['fecha_despacho'] = pd.to_datetime(df['fecha_despacho'], format='mixed', errors='coerce')
         
     return df
 
@@ -229,7 +231,7 @@ try:
         with col_bot:
             st.write("") # Espaciador vertical
             
-            # Espacio reservado para el contador dinámico en vivo
+            # Contenedor visual dinámico para el contador
             contenedor_contador = st.empty()
             
             if st.button("🔄 Actualizar Datos Ahora", type="primary", use_container_width=True):
@@ -245,7 +247,7 @@ try:
                 }
                 
                 try:
-                    # 1. Disparamos la orden remota
+                    # 1. Orden de disparo remota
                     res = requests.post(url_github, headers=headers_github, json={"ref": "main"})
                     
                     if res.status_code == 204:
