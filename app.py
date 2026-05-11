@@ -6,6 +6,7 @@ import numpy as np
 import os
 import json
 import requests
+import time
 from datetime import datetime, timedelta, timezone
 from streamlit_autorefresh import st_autorefresh
 
@@ -227,11 +228,14 @@ try:
             
         with col_bot:
             st.write("") # Espaciador vertical
+            
+            # Espacio reservado para el contador dinámico en vivo
+            contenedor_contador = st.empty()
+            
             if st.button("🔄 Actualizar Datos Ahora", type="primary", use_container_width=True):
-                # ⚠️ PARÁMETROS DEL CONTROL REMOTO: CAMBIAR POR TUS DATOS REALES DE GITHUB
-                owner = "lucasrulo"       # Ejemplo: "lucasruiz1996"
-                repo = "dashboard-distrinando" # Ejemplo: "distrinando-analytics"
-                workflow_id = "actualizador.yml"  # Nombre exacto de tu archivo en .github/workflows/
+                owner = "lucasrulo"
+                repo = "dashboard-distrinando"
+                workflow_id = "actualizador.yml"
                 
                 token = st.secrets["GH_TOKEN"]
                 url_github = f"https://api.github.com/repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches"
@@ -240,19 +244,26 @@ try:
                     "Accept": "application/vnd.github.v3+json"
                 }
                 
-                with st.spinner("Despertando al robot en GitHub Actions..."):
-                    try:
-                        # Enviamos el pulso para disparar el evento workflow_dispatch
-                        res = requests.post(url_github, headers=headers_github, json={"ref": "main"})
+                try:
+                    # 1. Disparamos la orden remota
+                    res = requests.post(url_github, headers=headers_github, json={"ref": "main"})
+                    
+                    if res.status_code == 204:
+                        st.cache_data.clear() # Limpiamos memoria
                         
-                        if res.status_code == 204:
-                            st.success("🚀 ¡Orden enviada! El robot está extrayendo datos. Presioná F5 en 60 segundos.")
-                            # Forzamos la limpieza de la memoria caché local para estar listos
-                            st.cache_data.clear()
-                        else:
-                            st.error(f"Error al conectar con GitHub (Código {res.status_code})")
-                    except Exception as e:
-                        st.error(f"Excepción técnica: {e}")
+                        # 2. Bucle visual de 55 segundos auto-gestionado
+                        for seg in range(55, -1, -1):
+                            contenedor_contador.info(f"⏳ Extrayendo... Auto-recarga en **{seg}s**")
+                            time.sleep(1)
+                            
+                        # 3. Al llegar a cero, forzamos el F5 nativo automático
+                        contenedor_contador.success("🔄 ¡Listo! Recargando...")
+                        time.sleep(0.5)
+                        st.rerun()
+                    else:
+                        st.error(f"Error al conectar con GitHub (Código {res.status_code})")
+                except Exception as e:
+                    st.error(f"Excepción técnica: {e}")
 
         # --- SECCIÓN 1: HOY ---
         st.subheader(f"⭐ Actividad de Hoy ({hoy_dt.strftime('%d/%m/%Y')})")
