@@ -94,8 +94,8 @@ def load_data():
     if not os.path.exists("ventas_hot_sale.csv"): return pd.DataFrame()
     df = pd.read_csv("ventas_hot_sale.csv")
     
-    # 🎯 SOLUCIÓN DEFINITIVA: Forzamos todo a UTC común y luego convertimos a la zona horaria local
-    df['fecha'] = pd.to_datetime(df['fecha'], utc=True, errors='coerce').dt.tz_convert(ZONA_AR)
+    # 🎯 LECTURA LIMPIA: Leemos directo asumiendo que el extractor ya unificó todo el texto
+    df['fecha'] = pd.to_datetime(df['fecha'], errors='coerce')
     
     if 'total_orden' in df.columns and 'total_pedido' not in df.columns: df.rename(columns={'total_orden': 'total_pedido'}, inplace=True)
     if 'total_pedido' not in df.columns: df['total_pedido'] = 0
@@ -114,7 +114,7 @@ def load_data():
     if 'fecha_despacho' not in df.columns: 
         df['fecha_despacho'] = df['fecha'] + pd.to_timedelta(np.random.randint(1, 4, size=len(df)), unit='D')
     else:
-        df['fecha_despacho'] = pd.to_datetime(df['fecha_despacho'], utc=True, errors='coerce').dt.tz_convert(ZONA_AR)
+        df['fecha_despacho'] = pd.to_datetime(df['fecha_despacho'], errors='coerce')
         
     return df
 
@@ -230,8 +230,6 @@ try:
             
         with col_bot:
             st.write("") # Espaciador vertical
-            
-            # Contenedor visual dinámico para el contador
             contenedor_contador = st.empty()
             
             if st.button("🔄 Actualizar Datos Ahora", type="primary", use_container_width=True):
@@ -247,18 +245,14 @@ try:
                 }
                 
                 try:
-                    # 1. Orden de disparo remota
                     res = requests.post(url_github, headers=headers_github, json={"ref": "main"})
                     
                     if res.status_code == 204:
-                        st.cache_data.clear() # Limpiamos memoria
-                        
-                        # 2. Bucle visual de 55 segundos auto-gestionado
+                        st.cache_data.clear()
                         for seg in range(55, -1, -1):
                             contenedor_contador.info(f"⏳ Extrayendo... Auto-recarga en **{seg}s**")
                             time.sleep(1)
                             
-                        # 3. Al llegar a cero, forzamos el F5 nativo automático
                         contenedor_contador.success("🔄 ¡Listo! Recargando...")
                         time.sleep(0.5)
                         st.rerun()
