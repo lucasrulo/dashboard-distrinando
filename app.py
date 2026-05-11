@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 import numpy as np
 import os
 import json
+import subprocess
 from datetime import datetime, timedelta, timezone
 from streamlit_autorefresh import st_autorefresh
 
@@ -16,7 +17,7 @@ st.set_page_config(
 )
 st_autorefresh(interval=300000, limit=None, key="auto_refresh")
 
-# 2. CSS CORPORATIVO + ESTILOS DE LOGIN
+# 2. CSS CORPORATIVO
 st.markdown("""
     <style>
     .metric-container { background-color: #1E293B; border: 1px solid #334155; padding: 24px; border-radius: 12px; text-align: center; margin-bottom: 15px; transition: all 0.2s ease; }
@@ -40,9 +41,6 @@ st.markdown("""
     .module-box { background: #1E293B; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-top: 15px; }
     span[data-baseweb="tag"] { background-color: #1E3A8A !important; color: #F8FAFC !important; border: 1px solid #3B82F6 !important; border-radius: 4px !important; }
     
-    .login-wrapper { max-width: 400px; margin: 50px auto; background-color: #1E293B; border: 1px solid #334155; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-    .login-header { text-align: center; margin-bottom: 30px; }
-    
     @media (max-width: 768px) {
         .block-container { padding-left: 0.8rem !important; padding-right: 0.8rem !important; }
         .metric-container { padding: 12px !important; margin-bottom: 8px !important; }
@@ -58,7 +56,6 @@ st.markdown("""
         .btn-link { padding: 8px !important; font-size: 10px !important; margin-top: 6px !important; }
         .discount-container, .module-box { padding: 12px !important; }
         div[data-testid="stHorizontalBlock"] { gap: 0.5rem !important; }
-        .login-wrapper { margin: 20px 10px; padding: 25px; }
     }
     </style>
     """, unsafe_allow_html=True)
@@ -85,55 +82,6 @@ ZONA_AR = timezone(timedelta(hours=-3))
 
 def obtener_hora_argentina():
     return datetime.now(ZONA_AR)
-
-# --- GESTIÓN DE SESIÓN (LOGIN) ---
-if 'autenticado' not in st.session_state:
-    st.session_state['autenticado'] = False
-
-def verificar_login():
-    usr = st.session_state.get('input_user', '').strip()
-    pwd = st.session_state.get('input_pass', '').strip()
-    
-    if usr == "Distrinando" and pwd == "Distrinando01":
-        st.session_state['autenticado'] = True
-        st.session_state['error_login'] = False
-    else:
-        st.session_state['autenticado'] = False
-        st.session_state['error_login'] = True
-
-def cerrar_sesion():
-    st.session_state['autenticado'] = False
-    st.session_state['input_user'] = ''
-    st.session_state['input_pass'] = ''
-
-# --- PANTALLA DE LOGIN ---
-if not st.session_state['autenticado']:
-    st.markdown('<div class="login-wrapper">', unsafe_allow_html=True)
-    
-    try: 
-        st.image("image_2ab136.jpg", use_container_width=True)
-        st.markdown("<br>", unsafe_allow_html=True)
-    except: 
-        st.markdown("<h2 style='text-align: center; color: #38BDF8;'>DISTRINANDO</h2>", unsafe_allow_html=True)
-        
-    st.markdown("""
-        <div class="login-header">
-            <h3 style='color:#F8FAFC; margin-bottom:5px;'>Acceso Corporativo</h3>
-            <p style='color:#94A3B8; font-size:12px;'>Centro de Comando & Analítica</p>
-        </div>
-    """, unsafe_allow_html=True)
-    
-    st.text_input("👤 Usuario", key="input_user")
-    st.text_input("🔒 Contraseña", type="password", key="input_pass")
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.button("Ingresar al Sistema", type="primary", use_container_width=True, on_click=verificar_login)
-    
-    if st.session_state.get('error_login', False):
-        st.error("🚨 Credenciales incorrectas. Verifique usuario y contraseña.")
-        
-    st.markdown('</div>', unsafe_allow_html=True)
-    st.stop()
 
 # ==============================================================================
 # --- DESPLIEGUE DEL DASHBOARD PRINCIPAL
@@ -225,7 +173,6 @@ try:
     
     if df_raw.empty: st.warning("⚠️ No se encontró la base de datos.")
     else:
-        # ASIGNACIÓN ESTRICTA DE LA HORA Y FECHA LOCAL ARGENTINA
         ahora_ar = obtener_hora_argentina()
         hoy_dt = ahora_ar.date()
 
@@ -234,9 +181,6 @@ try:
         except: st.sidebar.markdown("<h2 style='text-align: center; color: #38BDF8;'>DISTRINANDO</h2>", unsafe_allow_html=True)
             
         st.sidebar.markdown("---")
-        st.sidebar.button("🚪 Cerrar Sesión", type="secondary", use_container_width=True, on_click=cerrar_sesion)
-        st.sidebar.markdown("---")
-        
         st.sidebar.markdown("### ⚙️ Filtros Globales")
         marcas_disponibles = sorted(df_raw['marca'].unique())
         marcas_sel = st.sidebar.multiselect("Marcas a Visualizar", marcas_disponibles, default=marcas_disponibles)
@@ -272,10 +216,26 @@ try:
         df_f = df_raw[df_raw['marca'].isin(marcas_sel)]
         if len(rango_fecha) == 2: df_f = df_f[(df_f['fecha'].dt.date >= rango_fecha[0]) & (df_f['fecha'].dt.date <= rango_fecha[1])]
 
-        # --- TÍTULO PRINCIPAL CON HORA ARGENTINA DINÁMICA ---
-        st.title("📊 Panel de datos")
-        st.caption(f"Última actualización: {ahora_ar.strftime('%d/%m/%Y %H:%M')} hs (ARG) | Filtros Activos: {len(marcas_sel)} Marcas")
+        # ======================================================================
+        # --- TÍTULO PRINCIPAL Y BOTÓN ON-DEMAND ALINEADOS ARRIBA A LA DERECHA
+        # ======================================================================
+        col_titu, col_bot = st.columns([4.5, 1])
         
+        with col_titu:
+            st.title("📊 Panel de datos")
+            st.caption(f"Última actualización: {ahora_ar.strftime('%d/%m/%Y %H:%M')} hs (ARG) | Filtros Activos: {len(marcas_sel)} Marcas")
+            
+        with col_bot:
+            st.write("") # Pequeño espaciador para centrar verticalmente con el título
+            if st.button("🔄 Actualizar Datos Ahora", type="primary", use_container_width=True):
+                with st.spinner("Descargando datos en vivo de Shopify..."):
+                    try:
+                        subprocess.run(["python", "extractor.py"])
+                        st.cache_data.clear()
+                        st.rerun()
+                    except Exception as e:
+                        st.error(f"Error técnico al forzar actualización: {e}")
+
         # --- SECCIÓN 1: HOY ---
         st.subheader(f"⭐ Actividad de Hoy ({hoy_dt.strftime('%d/%m/%Y')})")
         df_hoy = df_f[df_f['fecha'].dt.date == hoy_dt]
