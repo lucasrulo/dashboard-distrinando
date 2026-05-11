@@ -72,7 +72,8 @@ class ShopifyManager:
                 # 🎯 ESTANDARIZACIÓN ABSOLUTA: Forzamos la fecha ISO limpia con huso horario explícito
                 dt_utc = datetime.fromisoformat(o['created_at'].replace("Z", "+00:00"))
                 dt_ar = dt_utc.astimezone(ZONA_AR)
-                fecha_limpia = dt_ar.strftime("%Y-%m-%d %H:%M:%S")
+                # Volvemos a inyectar el formato nativo ISO 8601 idéntico al histórico de Shopify
+                fecha_limpia = dt_ar.strftime("%Y-%m-%dT%H:%M:%S-03:00")
                 hora_pico = dt_ar.hour
                 
                 provincia = o.get('shipping_address', {}).get('province', 'Buenos Aires') if o.get('shipping_address') else 'Buenos Aires'
