@@ -16,10 +16,9 @@ st.set_page_config(
 )
 st_autorefresh(interval=300000, limit=None, key="auto_refresh")
 
-# 2. CSS CORPORATIVO + ESTILOS DE LOGIN
+# 2. CSS CORPORATIVO
 st.markdown("""
     <style>
-    /* Estilos del Dashboard General */
     .metric-container { background-color: #1E293B; border: 1px solid #334155; padding: 24px; border-radius: 12px; text-align: center; margin-bottom: 15px; transition: all 0.2s ease; }
     .metric-title { font-size: 12px; text-transform: uppercase; color: #94A3B8; font-weight: 700; letter-spacing: 1px; margin-bottom: 10px; }
     .metric-value { font-size: 30px; font-weight: 800; color: #38BDF8; letter-spacing: -1px; }
@@ -41,10 +40,6 @@ st.markdown("""
     .module-box { background: #1E293B; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-top: 15px; }
     span[data-baseweb="tag"] { background-color: #1E3A8A !important; color: #F8FAFC !important; border: 1px solid #3B82F6 !important; border-radius: 4px !important; }
     
-    /* Estilos exclusivos para la caja de Login */
-    .login-wrapper { max-width: 400px; margin: 50px auto; background-color: #1E293B; border: 1px solid #334155; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-    .login-header { text-align: center; margin-bottom: 30px; }
-    
     @media (max-width: 768px) {
         .block-container { padding-left: 0.8rem !important; padding-right: 0.8rem !important; }
         .metric-container { padding: 12px !important; margin-bottom: 8px !important; }
@@ -60,7 +55,6 @@ st.markdown("""
         .btn-link { padding: 8px !important; font-size: 10px !important; margin-top: 6px !important; }
         .discount-container, .module-box { padding: 12px !important; }
         div[data-testid="stHorizontalBlock"] { gap: 0.5rem !important; }
-        .login-wrapper { margin: 20px 10px; padding: 25px; }
     }
     </style>
     """, unsafe_allow_html=True)
@@ -81,60 +75,6 @@ PROVINCIAS_MAPA = {
     'santa fe': 'Santa Fe', 'santiago del estero': 'Santiago del Estero', 
     'tierra del fuego': 'Tierra del Fuego', 'tdf': 'Tierra del Fuego', 'tucumán': 'Tucumán', 'tucuman': 'Tucumán'
 }
-
-# --- GESTIÓN DE SESIÓN (LOGIN) ---
-if 'autenticado' not in st.session_state:
-    st.session_state['autenticado'] = False
-
-def verificar_login():
-    usr = st.session_state.get('input_user', '').strip()
-    pwd = st.session_state.get('input_pass', '').strip()
-    
-    if usr == "Distrinando" and pwd == "Distrinando01":
-        st.session_state['autenticado'] = True
-        st.session_state['error_login'] = False
-    else:
-        st.session_state['autenticado'] = False
-        st.session_state['error_login'] = True
-
-def cerrar_sesion():
-    st.session_state['autenticado'] = False
-    st.session_state['input_user'] = ''
-    st.session_state['input_pass'] = ''
-
-# --- PANTALLA DE LOGIN (Si no está autenticado) ---
-if not st.session_state['autenticado']:
-    st.markdown('<div class="login-wrapper">', unsafe_allow_html=True)
-    
-    try: 
-        st.image("image_2ab136.jpg", use_container_width=True)
-        st.markdown("<br>", unsafe_allow_html=True)
-    except: 
-        st.markdown("<h2 style='text-align: center; color: #38BDF8;'>DISTRINANDO</h2>", unsafe_allow_html=True)
-        
-    # CORRECCIÓN DE COMILLAS: Envuelto en triples comillas para evitar SyntaxError
-    st.markdown("""
-        <div class="login-header">
-            <h3 style='color:#F8FAFC; margin-bottom:5px;'>Acceso Corporativo</h3>
-            <p style='color:#94A3B8; font-size:12px;'>Centro de Comando & Analítica</p>
-        </div>
-    """, unsafe_allow_html=True)
-    
-    st.text_input("👤 Usuario", key="input_user")
-    st.text_input("🔒 Contraseña", type="password", key="input_pass")
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.button("Ingresar al Sistema", type="primary", use_container_width=True, on_click=verificar_login)
-    
-    if st.session_state.get('error_login', False):
-        st.error("🚨 Credenciales incorrectas. Verifique usuario y contraseña.")
-        
-    st.markdown('</div>', unsafe_allow_html=True)
-    st.stop()
-
-# ==============================================================================
-# --- DESPLIEGUE DEL DASHBOARD PRINCIPAL (Solo se ejecuta si autenticado == True)
-# ==============================================================================
 
 # 4. CARGA DE DATOS
 @st.cache_data(ttl=60)
@@ -164,8 +104,11 @@ def load_data():
         
     return df
 
+# GESTIÓN DE OBJETIVOS (CON ANCLAJE DURO EN CÓDIGO PARA NUBE)
 def load_objetivos():
     archivo = "objetivos_hot_sale.json"
+    
+    # 🎯 DICCIONARIO DURO: Escribí acá tus metas fijas reales para que NUNCA se borren en GitHub
     objetivos_por_defecto = {
         "Reebok": {"unidades": 5000, "facturacion": 250000000},
         "Columbia": {"unidades": 3000, "facturacion": 300000000},
@@ -173,6 +116,8 @@ def load_objetivos():
         "Kappa": {"unidades": 4000, "facturacion": 150000000},
         "Piccadilly": {"unidades": 2000, "facturacion": 100000000}
     }
+    
+    # Si el usuario modificó la sesión actual, lee el temporal, sino usa el fijo de arriba
     if os.path.exists(archivo):
         try:
             with open(archivo, "r") as f:
@@ -188,11 +133,18 @@ def configurar_grafico(fig):
     fig.update_layout(template="plotly_dark", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", font=dict(color="#94A3B8"), margin=dict(l=10, r=10, t=40, b=10))
     return fig
 
+# VELOCÍMETROS REINGENIERIZADOS (CON FORMATO COMPLETO Y % DE CUMPLIMIENTO)
 def crear_velocimetro(valor_actual, objetivo, titulo_base, es_moneda=False):
     prefijo = "$" if es_moneda else ""
     sufijo = "" if es_moneda else " un."
+    
+    # Evitar división por cero
     porcentaje = (valor_actual / objetivo * 100) if objetivo > 0 else 0
+    
+    # Construir un título robusto con el % visible
     titulo_completo = f"<b>{titulo_base}</b><br><span style='font-size:16px; color:#34D399;'>Cumplimiento: {porcentaje:.1f}%</span>"
+    
+    # Forzar formato de números enteros separados por comas (sin 'B' ni 'k')
     formato_num = f"{prefijo}{valor_actual:,.0f}{sufijo}"
     
     fig = go.Figure(go.Indicator(
@@ -201,9 +153,13 @@ def crear_velocimetro(valor_actual, objetivo, titulo_base, es_moneda=False):
         domain={'x': [0, 1], 'y': [0, 1]},
         title={'text': titulo_completo, 'font': {"size": 14, "color": "#F8FAFC"}},
         gauge={
-            'axis': {'range': [0, max(objetivo * 1.2, valor_actual * 1.1, 10)], 'tickwidth': 1, 'tickcolor': "#94A3B8"},
+            'axis': {
+                'range': [0, max(objetivo * 1.2, valor_actual * 1.1, 10)],
+                'tickwidth': 1,
+                'tickcolor': "#94A3B8"
+            },
             'bar': {'color': "#38BDF8", 'thickness': 0.8},
-            'bgcolor': "#1E293B", 
+            'bgcolor': "#1E293B", # Fondo más oscuro para mayor contraste
             'steps': [
                 {'range': [0, objetivo * 0.5], 'color': 'rgba(248, 113, 113, 0.25)'},
                 {'range': [objetivo * 0.5, objetivo * 0.9], 'color': 'rgba(251, 191, 36, 0.25)'},
@@ -212,7 +168,14 @@ def crear_velocimetro(valor_actual, objetivo, titulo_base, es_moneda=False):
             'threshold': {'line': {'color': "#FFFFFF", 'width': 5}, 'thickness': 0.85, 'value': objetivo}
         }
     ))
-    fig.add_annotation(x=0.5, y=0.15, text=f"<span style='font-size:24px; font-weight:bold; color:#38BDF8;'>{formato_num}</span>", showarrow=False)
+    
+    # Inyectamos el valor exacto formateado en el centro mediante una anotación para evadir el auto-formateo de Plotly
+    fig.add_annotation(
+        x=0.5, y=0.15,
+        text=f"<span style='font-size:24px; font-weight:bold; color:#38BDF8;'>{formato_num}</span>",
+        showarrow=False
+    )
+    
     fig.update_layout(height=240, margin=dict(l=15, r=15, t=50, b=10), paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
     return fig
 
@@ -224,16 +187,11 @@ try:
     else:
         hoy_dt = datetime.now().date()
 
-        # --- BARRA LATERAL (Solo visible logueado) ---
+        # --- BARRA LATERAL CON DATA ENTRY INTEGRADO ---
         try: st.sidebar.image("image_2ab136.jpg", use_container_width=True)
         except: st.sidebar.markdown("<h2 style='text-align: center; color: #38BDF8;'>DISTRINANDO</h2>", unsafe_allow_html=True)
             
         st.sidebar.markdown("---")
-        
-        # BOTÓN DE CERRAR SESIÓN
-        st.sidebar.button("🚪 Cerrar Sesión", type="secondary", use_container_width=True, on_click=cerrar_sesion)
-        st.sidebar.markdown("---")
-        
         st.sidebar.markdown("### ⚙️ Filtros Globales")
         marcas_disponibles = sorted(df_raw['marca'].unique())
         marcas_sel = st.sidebar.multiselect("Marcas a Visualizar", marcas_disponibles, default=marcas_disponibles)
@@ -241,13 +199,16 @@ try:
         f_min, f_max = df_raw['fecha'].min().date(), df_raw['fecha'].max().date()
         rango_fecha = st.sidebar.date_input("Rango de Fechas", [f_min, f_max])
 
+        # DATA ENTRY EN BARRA LATERAL
         st.sidebar.markdown("---")
         st.sidebar.markdown("### 🎯 Metas Comerciales")
         st.sidebar.caption("Edite los valores en la tabla para ajustar las agujas temporalmente.")
         
         marcas_base = ["Reebok", "Columbia", "Crocs", "Kappa", "Piccadilly"]
         df_edit_obj = pd.DataFrame([
-            {"Marca": m, "Unidades": objetivos_actuales.get(m, {}).get("unidades", 0), "Facturación ($)": objetivos_actuales.get(m, {}).get("facturacion", 0)}
+            {"Marca": m, 
+             "Unidades": objetivos_actuales.get(m, {}).get("unidades", 0), 
+             "Facturación ($)": objetivos_actuales.get(m, {}).get("facturacion", 0)}
             for m in marcas_base
         ])
         
@@ -257,11 +218,19 @@ try:
                 "Marca": st.column_config.TextColumn("Marca", disabled=True),
                 "Unidades": st.column_config.NumberColumn("Unidades", min_value=0, step=1, format="%d"),
                 "Facturación ($)": st.column_config.NumberColumn("Facturación ($)", min_value=0, step=1000, format="$%d")
-            }, hide_index=True, use_container_width=True, key="editor_metas"
+            },
+            hide_index=True,
+            use_container_width=True,
+            key="editor_metas"
         )
         
         if st.sidebar.button("💾 Aplicar Metas", type="primary", use_container_width=True):
-            nuevo_json = {row["Marca"]: {"unidades": int(row["Unidades"]), "facturacion": int(row["Facturación ($)"])} for idx, row in df_guardado.iterrows()}
+            nuevo_json = {}
+            for idx, row in df_guardado.iterrows():
+                nuevo_json[row["Marca"]] = {
+                    "unidades": int(row["Unidades"]),
+                    "facturacion": int(row["Facturación ($)"])
+                }
             guardar_objetivos(nuevo_json)
             st.sidebar.success("¡Guardado!")
             st.rerun()
@@ -329,7 +298,7 @@ try:
                         <div class="brand-stat" title="Average Selling Price"><span>ASP:</span><span class="brand-stat-val">${asp:,.0f}</span></div>
                     </div>""", unsafe_allow_html=True)
 
-        # --- SECCIÓN 4: MEDIDORES ---
+        # --- SECCIÓN 4: MEDIDORES DE ALTA PRECISIÓN ---
         st.divider()
         st.subheader("🚀 Cumplimiento de Metas (Real vs. Objetivo)")
         st.caption("La línea blanca marca la meta comercial. Los colores indican el avance: Rojo (<50%), Amarillo (50-90%), Verde (>90%).")
@@ -388,7 +357,7 @@ try:
         col_f1, col_f2 = st.columns([1, 2])
         with col_f1: desc_marcas_sel = st.multiselect("Marca (Promo)", marcas_disponibles, default=marcas_disponibles, key="desc_marca")
         with col_f2:
-            df_desc_base = df_raw[(df_raw['descuento'] != 'SIN DESCUENTO') & (df_desc_base['descuento'] != '')]
+            df_desc_base = df_raw[(df_raw['descuento'] != 'SIN DESCUENTO') & (df_raw['descuento'] != '')]
             df_desc_filtrado_marcas = df_desc_base[df_desc_base['marca'].isin(desc_marcas_sel)]
             desc_disponibles = sorted(df_desc_filtrado_marcas['descuento'].astype(str).unique())
             desc_sel = st.multiselect("Código Promocional", desc_disponibles, default=desc_disponibles[:5] if len(desc_disponibles) > 0 else [], key="desc_promo")
@@ -456,7 +425,7 @@ try:
             fig_log.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
             st.plotly_chart(configurar_grafico(fig_log), use_container_width=True)
 
-        # --- SECCIÓN GEOGRAFÍA Y EMBUDO ---
+        # --- SECCIÓN GEOGRAFÍA (REDISEÑADA: DOBLE TOP 10 LIMPIO SIN MAPA) Y EMBUDO ---
         st.divider()
         col_geo, col_fun = st.columns([1.2, 1])
         with col_geo:
@@ -466,14 +435,19 @@ try:
             
             df_geo = df_f[df_f['marca'].isin(marcas_g_activas)].copy()
             df_geo['prov_limpia'] = df_geo['provincia'].apply(lambda x: PROVINCIAS_MAPA.get(str(x).lower().strip(), 'Buenos Aires'))
+            
+            # Agrupamos los dos indicadores clave
             prov_stat = df_geo.groupby('prov_limpia').agg({'total_pedido': 'sum', 'cantidad': 'sum'}).reset_index()
             
+            # Dibujamos dos sub-columnas para ver Facturación y Unidades al unísono
             cg1, cg2 = st.columns(2)
+            
             with cg1:
                 top_fc = prov_stat.sort_values(by='total_pedido', ascending=True).tail(10)
                 fig_geo_fc = px.bar(top_fc, x='total_pedido', y='prov_limpia', orientation='h', title="TOP 10 por Facturación ($)", text_auto='.0f', color_discrete_sequence=['#38BDF8'])
                 fig_geo_fc.update_layout(yaxis_title="", xaxis_title="Facturación ($)", height=350)
                 st.plotly_chart(configurar_grafico(fig_geo_fc), use_container_width=True)
+                
             with cg2:
                 top_un = prov_stat.sort_values(by='cantidad', ascending=True).tail(10)
                 fig_geo_un = px.bar(top_un, x='cantidad', y='prov_limpia', orientation='h', title="TOP 10 por Unidades (un.)", text_auto=True, color_discrete_sequence=['#34D399'])
