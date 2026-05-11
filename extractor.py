@@ -4,18 +4,35 @@ import time
 import os
 from datetime import datetime, timedelta, timezone
 
-# 1. FUNCIÓN INTELIGENTE PARA LEER TOKENS (SOPORTA GITHUB Y STREAMLIT CLOUD)
+# 1. LECTURA NATIVA PRIORIZANDO VARIABLES DE ENTORNO (EVITA CRASH EN GITHUB)
 def obtener_token(nombre_secret):
-    # Primero intenta leer de los Secrets nativos de Streamlit Cloud
+    # 1° Intento: Lee directo del sistema operativo (GitHub Actions inyecta acá)
+    token_env = os.environ.get(nombre_secret)
+    if token_env:
+        return token_env
+        
+    # 2° Intento: Solo si lo anterior está vacío, intenta buscar en Streamlit Cloud
     try:
         from streamlit import secrets
         if nombre_secret in secrets:
             return secrets[nombre_secret]
-    except ImportError:
+    except Exception:
         pass
         
-    # Si falla (ej. corriendo en GitHub Actions), lee del sistema operativo
-    return os.environ.get(nombre_secret)
+    return None
+
+# 2. CONFIGURACIÓN DE TIENDAS
+STORES = {
+    "Reebok": {"url": "reebok-ar", "token": obtener_token("TOKEN_REEBOK")},
+    "Columbia": {"url": "columbia-ar", "token": obtener_token("TOKEN_COLUMBIA")},
+    "Crocs": {"url": "crocs-ar", "token": obtener_token("TOKEN_CROCS")},
+    "Kappa": {"url": "kappa-ar", "token": obtener_token("TOKEN_KAPPA")},
+    "Piccadilly": {"url": "piccadilly-ar", "token": obtener_token("TOKEN_PICCADILLY")}
+}
+
+FILENAME = "ventas_hot_sale.csv"
+FECHA_INICIO = "2026-01-01T00:00:00-03:00"
+ZONA_AR = timezone(timedelta(hours=-3))
 
 # 2. CONFIGURACIÓN DE TIENDAS
 STORES = {
