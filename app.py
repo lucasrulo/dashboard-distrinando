@@ -106,16 +106,20 @@ def cerrar_sesion():
 if not st.session_state['autenticado']:
     st.markdown('<div class="login-wrapper">', unsafe_allow_html=True)
     
-    # Intentamos cargar el logo oficial, sino dibujamos un header limpio
     try: 
         st.image("image_2ab136.jpg", use_container_width=True)
         st.markdown("<br>", unsafe_allow_html=True)
     except: 
         st.markdown("<h2 style='text-align: center; color: #38BDF8;'>DISTRINANDO</h2>", unsafe_allow_html=True)
         
-    st.markdown("<div class="login-header"><h3 style='color:#F8FAFC; margin-bottom:5px;'>Acceso Corporativo</h3><p style='color:#94A3B8; font-size:12px;'>Centro de Comando & Analítica</p></div>", unsafe_allow_html=True)
+    # CORRECCIÓN DE COMILLAS: Envuelto en triples comillas para evitar SyntaxError
+    st.markdown("""
+        <div class="login-header">
+            <h3 style='color:#F8FAFC; margin-bottom:5px;'>Acceso Corporativo</h3>
+            <p style='color:#94A3B8; font-size:12px;'>Centro de Comando & Analítica</p>
+        </div>
+    """, unsafe_allow_html=True)
     
-    # Contenedores de Usuario y Contraseña
     st.text_input("👤 Usuario", key="input_user")
     st.text_input("🔒 Contraseña", type="password", key="input_pass")
     
@@ -126,7 +130,7 @@ if not st.session_state['autenticado']:
         st.error("🚨 Credenciales incorrectas. Verifique usuario y contraseña.")
         
     st.markdown('</div>', unsafe_allow_html=True)
-    st.stop() # DETIENE LA EJECUCIÓN ACÁ: Protege el código y datos inferiores
+    st.stop()
 
 # ==============================================================================
 # --- DESPLIEGUE DEL DASHBOARD PRINCIPAL (Solo se ejecuta si autenticado == True)
@@ -384,7 +388,7 @@ try:
         col_f1, col_f2 = st.columns([1, 2])
         with col_f1: desc_marcas_sel = st.multiselect("Marca (Promo)", marcas_disponibles, default=marcas_disponibles, key="desc_marca")
         with col_f2:
-            df_desc_base = df_raw[(df_raw['descuento'] != 'SIN DESCUENTO') & (df_raw['descuento'] != '')]
+            df_desc_base = df_raw[(df_raw['descuento'] != 'SIN DESCUENTO') & (df_desc_base['descuento'] != '')]
             df_desc_filtrado_marcas = df_desc_base[df_desc_base['marca'].isin(desc_marcas_sel)]
             desc_disponibles = sorted(df_desc_filtrado_marcas['descuento'].astype(str).unique())
             desc_sel = st.multiselect("Código Promocional", desc_disponibles, default=desc_disponibles[:5] if len(desc_disponibles) > 0 else [], key="desc_promo")
@@ -459,6 +463,7 @@ try:
             st.subheader("🗺️ Distribución Geográfica (TOP 10 Provincias)")
             geo_marca_sel = st.multiselect("Filtrar provincia por Marca:", marcas_disponibles, default=marcas_disponibles, key="geo_sel")
             marcas_g_activas = geo_marca_sel if geo_marca_sel else marcas_disponibles
+            
             df_geo = df_f[df_f['marca'].isin(marcas_g_activas)].copy()
             df_geo['prov_limpia'] = df_geo['provincia'].apply(lambda x: PROVINCIAS_MAPA.get(str(x).lower().strip(), 'Buenos Aires'))
             prov_stat = df_geo.groupby('prov_limpia').agg({'total_pedido': 'sum', 'cantidad': 'sum'}).reset_index()
