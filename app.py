@@ -86,6 +86,55 @@ ZONA_AR = timezone(timedelta(hours=-3))
 def obtener_hora_argentina():
     return datetime.now(ZONA_AR)
 
+# --- GESTIÓN DE SESIÓN (LOGIN) ---
+if 'autenticado' not in st.session_state:
+    st.session_state['autenticado'] = False
+
+def verificar_login():
+    usr = st.session_state.get('input_user', '').strip()
+    pwd = st.session_state.get('input_pass', '').strip()
+    
+    if usr == "Distrinando" and pwd == "Distrinando01":
+        st.session_state['autenticado'] = True
+        st.session_state['error_login'] = False
+    else:
+        st.session_state['autenticado'] = False
+        st.session_state['error_login'] = True
+
+def cerrar_sesion():
+    st.session_state['autenticado'] = False
+    st.session_state['input_user'] = ''
+    st.session_state['input_pass'] = ''
+
+# --- PANTALLA DE LOGIN ---
+if not st.session_state['autenticado']:
+    st.markdown('<div class="login-wrapper">', unsafe_allow_html=True)
+    
+    try: 
+        st.image("image_2ab136.jpg", use_container_width=True)
+        st.markdown("<br>", unsafe_allow_html=True)
+    except: 
+        st.markdown("<h2 style='text-align: center; color: #38BDF8;'>DISTRINANDO</h2>", unsafe_allow_html=True)
+        
+    st.markdown("""
+        <div class="login-header">
+            <h3 style='color:#F8FAFC; margin-bottom:5px;'>Acceso Corporativo</h3>
+            <p style='color:#94A3B8; font-size:12px;'>Centro de Comando & Analítica</p>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    st.text_input("👤 Usuario", key="input_user")
+    st.text_input("🔒 Contraseña", type="password", key="input_pass")
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.button("Ingresar al Sistema", type="primary", use_container_width=True, on_click=verificar_login)
+    
+    if st.session_state.get('error_login', False):
+        st.error("🚨 Credenciales incorrectas. Verifique usuario y contraseña.")
+        
+    st.markdown('</div>', unsafe_allow_html=True)
+    st.stop()
+
 # ==============================================================================
 # --- DESPLIEGUE DEL DASHBOARD PRINCIPAL
 # ==============================================================================
