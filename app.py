@@ -224,7 +224,8 @@ try:
             st.sidebar.success("¡Guardado!")
             st.rerun()
 
-        df_f = df_raw[df_raw['marca'].isin(marcas_sel)]
+        # 🎯 OPTIMIZACIÓN DE MEMORIA: .copy() previene advertencias de SettingWithCopy al asignar variables
+        df_f = df_raw[df_raw['marca'].isin(marcas_sel)].copy()
         if len(rango_fecha) == 2: df_f = df_f[(df_f['fecha'].dt.date >= rango_fecha[0]) & (df_f['fecha'].dt.date <= rango_fecha[1])]
 
         # ======================================================================
@@ -358,11 +359,9 @@ try:
         st.subheader("🎯 Forecast Semanal y Análisis de Brecha (Gap Analysis)")
         st.caption("Proyección calculada estrictamente para la semana del **11/05/2026 al 17/05/2026**. Se asume un ritmo de venta lineal (Run Rate) en base a los días transcurridos.")
         
-        # 1. 🎯 CORRECCIÓN NATIVA: tzinfo=ZONA_AR inyecta el huso horario directo sin crasheos
         f_start = datetime(2026, 5, 11, 0, 0, 0, tzinfo=ZONA_AR)
         f_end = datetime(2026, 5, 17, 23, 59, 59, tzinfo=ZONA_AR)
         
-        # 2. Calcular días transcurridos con precisión decimal
         if ahora_ar < f_start:
             dias_transcurridos = 0.001
         elif ahora_ar > f_end:
@@ -372,7 +371,6 @@ try:
             
         dias_restantes = max(0.0, 7.0 - dias_transcurridos)
         
-        # 3. Filtrar el DataFrame crudo para aislar SOLO las ventas de esta semana objetivo
         df_semana = df_raw[(df_raw['fecha'] >= f_start) & (df_raw['fecha'] <= f_end)].copy()
         
         filas_forecast = []
@@ -572,7 +570,11 @@ try:
             df_fun = df_f[df_f['marca'].isin(marcas_fun_activas)].copy()
             df_env = df_fun[df_fun['fulfillment_status'].fillna('null').map(ESTADO_MAPA) == 'Enviado'].copy()
             
-            if df_env.empty or 'fecha_despacho' not in df_env.columns: st.info("No hay suficientes datos de despacho registrados para calcular el SLA.")
+            # 🎯 BLINDAJE DE NULOS: Omitimos registros donde no exista timestamp real de despacho
+            df_env = df_env.dropna(subset=['fecha', 'fecha_despacho'])
+            
+            if df_env.empty: 
+                st.info("No hay suficientes datos de despacho válidos registrados para calcular el SLA.")
             else:
                 fechas_compra, fechas_desp = df_env['fecha'].dt.date.values.astype('datetime64[D]'), df_env['fecha_despacho'].dt.date.values.astype('datetime64[D]')
                 df_env['lead_time_habiles'] = np.busday_count(fechas_compra, fechas_desp)
