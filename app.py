@@ -358,18 +358,16 @@ try:
         st.subheader("🎯 Forecast Semanal y Análisis de Brecha (Gap Analysis)")
         st.caption("Proyección calculada estrictamente para la semana del **11/05/2026 al 17/05/2026**. Se asume un ritmo de venta lineal (Run Rate) en base a los días transcurridos.")
         
-        # 1. Definir fronteras de la semana objetivo en la zona horaria local
-        f_start = ZONA_AR.localize(datetime(2026, 5, 11, 0, 0, 0))
-        f_end = ZONA_AR.localize(datetime(2026, 5, 17, 23, 59, 59))
+        # 1. 🎯 CORRECCIÓN NATIVA: tzinfo=ZONA_AR inyecta el huso horario directo sin crasheos
+        f_start = datetime(2026, 5, 11, 0, 0, 0, tzinfo=ZONA_AR)
+        f_end = datetime(2026, 5, 17, 23, 59, 59, tzinfo=ZONA_AR)
         
         # 2. Calcular días transcurridos con precisión decimal
-        # Lógica de frontera: Si hoy es antes del 11, van 0 días. Si es después del 17, pasaron 7 días.
         if ahora_ar < f_start:
-            dias_transcurridos = 0.001 # Evita división por cero
+            dias_transcurridos = 0.001
         elif ahora_ar > f_end:
             dias_transcurridos = 7.0
         else:
-            # Diferencia en segundos desde el inicio del lunes dividida por los segundos de un día
             dias_transcurridos = (ahora_ar - f_start).total_seconds() / 86400.0
             
         dias_restantes = max(0.0, 7.0 - dias_transcurridos)
@@ -377,7 +375,6 @@ try:
         # 3. Filtrar el DataFrame crudo para aislar SOLO las ventas de esta semana objetivo
         df_semana = df_raw[(df_raw['fecha'] >= f_start) & (df_raw['fecha'] <= f_end)].copy()
         
-        # Construcción de las filas de proyección
         filas_forecast = []
         
         for m_fore in marcas_sel:
@@ -385,40 +382,34 @@ try:
             venta_acumulada = df_sf['subtotal_producto'].sum()
             unidades_acumuladas = df_sf['cantidad'].sum()
             
-            # Obtener el objetivo financiero de la marca desde el JSON guardado
             obj_dinero = objetivos_actuales.get(m_fore, {}).get("facturacion", 0)
             
-            # Calcular Forecast (Proyección a 7 días)
             if dias_transcurridos > 0:
                 forecast_dinero = (venta_acumulada / dias_transcurridos) * 7.0
             else:
                 forecast_dinero = 0.0
                 
-            # Calcular Brecha (Gap)
             gap_dinero = obj_dinero - venta_acumulada
             
-            # Calcular Run Rate Requerido por día restante
             if gap_dinero <= 0:
-                run_rate_req = 0.0 # Meta superada
+                run_rate_req = 0.0
                 unidades_req_dia = 0
                 estado_gap = "✅ Meta Cumplida"
             else:
                 if dias_restantes > 0:
                     run_rate_req = gap_dinero / dias_restantes
-                    # Calcular el Precio Promedio de Venta (ASP) para traducir dinero a unidades
                     asp_actual = (venta_acumulada / unidades_acumuladas) if unidades_acumuladas > 0 else 0
                     
-                    # Si no hay ventas en la semana, busca el ASP global de la marca como plan B
                     if asp_actual == 0:
                         df_global_m = df_raw[df_raw['marca'] == m_fore]
                         v_glob = df_global_m['subtotal_producto'].sum()
                         u_glob = df_global_m['cantidad'].sum()
-                        asp_actual = (v_glob / u_glob) if u_glob > 0 else 50000 # Valor base seguro
+                        asp_actual = (v_glob / u_glob) if u_glob > 0 else 50000
                         
                     unidades_req_dia = int(np.ceil(run_rate_req / asp_actual))
                     estado_gap = f"⚠️ Faltan ${gap_dinero:,.0f}"
                 else:
-                    run_rate_req = gap_dinero # Se acabó el tiempo
+                    run_rate_req = gap_dinero
                     unidades_req_dia = 0
                     estado_gap = "❌ Semana Cerrada"
                     
@@ -432,7 +423,6 @@ try:
                 "Unidades Necesarias / Día": f"{unidades_req_dia:,} un." if unidades_req_dia > 0 else "-"
             })
             
-        # Dibujamos una tabla HTML limpia y adaptada a la paleta del tablero
         if filas_forecast:
             html_fore = "<table class='forecast-table'><thead><tr><th>Marca</th><th>Venta Acum. (Semana)</th><th>Objetivo</th><th>Proyección (Forecast)</th><th>Brecha (Gap)</th><th>Run Rate Req. ($/Día)</th><th>Run Rate Req. (Un./Día)</th></tr></thead><tbody>"
             for f in filas_forecast:
@@ -441,7 +431,6 @@ try:
             
             st.markdown(html_fore, unsafe_allow_html=True)
             
-            # Añadimos métricas rápidas de contexto temporal para el usuario
             st.write("")
             cf1, cf2, cf3 = st.columns(3)
             cf1.metric("Días Consumidos", f"{dias_transcurridos:.1f} de 7 días")
