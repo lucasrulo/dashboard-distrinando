@@ -42,6 +42,14 @@ st.markdown("""
     .module-box { background: #1E293B; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-top: 15px; }
     span[data-baseweb="tag"] { background-color: #1E3A8A !important; color: #F8FAFC !important; border: 1px solid #3B82F6 !important; border-radius: 4px !important; }
     
+    /* Clases para tablas nativas en modo oscuro */
+    .forecast-table { width: 100%; color: #E2E8F0; border-collapse: collapse; font-size: 13px; text-align: right; }
+    .forecast-table th { background-color: #334155; color: #94A3B8; padding: 10px; font-weight: 700; text-transform: uppercase; border-bottom: 2px solid #0F172A; text-align: right; }
+    .forecast-table th:first-child { text-align: left; }
+    .forecast-table td { padding: 10px; border-bottom: 1px solid #334155; }
+    .forecast-table td:first-child { text-align: left; font-weight: 700; color: #F8FAFC; }
+    .forecast-table tr:hover { background-color: #0F172A; }
+    
     @media (max-width: 768px) {
         .block-container { padding-left: 0.8rem !important; padding-right: 0.8rem !important; }
         .metric-container { padding: 12px !important; margin-bottom: 8px !important; }
@@ -94,7 +102,7 @@ def load_data():
     if not os.path.exists("ventas_hot_sale.csv"): return pd.DataFrame()
     df = pd.read_csv("ventas_hot_sale.csv")
     
-    # 🎯 LECTURA PLANA: Infiriendo el texto simple idéntico al offset generado por el robot
+    # LECTURA PLANA: Infiriendo el texto simple idéntico al offset generado por el robot
     df['fecha'] = pd.to_datetime(df['fecha'], errors='coerce')
     
     if 'total_orden' in df.columns and 'total_pedido' not in df.columns: df.rename(columns={'total_orden': 'total_pedido'}, inplace=True)
@@ -342,6 +350,105 @@ try:
             
         v1.plotly_chart(fig_fc, use_container_width=True)
         v2.plotly_chart(fig_un, use_container_width=True)
+
+        # ======================================================================
+        # --- SECCIÓN NUEVA: FORECAST Y ANÁLISIS DE BRECHA (GAP ANALYSIS) ---
+        # ======================================================================
+        st.divider()
+        st.subheader("🎯 Forecast Semanal y Análisis de Brecha (Gap Analysis)")
+        st.caption("Proyección calculada estrictamente para la semana del **11/05/2026 al 17/05/2026**. Se asume un ritmo de venta lineal (Run Rate) en base a los días transcurridos.")
+        
+        # 1. Definir fronteras de la semana objetivo en la zona horaria local
+        f_start = ZONA_AR.localize(datetime(2026, 5, 11, 0, 0, 0))
+        f_end = ZONA_AR.localize(datetime(2026, 5, 17, 23, 59, 59))
+        
+        # 2. Calcular días transcurridos con precisión decimal
+        # Lógica de frontera: Si hoy es antes del 11, van 0 días. Si es después del 17, pasaron 7 días.
+        if ahora_ar < f_start:
+            dias_transcurridos = 0.001 # Evita división por cero
+        elif ahora_ar > f_end:
+            dias_transcurridos = 7.0
+        else:
+            # Diferencia en segundos desde el inicio del lunes dividida por los segundos de un día
+            dias_transcurridos = (ahora_ar - f_start).total_seconds() / 86400.0
+            
+        dias_restantes = max(0.0, 7.0 - dias_transcurridos)
+        
+        # 3. Filtrar el DataFrame crudo para aislar SOLO las ventas de esta semana objetivo
+        df_semana = df_raw[(df_raw['fecha'] >= f_start) & (df_raw['fecha'] <= f_end)].copy()
+        
+        # Construcción de las filas de proyección
+        filas_forecast = []
+        
+        for m_fore in marcas_sel:
+            df_sf = df_semana[df_semana['marca'] == m_fore]
+            venta_acumulada = df_sf['subtotal_producto'].sum()
+            unidades_acumuladas = df_sf['cantidad'].sum()
+            
+            # Obtener el objetivo financiero de la marca desde el JSON guardado
+            obj_dinero = objetivos_actuales.get(m_fore, {}).get("facturacion", 0)
+            
+            # Calcular Forecast (Proyección a 7 días)
+            if dias_transcurridos > 0:
+                forecast_dinero = (venta_acumulada / dias_transcurridos) * 7.0
+            else:
+                forecast_dinero = 0.0
+                
+            # Calcular Brecha (Gap)
+            gap_dinero = obj_dinero - venta_acumulada
+            
+            # Calcular Run Rate Requerido por día restante
+            if gap_dinero <= 0:
+                run_rate_req = 0.0 # Meta superada
+                unidades_req_dia = 0
+                estado_gap = "✅ Meta Cumplida"
+            else:
+                if dias_restantes > 0:
+                    run_rate_req = gap_dinero / dias_restantes
+                    # Calcular el Precio Promedio de Venta (ASP) para traducir dinero a unidades
+                    asp_actual = (venta_acumulada / unidades_acumuladas) if unidades_acumuladas > 0 else 0
+                    
+                    # Si no hay ventas en la semana, busca el ASP global de la marca como plan B
+                    if asp_actual == 0:
+                        df_global_m = df_raw[df_raw['marca'] == m_fore]
+                        v_glob = df_global_m['subtotal_producto'].sum()
+                        u_glob = df_global_m['cantidad'].sum()
+                        asp_actual = (v_glob / u_glob) if u_glob > 0 else 50000 # Valor base seguro
+                        
+                    unidades_req_dia = int(np.ceil(run_rate_req / asp_actual))
+                    estado_gap = f"⚠️ Faltan ${gap_dinero:,.0f}"
+                else:
+                    run_rate_req = gap_dinero # Se acabó el tiempo
+                    unidades_req_dia = 0
+                    estado_gap = "❌ Semana Cerrada"
+                    
+            filas_forecast.append({
+                "Marca": m_fore,
+                "Venta Acum.": f"${venta_acumulada:,.0f}",
+                "Objetivo": f"${obj_dinero:,.0f}",
+                "Forecast (Proy.)": f"${forecast_dinero:,.0f}",
+                "Estado Brecha": estado_gap,
+                "Venta Necesaria / Día": f"${run_rate_req:,.0f}" if run_rate_req > 0 else "-",
+                "Unidades Necesarias / Día": f"{unidades_req_dia:,} un." if unidades_req_dia > 0 else "-"
+            })
+            
+        # Dibujamos una tabla HTML limpia y adaptada a la paleta del tablero
+        if filas_forecast:
+            html_fore = "<table class='forecast-table'><thead><tr><th>Marca</th><th>Venta Acum. (Semana)</th><th>Objetivo</th><th>Proyección (Forecast)</th><th>Brecha (Gap)</th><th>Run Rate Req. ($/Día)</th><th>Run Rate Req. (Un./Día)</th></tr></thead><tbody>"
+            for f in filas_forecast:
+                html_fore += f"<tr><td>{f['Marca']}</td><td>{f['Venta Acum.']}</td><td>{f['Objetivo']}</td><td style='color:#38BDF8; font-weight:700;'>{f['Forecast (Proy.)']}</td><td>{f['Estado Brecha']}</td><td style='color:#FBBF24; font-weight:700;'>{f['Venta Necesaria / Día']}</td><td style='color:#F472B6; font-weight:700;'>{f['Unidades Necesarias / Día']}</td></tr>"
+            html_fore += "</tbody></table>"
+            
+            st.markdown(html_fore, unsafe_allow_html=True)
+            
+            # Añadimos métricas rápidas de contexto temporal para el usuario
+            st.write("")
+            cf1, cf2, cf3 = st.columns(3)
+            cf1.metric("Días Consumidos", f"{dias_transcurridos:.1f} de 7 días")
+            cf2.metric("Días Restantes", f"{dias_restantes:.1f} días")
+            cf3.metric("Ritmo Actual Global", f"${(df_semana['subtotal_producto'].sum() / dias_transcurridos if dias_transcurridos > 0 else 0):,.0f} / día")
+        else:
+            st.info("No hay marcas seleccionadas para proyectar.")
 
         # --- SECCIÓN 5: TOP 10 ---
         st.divider()
