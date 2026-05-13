@@ -282,7 +282,6 @@ try:
         if df_hoy.empty: st.info("Sin registros para la fecha actual con los filtros seleccionados.")
         else:
             h1, h2, h3, h4, h5 = st.columns(5)
-            # Agrupación segura combinando marca y orden para no mezclar IDs idénticos
             p_hoy = df_hoy.groupby(['marca', 'id_pedido']).first()
             fact_hoy = p_hoy['total_pedido'].sum()
             h1.metric("Facturación", f"${fact_hoy:,.0f}")
@@ -312,28 +311,40 @@ try:
         render_kpi(k4, "Ticket Promedio", f"${tkt_g:,.0f}", "#FBBF24")
         render_kpi(k5, "Tasa Devolución", f"{dev_g:.2f}%", "#F87171")
 
-        # --- SECCIÓN 3: MARCAS (UNIFICADO A VENTA NETA COBRADA) ---
+        # --- SECCIÓN 3: MARCAS (CON DESGLOSE EN VIVO DE HOY) ---
         st.write("##")
         st.subheader("🏢 Rendimiento por Unidad de Negocio")
         m_cols = st.columns(len(marcas_sel)) if marcas_sel else []
         for i, m_nombre in enumerate(marcas_sel):
             df_m = df_f[df_f['marca'] == m_nombre]
             if not df_m.empty:
-                # Planchamos a facturación neta de caja por orden única
+                # Totales acumulados del período filtrado
                 p_m = df_m.groupby('id_pedido').first()
                 f_m = p_m['total_pedido'].sum()
                 c_m = len(p_m)
                 u_m = df_m['cantidad'].sum()
+                
+                # 🎯 AISLAMIENTO ESPECÍFICO DE HOY PARA LA TARJETA
+                df_m_hoy = df_m[df_m['fecha'].dt.date == hoy_dt]
+                p_m_hoy = df_m_hoy.groupby('id_pedido').first()
+                f_m_hoy = p_m_hoy['total_pedido'].sum() if not p_m_hoy.empty else 0
+                u_m_hoy = df_m_hoy['cantidad'].sum() if not df_m_hoy.empty else 0
+                
                 aov = (f_m / c_m if c_m > 0 else 0)
                 upt = (u_m / c_m if c_m > 0 else 0)
                 asp = (f_m / u_m if u_m > 0 else 0)
                 accent = PALETA_MARCAS.get(m_nombre, "#94A3B8")
+                
+                # Inyectamos de forma jerárquica y legible las ventas y unidades exclusivas del día
                 m_cols[i].markdown(f"""
                     <div class="brand-card" style="border-top: 4px solid {accent};">
                         <div class="brand-header" style="color: {accent};">{m_nombre}</div>
-                        <div class="brand-stat"><span>Venta:</span><span class="brand-stat-val">${f_m:,.0f}</span></div>
+                        <div class="brand-stat"><span>Venta Total:</span><span class="brand-stat-val">${f_m:,.0f}</span></div>
+                        <div class="brand-stat"><span style="color: #38BDF8;">↳ Venta Hoy:</span><span class="brand-stat-val" style="color: #38BDF8;">${f_m_hoy:,.0f}</span></div>
                         <div class="brand-stat"><span>Órdenes:</span><span class="brand-stat-val">{c_m:,}</span></div>
-                        <div class="brand-stat"><span>Unidades:</span><span class="brand-stat-val">{u_m:,}</span></div>
+                        <div class="brand-stat"><span>Unidades Totales:</span><span class="brand-stat-val">{u_m:,}</span></div>
+                        <div class="brand-stat"><span style="color: #34D399;">↳ Unid. Hoy:</span><span class="brand-stat-val" style="color: #34D399;">{u_m_hoy:,}</span></div>
+                        <div style="border-bottom: 1px solid #334155; margin: 8px 0;"></div>
                         <div class="brand-stat" title="Average Order Value"><span>AOV:</span><span class="brand-stat-val">${aov:,.0f}</span></div>
                         <div class="brand-stat" title="Units Per Transaction"><span>UPT:</span><span class="brand-stat-val">{upt:,.2f}</span></div>
                         <div class="brand-stat" title="Average Selling Price"><span>ASP:</span><span class="brand-stat-val">${asp:,.0f}</span></div>
@@ -387,7 +398,6 @@ try:
         for m_fore in marcas_sel:
             df_sf = df_semana[df_semana['marca'] == m_fore]
             p_sf = df_sf.groupby('id_pedido').first()
-            # Alineamos la venta acumulada de la meta estrictamente al dinero neto cobrado
             venta_acumulada = p_sf['total_pedido'].sum() if not p_sf.empty else 0
             unidades_acumuladas = df_sf['cantidad'].sum()
             
@@ -431,7 +441,6 @@ try:
             cf1, cf2, cf3 = st.columns(3)
             cf1.metric("Días Consumidos", f"{dias_transcurridos:.1f} de 7 días")
             cf2.metric("Días Restantes", f"{dias_restantes:.1f} días")
-            # Contexto neto global
             p_sem_glob = df_semana.groupby(['marca', 'id_pedido']).first()
             venta_sem_glob = p_sem_glob['total_pedido'].sum() if not p_sem_glob.empty else 0
             cf3.metric("Ritmo Neto Global", f"${(venta_sem_glob / dias_transcurridos if dias_transcurridos > 0 else 0):,.0f} / día")
@@ -549,7 +558,6 @@ try:
             df_geo = df_f[df_f['marca'].isin(marcas_g_activas)].copy()
             df_geo['prov_limpia'] = df_geo['provincia'].apply(lambda x: PROVINCIAS_MAPA.get(str(x).lower().strip(), 'Buenos Aires'))
             
-            # Eliminamos duplicados de total_pedido por provincia y sumamos unidades limpias
             p_geo = df_geo.groupby(['marca', 'id_pedido']).first().reset_index()
             geo_fc = p_geo.groupby('prov_limpia')['total_pedido'].sum().reset_index()
             geo_un = df_geo.groupby('prov_limpia')['cantidad'].sum().reset_index()
@@ -601,7 +609,6 @@ try:
         g1, g2 = st.columns([2, 1])
         with g1:
             df_f['hora'] = df_f['fecha'].dt.hour
-            # Evitamos duplicar la facturación de la orden en cada línea por hora
             p_hora = df_f.groupby(['marca', 'id_pedido']).first().reset_index()
             v_h = p_hora.groupby(['hora', 'marca'])['total_pedido'].sum().reset_index()
             fig_l = px.line(v_h, x='hora', y='total_pedido', color='marca', markers=True, line_shape="spline", color_discrete_map=PALETA_MARCAS, title="Facturación por Hora")
