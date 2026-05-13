@@ -16,11 +16,22 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# BLOQUEO DE TEMA OSCURO CORPORATIVO POR DEFECTO PARA LA NUBE
+st.markdown("""
+    <script>
+        const doc = window.parent.document;
+        const body = doc.querySelector('body');
+        if (body) { body.setAttribute('data-theme', 'dark'); }
+    </script>
+""", unsafe_allow_html=True)
+
 st_autorefresh(interval=300000, limit=None, key="auto_refresh")
 
-# 2. CSS CORPORATIVO
+# 2. CSS CORPORATIVO REINGENIERIZADO
 st.markdown("""
     <style>
+    .stApp { background-color: #0F172A; }
     .metric-container { background-color: #1E293B; border: 1px solid #334155; padding: 24px; border-radius: 12px; text-align: center; margin-bottom: 15px; transition: all 0.2s ease; }
     .metric-title { font-size: 12px; text-transform: uppercase; color: #94A3B8; font-weight: 700; letter-spacing: 1px; margin-bottom: 10px; }
     .metric-value { font-size: 30px; font-weight: 800; color: #38BDF8; letter-spacing: -1px; }
@@ -42,13 +53,13 @@ st.markdown("""
     .module-box { background: #1E293B; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin-top: 15px; }
     span[data-baseweb="tag"] { background-color: #1E3A8A !important; color: #F8FAFC !important; border: 1px solid #3B82F6 !important; border-radius: 4px !important; }
     
-    /* Clases para tablas nativas en modo oscuro */
-    .forecast-table { width: 100%; color: #E2E8F0; border-collapse: collapse; font-size: 13px; text-align: right; }
-    .forecast-table th { background-color: #334155; color: #94A3B8; padding: 10px; font-weight: 700; text-transform: uppercase; border-bottom: 2px solid #0F172A; text-align: right; }
+    /* TABLAS NATIVAS DE ALTO CONTRASTE */
+    .forecast-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .forecast-table th { background-color: #0F172A; color: #94A3B8; padding: 12px 10px; font-weight: 800; text-transform: uppercase; border-bottom: 2px solid #334155; text-align: right; }
     .forecast-table th:first-child { text-align: left; }
-    .forecast-table td { padding: 10px; border-bottom: 1px solid #334155; }
-    .forecast-table td:first-child { text-align: left; font-weight: 700; color: #F8FAFC; }
-    .forecast-table tr:hover { background-color: #0F172A; }
+    .forecast-table td { padding: 12px 10px; border-bottom: 1px solid #334155; color: #F8FAFC; text-align: right; }
+    .forecast-table td:first-child { text-align: left; font-weight: 800; color: #FFFFFF; background-color: rgba(15, 23, 42, 0.3); }
+    .forecast-table tr:hover td { background-color: #334155; color: #FFFFFF; }
     
     @media (max-width: 768px) {
         .block-container { padding-left: 0.8rem !important; padding-right: 0.8rem !important; }
@@ -86,7 +97,6 @@ PROVINCIAS_MAPA = {
     'tierra del fuego': 'Tierra del Fuego', 'tdf': 'Tierra del Fuego', 'tucumán': 'Tucumán', 'tucuman': 'Tucumán'
 }
 
-# --- CÁLCULO ESTRICTO DE LA HORA EN ARGENTINA (GMT-3) ---
 ZONA_AR = timezone(timedelta(hours=-3))
 
 def obtener_hora_argentina():
@@ -96,13 +106,11 @@ def obtener_hora_argentina():
 # --- DESPLIEGUE DEL DASHBOARD PRINCIPAL
 # ==============================================================================
 
-# 4. CARGA DE DATOS
 @st.cache_data(ttl=60)
 def load_data():
     if not os.path.exists("ventas_hot_sale.csv"): return pd.DataFrame()
     df = pd.read_csv("ventas_hot_sale.csv")
     
-    # LECTURA PLANA: Infiriendo el texto simple idéntico al offset generado por el robot
     df['fecha'] = pd.to_datetime(df['fecha'], errors='coerce')
     
     if 'total_orden' in df.columns and 'total_pedido' not in df.columns: df.rename(columns={'total_orden': 'total_pedido'}, inplace=True)
@@ -224,7 +232,6 @@ try:
             st.sidebar.success("¡Guardado!")
             st.rerun()
 
-        # 🎯 OPTIMIZACIÓN DE MEMORIA: .copy() previene advertencias de SettingWithCopy al asignar variables
         df_f = df_raw[df_raw['marca'].isin(marcas_sel)].copy()
         if len(rango_fecha) == 2: df_f = df_f[(df_f['fecha'].dt.date >= rango_fecha[0]) & (df_f['fecha'].dt.date <= rango_fecha[1])]
 
@@ -255,7 +262,6 @@ try:
                 
                 try:
                     res = requests.post(url_github, headers=headers_github, json={"ref": "main"})
-                    
                     if res.status_code == 204:
                         st.cache_data.clear()
                         for seg in range(55, -1, -1):
@@ -270,13 +276,14 @@ try:
                 except Exception as e:
                     st.error(f"Excepción técnica: {e}")
 
-        # --- SECCIÓN 1: HOY ---
+        # --- SECCIÓN 1: HOY (UNIFICADO A VENTA NETA) ---
         st.subheader(f"⭐ Actividad de Hoy ({hoy_dt.strftime('%d/%m/%Y')})")
         df_hoy = df_f[df_f['fecha'].dt.date == hoy_dt]
         if df_hoy.empty: st.info("Sin registros para la fecha actual con los filtros seleccionados.")
         else:
             h1, h2, h3, h4, h5 = st.columns(5)
-            p_hoy = df_hoy.groupby('id_pedido').first()
+            # Agrupación segura combinando marca y orden para no mezclar IDs idénticos
+            p_hoy = df_hoy.groupby(['marca', 'id_pedido']).first()
             fact_hoy = p_hoy['total_pedido'].sum()
             h1.metric("Facturación", f"${fact_hoy:,.0f}")
             h2.metric("Órdenes", f"{len(p_hoy):,}")
@@ -288,8 +295,8 @@ try:
 
         st.markdown("<br>", unsafe_allow_html=True)
 
-        # --- SECCIÓN 2: KPIs ---
-        p_global = df_f.groupby('id_pedido').first()
+        # --- SECCIÓN 2: KPIs (UNIFICADO A VENTA NETA) ---
+        p_global = df_f.groupby(['marca', 'id_pedido']).first()
         fact_g = p_global['total_pedido'].sum()
         pedi_g = len(p_global)
         unid_g = df_f['cantidad'].sum()
@@ -305,15 +312,21 @@ try:
         render_kpi(k4, "Ticket Promedio", f"${tkt_g:,.0f}", "#FBBF24")
         render_kpi(k5, "Tasa Devolución", f"{dev_g:.2f}%", "#F87171")
 
-        # --- SECCIÓN 3: MARCAS ---
+        # --- SECCIÓN 3: MARCAS (UNIFICADO A VENTA NETA COBRADA) ---
         st.write("##")
         st.subheader("🏢 Rendimiento por Unidad de Negocio")
         m_cols = st.columns(len(marcas_sel)) if marcas_sel else []
         for i, m_nombre in enumerate(marcas_sel):
             df_m = df_f[df_f['marca'] == m_nombre]
             if not df_m.empty:
-                f_m, c_m, u_m = df_m['subtotal_producto'].sum(), df_m['id_pedido'].nunique(), df_m['cantidad'].sum()
-                aov, upt, asp = (f_m / c_m if c_m > 0 else 0), (u_m / c_m if c_m > 0 else 0), (f_m / u_m if u_m > 0 else 0)
+                # Planchamos a facturación neta de caja por orden única
+                p_m = df_m.groupby('id_pedido').first()
+                f_m = p_m['total_pedido'].sum()
+                c_m = len(p_m)
+                u_m = df_m['cantidad'].sum()
+                aov = (f_m / c_m if c_m > 0 else 0)
+                upt = (u_m / c_m if c_m > 0 else 0)
+                asp = (f_m / u_m if u_m > 0 else 0)
                 accent = PALETA_MARCAS.get(m_nombre, "#94A3B8")
                 m_cols[i].markdown(f"""
                     <div class="brand-card" style="border-top: 4px solid {accent};">
@@ -342,7 +355,8 @@ try:
             fig_un = crear_velocimetro(unid_g, obj_un_acum, f"Unidades Globales ({len(marcas_sel)} marcas)")
         else:
             df_v = df_f[df_f['marca'] == vel_sel]
-            fc_real = df_v['subtotal_producto'].sum() if not df_v.empty else 0
+            p_v = df_v.groupby('id_pedido').first()
+            fc_real = p_v['total_pedido'].sum() if not p_v.empty else 0
             un_real = df_v['cantidad'].sum() if not df_v.empty else 0
             obj_fc = objetivos_actuales.get(vel_sel, {}).get("facturacion", 0)
             obj_un = objetivos_actuales.get(vel_sel, {}).get("unidades", 0)
@@ -353,7 +367,7 @@ try:
         v2.plotly_chart(fig_un, use_container_width=True)
 
         # ======================================================================
-        # --- SECCIÓN NUEVA: FORECAST Y ANÁLISIS DE BRECHA (GAP ANALYSIS) ---
+        # --- SECCIÓN: FORECAST Y ANÁLISIS DE BRECHA (UNIFICADO A VENTA NETA) ---
         # ======================================================================
         st.divider()
         st.subheader("🎯 Forecast Semanal y Análisis de Brecha (Gap Analysis)")
@@ -362,61 +376,46 @@ try:
         f_start = datetime(2026, 5, 11, 0, 0, 0, tzinfo=ZONA_AR)
         f_end = datetime(2026, 5, 17, 23, 59, 59, tzinfo=ZONA_AR)
         
-        if ahora_ar < f_start:
-            dias_transcurridos = 0.001
-        elif ahora_ar > f_end:
-            dias_transcurridos = 7.0
-        else:
-            dias_transcurridos = (ahora_ar - f_start).total_seconds() / 86400.0
+        if ahora_ar < f_start: dias_transcurridos = 0.001
+        elif ahora_ar > f_end: dias_transcurridos = 7.0
+        else: dias_transcurridos = (ahora_ar - f_start).total_seconds() / 86400.0
             
         dias_restantes = max(0.0, 7.0 - dias_transcurridos)
-        
         df_semana = df_raw[(df_raw['fecha'] >= f_start) & (df_raw['fecha'] <= f_end)].copy()
         
         filas_forecast = []
-        
         for m_fore in marcas_sel:
             df_sf = df_semana[df_semana['marca'] == m_fore]
-            venta_acumulada = df_sf['subtotal_producto'].sum()
+            p_sf = df_sf.groupby('id_pedido').first()
+            # Alineamos la venta acumulada de la meta estrictamente al dinero neto cobrado
+            venta_acumulada = p_sf['total_pedido'].sum() if not p_sf.empty else 0
             unidades_acumuladas = df_sf['cantidad'].sum()
             
             obj_dinero = objetivos_actuales.get(m_fore, {}).get("facturacion", 0)
-            
-            if dias_transcurridos > 0:
-                forecast_dinero = (venta_acumulada / dias_transcurridos) * 7.0
-            else:
-                forecast_dinero = 0.0
-                
+            forecast_dinero = (venta_acumulada / dias_transcurridos) * 7.0 if dias_transcurridos > 0 else 0.0
             gap_dinero = obj_dinero - venta_acumulada
             
             if gap_dinero <= 0:
-                run_rate_req = 0.0
-                unidades_req_dia = 0
-                estado_gap = "✅ Meta Cumplida"
+                run_rate_req = 0.0; unidades_req_dia = 0; estado_gap = "✅ Meta Cumplida"
             else:
                 if dias_restantes > 0:
                     run_rate_req = gap_dinero / dias_restantes
                     asp_actual = (venta_acumulada / unidades_acumuladas) if unidades_acumuladas > 0 else 0
-                    
                     if asp_actual == 0:
                         df_global_m = df_raw[df_raw['marca'] == m_fore]
-                        v_glob = df_global_m['subtotal_producto'].sum()
+                        p_glob = df_global_m.groupby('id_pedido').first()
+                        v_glob = p_glob['total_pedido'].sum() if not p_glob.empty else 0
                         u_glob = df_global_m['cantidad'].sum()
                         asp_actual = (v_glob / u_glob) if u_glob > 0 else 50000
                         
                     unidades_req_dia = int(np.ceil(run_rate_req / asp_actual))
                     estado_gap = f"⚠️ Faltan ${gap_dinero:,.0f}"
                 else:
-                    run_rate_req = gap_dinero
-                    unidades_req_dia = 0
-                    estado_gap = "❌ Semana Cerrada"
+                    run_rate_req = gap_dinero; unidades_req_dia = 0; estado_gap = "❌ Semana Cerrada"
                     
             filas_forecast.append({
-                "Marca": m_fore,
-                "Venta Acum.": f"${venta_acumulada:,.0f}",
-                "Objetivo": f"${obj_dinero:,.0f}",
-                "Forecast (Proy.)": f"${forecast_dinero:,.0f}",
-                "Estado Brecha": estado_gap,
+                "Marca": m_fore, "Venta Acum.": f"${venta_acumulada:,.0f}", "Objetivo": f"${obj_dinero:,.0f}",
+                "Forecast (Proy.)": f"${forecast_dinero:,.0f}", "Estado Brecha": estado_gap,
                 "Venta Necesaria / Día": f"${run_rate_req:,.0f}" if run_rate_req > 0 else "-",
                 "Unidades Necesarias / Día": f"{unidades_req_dia:,} un." if unidades_req_dia > 0 else "-"
             })
@@ -426,16 +425,17 @@ try:
             for f in filas_forecast:
                 html_fore += f"<tr><td>{f['Marca']}</td><td>{f['Venta Acum.']}</td><td>{f['Objetivo']}</td><td style='color:#38BDF8; font-weight:700;'>{f['Forecast (Proy.)']}</td><td>{f['Estado Brecha']}</td><td style='color:#FBBF24; font-weight:700;'>{f['Venta Necesaria / Día']}</td><td style='color:#F472B6; font-weight:700;'>{f['Unidades Necesarias / Día']}</td></tr>"
             html_fore += "</tbody></table>"
-            
             st.markdown(html_fore, unsafe_allow_html=True)
             
             st.write("")
             cf1, cf2, cf3 = st.columns(3)
             cf1.metric("Días Consumidos", f"{dias_transcurridos:.1f} de 7 días")
             cf2.metric("Días Restantes", f"{dias_restantes:.1f} días")
-            cf3.metric("Ritmo Actual Global", f"${(df_semana['subtotal_producto'].sum() / dias_transcurridos if dias_transcurridos > 0 else 0):,.0f} / día")
-        else:
-            st.info("No hay marcas seleccionadas para proyectar.")
+            # Contexto neto global
+            p_sem_glob = df_semana.groupby(['marca', 'id_pedido']).first()
+            venta_sem_glob = p_sem_glob['total_pedido'].sum() if not p_sem_glob.empty else 0
+            cf3.metric("Ritmo Neto Global", f"${(venta_sem_glob / dias_transcurridos if dias_transcurridos > 0 else 0):,.0f} / día")
+        else: st.info("No hay marcas seleccionadas para proyectar.")
 
         # --- SECCIÓN 5: TOP 10 ---
         st.divider()
@@ -513,7 +513,7 @@ try:
                 if 'reversso' in v: return 'Reversso'
                 return 'Otros Gateways'
             
-            p_finanzas = df_fin.groupby('id_pedido').first().reset_index()
+            p_finanzas = df_fin.groupby(['marca', 'id_pedido']).first().reset_index()
             p_finanzas['gateway_agrupado'] = p_finanzas['medio_pago'].apply(limpiar_gateway)
             p_finanzas = p_finanzas[p_finanzas['gateway_agrupado'].isin(pass_f_activas)]
             gate_fc = p_finanzas.groupby('gateway_agrupado')['total_pedido'].sum().reset_index()
@@ -538,7 +538,7 @@ try:
             fig_log.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
             st.plotly_chart(configurar_grafico(fig_log), use_container_width=True)
 
-        # --- SECCIÓN GEOGRAFÍA Y EMBUDO ---
+        # --- SECCIÓN GEOGRAFÍA Y EMBUDO (UNIFICADO A VENTA NETA) ---
         st.divider()
         col_geo, col_fun = st.columns([1.2, 1])
         with col_geo:
@@ -548,7 +548,12 @@ try:
             
             df_geo = df_f[df_f['marca'].isin(marcas_g_activas)].copy()
             df_geo['prov_limpia'] = df_geo['provincia'].apply(lambda x: PROVINCIAS_MAPA.get(str(x).lower().strip(), 'Buenos Aires'))
-            prov_stat = df_geo.groupby('prov_limpia').agg({'total_pedido': 'sum', 'cantidad': 'sum'}).reset_index()
+            
+            # Eliminamos duplicados de total_pedido por provincia y sumamos unidades limpias
+            p_geo = df_geo.groupby(['marca', 'id_pedido']).first().reset_index()
+            geo_fc = p_geo.groupby('prov_limpia')['total_pedido'].sum().reset_index()
+            geo_un = df_geo.groupby('prov_limpia')['cantidad'].sum().reset_index()
+            prov_stat = pd.merge(geo_fc, geo_un, on='prov_limpia')
             
             cg1, cg2 = st.columns(2)
             with cg1:
@@ -569,12 +574,9 @@ try:
             marcas_fun_activas = fun_marca_sel if fun_marca_sel else marcas_disponibles
             df_fun = df_f[df_f['marca'].isin(marcas_fun_activas)].copy()
             df_env = df_fun[df_fun['fulfillment_status'].fillna('null').map(ESTADO_MAPA) == 'Enviado'].copy()
-            
-            # 🎯 BLINDAJE DE NULOS: Omitimos registros donde no exista timestamp real de despacho
             df_env = df_env.dropna(subset=['fecha', 'fecha_despacho'])
             
-            if df_env.empty: 
-                st.info("No hay suficientes datos de despacho válidos registrados para calcular el SLA.")
+            if df_env.empty: st.info("No hay suficientes datos de despacho válidos registrados para calcular el SLA.")
             else:
                 fechas_compra, fechas_desp = df_env['fecha'].dt.date.values.astype('datetime64[D]'), df_env['fecha_despacho'].dt.date.values.astype('datetime64[D]')
                 df_env['lead_time_habiles'] = np.busday_count(fechas_compra, fechas_desp)
@@ -593,21 +595,29 @@ try:
                 fig_fun.update_layout(yaxis_title="Tiempo de Procesamiento", xaxis_title="Órdenes", height=350)
                 st.plotly_chart(configurar_grafico(fig_fun), use_container_width=True)
 
-        # --- SECCIÓN TEMPORAL ---
+        # --- SECCIÓN TEMPORAL (UNIFICADO A VENTA NETA) ---
         st.divider()
         st.subheader("📅 Análisis Temporal y Eficiencia")
         g1, g2 = st.columns([2, 1])
         with g1:
             df_f['hora'] = df_f['fecha'].dt.hour
-            v_h = df_f.groupby(['hora', 'marca'])['total_pedido'].sum().reset_index()
+            # Evitamos duplicar la facturación de la orden en cada línea por hora
+            p_hora = df_f.groupby(['marca', 'id_pedido']).first().reset_index()
+            v_h = p_hora.groupby(['hora', 'marca'])['total_pedido'].sum().reset_index()
             fig_l = px.line(v_h, x='hora', y='total_pedido', color='marca', markers=True, line_shape="spline", color_discrete_map=PALETA_MARCAS, title="Facturación por Hora")
             fig_l.update_layout(xaxis_title="Hora del Día", yaxis_title="Facturación ($)", legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
             st.plotly_chart(configurar_grafico(fig_l), use_container_width=True)
         with g2:
             st.markdown("#### Resumen Operativo")
-            resumen_tec = df_f.groupby('marca').agg({'id_pedido': 'nunique', 'cantidad': 'sum', 'subtotal_producto': 'sum'}).reset_index()
+            p_res = df_f.groupby(['marca', 'id_pedido']).first().reset_index()
+            res_fc = p_res.groupby('marca')['total_pedido'].sum().reset_index()
+            res_ord = p_res.groupby('marca')['id_pedido'].nunique().reset_index()
+            res_un = df_f.groupby('marca')['cantidad'].sum().reset_index()
+            
+            resumen_tec = pd.merge(res_ord, res_un, on='marca')
+            resumen_tec = pd.merge(resumen_tec, res_fc, on='marca')
             resumen_tec.columns = ['Marca', 'Órdenes', 'Unidades', 'Facturación']
-            resumen_tec['Ticket Med.'] = (resumen_tec['Facturación'] / resumen_tec['Órdenes']).round(0)
+            resumen_tec['Ticket Med.'] = (resumen_tec['Facturación'] / resumen_tec['Órdenes']).round(0).fillna(0)
             st.dataframe(resumen_tec, use_container_width=True, hide_index=True)
 
 except Exception as e: st.error(f"Se ha producido un error técnico: {e}")
