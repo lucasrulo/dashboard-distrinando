@@ -318,13 +318,11 @@ try:
         for i, m_nombre in enumerate(marcas_sel):
             df_m = df_f[df_f['marca'] == m_nombre]
             if not df_m.empty:
-                # Totales acumulados del período filtrado
                 p_m = df_m.groupby('id_pedido').first()
                 f_m = p_m['total_pedido'].sum()
                 c_m = len(p_m)
                 u_m = df_m['cantidad'].sum()
                 
-                # 🎯 AISLAMIENTO ESPECÍFICO DE HOY PARA LA TARJETA
                 df_m_hoy = df_m[df_m['fecha'].dt.date == hoy_dt]
                 p_m_hoy = df_m_hoy.groupby('id_pedido').first()
                 f_m_hoy = p_m_hoy['total_pedido'].sum() if not p_m_hoy.empty else 0
@@ -335,7 +333,6 @@ try:
                 asp = (f_m / u_m if u_m > 0 else 0)
                 accent = PALETA_MARCAS.get(m_nombre, "#94A3B8")
                 
-                # Inyectamos de forma jerárquica y legible las ventas y unidades exclusivas del día
                 m_cols[i].markdown(f"""
                     <div class="brand-card" style="border-top: 4px solid {accent};">
                         <div class="brand-header" style="color: {accent};">{m_nombre}</div>
@@ -547,7 +544,7 @@ try:
             fig_log.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
             st.plotly_chart(configurar_grafico(fig_log), use_container_width=True)
 
-        # --- SECCIÓN GEOGRAFÍA Y EMBUDO (UNIFICADO A VENTA NETA) ---
+        # --- SECCIÓN GEOGRAFÍA Y EMBUDO ---
         st.divider()
         col_geo, col_fun = st.columns([1.2, 1])
         with col_geo:
@@ -603,17 +600,55 @@ try:
                 fig_fun.update_layout(yaxis_title="Tiempo de Procesamiento", xaxis_title="Órdenes", height=350)
                 st.plotly_chart(configurar_grafico(fig_fun), use_container_width=True)
 
-        # --- SECCIÓN TEMPORAL (UNIFICADO A VENTA NETA) ---
+        # ======================================================================
+        # --- SECCIÓN TEMPORAL REINGENIERIZADA: TENDENCIA MACRO VS. MICRO ---
+        # ======================================================================
         st.divider()
-        st.subheader("📅 Análisis Temporal y Eficiencia")
+        st.subheader("📅 Tendencia Dinámica de Pedidos y Resumen Operativo")
+        
         g1, g2 = st.columns([2, 1])
         with g1:
-            df_f['hora'] = df_f['fecha'].dt.hour
-            p_hora = df_f.groupby(['marca', 'id_pedido']).first().reset_index()
-            v_h = p_hora.groupby(['hora', 'marca'])['total_pedido'].sum().reset_index()
-            fig_l = px.line(v_h, x='hora', y='total_pedido', color='marca', markers=True, line_shape="spline", color_discrete_map=PALETA_MARCAS, title="Facturación por Hora")
-            fig_l.update_layout(xaxis_title="Hora del Día", yaxis_title="Facturación ($)", legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
+            # 1. Base segura plana por orden y marca para no duplicar plata
+            p_tendencia = df_f.groupby(['marca', 'id_pedido']).first().reset_index()
+            
+            # 2. Detección automática del rango del filtro
+            es_un_solo_dia = False
+            if len(rango_fecha) == 2:
+                es_un_solo_dia = (rango_fecha[0] == rango_fecha[1])
+            else:
+                # Si el usuario eligió un único día en el calendario, retorna una lista de 1 elemento
+                es_un_solo_dia = True
+                
+            if es_un_solo_dia:
+                st.caption(f"Visualización micro por tramos horarios para el día seleccionado.")
+                p_tendencia['hora'] = p_tendencia['fecha'].dt.hour
+                
+                # Mapeamos horas a la grilla de bloques estrictos pedidos (0, 3, 6, 9, 12, 15, 18, 21)
+                def clasificar_tramo(h):
+                    for limite in [21, 18, 15, 12, 9, 6, 3]:
+                        if h >= limite: return f"{limite:02d}:00 hs"
+                    return "00:00 hs"
+                    
+                p_tendencia['eje_tiempo'] = p_tendencia['hora'].apply(clasificar_tramo)
+                # Forzamos un orden estricto en el gráfico mediante categorías
+                orden_horas = ["00:00 hs", "03:00 hs", "06:00 hs", "09:00 hs", "12:00 hs", "15:00 hs", "18:00 hs", "21:00 hs"]
+                p_tendencia['eje_tiempo'] = pd.Categorical(p_tendencia['eje_tiempo'], categories=orden_horas, ordered=True)
+                
+                v_t = p_tendencia.groupby(['eje_tiempo', 'marca'])['total_pedido'].sum().reset_index()
+                titu_grafico = "Facturación por Bloques Horarios (Curva del Día)"
+                eje_x_titu = "Bloque Horario"
+            else:
+                st.caption(f"Visualización macro de tendencia por día completo para el período filtrado.")
+                p_tendencia['eje_tiempo'] = p_tendencia['fecha'].dt.strftime('%Y-%m-%d')
+                v_t = p_tendencia.groupby(['eje_tiempo', 'marca'])['total_pedido'].sum().reset_index()
+                v_t = v_t.sort_values('eje_tiempo')
+                titu_grafico = "Tendencia Histórica de Facturación Diaria"
+                eje_x_titu = "Fecha"
+                
+            fig_l = px.line(v_t, x='eje_tiempo', y='total_pedido', color='marca', markers=True, line_shape="spline", color_discrete_map=PALETA_MARCAS, title=titu_grafico)
+            fig_l.update_layout(xaxis_title=eje_x_titu, yaxis_title="Facturación Neta ($)", legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
             st.plotly_chart(configurar_grafico(fig_l), use_container_width=True)
+            
         with g2:
             st.markdown("#### Resumen Operativo")
             p_res = df_f.groupby(['marca', 'id_pedido']).first().reset_index()
