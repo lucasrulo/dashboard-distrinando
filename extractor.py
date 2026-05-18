@@ -9,7 +9,7 @@ from datetime import datetime, timedelta, timezone
 # ==============================================================================
 # 🎯 True = Ignora el archivo local y descarga TODO el historial desde FECHA_INICIO.
 # 🎯 False = Modo normal. Solo descarga las órdenes nuevas (incremental).
-FORZAR_RECARGA_COMPLETA = True  
+FORZAR_RECARGA_COMPLETA = False  
 
 # Ajustá esta fecha al día más antiguo del que quieras traer datos (ej: 2025 o 2024)
 FECHA_INICIO = "2026-01-01T00:00:00-03:00" 
