@@ -375,73 +375,92 @@ try:
         v2.plotly_chart(fig_un, use_container_width=True)
 
         # ======================================================================
-        # --- SECCIÓN: FORECAST Y ANÁLISIS DE BRECHA (UNIFICADO A VENTA NETA) ---
+        # --- SECCIÓN: FORECAST Y ANÁLISIS DE BRECHA (RITMO HÍBRIDO DÍA/HORA) ---
         # ======================================================================
         st.divider()
-        st.subheader("🎯 Forecast Semanal y Análisis de Brecha (Gap Analysis)")
-        st.caption("Proyección calculada estrictamente para la semana del **11/05/2026 al 17/05/2026**. Se asume un ritmo de venta lineal (Run Rate) en base a los días transcurridos.")
+        st.subheader("🎯 Forecast y Análisis de Brecha (Gap Analysis)")
         
-        f_start = datetime(2026, 5, 11, 0, 0, 0, tzinfo=ZONA_AR)
-        f_end = datetime(2026, 5, 17, 23, 59, 59, tzinfo=ZONA_AR)
+        # Filtro de Período Independiente para el Forecast
+        col_cap, col_date = st.columns([2, 1])
+        with col_cap:
+            st.caption("Seleccione el período exacto a analizar. Se asume un ritmo de venta lineal (Run Rate) en base al tiempo transcurrido de ese período.")
+        with col_date:
+            # Selector dinámico: arranca el 11/05 y cierra 7 días después, pero es libre
+            rango_forecast = st.date_input("Período del Forecast", [f_min, f_min + timedelta(days=6)], key="fore_date")
         
-        if ahora_ar < f_start: dias_transcurridos = 0.001
-        elif ahora_ar > f_end: dias_transcurridos = 7.0
-        else: dias_transcurridos = (ahora_ar - f_start).total_seconds() / 86400.0
+        if len(rango_forecast) == 2:
+            # Fronteras dinámicas basadas en el input del usuario
+            f_start = datetime.combine(rango_forecast[0], datetime.min.time(), tzinfo=ZONA_AR)
+            f_end = datetime.combine(rango_forecast[1], datetime.max.time(), tzinfo=ZONA_AR)
+            dias_totales_periodo = (f_end - f_start).total_seconds() / 86400.0
             
-        dias_restantes = max(0.0, 7.0 - dias_transcurridos)
-        df_semana = df_raw[(df_raw['fecha'] >= f_start) & (df_raw['fecha'] <= f_end)].copy()
-        
-        filas_forecast = []
-        for m_fore in marcas_sel:
-            df_sf = df_semana[df_semana['marca'] == m_fore]
-            p_sf = df_sf.groupby('id_pedido').first()
-            venta_acumulada = p_sf['total_pedido'].sum() if not p_sf.empty else 0
-            unidades_acumuladas = df_sf['cantidad'].sum()
+            if ahora_ar < f_start: dias_transcurridos = 0.001
+            elif ahora_ar > f_end: dias_transcurridos = dias_totales_periodo
+            else: dias_transcurridos = (ahora_ar - f_start).total_seconds() / 86400.0
+                
+            dias_restantes = max(0.0, dias_totales_periodo - dias_transcurridos)
+            df_semana = df_raw[(df_raw['fecha'] >= f_start) & (df_raw['fecha'] <= f_end)].copy()
             
-            obj_dinero = objetivos_actuales.get(m_fore, {}).get("facturacion", 0)
-            forecast_dinero = (venta_acumulada / dias_transcurridos) * 7.0 if dias_transcurridos > 0 else 0.0
-            gap_dinero = obj_dinero - venta_acumulada
+            # Lógica de Cambio de Marcha: Si queda menos de 1 día, mostramos el ritmo POR HORA
+            es_contrarreloj = dias_restantes > 0 and dias_restantes < 1
+            divisor_ritmo = (dias_restantes * 24.0) if es_contrarreloj else dias_restantes
+            etiqueta_ritmo = "Hora" if es_contrarreloj else "Día"
             
-            if gap_dinero <= 0:
-                run_rate_req = 0.0; unidades_req_dia = 0; estado_gap = "✅ Meta Cumplida"
-            else:
-                if dias_restantes > 0:
-                    run_rate_req = gap_dinero / dias_restantes
-                    asp_actual = (venta_acumulada / unidades_acumuladas) if unidades_acumuladas > 0 else 0
-                    if asp_actual == 0:
-                        df_global_m = df_raw[df_raw['marca'] == m_fore]
-                        p_glob = df_global_m.groupby('id_pedido').first()
-                        v_glob = p_glob['total_pedido'].sum() if not p_glob.empty else 0
-                        u_glob = df_global_m['cantidad'].sum()
-                        asp_actual = (v_glob / u_glob) if u_glob > 0 else 50000
-                        
-                    unidades_req_dia = int(np.ceil(run_rate_req / asp_actual))
-                    estado_gap = f"⚠️ Faltan ${gap_dinero:,.0f}"
+            filas_forecast = []
+            for m_fore in marcas_sel:
+                df_sf = df_semana[df_semana['marca'] == m_fore]
+                p_sf = df_sf.groupby('id_pedido').first()
+                venta_acumulada = p_sf['total_pedido'].sum() if not p_sf.empty else 0
+                unidades_acumuladas = df_sf['cantidad'].sum()
+                
+                obj_dinero = objetivos_actuales.get(m_fore, {}).get("facturacion", 0)
+                forecast_dinero = (venta_acumulada / dias_transcurridos) * dias_totales_periodo if dias_transcurridos > 0 else 0.0
+                gap_dinero = obj_dinero - venta_acumulada
+                
+                if gap_dinero <= 0:
+                    run_rate_req = 0.0; unidades_req_dia = 0; estado_gap = "✅ Meta Cumplida"
                 else:
-                    run_rate_req = gap_dinero; unidades_req_dia = 0; estado_gap = "❌ Semana Cerrada"
-                    
-            filas_forecast.append({
-                "Marca": m_fore, "Venta Acum.": f"${venta_acumulada:,.0f}", "Objetivo": f"${obj_dinero:,.0f}",
-                "Forecast (Proy.)": f"${forecast_dinero:,.0f}", "Estado Brecha": estado_gap,
-                "Venta Necesaria / Día": f"${run_rate_req:,.0f}" if run_rate_req > 0 else "-",
-                "Unidades Necesarias / Día": f"{unidades_req_dia:,} un." if unidades_req_dia > 0 else "-"
-            })
-            
-        if filas_forecast:
-            html_fore = "<table class='forecast-table'><thead><tr><th>Marca</th><th>Venta Acum. (Semana)</th><th>Objetivo</th><th>Proyección (Forecast)</th><th>Brecha (Gap)</th><th>Run Rate Req. ($/Día)</th><th>Run Rate Req. (Un./Día)</th></tr></thead><tbody>"
-            for f in filas_forecast:
-                html_fore += f"<tr><td>{f['Marca']}</td><td>{f['Venta Acum.']}</td><td>{f['Objetivo']}</td><td style='color:#38BDF8; font-weight:700;'>{f['Forecast (Proy.)']}</td><td>{f['Estado Brecha']}</td><td style='color:#FBBF24; font-weight:700;'>{f['Venta Necesaria / Día']}</td><td style='color:#F472B6; font-weight:700;'>{f['Unidades Necesarias / Día']}</td></tr>"
-            html_fore += "</tbody></table>"
-            st.markdown(html_fore, unsafe_allow_html=True)
-            
-            st.write("")
-            cf1, cf2, cf3 = st.columns(3)
-            cf1.metric("Días Consumidos", f"{dias_transcurridos:.1f} de 7 días")
-            cf2.metric("Días Restantes", f"{dias_restantes:.1f} días")
-            p_sem_glob = df_semana.groupby(['marca', 'id_pedido']).first()
-            venta_sem_glob = p_sem_glob['total_pedido'].sum() if not p_sem_glob.empty else 0
-            cf3.metric("Ritmo Neto Global", f"${(venta_sem_glob / dias_transcurridos if dias_transcurridos > 0 else 0):,.0f} / día")
-        else: st.info("No hay marcas seleccionadas para proyectar.")
+                    if dias_restantes > 0:
+                        run_rate_req = gap_dinero / divisor_ritmo
+                        asp_actual = (venta_acumulada / unidades_acumuladas) if unidades_acumuladas > 0 else 0
+                        if asp_actual == 0:
+                            df_global_m = df_raw[df_raw['marca'] == m_fore]
+                            p_glob = df_global_m.groupby('id_pedido').first()
+                            v_glob = p_glob['total_pedido'].sum() if not p_glob.empty else 0
+                            u_glob = df_global_m['cantidad'].sum()
+                            asp_actual = (v_glob / u_glob) if u_glob > 0 else 50000
+                            
+                        unidades_req_dia = int(np.ceil(run_rate_req / asp_actual))
+                        estado_gap = f"⚠️ Faltan ${gap_dinero:,.0f}"
+                    else:
+                        run_rate_req = gap_dinero; unidades_req_dia = 0; estado_gap = "❌ Período Cerrado"
+                        
+                filas_forecast.append({
+                    "Marca": m_fore, "Venta Acum.": f"${venta_acumulada:,.0f}", "Objetivo": f"${obj_dinero:,.0f}",
+                    "Forecast (Proy.)": f"${forecast_dinero:,.0f}", "Estado Brecha": estado_gap,
+                    "Venta Necesaria": f"${run_rate_req:,.0f}" if run_rate_req > 0 else "-",
+                    "Unidades Necesarias": f"{unidades_req_dia:,} un." if unidades_req_dia > 0 else "-"
+                })
+                
+            if filas_forecast:
+                html_fore = f"<table class='forecast-table'><thead><tr><th>Marca</th><th>Venta Acum. (Período)</th><th>Objetivo</th><th>Proyección (Forecast)</th><th>Brecha (Gap)</th><th>Run Rate Req. ($/{etiqueta_ritmo})</th><th>Run Rate Req. (Un./{etiqueta_ritmo})</th></tr></thead><tbody>"
+                for f in filas_forecast:
+                    html_fore += f"<tr><td>{f['Marca']}</td><td>{f['Venta Acum.']}</td><td>{f['Objetivo']}</td><td style='color:#38BDF8; font-weight:700;'>{f['Forecast (Proy.)']}</td><td>{f['Estado Brecha']}</td><td style='color:#FBBF24; font-weight:700;'>{f['Venta Necesaria']}</td><td style='color:#F472B6; font-weight:700;'>{f['Unidades Necesarias']}</td></tr>"
+                html_fore += "</tbody></table>"
+                st.markdown(html_fore, unsafe_allow_html=True)
+                
+                st.write("")
+                cf1, cf2, cf3 = st.columns(3)
+                cf1.metric("Tiempo Consumido", f"{dias_transcurridos:.1f} de {dias_totales_periodo:.0f} días")
+                cf2.metric("Tiempo Restante", f"{dias_restantes:.1f} días" if dias_restantes >= 1 else f"{(dias_restantes * 24):.1f} horas")
+                p_sem_glob = df_semana.groupby(['marca', 'id_pedido']).first()
+                venta_sem_glob = p_sem_glob['total_pedido'].sum() if not p_sem_glob.empty else 0
+                
+                divisor_metric_g = (dias_transcurridos * 24.0) if es_contrarreloj else dias_transcurridos
+                cf3.metric(f"Ritmo Neto Global (/{etiqueta_ritmo})", f"${(venta_sem_glob / divisor_metric_g if dias_transcurridos > 0 else 0):,.0f}")
+            else: st.info("No hay marcas seleccionadas para proyectar.")
+        else:
+            st.info("Seleccione un rango de fecha inicial y final para activar el Forecast.")
 
         # --- SECCIÓN 5: TOP 10 ---
         st.divider()
@@ -544,7 +563,7 @@ try:
             fig_log.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
             st.plotly_chart(configurar_grafico(fig_log), use_container_width=True)
 
-        # --- SECCIÓN GEOGRAFÍA Y EMBUDO ---
+        # --- SECCIÓN GEOGRAFÍA Y EMBUDO (UNIFICADO A VENTA NETA) ---
         st.divider()
         col_geo, col_fun = st.columns([1.2, 1])
         with col_geo:
@@ -600,17 +619,13 @@ try:
                 fig_fun.update_layout(yaxis_title="Tiempo de Procesamiento", xaxis_title="Órdenes", height=350)
                 st.plotly_chart(configurar_grafico(fig_fun), use_container_width=True)
 
-        # ======================================================================
         # --- SECCIÓN TEMPORAL REINGENIERIZADA: TENDENCIA EN PEDIDOS ---
-        # ======================================================================
         st.divider()
         st.subheader("📅 Tendencia Dinámica de Pedidos y Resumen Operativo")
         
         g1, g2 = st.columns([2, 1])
         with g1:
             st.caption("Filtre el período exclusivo para analizar la velocidad de entrada de órdenes (independiente del filtro global).")
-            
-            # Selector de fechas propio anclado a la base cruda filtrada por marcas activas
             f_min_t, f_max_t = df_raw['fecha'].min().date(), df_raw['fecha'].max().date()
             rango_local = st.date_input("Período de Análisis (Tendencia):", [f_min_t, f_max_t], key="filtro_local_tendencia")
             
@@ -618,7 +633,6 @@ try:
             if len(rango_local) == 2:
                 df_tendencia_base = df_tendencia_base[(df_tendencia_base['fecha'].dt.date >= rango_local[0]) & (df_tendencia_base['fecha'].dt.date <= rango_local[1])]
                 
-            # Agrupación segura para contar cada pedido físico una sola vez
             p_tendencia = df_tendencia_base.groupby(['marca', 'id_pedido']).first().reset_index()
             
             es_un_solo_dia = False
@@ -629,8 +643,6 @@ try:
                 
             if es_un_solo_dia:
                 p_tendencia['hora'] = p_tendencia['fecha'].dt.hour
-                
-                # Mapeo estricto a bloques de 3 horas
                 def clasificar_tramo(h):
                     for limite in [21, 18, 15, 12, 9, 6, 3]:
                         if h >= limite: return f"{limite:02d}:00 hs"
@@ -656,7 +668,6 @@ try:
             
         with g2:
             st.markdown("#### Resumen Operativo")
-            # El resumen operativo preserva el contexto del filtro global de la app
             p_res = df_f.groupby(['marca', 'id_pedido']).first().reset_index()
             res_fc = p_res.groupby('marca')['total_pedido'].sum().reset_index()
             res_ord = p_res.groupby('marca')['id_pedido'].nunique().reset_index()
