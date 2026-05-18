@@ -232,8 +232,19 @@ try:
             st.sidebar.success("¡Guardado!")
             st.rerun()
 
-        df_f = df_raw[df_raw['marca'].isin(marcas_sel)].copy()
-        if len(rango_fecha) == 2: df_f = df_f[(df_f['fecha'].dt.date >= rango_fecha[0]) & (df_f['fecha'].dt.date <= rango_fecha[1])]
+        # 1. Filtro Global (Bruto)
+        df_f_all = df_raw[df_raw['marca'].isin(marcas_sel)].copy()
+        if len(rango_fecha) == 2: 
+            df_f_all = df_f_all[(df_f_all['fecha'].dt.date >= rango_fecha[0]) & (df_f_all['fecha'].dt.date <= rango_fecha[1])]
+
+        # Extraemos la tasa de devolución antes de limpiar la base
+        p_global_all = df_f_all.groupby(['marca', 'id_pedido']).first()
+        pedi_g_all = len(p_global_all)
+        dev_g = (p_global_all['es_reverso'].sum() / pedi_g_all * 100) if pedi_g_all > 0 else 0
+
+        # 🎯 BLINDAJE DE VENTA NETA: Eliminamos todos los pedidos marcados como "reversso"
+        # De acá en adelante (Velocímetros, Forecast, Marcas, etc) todo usa Venta Neta Real
+        df_f = df_f_all[df_f_all['es_reverso'] == 0].copy()
 
         # ======================================================================
         # --- TÍTULO PRINCIPAL Y BOTÓN TRIGGER ALINEADOS ARRIBA A LA DERECHA
@@ -241,7 +252,7 @@ try:
         col_titu, col_bot = st.columns([4.5, 1])
         
         with col_titu:
-            st.title("📊 Panel de datos")
+            st.title("📊 Panel de datos (Venta Neta)")
             st.caption(f"Última actualización: {ahora_ar.strftime('%d/%m/%Y %H:%M')} hs (ARG) | Filtros Activos: {len(marcas_sel)} Marcas")
             
         with col_bot:
@@ -276,17 +287,17 @@ try:
                 except Exception as e:
                     st.error(f"Excepción técnica: {e}")
 
-        # --- SECCIÓN 1: HOY (UNIFICADO A VENTA NETA) ---
+        # --- SECCIÓN 1: HOY ---
         st.subheader(f"⭐ Actividad de Hoy ({hoy_dt.strftime('%d/%m/%Y')})")
         df_hoy = df_f[df_f['fecha'].dt.date == hoy_dt]
-        if df_hoy.empty: st.info("Sin registros para la fecha actual con los filtros seleccionados.")
+        if df_hoy.empty: st.info("Sin registros válidos para la fecha actual con los filtros seleccionados.")
         else:
             h1, h2, h3, h4, h5 = st.columns(5)
             p_hoy = df_hoy.groupby(['marca', 'id_pedido']).first()
             fact_hoy = p_hoy['total_pedido'].sum()
-            h1.metric("Facturación", f"${fact_hoy:,.0f}")
-            h2.metric("Órdenes", f"{len(p_hoy):,}")
-            h3.metric("Artículos", f"{df_hoy['cantidad'].sum():,}")
+            h1.metric("Facturación Neta", f"${fact_hoy:,.0f}")
+            h2.metric("Órdenes Netas", f"{len(p_hoy):,}")
+            h3.metric("Artículos Netos", f"{df_hoy['cantidad'].sum():,}")
             h4.metric("Ticket Prom.", f"${(fact_hoy/len(p_hoy)):,.0f}")
             df_hoy['h'] = df_hoy['fecha'].dt.hour
             h_pico = df_hoy.groupby('h')['id_pedido'].nunique().idxmax() if not df_hoy.groupby('h')['id_pedido'].nunique().empty else 0
@@ -294,24 +305,23 @@ try:
 
         st.markdown("<br>", unsafe_allow_html=True)
 
-        # --- SECCIÓN 2: KPIs (UNIFICADO A VENTA NETA) ---
+        # --- SECCIÓN 2: KPIs ---
         p_global = df_f.groupby(['marca', 'id_pedido']).first()
         fact_g = p_global['total_pedido'].sum()
         pedi_g = len(p_global)
         unid_g = df_f['cantidad'].sum()
         tkt_g = fact_g / pedi_g if pedi_g > 0 else 0
-        dev_g = (p_global['es_reverso'].sum() / pedi_g * 100) if pedi_g > 0 else 0
 
         k1, k2, k3, k4, k5 = st.columns(5)
         def render_kpi(col, titulo, valor, color_borde):
             col.markdown(f"""<div class="metric-container" style="border-top: 4px solid {color_borde};"><div class="metric-title">{titulo}</div><div class="metric-value">{valor}</div></div>""", unsafe_allow_html=True)
-        render_kpi(k1, "Facturación Total", f"${fact_g:,.0f}", "#38BDF8")
-        render_kpi(k2, "Total Órdenes", f"{pedi_g:,}", "#818CF8")
-        render_kpi(k3, "Total Unidades", f"{unid_g:,}", "#34D399")
+        render_kpi(k1, "Facturación Neta Total", f"${fact_g:,.0f}", "#38BDF8")
+        render_kpi(k2, "Órdenes Netas", f"{pedi_g:,}", "#818CF8")
+        render_kpi(k3, "Unidades Netas", f"{unid_g:,}", "#34D399")
         render_kpi(k4, "Ticket Promedio", f"${tkt_g:,.0f}", "#FBBF24")
-        render_kpi(k5, "Tasa Devolución", f"{dev_g:.2f}%", "#F87171")
+        render_kpi(k5, "Tasa Devolución", f"{dev_g:.2f}%", "#F87171") # Calculado del bruto (arriba)
 
-        # --- SECCIÓN 3: MARCAS (CON DESGLOSE EN VIVO DE HOY) ---
+        # --- SECCIÓN 3: MARCAS ---
         st.write("##")
         st.subheader("🏢 Rendimiento por Unidad de Negocio")
         m_cols = st.columns(len(marcas_sel)) if marcas_sel else []
@@ -336,9 +346,9 @@ try:
                 m_cols[i].markdown(f"""
                     <div class="brand-card" style="border-top: 4px solid {accent};">
                         <div class="brand-header" style="color: {accent};">{m_nombre}</div>
-                        <div class="brand-stat"><span>Venta Total:</span><span class="brand-stat-val">${f_m:,.0f}</span></div>
-                        <div class="brand-stat"><span style="color: #38BDF8;">↳ Venta Hoy:</span><span class="brand-stat-val" style="color: #38BDF8;">${f_m_hoy:,.0f}</span></div>
-                        <div class="brand-stat"><span>Órdenes:</span><span class="brand-stat-val">{c_m:,}</span></div>
+                        <div class="brand-stat"><span>Venta Neta Total:</span><span class="brand-stat-val">${f_m:,.0f}</span></div>
+                        <div class="brand-stat"><span style="color: #38BDF8;">↳ Venta Neta Hoy:</span><span class="brand-stat-val" style="color: #38BDF8;">${f_m_hoy:,.0f}</span></div>
+                        <div class="brand-stat"><span>Órdenes Netas:</span><span class="brand-stat-val">{c_m:,}</span></div>
                         <div class="brand-stat"><span>Unidades Totales:</span><span class="brand-stat-val">{u_m:,}</span></div>
                         <div class="brand-stat"><span style="color: #34D399;">↳ Unid. Hoy:</span><span class="brand-stat-val" style="color: #34D399;">{u_m_hoy:,}</span></div>
                         <div style="border-bottom: 1px solid #334155; margin: 8px 0;"></div>
@@ -375,21 +385,18 @@ try:
         v2.plotly_chart(fig_un, use_container_width=True)
 
         # ======================================================================
-        # --- SECCIÓN: FORECAST Y ANÁLISIS DE BRECHA (RITMO HÍBRIDO DÍA/HORA) ---
+        # --- SECCIÓN: FORECAST Y ANÁLISIS DE BRECHA ---
         # ======================================================================
         st.divider()
         st.subheader("🎯 Forecast y Análisis de Brecha (Gap Analysis)")
         
-        # Filtro de Período Independiente para el Forecast
         col_cap, col_date = st.columns([2, 1])
         with col_cap:
             st.caption("Seleccione el período exacto a analizar. Se asume un ritmo de venta lineal (Run Rate) en base al tiempo transcurrido de ese período.")
         with col_date:
-            # Selector dinámico: arranca el 11/05 y cierra 7 días después, pero es libre
             rango_forecast = st.date_input("Período del Forecast", [f_min, f_min + timedelta(days=6)], key="fore_date")
         
         if len(rango_forecast) == 2:
-            # Fronteras dinámicas basadas en el input del usuario
             f_start = datetime.combine(rango_forecast[0], datetime.min.time(), tzinfo=ZONA_AR)
             f_end = datetime.combine(rango_forecast[1], datetime.max.time(), tzinfo=ZONA_AR)
             dias_totales_periodo = (f_end - f_start).total_seconds() / 86400.0
@@ -400,8 +407,9 @@ try:
                 
             dias_restantes = max(0.0, dias_totales_periodo - dias_transcurridos)
             df_semana = df_raw[(df_raw['fecha'] >= f_start) & (df_raw['fecha'] <= f_end)].copy()
+            # El forecast también usa venta neta
+            df_semana = df_semana[df_semana['es_reverso'] == 0]
             
-            # Lógica de Cambio de Marcha: Si queda menos de 1 día, mostramos el ritmo POR HORA
             es_contrarreloj = dias_restantes > 0 and dias_restantes < 1
             divisor_ritmo = (dias_restantes * 24.0) if es_contrarreloj else dias_restantes
             etiqueta_ritmo = "Hora" if es_contrarreloj else "Día"
@@ -424,7 +432,7 @@ try:
                         run_rate_req = gap_dinero / divisor_ritmo
                         asp_actual = (venta_acumulada / unidades_acumuladas) if unidades_acumuladas > 0 else 0
                         if asp_actual == 0:
-                            df_global_m = df_raw[df_raw['marca'] == m_fore]
+                            df_global_m = df_f[df_f['marca'] == m_fore]
                             p_glob = df_global_m.groupby('id_pedido').first()
                             v_glob = p_glob['total_pedido'].sum() if not p_glob.empty else 0
                             u_glob = df_global_m['cantidad'].sum()
@@ -443,7 +451,7 @@ try:
                 })
                 
             if filas_forecast:
-                html_fore = f"<table class='forecast-table'><thead><tr><th>Marca</th><th>Venta Acum. (Período)</th><th>Objetivo</th><th>Proyección (Forecast)</th><th>Brecha (Gap)</th><th>Run Rate Req. ($/{etiqueta_ritmo})</th><th>Run Rate Req. (Un./{etiqueta_ritmo})</th></tr></thead><tbody>"
+                html_fore = f"<table class='forecast-table'><thead><tr><th>Marca</th><th>Venta Neta Acum. (Período)</th><th>Objetivo</th><th>Proyección (Forecast)</th><th>Brecha (Gap)</th><th>Run Rate Req. ($/{etiqueta_ritmo})</th><th>Run Rate Req. (Un./{etiqueta_ritmo})</th></tr></thead><tbody>"
                 for f in filas_forecast:
                     html_fore += f"<tr><td>{f['Marca']}</td><td>{f['Venta Acum.']}</td><td>{f['Objetivo']}</td><td style='color:#38BDF8; font-weight:700;'>{f['Forecast (Proy.)']}</td><td>{f['Estado Brecha']}</td><td style='color:#FBBF24; font-weight:700;'>{f['Venta Necesaria']}</td><td style='color:#F472B6; font-weight:700;'>{f['Unidades Necesarias']}</td></tr>"
                 html_fore += "</tbody></table>"
@@ -502,6 +510,10 @@ try:
 
         df_promo = df_desc_filtrado_marcas[df_desc_filtrado_marcas['descuento'].isin(desc_sel)]
         if len(rango_fecha) == 2: df_promo = df_promo[(df_promo['fecha'].dt.date >= rango_fecha[0]) & (df_promo['fecha'].dt.date <= rango_fecha[1])]
+        
+        # Filtramos reversos en promos para evitar inflar efectividad del cupón
+        df_promo = df_promo[df_promo['es_reverso'] == 0]
+        
         if df_promo.empty: st.info("Seleccione códigos válidos para analizar.")
         else:
             col_d1, col_d2 = st.columns([1, 1])
@@ -563,7 +575,7 @@ try:
             fig_log.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
             st.plotly_chart(configurar_grafico(fig_log), use_container_width=True)
 
-        # --- SECCIÓN GEOGRAFÍA Y EMBUDO (UNIFICADO A VENTA NETA) ---
+        # --- SECCIÓN GEOGRAFÍA Y EMBUDO ---
         st.divider()
         col_geo, col_fun = st.columns([1.2, 1])
         with col_geo:
@@ -619,7 +631,7 @@ try:
                 fig_fun.update_layout(yaxis_title="Tiempo de Procesamiento", xaxis_title="Órdenes", height=350)
                 st.plotly_chart(configurar_grafico(fig_fun), use_container_width=True)
 
-        # --- SECCIÓN TEMPORAL REINGENIERIZADA: TENDENCIA EN PEDIDOS ---
+        # --- SECCIÓN TEMPORAL REINGENIERIZADA ---
         st.divider()
         st.subheader("📅 Tendencia Dinámica de Pedidos y Resumen Operativo")
         
@@ -629,7 +641,7 @@ try:
             f_min_t, f_max_t = df_raw['fecha'].min().date(), df_raw['fecha'].max().date()
             rango_local = st.date_input("Período de Análisis (Tendencia):", [f_min_t, f_max_t], key="filtro_local_tendencia")
             
-            df_tendencia_base = df_raw[df_raw['marca'].isin(marcas_sel)].copy()
+            df_tendencia_base = df_f.copy() # Hereda limpieza de Reversos
             if len(rango_local) == 2:
                 df_tendencia_base = df_tendencia_base[(df_tendencia_base['fecha'].dt.date >= rango_local[0]) & (df_tendencia_base['fecha'].dt.date <= rango_local[1])]
                 
@@ -653,13 +665,13 @@ try:
                 p_tendencia['eje_tiempo'] = pd.Categorical(p_tendencia['eje_tiempo'], categories=orden_horas, ordered=True)
                 
                 v_t = p_tendencia.groupby(['eje_tiempo', 'marca'])['id_pedido'].count().reset_index(name='pedidos')
-                titu_grafico = "Volumen de Pedidos por Bloques Horarios (Curva del Día)"
+                titu_grafico = "Volumen de Pedidos Netos por Bloques Horarios"
                 eje_x_titu = "Bloque Horario"
             else:
                 p_tendencia['eje_tiempo'] = p_tendencia['fecha'].dt.strftime('%Y-%m-%d')
                 v_t = p_tendencia.groupby(['eje_tiempo', 'marca'])['id_pedido'].count().reset_index(name='pedidos')
                 v_t = v_t.sort_values('eje_tiempo')
-                titu_grafico = "Tendencia Histórica de Pedidos Diarios"
+                titu_grafico = "Tendencia Histórica de Pedidos Netos Diarios"
                 eje_x_titu = "Fecha"
                 
             fig_l = px.line(v_t, x='eje_tiempo', y='pedidos', color='marca', markers=True, line_shape="spline", color_discrete_map=PALETA_MARCAS, title=titu_grafico)
@@ -675,8 +687,8 @@ try:
             
             resumen_tec = pd.merge(res_ord, res_un, on='marca')
             resumen_tec = pd.merge(resumen_tec, res_fc, on='marca')
-            resumen_tec.columns = ['Marca', 'Órdenes', 'Unidades', 'Facturación']
-            resumen_tec['Ticket Med.'] = (resumen_tec['Facturación'] / resumen_tec['Órdenes']).round(0).fillna(0)
+            resumen_tec.columns = ['Marca', 'Órdenes Netas', 'Unid. Netas', 'Facturación Neta']
+            resumen_tec['Ticket Med.'] = (resumen_tec['Facturación Neta'] / resumen_tec['Órdenes Netas']).round(0).fillna(0)
             st.dataframe(resumen_tec, use_container_width=True, hide_index=True)
 
 except Exception as e: st.error(f"Se ha producido un error técnico: {e}")
