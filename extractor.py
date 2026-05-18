@@ -4,6 +4,20 @@ import time
 import os
 from datetime import datetime, timedelta, timezone
 
+# ==============================================================================
+# ⚙️ CONFIGURACIÓN COMERCIAL Y CONTROL DE BACKFILL
+# ==============================================================================
+# 🎯 True = Ignora el archivo local y descarga TODO el historial desde FECHA_INICIO.
+# 🎯 False = Modo normal. Solo descarga las órdenes nuevas (incremental).
+FORZAR_RECARGA_COMPLETA = True  
+
+# Ajustá esta fecha al día más antiguo del que quieras traer datos (ej: 2025 o 2024)
+FECHA_INICIO = "2025-01-01T00:00:00-03:00" 
+
+FILENAME = "ventas_hot_sale.csv"
+ZONA_AR = timezone(timedelta(hours=-3))
+
+
 # 1. FUNCIÓN INTELIGENTE PARA LEER TOKENS
 def obtener_token(nombre_secret):
     token_env = os.environ.get(nombre_secret)
@@ -21,10 +35,6 @@ STORES = {
     "Kappa": {"url": "kappa-ar", "token": obtener_token("TOKEN_KAPPA")},
     "Piccadilly": {"url": "piccadilly-ar", "token": obtener_token("TOKEN_PICCADILLY")}
 }
-
-FILENAME = "ventas_hot_sale.csv"
-FECHA_INICIO = "2026-01-01T00:00:00-03:00"
-ZONA_AR = timezone(timedelta(hours=-3))
 
 class ShopifyManager:
     def __init__(self, name, info):
@@ -68,13 +78,12 @@ class ShopifyManager:
                 descuento = discounts[0].get('title', 'Sin Descuento').upper() if discounts else 'Sin Descuento'
                 gateway_legacy, cuotas, tags_raw = self.extract_finances(o)
                 
-                # 🎯 SOLUCIÓN: El robot busca la palabra "reversso" (doble s) dentro de los tags
+                # Buscamos la palabra "reversso" (doble s) para clasificar la orden desde el origen
                 es_reverso = 1 if 'reversso' in tags_raw else 0
                 
-                # ESTANDARIZACIÓN ABSOLUTA: Forzamos la fecha ISO limpia con huso horario explícito
+                # Estandarización estricta ISO 8601 con offset local
                 dt_utc = datetime.fromisoformat(o['created_at'].replace("Z", "+00:00"))
                 dt_ar = dt_utc.astimezone(ZONA_AR)
-                # Volvemos a inyectar el formato nativo ISO 8601 idéntico al histórico de Shopify
                 fecha_limpia = dt_ar.strftime("%Y-%m-%dT%H:%M:%S-03:00")
                 hora_pico = dt_ar.hour
                 
@@ -127,9 +136,16 @@ class ShopifyManager:
         return all_rows
 
 def sync():
-    print(f"\n--- 🕒 ACTUALIZANDO: {datetime.now(ZONA_AR).strftime('%H:%M:%S')} (ARG) ---")
+    print(f"\n--- 🕒 SINCRO: {datetime.now(ZONA_AR).strftime('%H:%M:%S')} (ARG) ---")
+    
     df_old = pd.read_csv(FILENAME) if os.path.exists(FILENAME) else pd.DataFrame()
-    last_ids = df_old.groupby('marca')['id_pedido'].max().to_dict() if not df_old.empty else {}
+    
+    if FORZAR_RECARGA_COMPLETA:
+        print("⚠️ ALERTA: Modo Recarga Completa activo. Extrayendo todo el historial viejo...")
+        last_ids = {}
+        df_old = pd.DataFrame() # Vaciamos memoria local para no duplicar datos viejos
+    else:
+        last_ids = df_old.groupby('marca')['id_pedido'].max().to_dict() if not df_old.empty else {}
     
     new_rows = []
     for name, info in STORES.items():
@@ -137,20 +153,21 @@ def sync():
         m = ShopifyManager(name, info)
         batch = m.get_incremental_updates(last_ids.get(name, 0))
         if batch:
-            print(f"   ✅ {name}: +{len(batch)} líneas extraídas/actualizadas.")
+            print(f"   ✅ {name}: +{len(batch)} líneas procesadas.")
             new_rows.extend(batch)
-        else: print(f"   😴 {name}: Al día.")
+        else: print(f"   😴 {name}: Sin novedades.")
 
     if new_rows:
-        df_new = pd.DataFrame(new_rows)
+        df_final = pd.DataFrame(new_rows)
+        # Si no fue recarga completa, unificamos con lo que ya existía de forma segura
         if not df_old.empty:
-            df_final = pd.concat([df_old, df_new], ignore_index=True)
-            # Limpieza estricta manteniendo la última versión sin que choquen las zonas horarias
-            df_final = df_final.drop_duplicates(subset=['id_pedido', 'sku'], keep='last')
-        else: df_final = df_new
+            df_final = pd.concat([df_old, df_final], ignore_index=True)
+            
+        # Limpieza monolítica estricta por ID de pedido y SKU
+        df_final = df_final.drop_duplicates(subset=['id_pedido', 'sku'], keep='last')
         df_final.to_csv(FILENAME, index=False)
-        print(f"🚀 Sincronizado. Total en base: {len(df_final)} registros.")
+        print(f"🚀 Base unificada guardada con éxito. Total: {len(df_final)} registros.")
 
 if __name__ == "__main__":
-    try: sync(); print("✅ Extracción finalizada con éxito.")
-    except Exception as e: print(f"🚨 Error: {e}")
+    try: sync(); print("✅ Proceso finalizado.")
+    except Exception as e: print(f"🚨 Error crítico: {e}")
