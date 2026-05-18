@@ -67,9 +67,11 @@ class ShopifyManager:
                 discounts = o.get('discount_applications', [])
                 descuento = discounts[0].get('title', 'Sin Descuento').upper() if discounts else 'Sin Descuento'
                 gateway_legacy, cuotas, tags_raw = self.extract_finances(o)
-                es_reverso = 1 if 'reverso' in tags_raw else 0
                 
-                # 🎯 ESTANDARIZACIÓN ABSOLUTA: Forzamos la fecha ISO limpia con huso horario explícito
+                # 🎯 SOLUCIÓN: El robot busca la palabra "reversso" (doble s) dentro de los tags
+                es_reverso = 1 if 'reversso' in tags_raw else 0
+                
+                # ESTANDARIZACIÓN ABSOLUTA: Forzamos la fecha ISO limpia con huso horario explícito
                 dt_utc = datetime.fromisoformat(o['created_at'].replace("Z", "+00:00"))
                 dt_ar = dt_utc.astimezone(ZONA_AR)
                 # Volvemos a inyectar el formato nativo ISO 8601 idéntico al histórico de Shopify
