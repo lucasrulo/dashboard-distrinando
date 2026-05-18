@@ -120,8 +120,16 @@ def load_data():
     if df['subtotal_producto'].sum() == 0: df['subtotal_producto'] = df['total_pedido'] / df.groupby('id_pedido')['id_pedido'].transform('count')
     if 'medio_pago' not in df.columns: df['medio_pago'] = 'No Registrado'
     if 'cuotas' not in df.columns: df['cuotas'] = '1 Cuota'
-    if 'es_reverso' not in df.columns: df['es_reverso'] = 0
     if 'descuento' not in df.columns: df['descuento'] = 'SIN DESCUENTO'
+    
+    # 🎯 CAZA DE REVERSSOS (DOBLE S): Recalculamos la columna en vivo buscando el tag correcto
+    if 'tags' in df.columns:
+        df['es_reverso'] = df.apply(
+            lambda r: 1 if ('reversso' in str(r.get('tags', '')).lower() or 'reversso' in str(r.get('medio_pago', '')).lower()) else 0, 
+            axis=1
+        )
+    elif 'es_reverso' not in df.columns: 
+        df['es_reverso'] = 0
     
     if 'producto_base' not in df.columns: df['producto_base'] = df['producto'].apply(lambda x: str(x).split(' / ')[0])
     if 'modelo_color' not in df.columns: df['modelo_color'] = df['sku'].apply(lambda x: str(x).rsplit('-', 1)[0] if '-' in str(x) else x)
@@ -237,13 +245,12 @@ try:
         if len(rango_fecha) == 2: 
             df_f_all = df_f_all[(df_f_all['fecha'].dt.date >= rango_fecha[0]) & (df_f_all['fecha'].dt.date <= rango_fecha[1])]
 
-        # Extraemos la tasa de devolución antes de limpiar la base
+        # Extraemos la tasa de devolución antes de limpiar la base (Usando la columna dinámica corregida)
         p_global_all = df_f_all.groupby(['marca', 'id_pedido']).first()
         pedi_g_all = len(p_global_all)
         dev_g = (p_global_all['es_reverso'].sum() / pedi_g_all * 100) if pedi_g_all > 0 else 0
 
         # 🎯 BLINDAJE DE VENTA NETA: Eliminamos todos los pedidos marcados como "reversso"
-        # De acá en adelante (Velocímetros, Forecast, Marcas, etc) todo usa Venta Neta Real
         df_f = df_f_all[df_f_all['es_reverso'] == 0].copy()
 
         # ======================================================================
@@ -319,7 +326,7 @@ try:
         render_kpi(k2, "Órdenes Netas", f"{pedi_g:,}", "#818CF8")
         render_kpi(k3, "Unidades Netas", f"{unid_g:,}", "#34D399")
         render_kpi(k4, "Ticket Promedio", f"${tkt_g:,.0f}", "#FBBF24")
-        render_kpi(k5, "Tasa Devolución", f"{dev_g:.2f}%", "#F87171") # Calculado del bruto (arriba)
+        render_kpi(k5, "Tasa Devolución", f"{dev_g:.2f}%", "#F87171") # Muestra los "reverssos" excluidos arriba
 
         # --- SECCIÓN 3: MARCAS ---
         st.write("##")
@@ -406,9 +413,9 @@ try:
             else: dias_transcurridos = (ahora_ar - f_start).total_seconds() / 86400.0
                 
             dias_restantes = max(0.0, dias_totales_periodo - dias_transcurridos)
-            df_semana = df_raw[(df_raw['fecha'] >= f_start) & (df_raw['fecha'] <= f_end)].copy()
-            # El forecast también usa venta neta
-            df_semana = df_semana[df_semana['es_reverso'] == 0]
+            
+            # Filtramos directo sobre la base limpia df_f (Sin reversos)
+            df_semana = df_f[(df_f['fecha'] >= f_start) & (df_f['fecha'] <= f_end)].copy()
             
             es_contrarreloj = dias_restantes > 0 and dias_restantes < 1
             divisor_ritmo = (dias_restantes * 24.0) if es_contrarreloj else dias_restantes
