@@ -12,7 +12,7 @@ from datetime import datetime, timedelta, timezone
 FORZAR_RECARGA_COMPLETA = True  
 
 # Ajustá esta fecha al día más antiguo del que quieras traer datos (ej: 2025 o 2024)
-FECHA_INICIO = "2025-01-01T00:00:00-03:00" 
+FECHA_INICIO = "2026-01-01T00:00:00-03:00" 
 
 FILENAME = "ventas_hot_sale.csv"
 ZONA_AR = timezone(timedelta(hours=-3))
