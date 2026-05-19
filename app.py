@@ -9,6 +9,7 @@ import requests
 import time
 from datetime import datetime, timedelta, timezone
 from streamlit_autorefresh import st_autorefresh
+from itertools import combinations
 
 # 1. CONFIGURACIÓN DE PÁGINA
 st.set_page_config(
@@ -78,7 +79,7 @@ st.markdown("""
         div[data-testid="stHorizontalBlock"] { gap: 0.5rem !important; }
     }
     </style>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 # 3. CONSTANTES Y MAPEOS
 DIAS_MAPA = {'Monday': 'Lunes', 'Tuesday': 'Martes', 'Wednesday': 'Miércoles', 'Thursday': 'Jueves', 'Friday': 'Viernes', 'Saturday': 'Sábado', 'Sunday': 'Domingo'}
@@ -117,12 +118,13 @@ def load_data():
     if 'total_pedido' not in df.columns: df['total_pedido'] = 0
     if 'subtotal_producto' in df.columns: df['subtotal_producto'] = pd.to_numeric(df['subtotal_producto'], errors='coerce').fillna(0)
     else: df['subtotal_producto'] = 0
-    if df['subtotal_producto'].sum() == 0: df['subtotal_producto'] = df['total_pedido'] / df.groupby('id_pedido')['id_pedido'].transform('count')
+    if df['subtotal_producto'].sum() == 0: 
+        df['subtotal_producto'] = df['total_pedido'] / df.groupby('id_pedido')['id_pedido'].transform('count')
     if 'medio_pago' not in df.columns: df['medio_pago'] = 'No Registrado'
     if 'cuotas' not in df.columns: df['cuotas'] = '1 Cuota'
     if 'descuento' not in df.columns: df['descuento'] = 'SIN DESCUENTO'
     
-    # CAZA DE REVERSSOS (DOBLE S): Recalculamos la columna en vivo buscando el tag correcto
+    # CAZA DE REVERSSOS (DOBLE S)
     if 'tags' in df.columns:
         df['es_reverso'] = df.apply(
             lambda r: 1 if ('reversso' in str(r.get('tags', '')).lower() or 'reversso' in str(r.get('medio_pago', '')).lower()) else 0, 
@@ -142,7 +144,6 @@ def load_data():
         
     return df
 
-# Función hiper-robusta para leer metas
 def load_objetivos():
     archivo = "objetivos_hot_sale.json"
     objetivos_por_defecto = {
@@ -198,7 +199,7 @@ def crear_velocimetro(valor_actual, objetivo, titulo_base, es_moneda=False):
 
 try:
     df_raw = load_data()
-    objetivos_actuales = load_objetivos() # Se cargan directo de tu JSON guardado
+    objetivos_actuales = load_objetivos()
     
     if df_raw.empty: st.warning("⚠️ No se encontró la base de datos.")
     else:
@@ -218,7 +219,6 @@ try:
         
         # 🎯 FILTRO DE RANGO GLOBAL LIBRE
         f_min, f_max = df_raw['fecha'].min().date(), df_raw['fecha'].max().date()
-        # Por defecto muestra todo el rango, pero es modificable por el usuario
         rango_fecha = st.sidebar.date_input("Rango de Fechas", [f_min, f_max], min_value=f_min, max_value=f_max)
 
         st.sidebar.markdown("---")
@@ -228,7 +228,6 @@ try:
         
         marcas_base = ["Reebok", "Columbia", "Crocs", "Kappa", "Piccadilly"]
         
-        # Mapeamos los datos persistentes del JSON a la tabla visual
         df_edit_obj = pd.DataFrame([
             {"Marca": m, "Unidades": objetivos_actuales.get(m, {}).get("unidades", 0), "Facturación ($)": objetivos_actuales.get(m, {}).get("facturacion", 0)}
             for m in marcas_base
@@ -255,7 +254,6 @@ try:
         if len(rango_fecha) == 2: 
             df_f_all = df_f_all[(df_f_all['fecha'].dt.date >= rango_fecha[0]) & (df_f_all['fecha'].dt.date <= rango_fecha[1])]
 
-        # Extraemos la tasa de devolución antes de limpiar la base (Usando la columna dinámica corregida)
         p_global_all = df_f_all.groupby(['marca', 'id_pedido']).first()
         pedi_g_all = len(p_global_all)
         dev_g = (p_global_all['es_reverso'].sum() / pedi_g_all * 100) if pedi_g_all > 0 else 0
@@ -264,7 +262,7 @@ try:
         df_f = df_f_all[df_f_all['es_reverso'] == 0].copy()
 
         # ======================================================================
-        # --- TÍTULO PRINCIPAL Y BOTÓN TRIGGER ALINEADOS ARRIBA A LA DERECHA
+        # --- TÍTULO PRINCIPAL Y BOTÓN TRIGGER
         # ======================================================================
         col_titu, col_bot = st.columns([4.5, 1])
         
@@ -273,34 +271,29 @@ try:
             st.caption(f"Última actualización: {ahora_ar.strftime('%d/%m/%Y %H:%M')} hs (ARG) | Filtros Activos: {len(marcas_sel)} Marcas")
             
         with col_bot:
-            st.write("") # Espaciador vertical
+            st.write("") 
             contenedor_contador = st.empty()
             
-            if st.button("🔄 Actualizar Datos Ahora", type="primary", use_container_width=True):
+            if st.button("🔄 Actualizar Datos", type="primary", use_container_width=True):
                 owner = "lucasrulo"
                 repo = "dashboard-distrinando"
                 workflow_id = "actualizador.yml"
-                
                 token = st.secrets["GH_TOKEN"]
                 url_github = f"https://api.github.com/repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches"
-                headers_github = {
-                    "Authorization": f"token {token}",
-                    "Accept": "application/vnd.github.v3+json"
-                }
+                headers_github = {"Authorization": f"token {token}", "Accept": "application/vnd.github.v3+json"}
                 
                 try:
                     res = requests.post(url_github, headers=headers_github, json={"ref": "main"})
                     if res.status_code == 204:
                         st.cache_data.clear()
                         for seg in range(55, -1, -1):
-                            contenedor_contador.info(f"⏳ Extrayendo... Auto-recarga en **{seg}s**")
+                            contenedor_contador.info(f"⏳ Extrayendo... Recarga en **{seg}s**")
                             time.sleep(1)
-                            
                         contenedor_contador.success("🔄 ¡Listo! Recargando...")
                         time.sleep(0.5)
                         st.rerun()
                     else:
-                        st.error(f"Error al conectar con GitHub (Código {res.status_code})")
+                        st.error(f"Error GitHub (Código {res.status_code})")
                 except Exception as e:
                     st.error(f"Excepción técnica: {e}")
 
@@ -336,7 +329,7 @@ try:
         render_kpi(k2, "Órdenes Netas", f"{pedi_g:,}", "#818CF8")
         render_kpi(k3, "Unidades Netas", f"{unid_g:,}", "#34D399")
         render_kpi(k4, "Ticket Promedio", f"${tkt_g:,.0f}", "#FBBF24")
-        render_kpi(k5, "Tasa Devolución", f"{dev_g:.2f}%", "#F87171") # Muestra los "reverssos" excluidos arriba
+        render_kpi(k5, "Tasa Devolución", f"{dev_g:.2f}%", "#F87171") 
 
         # --- SECCIÓN 3: MARCAS ---
         st.write("##")
@@ -411,7 +404,6 @@ try:
         with col_cap:
             st.caption("Seleccione el período exacto a analizar. Se asume un ritmo de venta lineal (Run Rate) en base al tiempo transcurrido de ese período.")
         with col_date:
-            # 🎯 FORECAST LIBRE: Por defecto arranca hoy y va 7 días para adelante, pero es libre
             rango_forecast = st.date_input("Período del Forecast", [hoy_dt, hoy_dt + timedelta(days=6)], key="fore_date")
         
         if len(rango_forecast) == 2:
@@ -424,8 +416,6 @@ try:
             else: dias_transcurridos = (ahora_ar - f_start).total_seconds() / 86400.0
                 
             dias_restantes = max(0.0, dias_totales_periodo - dias_transcurridos)
-            
-            # Filtramos directo sobre la base limpia df_f (Sin reversos)
             df_semana = df_f[(df_f['fecha'] >= f_start) & (df_f['fecha'] <= f_end)].copy()
             
             es_contrarreloj = dias_restantes > 0 and dias_restantes < 1
@@ -439,7 +429,6 @@ try:
                 venta_acumulada = p_sf['total_pedido'].sum() if not p_sf.empty else 0
                 unidades_acumuladas = df_sf['cantidad'].sum()
                 
-                # 🎯 IMPORTANTE: Las metas leen del JSON guardado (objetivos_actuales)
                 obj_dinero = objetivos_actuales.get(m_fore, {}).get("facturacion", 0)
                 forecast_dinero = (venta_acumulada / dias_transcurridos) * dias_totales_periodo if dias_transcurridos > 0 else 0.0
                 gap_dinero = obj_dinero - venta_acumulada
@@ -514,7 +503,47 @@ try:
                                     <div><div class="product-stat-label">Total FC</div><div class="product-stat-val">${item['subtotal_producto']:,.0f}</div></div></div>
                                     <a href="{item['url_web']}" target="_blank" class="btn-link">Ver en Tienda</a></div>""", unsafe_allow_html=True)
 
-        # --- SECCIÓN 6: PROMOS ---
+        # --- SECCIÓN 6: CROSS-SELLING (NUEVO MÓDULO) ---
+        st.divider()
+        with st.expander("🔗 Análisis de Cross-selling (Afinidad de Productos)", expanded=True):
+            st.subheader("🛒 Afinidad de Carrito")
+            st.caption("Identificá qué productos se compran juntos con mayor frecuencia para optimizar sugerencias.")
+            
+            if marcas_sel:
+                marca_cross = st.selectbox("Seleccionar Marca para análisis de afinidad:", marcas_sel, key="cross_sel")
+                df_cross = df_f[df_f['marca'] == marca_cross]
+                
+                # Agrupamos productos base por número de pedido
+                pedidos_multi = df_cross.groupby('id_pedido')['producto_base'].apply(list)
+                # Filtramos para quedarnos sólo con carritos de >1 artículo
+                pedidos_multi = pedidos_multi[pedidos_multi.apply(len) > 1]
+                
+                afinidad = []
+                for items in pedidos_multi:
+                    # Generamos todas las combinaciones posibles únicas en el pedido
+                    for combo in combinations(sorted(set(items)), 2):
+                        afinidad.append(combo)
+                
+                if afinidad:
+                    df_afinidad = pd.DataFrame(afinidad, columns=['Prod A', 'Prod B'])
+                    df_afinidad['Combo'] = df_afinidad['Prod A'] + " + " + df_afinidad['Prod B']
+                    top_combos = df_afinidad['Combo'].value_counts().head(10).reset_index()
+                    top_combos.columns = ['Combo', 'Frecuencia']
+                    
+                    fig_cross = px.bar(
+                        top_combos, x='Frecuencia', y='Combo', orientation='h', 
+                        title=f"Top 10 Combos Más Frecuentes: {marca_cross}", 
+                        color_discrete_sequence=[PALETA_MARCAS.get(marca_cross, '#34D399')],
+                        text_auto=True
+                    )
+                    fig_cross.update_layout(yaxis={'categoryorder':'total ascending'})
+                    st.plotly_chart(configurar_grafico(fig_cross), use_container_width=True)
+                else:
+                    st.info(f"No hay suficientes órdenes con múltiples productos diferentes para la marca {marca_cross} en el período seleccionado.")
+            else:
+                st.warning("Seleccione al menos una marca en el panel lateral para habilitar este análisis.")
+
+        # --- SECCIÓN 7: PROMOS ---
         st.divider()
         st.markdown('<div class="discount-container">', unsafe_allow_html=True)
         st.subheader("🎟️ Análisis de Promociones")
@@ -548,7 +577,7 @@ try:
                 st.plotly_chart(configurar_grafico(fig_desc_unid), use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
-        # --- SECCIÓN FINANZAS Y LOGÍSTICA ---
+        # --- SECCIÓN 8: FINANZAS Y LOGÍSTICA ---
         st.divider()
         col_fin, col_log = st.columns([1, 1]) 
         with col_fin:
@@ -594,7 +623,7 @@ try:
             fig_log.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
             st.plotly_chart(configurar_grafico(fig_log), use_container_width=True)
 
-        # --- SECCIÓN GEOGRAFÍA Y EMBUDO ---
+        # --- SECCIÓN 9: GEOGRAFÍA Y EMBUDO ---
         st.divider()
         col_geo, col_fun = st.columns([1.2, 1])
         with col_geo:
@@ -650,17 +679,16 @@ try:
                 fig_fun.update_layout(yaxis_title="Tiempo de Procesamiento", xaxis_title="Órdenes", height=350)
                 st.plotly_chart(configurar_grafico(fig_fun), use_container_width=True)
 
-        # --- SECCIÓN TEMPORAL REINGENIERIZADA ---
+        # --- SECCIÓN 10: TENDENCIA ---
         st.divider()
         st.subheader("📅 Tendencia Dinámica de Pedidos y Resumen Operativo")
         
         g1, g2 = st.columns([2, 1])
         with g1:
             st.caption("Filtre el período exclusivo para analizar la velocidad de entrada de órdenes (independiente del filtro global).")
-            # 🎯 TENDENCIA LIBRE: Por defecto muestra toda la base, pero sin restricciones
             rango_local = st.date_input("Período de Análisis (Tendencia):", [f_min, f_max], key="filtro_local_tendencia")
             
-            df_tendencia_base = df_f.copy() # Hereda limpieza de Reversos
+            df_tendencia_base = df_f.copy()
             if len(rango_local) == 2:
                 df_tendencia_base = df_tendencia_base[(df_tendencia_base['fecha'].dt.date >= rango_local[0]) & (df_tendencia_base['fecha'].dt.date <= rango_local[1])]
                 
