@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
@@ -725,7 +726,15 @@ try:
                         </div>
                         """
 
-                    st.markdown(html_combos, unsafe_allow_html=True)
+                    components.html(
+                        f"""
+                        <div style="background:#0F172A; padding:10px;">
+                            {html_combos}
+                        </div>
+                        """,
+                        height=900,
+                        scrolling=True
+                    )
                 else:
                     st.info("No se registraron ventas cruzadas suficientes con estos filtros.")
 
