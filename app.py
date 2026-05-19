@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
@@ -495,7 +494,7 @@ try:
                         for c_idx, s_idx in enumerate(range(r_idx, r_idx + 5)):
                             if s_idx < len(top_10):
                                 item = top_10.iloc[s_idx]
-                                img = limpiar_imagen(item.get('img_url', ''))
+                                img = item['img_url'] if str(item['img_url']) != 'nan' and item['img_url'] != '' else 'https://via.placeholder.com/150'
                                 filas_p[c_idx].markdown(f"""
                                     <div class="product-box"><img src="{img}" class="product-img"><div class="product-name">{item[col_nom]}</div>
                                     <div class="product-info-grid"><div><div class="product-stat-label">Unidades</div><div class="product-stat-val">{int(item['cantidad']):,}</div></div>
@@ -519,62 +518,19 @@ try:
                 # 1. Filtramos por la marca y fecha exacta del módulo
                 df_cross = df_f[(df_f['marca'] == marca_cross) & (df_f['fecha'].dt.date >= fecha_cross[0]) & (df_f['fecha'].dt.date <= fecha_cross[1])]
                 
-                # =========================================
-                # LIMPIEZA PROFUNDA DE IMÁGENES Y LINKS
-                # =========================================
-
-                def limpiar_imagen(url):
-                    try:
-                        url = str(url).strip()
-
-                        if (
-                            url == '' or
-                            url.lower() == 'nan' or
-                            url.lower() == 'none' or
-                            'no-image' in url.lower()
-                        ):
-                            return 'https://via.placeholder.com/300x300.png?text=Sin+Imagen'
-
-                        if not url.startswith('http'):
-                            return 'https://via.placeholder.com/300x300.png?text=Imagen+Inválida'
-
-                        return url
-
-                    except:
-                        return 'https://via.placeholder.com/300x300.png?text=Error'
-
-
-                def limpiar_link(url):
-                    try:
-                        url = str(url).strip()
-
-                        if (
-                            url == '' or
-                            url.lower() == 'nan' or
-                            url.lower() == 'none'
-                        ):
-                            return '#'
-
-                        if not url.startswith('http'):
-                            return '#'
-
-                        return url
-
-                    except:
-                        return '#'
-
-
+                # 2. Generamos diccionario de imágenes, links y modelos (Lógica Antibug del Top 10)
                 info_productos = {}
-
                 for _, row in df_cross.drop_duplicates('producto_base').iterrows():
-
-                    producto = str(row.get('producto_base', 'Producto'))
-
-                    info_productos[producto] = {
-                        'img': limpiar_imagen(row.get('img_url', '')),
-                        'link': limpiar_link(row.get('url_web', '')),
-                        'modelo_color': str(row.get('modelo_color', 'S/D'))
-                    }
+                    img_raw = str(row.get('img_url', ''))
+                    img = img_raw if img_raw != 'nan' and img_raw.strip() != '' else 'https://via.placeholder.com/150'
+                    
+                    link_raw = str(row.get('url_web', ''))
+                    link = link_raw if link_raw != 'nan' and link_raw.strip() != '' else '#'
+                    
+                    mod_raw = str(row.get('modelo_color', ''))
+                    mod = mod_raw if mod_raw != 'nan' and mod_raw.strip() != '' else 'S/D'
+                    
+                    info_productos[row['producto_base']] = {'img': img, 'link': link, 'modelo_color': mod}
                 
                 # 3. Agrupamos los modelos por número de carrito
                 pedidos_multi = df_cross.groupby('id_pedido')['producto_base'].apply(list)
@@ -619,167 +575,157 @@ try:
                     
                     # 6. Despliegue Visual (HTML Inmersivo)
                     # 6. Despliegue Visual (HTML Inmersivo)
-                    html_combos = ""
+html_combos = ""
 
-                    for idx, row in top_combos.reset_index(drop=True).iterrows():
+for idx, row in top_combos.reset_index(drop=True).iterrows():
 
-                        # Split seguro
-                        try:
-                            prod_a, prod_b = row['Combo'].split(' + ', 1)
-                        except:
-                            continue
+    # Split seguro
+    try:
+        prod_a, prod_b = row['Combo'].split(' + ', 1)
+    except:
+        continue
 
-                        # Info producto A
-                        info_a = info_productos.get(
-                            prod_a,
-                            {
-                                'img': 'https://via.placeholder.com/150',
-                                'link': '#',
-                                'modelo_color': 'S/D'
-                            }
-                        )
+    # Info producto A
+    info_a = info_productos.get(
+        prod_a,
+        {
+            'img': 'https://via.placeholder.com/150',
+            'link': '#',
+            'modelo_color': 'S/D'
+        }
+    )
 
-                        # Info producto B
-                        info_b = info_productos.get(
-                            prod_b,
-                            {
-                                'img': 'https://via.placeholder.com/150',
-                                'link': '#',
-                                'modelo_color': 'S/D'
-                            }
-                        )
+    # Info producto B
+    info_b = info_productos.get(
+        prod_b,
+        {
+            'img': 'https://via.placeholder.com/150',
+            'link': '#',
+            'modelo_color': 'S/D'
+        }
+    )
 
-                        # Blindaje links
-                        link_a = info_a.get('link', '#')
-                        link_b = info_b.get('link', '#')
+    # Blindaje links
+    link_a = info_a.get('link', '#')
+    link_b = info_b.get('link', '#')
 
-                        if not str(link_a).startswith("http"):
-                            link_a = "#"
+    if not str(link_a).startswith("http"):
+        link_a = "#"
 
-                        if not str(link_b).startswith("http"):
-                            link_b = "#"
+    if not str(link_b).startswith("http"):
+        link_b = "#"
 
-                        # Blindaje imágenes
-                        img_a = info_a.get('img', 'https://via.placeholder.com/150')
-                        img_b = info_b.get('img', 'https://via.placeholder.com/150')
+    # Blindaje imágenes
+    img_a = info_a.get('img', 'https://via.placeholder.com/150')
+    img_b = info_b.get('img', 'https://via.placeholder.com/150')
 
-                        if img_a == "" or str(img_a) == "nan":
-                            img_a = "https://via.placeholder.com/150"
+    if img_a == "" or str(img_a) == "nan":
+        img_a = "https://via.placeholder.com/150"
 
-                        if img_b == "" or str(img_b) == "nan":
-                            img_b = "https://via.placeholder.com/150"
+    if img_b == "" or str(img_b) == "nan":
+        img_b = "https://via.placeholder.com/150"
 
-                        html_combos += f"""
-                        <div style="display:flex;
-                                    align-items:center;
-                                    background:#1E293B;
-                                    padding:12px;
-                                    border-radius:12px;
-                                    margin-bottom:12px;
-                                    border:1px solid #334155;">
+    html_combos += f"""
+    <div style="display:flex;
+                align-items:center;
+                background:#1E293B;
+                padding:12px;
+                border-radius:12px;
+                margin-bottom:12px;
+                border:1px solid #334155;">
 
-                            <div style="font-size:20px;
-                                        font-weight:bold;
-                                        color:#38BDF8;
-                                        margin-right:15px;
-                                        width:30px;
-                                        text-align:center;">
-                                #{idx + 1}
-                            </div>
+        <div style="font-size:20px;
+                    font-weight:bold;
+                    color:#38BDF8;
+                    margin-right:15px;
+                    width:30px;
+                    text-align:center;">
+            #{idx + 1}
+        </div>
 
-                            <a href="{link_a}"
-                            target="_blank"
-                            style="text-decoration:none;">
+        <a href="{link_a}"
+           target="_blank"
+           style="text-decoration:none;">
 
-                                <img src="{img_a}"
-     onerror="this.onerror=null;this.src='https://via.placeholder.com/300x300.png?text=Sin+Imagen';"
-                                    style="width:70px;
-                                            height:70px;
-                                            object-fit:contain;
-                                            background:white;
-                                            border-radius:8px;
-                                            margin-right:10px;
-                                            padding:2px;">
-                            </a>
+            <img src="{img_a}"
+                 style="width:70px;
+                        height:70px;
+                        object-fit:contain;
+                        background:white;
+                        border-radius:8px;
+                        margin-right:10px;
+                        padding:2px;">
+        </a>
 
-                            <div style="font-size:24px;
-                                        color:#94A3B8;
-                                        margin-right:10px;
-                                        font-weight:bold;">
-                                +
-                            </div>
+        <div style="font-size:24px;
+                    color:#94A3B8;
+                    margin-right:10px;
+                    font-weight:bold;">
+            +
+        </div>
 
-                            <a href="{link_b}"
-                            target="_blank"
-                            style="text-decoration:none;">
+        <a href="{link_b}"
+           target="_blank"
+           style="text-decoration:none;">
 
-                                <img src="{img_b}"
-     onerror="this.onerror=null;this.src='https://via.placeholder.com/300x300.png?text=Sin+Imagen';"
-                                    style="width:70px;
-                                            height:70px;
-                                            object-fit:contain;
-                                            background:white;
-                                            border-radius:8px;
-                                            margin-right:20px;
-                                            padding:2px;">
-                            </a>
+            <img src="{img_b}"
+                 style="width:70px;
+                        height:70px;
+                        object-fit:contain;
+                        background:white;
+                        border-radius:8px;
+                        margin-right:20px;
+                        padding:2px;">
+        </a>
 
-                            <div style="flex-grow:1;">
+        <div style="flex-grow:1;">
 
-                                <div style="color:#F8FAFC;
-                                            font-weight:600;
-                                            font-size:14px;">
-                                    {prod_a}
+            <div style="color:#F8FAFC;
+                        font-weight:600;
+                        font-size:14px;">
+                {prod_a}
 
-                                    <span style="color:#94A3B8;
-                                                font-size:11px;">
-                                        ({info_a['modelo_color']})
-                                    </span>
-                                </div>
+                <span style="color:#94A3B8;
+                             font-size:11px;">
+                    ({info_a['modelo_color']})
+                </span>
+            </div>
 
-                                <div style="color:#E2E8F0;
-                                            font-weight:600;
-                                            font-size:14px;
-                                            margin-top:4px;">
-                                    {prod_b}
+            <div style="color:#E2E8F0;
+                        font-weight:600;
+                        font-size:14px;
+                        margin-top:4px;">
+                {prod_b}
 
-                                    <span style="color:#94A3B8;
-                                                font-size:11px;">
-                                        ({info_b['modelo_color']})
-                                    </span>
-                                </div>
+                <span style="color:#94A3B8;
+                             font-size:11px;">
+                    ({info_b['modelo_color']})
+                </span>
+            </div>
 
-                            </div>
+        </div>
 
-                            <div style="text-align:right;">
+        <div style="text-align:right;">
 
-                                <div style="color:#34D399;
-                                            font-weight:800;
-                                            font-size:18px;">
-                                    {row['Frecuencia']}
-                                </div>
+            <div style="color:#34D399;
+                        font-weight:800;
+                        font-size:18px;">
+                {row['Frecuencia']}
+            </div>
 
-                                <div style="color:#94A3B8;
-                                            font-size:10px;
-                                            text-transform:uppercase;
-                                            font-weight:700;">
-                                    Carritos
-                                </div>
+            <div style="color:#94A3B8;
+                        font-size:10px;
+                        text-transform:uppercase;
+                        font-weight:700;">
+                Carritos
+            </div>
 
-                            </div>
+        </div>
 
-                        </div>
-                        """
+    </div>
+    """
 
-                    components.html(
-                        f"""
-                        <div style="background:#0F172A; padding:10px;">
-                            {html_combos}
-                        </div>
-                        """,
-                        height=900,
-                        scrolling=True
-                    )
+st.markdown(html_combos, unsafe_allow_html=True)
                 else:
                     st.info("No se registraron ventas cruzadas suficientes con estos filtros.")
 
