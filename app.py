@@ -87,6 +87,15 @@ DIAS_MAPA = {'Monday': 'Lunes', 'Tuesday': 'Martes', 'Wednesday': 'Miércoles', 
 ESTADO_MAPA = {'fulfilled': 'Enviado', 'null': 'Pendiente', 'pending': 'En Preparación', 'restocked': 'Devuelto', 'unfulfilled': 'No Enviado'}
 PALETA_MARCAS = {'Reebok': '#38BDF8', 'Columbia': '#818CF8', 'Crocs': '#34D399', 'Kappa': '#F472B6', 'Piccadilly': '#FBBF24'}
 
+# DOMINIOS OFICIALES PARA FALLBACK DE BÚSQUEDA
+DOMINIOS_OFICIALES = {
+    'Reebok': 'https://www.reebok.com.ar',
+    'Columbia': 'https://www.columbiasportswear.com.ar',
+    'Crocs': 'https://www.crocs.com.ar',
+    'Kappa': 'https://www.kappa.com.ar',
+    'Piccadilly': 'https://www.piccadilly.com.ar'
+}
+
 PROVINCIAS_MAPA = {
     'caba': 'CABA', 'ciudad autónoma de buenos aires': 'CABA', 'capital federal': 'CABA', 'distrito federal': 'CABA',
     'buenos aires': 'Buenos Aires', 'pba': 'Buenos Aires', 'provincia de buenos aires': 'Buenos Aires', 'bs as': 'Buenos Aires',
@@ -106,16 +115,10 @@ def obtener_hora_argentina():
 
 # 🎯 NUEVA FUNCIÓN: GENERADOR DE IMÁGENES ESTÁTICO DE AZURE
 def generar_url_imagen_propia(marca, modelo_color):
-    """
-    Construye la URL apuntando al blob de Azure usando el modelo color.
-    Ejemplo: https://distriecomm.blob.core.windows.net/catalogo/Columbia/COL1388262442-1.jpg
-    """
     marca = str(marca).strip()
     mod_col = str(modelo_color).strip().upper()
-    
     if mod_col == '' or mod_col == 'NAN' or mod_col == 'NONE' or mod_col == 'S/D':
         return 'https://via.placeholder.com/150'
-        
     url_base = f"https://distriecomm.blob.core.windows.net/catalogo/{marca}/{mod_col}-1.jpg"
     return url_base
 
@@ -140,7 +143,6 @@ def load_data():
     if 'cuotas' not in df.columns: df['cuotas'] = '1 Cuota'
     if 'descuento' not in df.columns: df['descuento'] = 'SIN DESCUENTO'
     
-    # CAZA DE REVERSSOS (DOBLE S)
     if 'tags' in df.columns:
         df['es_reverso'] = df.apply(
             lambda r: 1 if ('reversso' in str(r.get('tags', '')).lower() or 'reversso' in str(r.get('medio_pago', '')).lower()) else 0, 
@@ -505,17 +507,23 @@ try:
                 if not df_p.empty:
                     col_nom = 'producto_base' if "Modelo/Color" in tipo_agrupacion else 'producto'
                     
-                    # 🎯 INYECCIÓN AZURE TOP 10
                     df_p['img_azure'] = df_p.apply(lambda r: generar_url_imagen_propia(r['marca'], r['modelo_color']), axis=1)
                     
-                    top_10 = df_p.groupby([col_nom, 'img_azure', 'url_web']).agg({'cantidad': 'sum', 'subtotal_producto': 'sum'}).sort_values(by='cantidad', ascending=False).head(10).reset_index()
+                    top_10 = df_p.groupby([col_nom, 'img_azure', 'url_web', 'modelo_color']).agg({'cantidad': 'sum', 'subtotal_producto': 'sum'}).sort_values(by='cantidad', ascending=False).head(10).reset_index()
                     for r_idx in range(0, len(top_10), 5):
                         filas_p = st.columns(5)
                         for c_idx, s_idx in enumerate(range(r_idx, r_idx + 5)):
                             if s_idx < len(top_10):
                                 item = top_10.iloc[s_idx]
                                 img = item['img_azure']
-                                link = item['url_web'] if str(item['url_web']).startswith('http') else '#'
+                                
+                                # 🎯 FALLBACK: Si el extractor no trajo el link directo, creamos un buscador oficial en Shopify
+                                link_original = str(item['url_web'])
+                                mod_color = str(item['modelo_color'])
+                                if link_original.startswith('http') and not link_original.endswith('/#'):
+                                    link = link_original
+                                else:
+                                    link = f"{DOMINIOS_OFICIALES.get(m_tab, '')}/search?q={mod_color}"
                                 
                                 filas_p[c_idx].markdown(f"""
                                     <div class="product-box">
@@ -545,23 +553,22 @@ try:
             if len(fecha_cross) == 2 and marca_cross:
                 df_cross = df_f[(df_f['marca'] == marca_cross) & (df_f['fecha'].dt.date >= fecha_cross[0]) & (df_f['fecha'].dt.date <= fecha_cross[1])]
                 
-                # 2. Diccionario de info optimizado y usando AZURE
                 info_productos = {}
                 for _, row in df_cross.drop_duplicates('producto_base').iterrows():
                     mod_raw = str(row.get('modelo_color', '')).strip()
                     mod = mod_raw if mod_raw.lower() not in ['nan', 'none', 'null', ''] else 'S/D'
                     
-                    # 🎯 INYECCIÓN AZURE CROSS-SELLING
                     img = generar_url_imagen_propia(marca_cross, mod)
                         
+                    # 🎯 FALLBACK TAMBIÉN EN EL CROSSELLING
                     link_raw = str(row.get('url_web', '')).strip()
-                    if link_raw.lower() in ['nan', 'none', 'null', ''] or not link_raw.startswith('http'):
-                        link = '#'
-                    else: link = link_raw
+                    if link_raw.startswith('http') and not link_raw.endswith('/#'):
+                        link = link_raw
+                    else:
+                        link = f"{DOMINIOS_OFICIALES.get(marca_cross, '')}/search?q={mod}"
                     
                     info_productos[row['producto_base']] = {'img': img, 'link': link, 'modelo_color': mod}
                 
-                # 3. Agrupación segura
                 pedidos_multi = df_cross.groupby('id_pedido')['producto_base'].apply(list)
                 pedidos_multi = pedidos_multi[pedidos_multi.apply(len) > 1]
                 
@@ -578,7 +585,6 @@ try:
                         top_combos = df_afinidad.groupby('Combo').size().reset_index(name='Frecuencia')
                         top_combos = top_combos.sort_values(by='Frecuencia', ascending=False).head(10)
                         
-                        # 5. Generamos el CSV Oficial estructurado
                         df_csv = df_afinidad.groupby(['Prod A', 'Prod B']).size().reset_index(name='Frecuencia')
                         df_csv = df_csv.sort_values(by='Frecuencia', ascending=False)
                         
@@ -599,7 +605,6 @@ try:
                         
                         st.write("")
                         
-                        # 6. Despliegue Visual (HTML Inmersivo)
                         html_combos = ""
                         for idx, row in top_combos.reset_index(drop=True).iterrows():
                             try:
