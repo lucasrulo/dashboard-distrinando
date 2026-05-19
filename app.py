@@ -44,10 +44,10 @@ st.markdown("""
     .product-box { background: #1E293B; border: 1px solid #334155; border-radius: 12px; padding: 15px; text-align: center; transition: 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
     .product-box:hover { border-color: #38BDF8; } 
     .product-img { width: 100%; height: 160px; object-fit: contain; border-radius: 8px; margin-bottom: 12px; background: white; padding: 5px; }
-    .product-name { font-size: 12px; font-weight: 600; color: #E2E8F0; height: 40px; overflow: hidden; line-height: 1.3; margin-bottom: 12px; }
+    .product-name { font-size: 13px; font-weight: 700; color: #38BDF8; height: 40px; overflow: hidden; line-height: 1.3; margin-bottom: 12px; text-transform: uppercase; }
     .product-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; border-top: 1px solid #334155; padding-top: 10px;}
     .product-stat-label { font-size: 9px; color: #94A3B8; text-transform: uppercase; font-weight: 700; }
-    .product-stat-val { font-size: 14px; font-weight: 800; color: #38BDF8; }
+    .product-stat-val { font-size: 14px; font-weight: 800; color: #34D399; }
     .btn-link { display: block; background: #2563EB; color: #FFFFFF !important; text-decoration: none; padding: 10px; border-radius: 8px; font-size: 11px; font-weight: 700; margin-top: 10px; text-transform: uppercase; transition: background 0.2s; }
     .btn-link:hover { background: #3B82F6; }
     .discount-container { background: #0F172A; border: 1px dashed #334155; border-radius: 12px; padding: 20px; margin-top: 20px; }
@@ -79,7 +79,7 @@ st.markdown("""
         div[data-testid="stHorizontalBlock"] { gap: 0.5rem !important; }
     }
     </style>
-    """, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 # 3. CONSTANTES Y MAPEOS
 DIAS_MAPA = {'Monday': 'Lunes', 'Tuesday': 'Martes', 'Wednesday': 'Miércoles', 'Thursday': 'Jueves', 'Friday': 'Viernes', 'Saturday': 'Sábado', 'Sunday': 'Domingo'}
@@ -124,7 +124,7 @@ def load_data():
     if 'cuotas' not in df.columns: df['cuotas'] = '1 Cuota'
     if 'descuento' not in df.columns: df['descuento'] = 'SIN DESCUENTO'
     
-    # CAZA DE REVERSSOS (DOBLE S)
+    # CAZA DE REVERSSOS
     if 'tags' in df.columns:
         df['es_reverso'] = df.apply(
             lambda r: 1 if ('reversso' in str(r.get('tags', '')).lower() or 'reversso' in str(r.get('medio_pago', '')).lower()) else 0, 
@@ -199,7 +199,7 @@ def crear_velocimetro(valor_actual, objetivo, titulo_base, es_moneda=False):
 
 try:
     df_raw = load_data()
-    objetivos_actuales = load_objetivos() 
+    objetivos_actuales = load_objetivos()
     
     if df_raw.empty: st.warning("⚠️ No se encontró la base de datos.")
     else:
@@ -223,7 +223,7 @@ try:
 
         st.sidebar.markdown("---")
         st.sidebar.markdown("### 🎯 Definición de Metas")
-        st.sidebar.caption("Al guardar, los objetivos impactarán instantáneamente en los Velocímetros y el Forecast.")
+        st.sidebar.caption("Al guardar, los objetivos impactarán instantáneamente.")
         
         marcas_base = ["Reebok", "Columbia", "Crocs", "Kappa", "Piccadilly"]
         
@@ -248,7 +248,7 @@ try:
             time.sleep(0.5)
             st.rerun()
 
-        # 1. Filtro Global (Bruto)
+        # Filtro Global
         df_f_all = df_raw[df_raw['marca'].isin(marcas_sel)].copy()
         if len(rango_fecha) == 2: 
             df_f_all = df_f_all[(df_f_all['fecha'].dt.date >= rango_fecha[0]) & (df_f_all['fecha'].dt.date <= rango_fecha[1])]
@@ -257,7 +257,7 @@ try:
         pedi_g_all = len(p_global_all)
         dev_g = (p_global_all['es_reverso'].sum() / pedi_g_all * 100) if pedi_g_all > 0 else 0
 
-        # BLINDAJE DE VENTA NETA: Eliminamos todos los pedidos marcados como "reversso"
+        # BLINDAJE DE VENTA NETA
         df_f = df_f_all[df_f_all['es_reverso'] == 0].copy()
 
         # ======================================================================
@@ -266,7 +266,7 @@ try:
         col_titu, col_bot = st.columns([4.5, 1])
         
         with col_titu:
-            st.title("📊 Panel de datos (Venta Neta)")
+            st.title("📊 Centro de Comando Distrinando")
             st.caption(f"Última actualización: {ahora_ar.strftime('%d/%m/%Y %H:%M')} hs (ARG) | Filtros Activos: {len(marcas_sel)} Marcas")
             
         with col_bot:
@@ -369,7 +369,6 @@ try:
         # --- SECCIÓN 4: MEDIDORES ---
         st.divider()
         st.subheader("🚀 Cumplimiento de Metas (Real vs. Objetivo)")
-        st.caption("La línea blanca marca la meta comercial. Los colores indican el avance: Rojo (<50%), Amarillo (50-90%), Verde (>90%).")
         
         opciones_vel = ["Global (Acumulado)"] + marcas_disponibles
         vel_sel = st.selectbox("Seleccione el alcance del medidor:", opciones_vel, key="vel_sel")
@@ -393,15 +392,13 @@ try:
         v1.plotly_chart(fig_fc, use_container_width=True)
         v2.plotly_chart(fig_un, use_container_width=True)
 
-        # ======================================================================
         # --- SECCIÓN: FORECAST Y ANÁLISIS DE BRECHA ---
-        # ======================================================================
         st.divider()
         st.subheader("🎯 Forecast y Análisis de Brecha (Gap Analysis)")
         
         col_cap, col_date = st.columns([2, 1])
         with col_cap:
-            st.caption("Seleccione el período exacto a analizar. Se asume un ritmo de venta lineal (Run Rate) en base al tiempo transcurrido de ese período.")
+            st.caption("Seleccione el período exacto a analizar. Se asume un ritmo de venta lineal (Run Rate).")
         with col_date:
             rango_forecast = st.date_input("Período del Forecast", [hoy_dt, hoy_dt + timedelta(days=6)], key="fore_date")
         
@@ -474,22 +471,32 @@ try:
                 divisor_metric_g = (dias_transcurridos * 24.0) if es_contrarreloj else dias_transcurridos
                 cf3.metric(f"Ritmo Neto Global (/{etiqueta_ritmo})", f"${(venta_sem_glob / divisor_metric_g if dias_transcurridos > 0 else 0):,.0f}")
             else: st.info("No hay marcas seleccionadas para proyectar.")
-        else:
-            st.info("Seleccione un rango de fecha inicial y final para activar el Forecast.")
 
-        # --- SECCIÓN 5: TOP 10 ---
+        # --- SECCIÓN 5: TOP 10 (OPTIMIZADO CON RESCATE DE FOTOS Y MODELO_COLOR) ---
         st.divider()
         c_title, c_toggle = st.columns([1, 1])
-        with c_title: st.subheader("🏆 TOP 10")
-        with c_toggle: tipo_agrupacion = st.radio("Nivel de Análisis:", ["👔 Agrupado por Modelo/Color", "🏷️ Desglosado por Talle (SKU)"], horizontal=True, label_visibility="collapsed")
+        with c_title: st.subheader("🏆 TOP 10 Catálogo")
+        with c_toggle: tipo_agrupacion = st.radio("Nivel de Análisis:", ["👔 Agrupado por Código (Modelo/Color)", "🏷️ Desglosado por Talle (SKU)"], horizontal=True, label_visibility="collapsed")
             
         tabs_prod = st.tabs([m.upper() for m in marcas_sel])
         for i, m_tab in enumerate(marcas_sel):
             with tabs_prod[i]:
                 df_p = df_f[df_f['marca'] == m_tab]
                 if not df_p.empty:
-                    col_nom = 'producto_base' if "Modelo/Color" in tipo_agrupacion else 'producto'
-                    top_10 = df_p.groupby([col_nom, 'img_url', 'url_web']).agg({'cantidad': 'sum', 'subtotal_producto': 'sum'}).sort_values(by='cantidad', ascending=False).head(10).reset_index()
+                    col_nom = 'modelo_color' if "Modelo/Color" in tipo_agrupacion else 'producto'
+                    
+                    # Agrupación limpia con función de rescate de imágenes no nulas
+                    top_10 = (df_p.groupby(col_nom)
+                              .agg({
+                                  'cantidad': 'sum', 
+                                  'subtotal_producto': 'sum',
+                                  'img_url': lambda x: x.dropna().iloc[0] if x.dropna().size > 0 else '',
+                                  'url_web': lambda x: x.dropna().iloc[0] if x.dropna().size > 0 else '#'
+                              })
+                              .sort_values(by='cantidad', ascending=False)
+                              .head(10)
+                              .reset_index())
+                              
                     for r_idx in range(0, len(top_10), 5):
                         filas_p = st.columns(5)
                         for c_idx, s_idx in enumerate(range(r_idx, r_idx + 5)):
@@ -497,92 +504,57 @@ try:
                                 item = top_10.iloc[s_idx]
                                 img = item['img_url'] if str(item['img_url']) != 'nan' and item['img_url'] != '' else 'https://via.placeholder.com/150'
                                 filas_p[c_idx].markdown(f"""
-                                    <div class="product-box"><img src="{img}" class="product-img"><div class="product-name">{item[col_nom]}</div>
-                                    <div class="product-info-grid"><div><div class="product-stat-label">Unidades</div><div class="product-stat-val">{int(item['cantidad']):,}</div></div>
-                                    <div><div class="product-stat-label">Total FC</div><div class="product-stat-val">${item['subtotal_producto']:,.0f}</div></div></div>
-                                    <a href="{item['url_web']}" target="_blank" class="btn-link">Ver en Tienda</a></div>""", unsafe_allow_html=True)
+                                    <div class="product-box">
+                                        <img src="{img}" class="product-img">
+                                        <div class="product-name">{item[col_nom]}</div>
+                                        <div class="product-info-grid">
+                                            <div><div class="product-stat-label">Unidades</div><div class="product-stat-val">{int(item['cantidad']):,}</div></div>
+                                            <div><div class="product-stat-label">Total FC</div><div class="product-stat-val">${item['subtotal_producto']:,.0f}</div></div>
+                                        </div>
+                                        <a href="{item['url_web']}" target="_blank" class="btn-link">Ver en Tienda</a>
+                                    </div>""", unsafe_allow_html=True)
 
-        # ======================================================================
-        # --- SECCIÓN 6: CROSSELLING DINÁMICO E INTELIGENTE ---
-        # ======================================================================
+        # --- SECCIÓN 6: CROSS-SELLING ---
         st.divider()
-        with st.expander("🔗 Análisis de Cross-selling", expanded=False):
-            st.subheader("Análisis de Afinidad de Carrito")
-            st.caption("Muestra visualmente qué modelos de productos se compran juntos dentro del mismo pedido.")
+        with st.expander("🔗 Análisis de Cross-selling (Afinidad de Productos)", expanded=True):
+            st.subheader("🛒 Afinidad de Carrito")
+            st.caption("Identificá qué productos se compran juntos con mayor frecuencia para optimizar sugerencias.")
             
-            c_cross1, c_cross2 = st.columns([1, 2])
-            with c_cross1: 
-                marca_cross = st.selectbox("Marca a analizar:", marcas_sel, key="cross_marca")
-            with c_cross2: 
-                fecha_cross = st.date_input("Período de Análisis:", [f_min, f_max], key="cross_fecha")
-
-            if len(fecha_cross) == 2 and marca_cross:
-                # 1. Filtramos por la marca y fecha exacta del módulo
-                df_cross = df_f[(df_f['marca'] == marca_cross) & (df_f['fecha'].dt.date >= fecha_cross[0]) & (df_f['fecha'].dt.date <= fecha_cross[1])]
+            if marcas_sel:
+                marca_cross = st.selectbox("Seleccionar Marca para análisis de afinidad:", marcas_sel, key="cross_sel")
+                df_cross = df_f[df_f['marca'] == marca_cross]
                 
-                # 2. Generamos un diccionario súper rápido para mapear el Modelo con su Foto Real
-                mapa_imagenes = df_cross.groupby('producto_base')['img_url'].first().to_dict()
-                
-                # 3. Agrupamos los modelos por número de carrito
                 pedidos_multi = df_cross.groupby('id_pedido')['producto_base'].apply(list)
                 pedidos_multi = pedidos_multi[pedidos_multi.apply(len) > 1]
                 
                 afinidad = []
                 for items in pedidos_multi:
-                    # Hacemos combinaciones solo de productos únicos dentro de un carrito (Set elimina talles dobles)
                     for combo in combinations(sorted(set(items)), 2):
                         afinidad.append(combo)
                 
                 if afinidad:
-                    # 4. Procesamos el ranking de los 10 combos más vendidos
                     df_afinidad = pd.DataFrame(afinidad, columns=['Prod A', 'Prod B'])
                     df_afinidad['Combo'] = df_afinidad['Prod A'] + " + " + df_afinidad['Prod B']
                     top_combos = df_afinidad['Combo'].value_counts().head(10).reset_index()
                     top_combos.columns = ['Combo', 'Frecuencia']
                     
-                    # 5. Generamos el CSV oficial con los nombres de columnas que pediste
-                    df_csv = df_afinidad.value_counts(['Prod A', 'Prod B']).reset_index(name='Cantidad de Veces')
-                    df_csv.rename(columns={'Prod A': 'Producto Comprado', 'Prod B': 'Cross-selling (Comprado Junto)'}, inplace=True)
-                    csv_export = df_csv.head(50).to_csv(index=False).encode('utf-8')
-                    
-                    col_down, _ = st.columns([1, 4])
-                    with col_down:
-                        st.download_button(label="📥 Descargar Top 50 Combos (CSV)", data=csv_export, file_name=f"cross_selling_{marca_cross}.csv", mime="text/csv")
-                    
-                    st.write("")
-                    
-                    # 6. Despliegue Visual Inmersivo (HTML/CSS)
-                    html_combos = ""
-                    for idx, row in top_combos.iterrows():
-                        prod_a, prod_b = row['Combo'].split(' + ')
-                        img_a = mapa_imagenes.get(prod_a, 'https://via.placeholder.com/150')
-                        img_b = mapa_imagenes.get(prod_b, 'https://via.placeholder.com/150')
-                        
-                        html_combos += f"""
-                        <div style='display:flex; align-items:center; background:#1E293B; padding:12px; border-radius:12px; margin-bottom:12px; border: 1px solid #334155;'>
-                            <div style='font-size:20px; font-weight:bold; color:#38BDF8; margin-right:15px; width:30px; text-align:center;'>#{idx+1}</div>
-                            <img src='{img_a}' style='width:70px; height:70px; object-fit:contain; background:white; border-radius:8px; margin-right:15px; padding:2px;'>
-                            <b style='font-size:24px; color:#94A3B8; margin-right:15px;'>+</b>
-                            <img src='{img_b}' style='width:70px; height:70px; object-fit:contain; background:white; border-radius:8px; margin-right:20px; padding:2px;'>
-                            <div style='flex-grow:1;'>
-                                <div style='color:#F8FAFC; font-weight:700; font-size:14px;'>{prod_a}</div>
-                                <div style='color:#E2E8F0; font-weight:500; font-size:13px; margin-top:2px;'>{prod_b}</div>
-                            </div>
-                            <div style='text-align:right;'>
-                                <div style='color:#34D399; font-weight:800; font-size:18px;'>{row['Frecuencia']}</div>
-                                <div style='color:#94A3B8; font-size:10px; text-transform:uppercase; font-weight:700;'>Carritos</div>
-                            </div>
-                        </div>
-                        """
-                    st.markdown(html_combos, unsafe_allow_html=True)
+                    fig_cross = px.bar(
+                        top_combos, x='Frecuencia', y='Combo', orientation='h', 
+                        title=f"Top 10 Combos Más Frecuentes: {marca_cross}", 
+                        color_discrete_sequence=[PALETA_MARCAS.get(marca_cross, '#34D399')],
+                        text_auto=True
+                    )
+                    fig_cross.update_layout(yaxis={'categoryorder':'total ascending'})
+                    st.plotly_chart(configurar_grafico(fig_cross), use_container_width=True)
                 else:
-                    st.info("No se registraron ventas cruzadas suficientes con estos filtros.")
+                    st.info(f"No hay suficientes órdenes con múltiples productos diferentes para la marca {marca_cross} en el período seleccionado.")
+            else:
+                st.warning("Seleccione al menos una marca en el panel lateral para habilitar este análisis.")
 
         # --- SECCIÓN 7: PROMOS ---
         st.divider()
         st.markdown('<div class="discount-container">', unsafe_allow_html=True)
         st.subheader("🎟️ Análisis de Promociones")
-        st.caption("Filtros exclusivos para medir el impacto de las campañas sin alterar el tablero global.")
         col_f1, col_f2 = st.columns([1, 2])
         with col_f1: desc_marcas_sel = st.multiselect("Marca (Promo)", marcas_disponibles, default=marcas_disponibles, key="desc_marca")
         with col_f2:
@@ -594,7 +566,6 @@ try:
         df_promo = df_desc_filtrado_marcas[df_desc_filtrado_marcas['descuento'].isin(desc_sel)]
         if len(rango_fecha) == 2: df_promo = df_promo[(df_promo['fecha'].dt.date >= rango_fecha[0]) & (df_promo['fecha'].dt.date <= rango_fecha[1])]
         
-        # Filtramos reversos en promos para evitar inflar efectividad del cupón
         df_promo = df_promo[df_promo['es_reverso'] == 0]
         
         if df_promo.empty: st.info("Seleccione códigos válidos para analizar.")
@@ -688,14 +659,13 @@ try:
             
         with col_fun:
             st.subheader("⏳ Eficiencia de Depósito (SLA)")
-            st.caption("Fulfillment Lead Time medido en **Días Hábiles** (Excluye sábados y domingos).")
             fun_marca_sel = st.multiselect("Auditar SLA por Marca:", marcas_disponibles, default=marcas_disponibles, key="fun_sel")
             marcas_fun_activas = fun_marca_sel if fun_marca_sel else marcas_disponibles
             df_fun = df_f[df_f['marca'].isin(marcas_fun_activas)].copy()
             df_env = df_fun[df_fun['fulfillment_status'].fillna('null').map(ESTADO_MAPA) == 'Enviado'].copy()
             df_env = df_env.dropna(subset=['fecha', 'fecha_despacho'])
             
-            if df_env.empty: st.info("No hay suficientes datos de despacho válidos registrados para calcular el SLA.")
+            if df_env.empty: st.info("No hay suficientes datos de despacho válidos registrados.")
             else:
                 fechas_compra, fechas_desp = df_env['fecha'].dt.date.values.astype('datetime64[D]'), df_env['fecha_despacho'].dt.date.values.astype('datetime64[D]')
                 df_env['lead_time_habiles'] = np.busday_count(fechas_compra, fechas_desp)
@@ -720,7 +690,6 @@ try:
         
         g1, g2 = st.columns([2, 1])
         with g1:
-            st.caption("Filtre el período exclusivo para analizar la velocidad de entrada de órdenes (independiente del filtro global).")
             rango_local = st.date_input("Período de Análisis (Tendencia):", [f_min, f_max], key="filtro_local_tendencia")
             
             df_tendencia_base = df_f.copy()
