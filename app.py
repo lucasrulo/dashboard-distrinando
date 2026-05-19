@@ -575,157 +575,157 @@ try:
                     
                     # 6. Despliegue Visual (HTML Inmersivo)
                     # 6. Despliegue Visual (HTML Inmersivo)
-                        html_combos = ""
+                    html_combos = ""
 
-                        for idx, row in top_combos.reset_index(drop=True).iterrows():
+                    for idx, row in top_combos.reset_index(drop=True).iterrows():
 
-                            # Split seguro
-                            try:
-                                prod_a, prod_b = row['Combo'].split(' + ', 1)
-                            except:
-                                continue
+                        # Split seguro
+                        try:
+                            prod_a, prod_b = row['Combo'].split(' + ', 1)
+                        except:
+                            continue
 
-                            # Info producto A
-                            info_a = info_productos.get(
-                                prod_a,
-                                {
-                                    'img': 'https://via.placeholder.com/150',
-                                    'link': '#',
-                                    'modelo_color': 'S/D'
-                                }
-                            )
+                        # Info producto A
+                        info_a = info_productos.get(
+                            prod_a,
+                            {
+                                'img': 'https://via.placeholder.com/150',
+                                'link': '#',
+                                'modelo_color': 'S/D'
+                            }
+                        )
 
-                            # Info producto B
-                            info_b = info_productos.get(
-                                prod_b,
-                                {
-                                    'img': 'https://via.placeholder.com/150',
-                                    'link': '#',
-                                    'modelo_color': 'S/D'
-                                }
-                            )
+                        # Info producto B
+                        info_b = info_productos.get(
+                            prod_b,
+                            {
+                                'img': 'https://via.placeholder.com/150',
+                                'link': '#',
+                                'modelo_color': 'S/D'
+                            }
+                        )
 
-                            # Blindaje links
-                            link_a = info_a.get('link', '#')
-                            link_b = info_b.get('link', '#')
+                        # Blindaje links
+                        link_a = info_a.get('link', '#')
+                        link_b = info_b.get('link', '#')
 
-                            if not str(link_a).startswith("http"):
-                                link_a = "#"
+                        if not str(link_a).startswith("http"):
+                            link_a = "#"
 
-                            if not str(link_b).startswith("http"):
-                                link_b = "#"
+                        if not str(link_b).startswith("http"):
+                            link_b = "#"
 
-                            # Blindaje imágenes
-                            img_a = info_a.get('img', 'https://via.placeholder.com/150')
-                            img_b = info_b.get('img', 'https://via.placeholder.com/150')
+                        # Blindaje imágenes
+                        img_a = info_a.get('img', 'https://via.placeholder.com/150')
+                        img_b = info_b.get('img', 'https://via.placeholder.com/150')
 
-                            if img_a == "" or str(img_a) == "nan":
-                                img_a = "https://via.placeholder.com/150"
+                        if img_a == "" or str(img_a) == "nan":
+                            img_a = "https://via.placeholder.com/150"
 
-                            if img_b == "" or str(img_b) == "nan":
-                                img_b = "https://via.placeholder.com/150"
+                        if img_b == "" or str(img_b) == "nan":
+                            img_b = "https://via.placeholder.com/150"
 
-                            html_combos += f"""
-                            <div style="display:flex;
-                                        align-items:center;
-                                        background:#1E293B;
-                                        padding:12px;
-                                        border-radius:12px;
-                                        margin-bottom:12px;
-                                        border:1px solid #334155;">
+                        html_combos += f"""
+                        <div style="display:flex;
+                                    align-items:center;
+                                    background:#1E293B;
+                                    padding:12px;
+                                    border-radius:12px;
+                                    margin-bottom:12px;
+                                    border:1px solid #334155;">
 
-                                <div style="font-size:20px;
-                                            font-weight:bold;
-                                            color:#38BDF8;
-                                            margin-right:15px;
-                                            width:30px;
-                                            text-align:center;">
-                                    #{idx + 1}
-                                </div>
+                            <div style="font-size:20px;
+                                        font-weight:bold;
+                                        color:#38BDF8;
+                                        margin-right:15px;
+                                        width:30px;
+                                        text-align:center;">
+                                #{idx + 1}
+                            </div>
 
-                                <a href="{link_a}"
-                                target="_blank"
-                                style="text-decoration:none;">
+                            <a href="{link_a}"
+                            target="_blank"
+                            style="text-decoration:none;">
 
-                                    <img src="{img_a}"
-                                        style="width:70px;
-                                                height:70px;
-                                                object-fit:contain;
-                                                background:white;
-                                                border-radius:8px;
-                                                margin-right:10px;
-                                                padding:2px;">
-                                </a>
-
-                                <div style="font-size:24px;
-                                            color:#94A3B8;
+                                <img src="{img_a}"
+                                    style="width:70px;
+                                            height:70px;
+                                            object-fit:contain;
+                                            background:white;
+                                            border-radius:8px;
                                             margin-right:10px;
-                                            font-weight:bold;">
-                                    +
+                                            padding:2px;">
+                            </a>
+
+                            <div style="font-size:24px;
+                                        color:#94A3B8;
+                                        margin-right:10px;
+                                        font-weight:bold;">
+                                +
+                            </div>
+
+                            <a href="{link_b}"
+                            target="_blank"
+                            style="text-decoration:none;">
+
+                                <img src="{img_b}"
+                                    style="width:70px;
+                                            height:70px;
+                                            object-fit:contain;
+                                            background:white;
+                                            border-radius:8px;
+                                            margin-right:20px;
+                                            padding:2px;">
+                            </a>
+
+                            <div style="flex-grow:1;">
+
+                                <div style="color:#F8FAFC;
+                                            font-weight:600;
+                                            font-size:14px;">
+                                    {prod_a}
+
+                                    <span style="color:#94A3B8;
+                                                font-size:11px;">
+                                        ({info_a['modelo_color']})
+                                    </span>
                                 </div>
 
-                                <a href="{link_b}"
-                                target="_blank"
-                                style="text-decoration:none;">
+                                <div style="color:#E2E8F0;
+                                            font-weight:600;
+                                            font-size:14px;
+                                            margin-top:4px;">
+                                    {prod_b}
 
-                                    <img src="{img_b}"
-                                        style="width:70px;
-                                                height:70px;
-                                                object-fit:contain;
-                                                background:white;
-                                                border-radius:8px;
-                                                margin-right:20px;
-                                                padding:2px;">
-                                </a>
-
-                                <div style="flex-grow:1;">
-
-                                    <div style="color:#F8FAFC;
-                                                font-weight:600;
-                                                font-size:14px;">
-                                        {prod_a}
-
-                                        <span style="color:#94A3B8;
-                                                    font-size:11px;">
-                                            ({info_a['modelo_color']})
-                                        </span>
-                                    </div>
-
-                                    <div style="color:#E2E8F0;
-                                                font-weight:600;
-                                                font-size:14px;
-                                                margin-top:4px;">
-                                        {prod_b}
-
-                                        <span style="color:#94A3B8;
-                                                    font-size:11px;">
-                                            ({info_b['modelo_color']})
-                                        </span>
-                                    </div>
-
-                                </div>
-
-                                <div style="text-align:right;">
-
-                                    <div style="color:#34D399;
-                                                font-weight:800;
-                                                font-size:18px;">
-                                        {row['Frecuencia']}
-                                    </div>
-
-                                    <div style="color:#94A3B8;
-                                                font-size:10px;
-                                                text-transform:uppercase;
-                                                font-weight:700;">
-                                        Carritos
-                                    </div>
-
+                                    <span style="color:#94A3B8;
+                                                font-size:11px;">
+                                        ({info_b['modelo_color']})
+                                    </span>
                                 </div>
 
                             </div>
-                            """
 
-                        st.markdown(html_combos, unsafe_allow_html=True)
+                            <div style="text-align:right;">
+
+                                <div style="color:#34D399;
+                                            font-weight:800;
+                                            font-size:18px;">
+                                    {row['Frecuencia']}
+                                </div>
+
+                                <div style="color:#94A3B8;
+                                            font-size:10px;
+                                            text-transform:uppercase;
+                                            font-weight:700;">
+                                    Carritos
+                                </div>
+
+                            </div>
+
+                        </div>
+                        """
+
+                    st.markdown(html_combos, unsafe_allow_html=True)
                 else:
                     st.info("No se registraron ventas cruzadas suficientes con estos filtros.")
 
