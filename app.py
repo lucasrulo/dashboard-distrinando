@@ -124,6 +124,7 @@ def load_data():
     if 'cuotas' not in df.columns: df['cuotas'] = '1 Cuota'
     if 'descuento' not in df.columns: df['descuento'] = 'SIN DESCUENTO'
     
+    # CAZA DE REVERSSOS (DOBLE S)
     if 'tags' in df.columns:
         df['es_reverso'] = df.apply(
             lambda r: 1 if ('reversso' in str(r.get('tags', '')).lower() or 'reversso' in str(r.get('medio_pago', '')).lower()) else 0, 
@@ -206,7 +207,7 @@ try:
         hoy_dt = ahora_ar.date()
 
         # ======================================================================
-        # --- BARRA LATERAL 
+        # --- BARRA LATERAL
         # ======================================================================
         try: st.sidebar.image("image_2ab136.jpg", use_container_width=True)
         except: st.sidebar.markdown("<h2 style='text-align: center; color: #38BDF8;'>DISTRINANDO</h2>", unsafe_allow_html=True)
@@ -246,6 +247,7 @@ try:
             time.sleep(0.5)
             st.rerun()
 
+        # 1. Filtro Global (Bruto)
         df_f_all = df_raw[df_raw['marca'].isin(marcas_sel)].copy()
         if len(rango_fecha) == 2: 
             df_f_all = df_f_all[(df_f_all['fecha'].dt.date >= rango_fecha[0]) & (df_f_all['fecha'].dt.date <= rango_fecha[1])]
@@ -500,7 +502,7 @@ try:
                                     <a href="{item['url_web']}" target="_blank" class="btn-link">Ver en Tienda</a></div>""", unsafe_allow_html=True)
 
         # ======================================================================
-        # --- SECCIÓN 6: CROSS-SELLING E INTELIGENCIA COMERCIAL ---
+        # --- SECCIÓN 6: CROSSELLING DINÁMICO E INTELIGENTE ---
         # ======================================================================
         st.divider()
         with st.expander("🔗 Análisis de Cross-selling", expanded=False):
@@ -536,18 +538,22 @@ try:
                 
                 afinidad = []
                 for items in pedidos_multi:
+                    # Hacemos combinaciones solo de productos únicos dentro de un carrito (Set elimina talles dobles)
                     for combo in combinations(sorted(set(items)), 2):
                         afinidad.append(combo)
                 
                 if afinidad:
-                    # 4. Procesamos el ranking de los 10 combos más vendidos
+                    # 4. Solución blindada contra versiones de Pandas: Agrupamos y contamos
                     df_afinidad = pd.DataFrame(afinidad, columns=['Prod A', 'Prod B'])
                     df_afinidad['Combo'] = df_afinidad['Prod A'] + " + " + df_afinidad['Prod B']
-                    top_combos = df_afinidad['Combo'].value_counts().head(10).reset_index()
-                    top_combos.columns = ['Combo', 'Frecuencia']
+                    
+                    top_combos = df_afinidad.groupby('Combo').size().reset_index(name='Frecuencia')
+                    top_combos = top_combos.sort_values(by='Frecuencia', ascending=False).head(10)
                     
                     # 5. Generamos el CSV Oficial estructurado
-                    df_csv = df_afinidad.value_counts(['Prod A', 'Prod B']).reset_index(name='Frecuencia')
+                    df_csv = df_afinidad.groupby(['Prod A', 'Prod B']).size().reset_index(name='Frecuencia')
+                    df_csv = df_csv.sort_values(by='Frecuencia', ascending=False)
+                    
                     df_csv['Modelo/Color 1'] = df_csv['Prod A'].map(lambda x: info_productos.get(x, {}).get('modelo_color', 'S/D'))
                     df_csv['Modelo/Color 2'] = df_csv['Prod B'].map(lambda x: info_productos.get(x, {}).get('modelo_color', 'S/D'))
                     
@@ -559,17 +565,17 @@ try:
                         'Frecuencia': 'Frecuencia (Carritos)'
                     }, inplace=True)
                     
-                    csv_export = df_csv.head(50).to_csv(index=False).encode('utf-8')
+                    csv_export = df_csv.to_csv(index=False).encode('utf-8')
                     
                     col_down, _ = st.columns([1, 4])
                     with col_down:
-                        st.download_button(label="📥 Descargar Top 50 Combos (CSV)", data=csv_export, file_name=f"cross_selling_{marca_cross}.csv", mime="text/csv")
+                        st.download_button(label="📥 Descargar Ranking de Combos (CSV)", data=csv_export, file_name=f"cross_selling_{marca_cross}.csv", mime="text/csv")
                     
                     st.write("")
                     
-                    # 6. Despliegue Visual (HTML Inmersivo TOP 10)
+                    # 6. Despliegue Visual (HTML Inmersivo)
                     html_combos = ""
-                    for idx, row in top_combos.iterrows():
+                    for idx, row in top_combos.reset_index(drop=True).iterrows():
                         prod_a, prod_b = row['Combo'].split(' + ')
                         info_a = info_productos.get(prod_a, {'img': 'https://via.placeholder.com/150', 'link': '#', 'modelo_color': 'S/D'})
                         info_b = info_productos.get(prod_b, {'img': 'https://via.placeholder.com/150', 'link': '#', 'modelo_color': 'S/D'})
@@ -748,7 +754,7 @@ try:
             st.caption("Filtre el período exclusivo para analizar la velocidad de entrada de órdenes (independiente del filtro global).")
             rango_local = st.date_input("Período de Análisis (Tendencia):", [f_min, f_max], key="filtro_local_tendencia")
             
-            df_tendencia_base = df_f.copy()
+            df_tendencia_base = df_f.copy() 
             if len(rango_local) == 2:
                 df_tendencia_base = df_tendencia_base[(df_tendencia_base['fecha'].dt.date >= rango_local[0]) & (df_tendencia_base['fecha'].dt.date <= rango_local[1])]
                 
