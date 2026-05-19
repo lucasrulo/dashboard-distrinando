@@ -122,7 +122,7 @@ def load_data():
     if 'cuotas' not in df.columns: df['cuotas'] = '1 Cuota'
     if 'descuento' not in df.columns: df['descuento'] = 'SIN DESCUENTO'
     
-    # 🎯 CAZA DE REVERSSOS (DOBLE S): Recalculamos la columna en vivo buscando el tag correcto
+    # CAZA DE REVERSSOS (DOBLE S): Recalculamos la columna en vivo buscando el tag correcto
     if 'tags' in df.columns:
         df['es_reverso'] = df.apply(
             lambda r: 1 if ('reversso' in str(r.get('tags', '')).lower() or 'reversso' in str(r.get('medio_pago', '')).lower()) else 0, 
@@ -142,6 +142,7 @@ def load_data():
         
     return df
 
+# Función hiper-robusta para leer metas
 def load_objetivos():
     archivo = "objetivos_hot_sale.json"
     objetivos_por_defecto = {
@@ -154,7 +155,8 @@ def load_objetivos():
     if os.path.exists(archivo):
         try:
             with open(archivo, "r") as f:
-                return json.load(f)
+                datos = json.load(f)
+                if datos: return datos
         except: pass
     return objetivos_por_defecto
 
@@ -196,14 +198,16 @@ def crear_velocimetro(valor_actual, objetivo, titulo_base, es_moneda=False):
 
 try:
     df_raw = load_data()
-    objetivos_actuales = load_objetivos()
+    objetivos_actuales = load_objetivos() # Se cargan directo de tu JSON guardado
     
     if df_raw.empty: st.warning("⚠️ No se encontró la base de datos.")
     else:
         ahora_ar = obtener_hora_argentina()
         hoy_dt = ahora_ar.date()
 
-        # --- BARRA LATERAL ---
+        # ======================================================================
+        # --- BARRA LATERAL (UNIFICADA)
+        # ======================================================================
         try: st.sidebar.image("image_2ab136.jpg", use_container_width=True)
         except: st.sidebar.markdown("<h2 style='text-align: center; color: #38BDF8;'>DISTRINANDO</h2>", unsafe_allow_html=True)
             
@@ -216,10 +220,13 @@ try:
         rango_fecha = st.sidebar.date_input("Rango de Fechas", [f_min, f_max])
 
         st.sidebar.markdown("---")
-        st.sidebar.markdown("### 🎯 Metas Comerciales")
-        st.sidebar.caption("Edite los valores en la tabla para ajustar las agujas temporalmente.")
+        # 🎯 SECCIÓN CENTRALIZADA Y PERSISTENTE DE METAS
+        st.sidebar.markdown("### 🎯 Definición de Metas")
+        st.sidebar.caption("Al guardar, los objetivos impactarán instantáneamente en los Velocímetros y el Forecast.")
         
         marcas_base = ["Reebok", "Columbia", "Crocs", "Kappa", "Piccadilly"]
+        
+        # Mapeamos los datos persistentes del JSON a la tabla visual
         df_edit_obj = pd.DataFrame([
             {"Marca": m, "Unidades": objetivos_actuales.get(m, {}).get("unidades", 0), "Facturación ($)": objetivos_actuales.get(m, {}).get("facturacion", 0)}
             for m in marcas_base
@@ -234,10 +241,11 @@ try:
             }, hide_index=True, use_container_width=True, key="editor_metas"
         )
         
-        if st.sidebar.button("💾 Aplicar Metas", type="primary", use_container_width=True):
+        if st.sidebar.button("💾 Guardar y Aplicar Metas", type="primary", use_container_width=True):
             nuevo_json = {row["Marca"]: {"unidades": int(row["Unidades"]), "facturacion": int(row["Facturación ($)"])} for idx, row in df_guardado.iterrows()}
             guardar_objetivos(nuevo_json)
-            st.sidebar.success("¡Guardado!")
+            st.sidebar.success("¡Metas Guardadas Exitosamente!")
+            time.sleep(0.5)
             st.rerun()
 
         # 1. Filtro Global (Bruto)
@@ -250,7 +258,7 @@ try:
         pedi_g_all = len(p_global_all)
         dev_g = (p_global_all['es_reverso'].sum() / pedi_g_all * 100) if pedi_g_all > 0 else 0
 
-        # 🎯 BLINDAJE DE VENTA NETA: Eliminamos todos los pedidos marcados como "reversso"
+        # BLINDAJE DE VENTA NETA: Eliminamos todos los pedidos marcados como "reversso"
         df_f = df_f_all[df_f_all['es_reverso'] == 0].copy()
 
         # ======================================================================
@@ -428,6 +436,7 @@ try:
                 venta_acumulada = p_sf['total_pedido'].sum() if not p_sf.empty else 0
                 unidades_acumuladas = df_sf['cantidad'].sum()
                 
+                # 🎯 IMPORTANTE: Las metas leen del JSON guardado (objetivos_actuales)
                 obj_dinero = objetivos_actuales.get(m_fore, {}).get("facturacion", 0)
                 forecast_dinero = (venta_acumulada / dias_transcurridos) * dias_totales_periodo if dias_transcurridos > 0 else 0.0
                 gap_dinero = obj_dinero - venta_acumulada
