@@ -495,7 +495,7 @@ try:
                         for c_idx, s_idx in enumerate(range(r_idx, r_idx + 5)):
                             if s_idx < len(top_10):
                                 item = top_10.iloc[s_idx]
-                                img = item['img_url'] if str(item['img_url']) != 'nan' and item['img_url'] != '' else 'https://via.placeholder.com/150'
+                                img = limpiar_imagen(item.get('img_url', ''))
                                 filas_p[c_idx].markdown(f"""
                                     <div class="product-box"><img src="{img}" class="product-img"><div class="product-name">{item[col_nom]}</div>
                                     <div class="product-info-grid"><div><div class="product-stat-label">Unidades</div><div class="product-stat-val">{int(item['cantidad']):,}</div></div>
@@ -519,19 +519,62 @@ try:
                 # 1. Filtramos por la marca y fecha exacta del módulo
                 df_cross = df_f[(df_f['marca'] == marca_cross) & (df_f['fecha'].dt.date >= fecha_cross[0]) & (df_f['fecha'].dt.date <= fecha_cross[1])]
                 
-                # 2. Generamos diccionario de imágenes, links y modelos (Lógica Antibug del Top 10)
+                # =========================================
+                # LIMPIEZA PROFUNDA DE IMÁGENES Y LINKS
+                # =========================================
+
+                def limpiar_imagen(url):
+                    try:
+                        url = str(url).strip()
+
+                        if (
+                            url == '' or
+                            url.lower() == 'nan' or
+                            url.lower() == 'none' or
+                            'no-image' in url.lower()
+                        ):
+                            return 'https://via.placeholder.com/300x300.png?text=Sin+Imagen'
+
+                        if not url.startswith('http'):
+                            return 'https://via.placeholder.com/300x300.png?text=Imagen+Inválida'
+
+                        return url
+
+                    except:
+                        return 'https://via.placeholder.com/300x300.png?text=Error'
+
+
+                def limpiar_link(url):
+                    try:
+                        url = str(url).strip()
+
+                        if (
+                            url == '' or
+                            url.lower() == 'nan' or
+                            url.lower() == 'none'
+                        ):
+                            return '#'
+
+                        if not url.startswith('http'):
+                            return '#'
+
+                        return url
+
+                    except:
+                        return '#'
+
+
                 info_productos = {}
+
                 for _, row in df_cross.drop_duplicates('producto_base').iterrows():
-                    img_raw = str(row.get('img_url', ''))
-                    img = img_raw if img_raw != 'nan' and img_raw.strip() != '' else 'https://via.placeholder.com/150'
-                    
-                    link_raw = str(row.get('url_web', ''))
-                    link = link_raw if link_raw != 'nan' and link_raw.strip() != '' else '#'
-                    
-                    mod_raw = str(row.get('modelo_color', ''))
-                    mod = mod_raw if mod_raw != 'nan' and mod_raw.strip() != '' else 'S/D'
-                    
-                    info_productos[row['producto_base']] = {'img': img, 'link': link, 'modelo_color': mod}
+
+                    producto = str(row.get('producto_base', 'Producto'))
+
+                    info_productos[producto] = {
+                        'img': limpiar_imagen(row.get('img_url', '')),
+                        'link': limpiar_link(row.get('url_web', '')),
+                        'modelo_color': str(row.get('modelo_color', 'S/D'))
+                    }
                 
                 # 3. Agrupamos los modelos por número de carrito
                 pedidos_multi = df_cross.groupby('id_pedido')['producto_base'].apply(list)
@@ -649,6 +692,7 @@ try:
                             style="text-decoration:none;">
 
                                 <img src="{img_a}"
+     onerror="this.onerror=null;this.src='https://via.placeholder.com/300x300.png?text=Sin+Imagen';"
                                     style="width:70px;
                                             height:70px;
                                             object-fit:contain;
@@ -670,6 +714,7 @@ try:
                             style="text-decoration:none;">
 
                                 <img src="{img_b}"
+     onerror="this.onerror=null;this.src='https://via.placeholder.com/300x300.png?text=Sin+Imagen';"
                                     style="width:70px;
                                             height:70px;
                                             object-fit:contain;
