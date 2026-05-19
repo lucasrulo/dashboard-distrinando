@@ -207,7 +207,7 @@ try:
         hoy_dt = ahora_ar.date()
 
         # ======================================================================
-        # --- BARRA LATERAL
+        # --- BARRA LATERAL (UNIFICADA)
         # ======================================================================
         try: st.sidebar.image("image_2ab136.jpg", use_container_width=True)
         except: st.sidebar.markdown("<h2 style='text-align: center; color: #38BDF8;'>DISTRINANDO</h2>", unsafe_allow_html=True)
@@ -217,6 +217,7 @@ try:
         marcas_disponibles = sorted(df_raw['marca'].unique())
         marcas_sel = st.sidebar.multiselect("Marcas a Visualizar", marcas_disponibles, default=marcas_disponibles)
         
+        # FILTRO DE RANGO GLOBAL LIBRE
         f_min, f_max = df_raw['fecha'].min().date(), df_raw['fecha'].max().date()
         rango_fecha = st.sidebar.date_input("Rango de Fechas", [f_min, f_max], min_value=f_min, max_value=f_max)
 
@@ -256,7 +257,7 @@ try:
         pedi_g_all = len(p_global_all)
         dev_g = (p_global_all['es_reverso'].sum() / pedi_g_all * 100) if pedi_g_all > 0 else 0
 
-        # BLINDAJE DE VENTA NETA
+        # BLINDAJE DE VENTA NETA: Eliminamos todos los pedidos marcados como "reversso"
         df_f = df_f_all[df_f_all['es_reverso'] == 0].copy()
 
         # ======================================================================
@@ -506,7 +507,8 @@ try:
         # ======================================================================
         st.divider()
         with st.expander("🔗 Análisis de Cross-selling", expanded=False):
-            st.subheader("Afinidad de Carrito (Ventas Cruzadas)")
+            st.subheader("Análisis de Afinidad de Carrito")
+            st.caption("Muestra visualmente qué modelos de productos se compran juntos dentro del mismo pedido.")
             
             c_cross1, c_cross2 = st.columns([1, 2])
             with c_cross1: 
@@ -518,19 +520,8 @@ try:
                 # 1. Filtramos por la marca y fecha exacta del módulo
                 df_cross = df_f[(df_f['marca'] == marca_cross) & (df_f['fecha'].dt.date >= fecha_cross[0]) & (df_f['fecha'].dt.date <= fecha_cross[1])]
                 
-                # 2. Generamos diccionario de imágenes, links y modelos (Lógica Antibug del Top 10)
-                info_productos = {}
-                for _, row in df_cross.drop_duplicates('producto_base').iterrows():
-                    img_raw = str(row.get('img_url', ''))
-                    img = img_raw if img_raw != 'nan' and img_raw.strip() != '' else 'https://via.placeholder.com/150'
-                    
-                    link_raw = str(row.get('url_web', ''))
-                    link = link_raw if link_raw != 'nan' and link_raw.strip() != '' else '#'
-                    
-                    mod_raw = str(row.get('modelo_color', ''))
-                    mod = mod_raw if mod_raw != 'nan' and mod_raw.strip() != '' else 'S/D'
-                    
-                    info_productos[row['producto_base']] = {'img': img, 'link': link, 'modelo_color': mod}
+                # 2. Generamos un diccionario súper rápido para mapear el Modelo con su Foto Real
+                mapa_imagenes = df_cross.groupby('producto_base')['img_url'].first().to_dict()
                 
                 # 3. Agrupamos los modelos por número de carrito
                 pedidos_multi = df_cross.groupby('id_pedido')['producto_base'].apply(list)
@@ -543,62 +534,40 @@ try:
                         afinidad.append(combo)
                 
                 if afinidad:
-                    # 4. Solución blindada contra versiones de Pandas: Agrupamos y contamos
+                    # 4. Procesamos el ranking de los 10 combos más vendidos
                     df_afinidad = pd.DataFrame(afinidad, columns=['Prod A', 'Prod B'])
                     df_afinidad['Combo'] = df_afinidad['Prod A'] + " + " + df_afinidad['Prod B']
+                    top_combos = df_afinidad['Combo'].value_counts().head(10).reset_index()
+                    top_combos.columns = ['Combo', 'Frecuencia']
                     
-                    top_combos = df_afinidad.groupby('Combo').size().reset_index(name='Frecuencia')
-                    top_combos = top_combos.sort_values(by='Frecuencia', ascending=False).head(10)
-                    
-                    # 5. Generamos el CSV Oficial estructurado
-                    df_csv = df_afinidad.groupby(['Prod A', 'Prod B']).size().reset_index(name='Frecuencia')
-                    df_csv = df_csv.sort_values(by='Frecuencia', ascending=False)
-                    
-                    df_csv['Modelo/Color 1'] = df_csv['Prod A'].map(lambda x: info_productos.get(x, {}).get('modelo_color', 'S/D'))
-                    df_csv['Modelo/Color 2'] = df_csv['Prod B'].map(lambda x: info_productos.get(x, {}).get('modelo_color', 'S/D'))
-                    
-                    # Reordenar según requerimiento
-                    df_csv = df_csv[['Prod A', 'Modelo/Color 1', 'Prod B', 'Modelo/Color 2', 'Frecuencia']]
-                    df_csv.rename(columns={
-                        'Prod A': 'Producto 1',
-                        'Prod B': 'Producto 2 (Cross-selling)',
-                        'Frecuencia': 'Frecuencia (Carritos)'
-                    }, inplace=True)
-                    
-                    csv_export = df_csv.to_csv(index=False).encode('utf-8')
+                    # 5. Generamos el CSV oficial con los nombres de columnas que pediste
+                    df_csv = df_afinidad.value_counts(['Prod A', 'Prod B']).reset_index(name='Cantidad de Veces')
+                    df_csv.rename(columns={'Prod A': 'Producto Comprado', 'Prod B': 'Cross-selling (Comprado Junto)'}, inplace=True)
+                    csv_export = df_csv.head(50).to_csv(index=False).encode('utf-8')
                     
                     col_down, _ = st.columns([1, 4])
                     with col_down:
-                        st.download_button(label="📥 Descargar Ranking de Combos (CSV)", data=csv_export, file_name=f"cross_selling_{marca_cross}.csv", mime="text/csv")
+                        st.download_button(label="📥 Descargar Top 50 Combos (CSV)", data=csv_export, file_name=f"cross_selling_{marca_cross}.csv", mime="text/csv")
                     
                     st.write("")
                     
-                    # 6. Despliegue Visual (HTML Inmersivo)
+                    # 6. Despliegue Visual Inmersivo (HTML/CSS)
                     html_combos = ""
-                    for idx, row in top_combos.reset_index(drop=True).iterrows():
+                    for idx, row in top_combos.iterrows():
                         prod_a, prod_b = row['Combo'].split(' + ')
-                        info_a = info_productos.get(prod_a, {'img': 'https://via.placeholder.com/150', 'link': '#', 'modelo_color': 'S/D'})
-                        info_b = info_productos.get(prod_b, {'img': 'https://via.placeholder.com/150', 'link': '#', 'modelo_color': 'S/D'})
+                        img_a = mapa_imagenes.get(prod_a, 'https://via.placeholder.com/150')
+                        img_b = mapa_imagenes.get(prod_b, 'https://via.placeholder.com/150')
                         
                         html_combos += f"""
                         <div style='display:flex; align-items:center; background:#1E293B; padding:12px; border-radius:12px; margin-bottom:12px; border: 1px solid #334155;'>
                             <div style='font-size:20px; font-weight:bold; color:#38BDF8; margin-right:15px; width:30px; text-align:center;'>#{idx+1}</div>
-                            
-                            <a href='{info_a['link']}' target='_blank' style='text-decoration:none;' title='Ver Producto A en Tienda'>
-                                <img src='{info_a['img']}' style='width:70px; height:70px; object-fit:contain; background:white; border-radius:8px; margin-right:10px; padding:2px; transition: transform 0.2s;' onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                            </a>
-                            
-                            <b style='font-size:24px; color:#94A3B8; margin-right:10px;'>+</b>
-                            
-                            <a href='{info_b['link']}' target='_blank' style='text-decoration:none;' title='Ver Producto B en Tienda'>
-                                <img src='{info_b['img']}' style='width:70px; height:70px; object-fit:contain; background:white; border-radius:8px; margin-right:20px; padding:2px; transition: transform 0.2s;' onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                            </a>
-                            
+                            <img src='{img_a}' style='width:70px; height:70px; object-fit:contain; background:white; border-radius:8px; margin-right:15px; padding:2px;'>
+                            <b style='font-size:24px; color:#94A3B8; margin-right:15px;'>+</b>
+                            <img src='{img_b}' style='width:70px; height:70px; object-fit:contain; background:white; border-radius:8px; margin-right:20px; padding:2px;'>
                             <div style='flex-grow:1;'>
-                                <div style='color:#F8FAFC; font-weight:600; font-size:14px;'>{prod_a} <span style='color:#94A3B8; font-size:11px;'>({info_a['modelo_color']})</span></div>
-                                <div style='color:#E2E8F0; font-weight:600; font-size:14px; margin-top:4px;'>{prod_b} <span style='color:#94A3B8; font-size:11px;'>({info_b['modelo_color']})</span></div>
+                                <div style='color:#F8FAFC; font-weight:700; font-size:14px;'>{prod_a}</div>
+                                <div style='color:#E2E8F0; font-weight:500; font-size:13px; margin-top:2px;'>{prod_b}</div>
                             </div>
-                            
                             <div style='text-align:right;'>
                                 <div style='color:#34D399; font-weight:800; font-size:18px;'>{row['Frecuencia']}</div>
                                 <div style='color:#94A3B8; font-size:10px; text-transform:uppercase; font-weight:700;'>Carritos</div>
@@ -754,7 +723,7 @@ try:
             st.caption("Filtre el período exclusivo para analizar la velocidad de entrada de órdenes (independiente del filtro global).")
             rango_local = st.date_input("Período de Análisis (Tendencia):", [f_min, f_max], key="filtro_local_tendencia")
             
-            df_tendencia_base = df_f.copy() 
+            df_tendencia_base = df_f.copy()
             if len(rango_local) == 2:
                 df_tendencia_base = df_tendencia_base[(df_tendencia_base['fecha'].dt.date >= rango_local[0]) & (df_tendencia_base['fecha'].dt.date <= rango_local[1])]
                 
