@@ -216,8 +216,10 @@ try:
         marcas_disponibles = sorted(df_raw['marca'].unique())
         marcas_sel = st.sidebar.multiselect("Marcas a Visualizar", marcas_disponibles, default=marcas_disponibles)
         
+        # 🎯 FILTRO DE RANGO GLOBAL LIBRE
         f_min, f_max = df_raw['fecha'].min().date(), df_raw['fecha'].max().date()
-        rango_fecha = st.sidebar.date_input("Rango de Fechas", [f_min, f_max])
+        # Por defecto muestra todo el rango, pero es modificable por el usuario
+        rango_fecha = st.sidebar.date_input("Rango de Fechas", [f_min, f_max], min_value=f_min, max_value=f_max)
 
         st.sidebar.markdown("---")
         # 🎯 SECCIÓN CENTRALIZADA Y PERSISTENTE DE METAS
@@ -409,7 +411,8 @@ try:
         with col_cap:
             st.caption("Seleccione el período exacto a analizar. Se asume un ritmo de venta lineal (Run Rate) en base al tiempo transcurrido de ese período.")
         with col_date:
-            rango_forecast = st.date_input("Período del Forecast", [f_min, f_min + timedelta(days=6)], key="fore_date")
+            # 🎯 FORECAST LIBRE: Por defecto arranca hoy y va 7 días para adelante, pero es libre
+            rango_forecast = st.date_input("Período del Forecast", [hoy_dt, hoy_dt + timedelta(days=6)], key="fore_date")
         
         if len(rango_forecast) == 2:
             f_start = datetime.combine(rango_forecast[0], datetime.min.time(), tzinfo=ZONA_AR)
@@ -654,8 +657,8 @@ try:
         g1, g2 = st.columns([2, 1])
         with g1:
             st.caption("Filtre el período exclusivo para analizar la velocidad de entrada de órdenes (independiente del filtro global).")
-            f_min_t, f_max_t = df_raw['fecha'].min().date(), df_raw['fecha'].max().date()
-            rango_local = st.date_input("Período de Análisis (Tendencia):", [f_min_t, f_max_t], key="filtro_local_tendencia")
+            # 🎯 TENDENCIA LIBRE: Por defecto muestra toda la base, pero sin restricciones
+            rango_local = st.date_input("Período de Análisis (Tendencia):", [f_min, f_max], key="filtro_local_tendencia")
             
             df_tendencia_base = df_f.copy() # Hereda limpieza de Reversos
             if len(rango_local) == 2:
