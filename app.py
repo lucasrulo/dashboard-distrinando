@@ -104,6 +104,21 @@ ZONA_AR = timezone(timedelta(hours=-3))
 def obtener_hora_argentina():
     return datetime.now(ZONA_AR)
 
+# 🎯 NUEVA FUNCIÓN: GENERADOR DE IMÁGENES ESTÁTICO DE AZURE
+def generar_url_imagen_propia(marca, modelo_color):
+    """
+    Construye la URL apuntando al blob de Azure usando el modelo color.
+    Ejemplo: https://distriecomm.blob.core.windows.net/catalogo/Columbia/COL1388262442-1.jpg
+    """
+    marca = str(marca).strip()
+    mod_col = str(modelo_color).strip().upper()
+    
+    if mod_col == '' or mod_col == 'NAN' or mod_col == 'NONE' or mod_col == 'S/D':
+        return 'https://via.placeholder.com/150'
+        
+    url_base = f"https://distriecomm.blob.core.windows.net/catalogo/{marca}/{mod_col}-1.jpg"
+    return url_base
+
 # ==============================================================================
 # --- DESPLIEGUE DEL DASHBOARD PRINCIPAL
 # ==============================================================================
@@ -489,19 +504,30 @@ try:
                 df_p = df_f[df_f['marca'] == m_tab]
                 if not df_p.empty:
                     col_nom = 'producto_base' if "Modelo/Color" in tipo_agrupacion else 'producto'
-                    top_10 = df_p.groupby([col_nom, 'img_url', 'url_web']).agg({'cantidad': 'sum', 'subtotal_producto': 'sum'}).sort_values(by='cantidad', ascending=False).head(10).reset_index()
+                    
+                    # 🎯 INYECCIÓN AZURE TOP 10
+                    df_p['img_azure'] = df_p.apply(lambda r: generar_url_imagen_propia(r['marca'], r['modelo_color']), axis=1)
+                    
+                    top_10 = df_p.groupby([col_nom, 'img_azure', 'url_web']).agg({'cantidad': 'sum', 'subtotal_producto': 'sum'}).sort_values(by='cantidad', ascending=False).head(10).reset_index()
                     for r_idx in range(0, len(top_10), 5):
                         filas_p = st.columns(5)
                         for c_idx, s_idx in enumerate(range(r_idx, r_idx + 5)):
                             if s_idx < len(top_10):
                                 item = top_10.iloc[s_idx]
-                                img_raw = str(item['img_url']).strip()
-                                img = img_raw if (img_raw.lower() not in ['nan', 'none', 'null', ''] and img_raw.startswith('http')) else 'https://via.placeholder.com/150'
+                                img = item['img_azure']
+                                link = item['url_web'] if str(item['url_web']).startswith('http') else '#'
+                                
                                 filas_p[c_idx].markdown(f"""
-                                    <div class="product-box"><img src="{img}" class="product-img"><div class="product-name">{item[col_nom]}</div>
-                                    <div class="product-info-grid"><div><div class="product-stat-label">Unidades</div><div class="product-stat-val">{int(item['cantidad']):,}</div></div>
-                                    <div><div class="product-stat-label">Total FC</div><div class="product-stat-val">${item['subtotal_producto']:,.0f}</div></div></div>
-                                    <a href="{item['url_web']}" target="_blank" class="btn-link">Ver en Tienda</a></div>""", unsafe_allow_html=True)
+                                    <div class="product-box">
+                                        <a href="{link}" target="_blank" style="text-decoration:none;">
+                                            <img src="{img}" class="product-img" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                        </a>
+                                        <div class="product-name">{item[col_nom]}</div>
+                                        <div class="product-info-grid">
+                                            <div><div class="product-stat-label">Unidades</div><div class="product-stat-val">{int(item['cantidad']):,}</div></div>
+                                            <div><div class="product-stat-label">Total FC</div><div class="product-stat-val">${item['subtotal_producto']:,.0f}</div></div>
+                                        </div>
+                                    </div>""", unsafe_allow_html=True)
 
         # ======================================================================
         # --- SECCIÓN 6: CROSSELLING DINÁMICO E INTELIGENTE ---
@@ -517,28 +543,21 @@ try:
                 fecha_cross = st.date_input("Período de Análisis:", [f_min, f_max], key="cross_fecha")
 
             if len(fecha_cross) == 2 and marca_cross:
-                # 1. Filtro seguro
                 df_cross = df_f[(df_f['marca'] == marca_cross) & (df_f['fecha'].dt.date >= fecha_cross[0]) & (df_f['fecha'].dt.date <= fecha_cross[1])]
                 
-                # 2. Diccionario de info con validación de existencia
+                # 2. Diccionario de info optimizado y usando AZURE
                 info_productos = {}
-                df_cross_sorted = df_cross.sort_values(by='img_url', ascending=False, na_position='last')
-                
-                for _, row in df_cross_sorted.drop_duplicates('producto_base').iterrows():
-                    img_raw = str(row.get('img_url', '')).strip()
-                    if img_raw.lower() in ['nan', 'none', 'null', ''] or not img_raw.startswith('http'):
-                        img = 'https://via.placeholder.com/150'
-                    else:
-                        img = img_raw
+                for _, row in df_cross.drop_duplicates('producto_base').iterrows():
+                    mod_raw = str(row.get('modelo_color', '')).strip()
+                    mod = mod_raw if mod_raw.lower() not in ['nan', 'none', 'null', ''] else 'S/D'
+                    
+                    # 🎯 INYECCIÓN AZURE CROSS-SELLING
+                    img = generar_url_imagen_propia(marca_cross, mod)
                         
                     link_raw = str(row.get('url_web', '')).strip()
                     if link_raw.lower() in ['nan', 'none', 'null', ''] or not link_raw.startswith('http'):
                         link = '#'
-                    else:
-                        link = link_raw
-                        
-                    mod_raw = str(row.get('modelo_color', '')).strip()
-                    mod = mod_raw if mod_raw.lower() not in ['nan', 'none', 'null', ''] else 'S/D'
+                    else: link = link_raw
                     
                     info_productos[row['producto_base']] = {'img': img, 'link': link, 'modelo_color': mod}
                 
@@ -553,48 +572,66 @@ try:
                             afinidad.append(combo)
                     
                     if afinidad:
-                        # 4. Conteo robusto
                         df_afinidad = pd.DataFrame(afinidad, columns=['Prod A', 'Prod B'])
                         df_afinidad['Combo'] = df_afinidad['Prod A'] + " + " + df_afinidad['Prod B']
                         
                         top_combos = df_afinidad.groupby('Combo').size().reset_index(name='Frecuencia')
                         top_combos = top_combos.sort_values(by='Frecuencia', ascending=False).head(10)
                         
-                        # 5. Exportación CSV
+                        # 5. Generamos el CSV Oficial estructurado
                         df_csv = df_afinidad.groupby(['Prod A', 'Prod B']).size().reset_index(name='Frecuencia')
-                        df_csv.sort_values(by='Frecuencia', ascending=False, inplace=True)
+                        df_csv = df_csv.sort_values(by='Frecuencia', ascending=False)
+                        
                         df_csv['Modelo/Color 1'] = df_csv['Prod A'].map(lambda x: info_productos.get(x, {}).get('modelo_color', 'S/D'))
                         df_csv['Modelo/Color 2'] = df_csv['Prod B'].map(lambda x: info_productos.get(x, {}).get('modelo_color', 'S/D'))
                         
-                        df_export = df_csv[['Prod A', 'Modelo/Color 1', 'Prod B', 'Modelo/Color 2', 'Frecuencia']]
-                        df_export.rename(columns={'Prod A': 'Producto 1', 'Prod B': 'Producto 2 (Cross-selling)', 'Frecuencia': 'Frecuencia (Carritos)'}, inplace=True)
+                        df_csv = df_csv[['Prod A', 'Modelo/Color 1', 'Prod B', 'Modelo/Color 2', 'Frecuencia']]
+                        df_csv.rename(columns={
+                            'Prod A': 'Producto 1',
+                            'Prod B': 'Producto 2 (Cross-selling)',
+                            'Frecuencia': 'Frecuencia (Carritos)'
+                        }, inplace=True)
                         
-                        st.download_button("📥 Descargar Ranking de Combos (CSV)", data=df_export.to_csv(index=False).encode('utf-8'), file_name=f"cross_selling_{marca_cross}.csv", mime="text/csv")
+                        csv_export = df_csv.to_csv(index=False).encode('utf-8')
+                        col_down, _ = st.columns([1, 4])
+                        with col_down:
+                            st.download_button(label="📥 Descargar Ranking de Combos (CSV)", data=csv_export, file_name=f"cross_selling_{marca_cross}.csv", mime="text/csv")
                         
                         st.write("")
                         
-                        # 6. Renderizado visual
+                        # 6. Despliegue Visual (HTML Inmersivo)
                         html_combos = ""
                         for idx, row in top_combos.reset_index(drop=True).iterrows():
                             try:
                                 p_a, p_b = row['Combo'].split(' + ', 1)
-                            except ValueError:
-                                continue
+                            except ValueError: continue
                                 
                             i_a = info_productos.get(p_a, {'img': 'https://via.placeholder.com/150', 'link': '#', 'modelo_color': 'S/D'})
                             i_b = info_productos.get(p_b, {'img': 'https://via.placeholder.com/150', 'link': '#', 'modelo_color': 'S/D'})
                             
                             html_combos += f"""
                             <div style='display:flex; align-items:center; background:#1E293B; padding:12px; border-radius:12px; margin-bottom:12px; border: 1px solid #334155;'>
-                                <div style='font-size:18px; font-weight:bold; color:#38BDF8; margin-right:15px;'>#{idx+1}</div>
-                                <a href='{i_a['link']}' target='_blank'><img src='{i_a['img']}' style='width:60px; height:60px; object-fit:contain; background:white; border-radius:8px; margin-right:10px;'></a>
-                                <span style='font-size:20px; color:#94A3B8;'>+</span>
-                                <a href='{i_b['link']}' target='_blank'><img src='{i_b['img']}' style='width:60px; height:60px; object-fit:contain; background:white; border-radius:8px; margin-left:10px; margin-right:15px;'></a>
+                                <div style='font-size:18px; font-weight:bold; color:#38BDF8; margin-right:15px; width:30px; text-align:center;'>#{idx+1}</div>
+                                
+                                <a href="{i_a['link']}" target="_blank" style="text-decoration:none;" title="Ver Producto A en Tienda">
+                                    <img src="{i_a['img']}" style='width:70px; height:70px; object-fit:contain; background:white; border-radius:8px; margin-right:10px; padding:2px; transition: transform 0.2s;' onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                </a>
+                                
+                                <b style='font-size:24px; color:#94A3B8; margin-right:10px;'>+</b>
+                                
+                                <a href="{i_b['link']}" target="_blank" style="text-decoration:none;" title="Ver Producto B en Tienda">
+                                    <img src="{i_b['img']}" style='width:70px; height:70px; object-fit:contain; background:white; border-radius:8px; margin-right:20px; padding:2px; transition: transform 0.2s;' onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                </a>
+                                
                                 <div style='flex-grow:1;'>
-                                    <div style='color:#F8FAFC; font-weight:600;'>{p_a} <small style='color:#94A3B8;'>({i_a['modelo_color']})</small></div>
-                                    <div style='color:#E2E8F0; font-weight:600;'>{p_b} <small style='color:#94A3B8;'>({i_b['modelo_color']})</small></div>
+                                    <div style='color:#F8FAFC; font-weight:600; font-size:14px;'>{p_a} <span style='color:#94A3B8; font-size:11px;'>({i_a['modelo_color']})</span></div>
+                                    <div style='color:#E2E8F0; font-weight:600; font-size:14px; margin-top:4px;'>{p_b} <span style='color:#94A3B8; font-size:11px;'>({i_b['modelo_color']})</span></div>
                                 </div>
-                                <div style='text-align:right; color:#34D399; font-weight:800;'>{row['Frecuencia']} carritos</div>
+                                
+                                <div style='text-align:right;'>
+                                    <div style='color:#34D399; font-weight:800; font-size:18px;'>{row['Frecuencia']}</div>
+                                    <div style='color:#94A3B8; font-size:10px; text-transform:uppercase; font-weight:700;'>Carritos</div>
+                                </div>
                             </div>
                             """
                             
