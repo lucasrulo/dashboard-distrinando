@@ -79,7 +79,7 @@ st.markdown("""
         div[data-testid="stHorizontalBlock"] { gap: 0.5rem !important; }
     }
     </style>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
 # 3. CONSTANTES Y MAPEOS
 DIAS_MAPA = {'Monday': 'Lunes', 'Tuesday': 'Martes', 'Wednesday': 'Miércoles', 'Thursday': 'Jueves', 'Friday': 'Viernes', 'Saturday': 'Sábado', 'Sunday': 'Domingo'}
@@ -199,7 +199,7 @@ def crear_velocimetro(valor_actual, objetivo, titulo_base, es_moneda=False):
 
 try:
     df_raw = load_data()
-    objetivos_actuales = load_objetivos()
+    objetivos_actuales = load_objetivos() 
     
     if df_raw.empty: st.warning("⚠️ No se encontró la base de datos.")
     else:
@@ -217,12 +217,11 @@ try:
         marcas_disponibles = sorted(df_raw['marca'].unique())
         marcas_sel = st.sidebar.multiselect("Marcas a Visualizar", marcas_disponibles, default=marcas_disponibles)
         
-        # 🎯 FILTRO DE RANGO GLOBAL LIBRE
+        # FILTRO DE RANGO GLOBAL LIBRE
         f_min, f_max = df_raw['fecha'].min().date(), df_raw['fecha'].max().date()
         rango_fecha = st.sidebar.date_input("Rango de Fechas", [f_min, f_max], min_value=f_min, max_value=f_max)
 
         st.sidebar.markdown("---")
-        # 🎯 SECCIÓN CENTRALIZADA Y PERSISTENTE DE METAS
         st.sidebar.markdown("### 🎯 Definición de Metas")
         st.sidebar.caption("Al guardar, los objetivos impactarán instantáneamente en los Velocímetros y el Forecast.")
         
@@ -503,45 +502,81 @@ try:
                                     <div><div class="product-stat-label">Total FC</div><div class="product-stat-val">${item['subtotal_producto']:,.0f}</div></div></div>
                                     <a href="{item['url_web']}" target="_blank" class="btn-link">Ver en Tienda</a></div>""", unsafe_allow_html=True)
 
-        # --- SECCIÓN 6: CROSS-SELLING (NUEVO MÓDULO) ---
+        # ======================================================================
+        # --- SECCIÓN 6: CROSSELLING DINÁMICO E INTELIGENTE ---
+        # ======================================================================
         st.divider()
-        with st.expander("🔗 Análisis de Cross-selling (Afinidad de Productos)", expanded=True):
-            st.subheader("🛒 Afinidad de Carrito")
-            st.caption("Identificá qué productos se compran juntos con mayor frecuencia para optimizar sugerencias.")
+        with st.expander("🔗 Análisis de Cross-selling", expanded=False):
+            st.subheader("Análisis de Afinidad de Carrito")
+            st.caption("Muestra visualmente qué modelos de productos se compran juntos dentro del mismo pedido.")
             
-            if marcas_sel:
-                marca_cross = st.selectbox("Seleccionar Marca para análisis de afinidad:", marcas_sel, key="cross_sel")
-                df_cross = df_f[df_f['marca'] == marca_cross]
+            c_cross1, c_cross2 = st.columns([1, 2])
+            with c_cross1: 
+                marca_cross = st.selectbox("Marca a analizar:", marcas_sel, key="cross_marca")
+            with c_cross2: 
+                fecha_cross = st.date_input("Período de Análisis:", [f_min, f_max], key="cross_fecha")
+
+            if len(fecha_cross) == 2 and marca_cross:
+                # 1. Filtramos por la marca y fecha exacta del módulo
+                df_cross = df_f[(df_f['marca'] == marca_cross) & (df_f['fecha'].dt.date >= fecha_cross[0]) & (df_f['fecha'].dt.date <= fecha_cross[1])]
                 
-                # Agrupamos productos base por número de pedido
+                # 2. Generamos un diccionario súper rápido para mapear el Modelo con su Foto Real
+                mapa_imagenes = df_cross.groupby('producto_base')['img_url'].first().to_dict()
+                
+                # 3. Agrupamos los modelos por número de carrito
                 pedidos_multi = df_cross.groupby('id_pedido')['producto_base'].apply(list)
-                # Filtramos para quedarnos sólo con carritos de >1 artículo
                 pedidos_multi = pedidos_multi[pedidos_multi.apply(len) > 1]
                 
                 afinidad = []
                 for items in pedidos_multi:
-                    # Generamos todas las combinaciones posibles únicas en el pedido
+                    # Hacemos combinaciones solo de productos únicos dentro de un carrito (Set elimina talles dobles)
                     for combo in combinations(sorted(set(items)), 2):
                         afinidad.append(combo)
                 
                 if afinidad:
+                    # 4. Procesamos el ranking de los 10 combos más vendidos
                     df_afinidad = pd.DataFrame(afinidad, columns=['Prod A', 'Prod B'])
                     df_afinidad['Combo'] = df_afinidad['Prod A'] + " + " + df_afinidad['Prod B']
                     top_combos = df_afinidad['Combo'].value_counts().head(10).reset_index()
                     top_combos.columns = ['Combo', 'Frecuencia']
                     
-                    fig_cross = px.bar(
-                        top_combos, x='Frecuencia', y='Combo', orientation='h', 
-                        title=f"Top 10 Combos Más Frecuentes: {marca_cross}", 
-                        color_discrete_sequence=[PALETA_MARCAS.get(marca_cross, '#34D399')],
-                        text_auto=True
-                    )
-                    fig_cross.update_layout(yaxis={'categoryorder':'total ascending'})
-                    st.plotly_chart(configurar_grafico(fig_cross), use_container_width=True)
+                    # 5. Generamos el CSV oficial con los nombres de columnas que pediste
+                    df_csv = df_afinidad.value_counts(['Prod A', 'Prod B']).reset_index(name='Cantidad de Veces')
+                    df_csv.rename(columns={'Prod A': 'Producto Comprado', 'Prod B': 'Cross-selling (Comprado Junto)'}, inplace=True)
+                    csv_export = df_csv.head(50).to_csv(index=False).encode('utf-8')
+                    
+                    col_down, _ = st.columns([1, 4])
+                    with col_down:
+                        st.download_button(label="📥 Descargar Top 50 Combos (CSV)", data=csv_export, file_name=f"cross_selling_{marca_cross}.csv", mime="text/csv")
+                    
+                    st.write("")
+                    
+                    # 6. Despliegue Visual Inmersivo (HTML/CSS)
+                    html_combos = ""
+                    for idx, row in top_combos.iterrows():
+                        prod_a, prod_b = row['Combo'].split(' + ')
+                        img_a = mapa_imagenes.get(prod_a, 'https://via.placeholder.com/150')
+                        img_b = mapa_imagenes.get(prod_b, 'https://via.placeholder.com/150')
+                        
+                        html_combos += f"""
+                        <div style='display:flex; align-items:center; background:#1E293B; padding:12px; border-radius:12px; margin-bottom:12px; border: 1px solid #334155;'>
+                            <div style='font-size:20px; font-weight:bold; color:#38BDF8; margin-right:15px; width:30px; text-align:center;'>#{idx+1}</div>
+                            <img src='{img_a}' style='width:70px; height:70px; object-fit:contain; background:white; border-radius:8px; margin-right:15px; padding:2px;'>
+                            <b style='font-size:24px; color:#94A3B8; margin-right:15px;'>+</b>
+                            <img src='{img_b}' style='width:70px; height:70px; object-fit:contain; background:white; border-radius:8px; margin-right:20px; padding:2px;'>
+                            <div style='flex-grow:1;'>
+                                <div style='color:#F8FAFC; font-weight:700; font-size:14px;'>{prod_a}</div>
+                                <div style='color:#E2E8F0; font-weight:500; font-size:13px; margin-top:2px;'>{prod_b}</div>
+                            </div>
+                            <div style='text-align:right;'>
+                                <div style='color:#34D399; font-weight:800; font-size:18px;'>{row['Frecuencia']}</div>
+                                <div style='color:#94A3B8; font-size:10px; text-transform:uppercase; font-weight:700;'>Carritos</div>
+                            </div>
+                        </div>
+                        """
+                    st.markdown(html_combos, unsafe_allow_html=True)
                 else:
-                    st.info(f"No hay suficientes órdenes con múltiples productos diferentes para la marca {marca_cross} en el período seleccionado.")
-            else:
-                st.warning("Seleccione al menos una marca en el panel lateral para habilitar este análisis.")
+                    st.info("No se registraron ventas cruzadas suficientes con estos filtros.")
 
         # --- SECCIÓN 7: PROMOS ---
         st.divider()
