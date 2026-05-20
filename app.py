@@ -92,7 +92,7 @@ DOMINIOS_OFICIALES = {
     'Reebok': 'https://www.reebok.com.ar',
     'Columbia': 'https://www.columbiasportswear.com.ar',
     'Crocs': 'https://www.crocs.com.ar',
-    'Kappa': 'https://www.kappa.com.ar',
+    'Kappa': 'https://www.kappastore.com.ar',
     'Piccadilly': 'https://www.piccadilly.com.ar'
 }
 
