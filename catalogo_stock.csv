@@ -83,7 +83,7 @@ Reebok,RBK1100BP1237,RBK1100BP1237-8,0,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1237,RBK1100BP1237-8.5,0,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1237,RBK1100BP1237-9,0,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1237,RBK1100BP1237-9.5,1,89999.00,Botines Reebok Essence FG
-Reebok,RBK1100BP1237,RBK1100BP1237-10,3,89999.00,Botines Reebok Essence FG
+Reebok,RBK1100BP1237,RBK1100BP1237-10,4,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1237,RBK1100BP1237-10.5,0,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1237,RBK1100BP1237-11,5,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1237,RBK1100BP1237-11.5,1,89999.00,Botines Reebok Essence FG
@@ -900,6 +900,11 @@ Reebok,RBK2100243267,RBK2100243267-M,5,67299.00,Calza Lux
 Reebok,RBK2100243267,RBK2100243267-L,5,67299.00,Calza Lux
 Reebok,RBK2100243267,RBK2100243267-XL,6,67299.00,Calza Lux
 Reebok,RBK2100243267,RBK2100243267-XXL,0,67299.00,Calza Lux
+Reebok,RBK2100075366,RBK2100075366-XS,0,67299.00,Calza Lux Bold Graphic Tight
+Reebok,RBK2100075366,RBK2100075366-S,1,67299.00,Calza Lux Bold Graphic Tight
+Reebok,RBK2100075366,RBK2100075366-M,0,67299.00,Calza Lux Bold Graphic Tight
+Reebok,RBK2100075366,RBK2100075366-XL,0,67299.00,Calza Lux Bold Graphic Tight
+Reebok,RBK2100075366,RBK2100075366-L,0,67299.00,Calza Lux Bold Graphic Tight
 Reebok,RBK2100243269,RBK2100243269-L,1,83799.00,Calza Lux Contourt
 Reebok,RBK2100243269,RBK2100243269-M,0,83799.00,Calza Lux Contourt
 Reebok,RBK2100243269,RBK2100243269-S,0,83799.00,Calza Lux Contourt
@@ -1030,7 +1035,7 @@ Reebok,RBK2100076150,RBK2100076150-M,3,95199.00,Calza Reebok Lux HR Tight
 Reebok,RBK2100076150,RBK2100076150-L,2,95199.00,Calza Reebok Lux HR Tight
 Reebok,RBK2100076150,RBK2100076150-XL,6,95199.00,Calza Reebok Lux HR Tight
 Reebok,RBK2100076147,RBK2100076147-XS,1,95199.00,Calza Reebok Lux HR Tight
-Reebok,RBK2100076147,RBK2100076147-S,0,95199.00,Calza Reebok Lux HR Tight
+Reebok,RBK2100076147,RBK2100076147-S,1,95199.00,Calza Reebok Lux HR Tight
 Reebok,RBK2100076147,RBK2100076147-M,1,95199.00,Calza Reebok Lux HR Tight
 Reebok,RBK2100076147,RBK2100076147-L,2,95199.00,Calza Reebok Lux HR Tight
 Reebok,RBK2100076147,RBK2100076147-XL,5,95199.00,Calza Reebok Lux HR Tight
@@ -1963,13 +1968,6 @@ Reebok,RBK2100240454,RBK2100240454-M,0,83799.00,Pantalón Classics Bailey Wide L
 Reebok,RBK2100240454,RBK2100240454-S,0,83799.00,Pantalón Classics Bailey Wide Leg
 Reebok,RBK2100240454,RBK2100240454-XL,6,83799.00,Pantalón Classics Bailey Wide Leg
 Reebok,RBK2100240454,RBK2100240454-XS,0,83799.00,Pantalón Classics Bailey Wide Leg
-Reebok,RBK2100012402,RBK2100012402-2XS,0,83799.00,Pantalón Classics Vector
-Reebok,RBK2100012402,RBK2100012402-XS,4,83799.00,Pantalón Classics Vector
-Reebok,RBK2100012402,RBK2100012402-S,0,83799.00,Pantalón Classics Vector
-Reebok,RBK2100012402,RBK2100012402-M,0,83799.00,Pantalón Classics Vector
-Reebok,RBK2100012402,RBK2100012402-L,0,83799.00,Pantalón Classics Vector
-Reebok,RBK2100012402,RBK2100012402-XL,1,83799.00,Pantalón Classics Vector
-Reebok,RBK2100012402,RBK2100012402-2XL,1,83799.00,Pantalón Classics Vector
 Columbia,COL22117001010,COL22117001010-XS,0,159999.00,Anorak rompevientos Challenger™ de Columbia para hombre
 Columbia,COL22117001010,COL22117001010-S,1,159999.00,Anorak rompevientos Challenger™ de Columbia para hombre
 Columbia,COL22117001010,COL22117001010-M,1,159999.00,Anorak rompevientos Challenger™ de Columbia para hombre
@@ -2204,7 +2202,7 @@ Columbia,COL21510631609,COL21510631609-XXXL,0,74999.00,Buzo de polar Benton Spri
 Columbia,COL22085651010,COL22085651010-XS,2,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
 Columbia,COL22085651010,COL22085651010-S,4,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
 Columbia,COL22085651010,COL22085651010-M,3,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
-Columbia,COL22085651010,COL22085651010-L,2,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
+Columbia,COL22085651010,COL22085651010-L,1,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
 Columbia,COL22085651010,COL22085651010-XL,4,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
 Columbia,COL22085651010,COL22085651010-XXL,0,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
 Columbia,COL22085651010,COL22085651010-XXXL,0,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
@@ -2259,7 +2257,7 @@ Columbia,COL22090891464,COL22090891464-XXL,0,134999.00,Buzo de polar Helvetia™
 Columbia,COL22090891464,COL22090891464-XXXL,0,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
 Columbia,COL22092231272,COL22092231272-XS,0,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231272,COL22092231272-S,1,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
-Columbia,COL22092231272,COL22092231272-M,2,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
+Columbia,COL22092231272,COL22092231272-M,1,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231272,COL22092231272-L,4,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231272,COL22092231272-XL,4,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231272,COL22092231272-XXL,0,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
@@ -2315,7 +2313,7 @@ Columbia,COL22098501525,COL22098501525-XXL,0,149999.00,Buzo Helvetia™ II de po
 Columbia,COL22098501525,COL22098501525-XXXL,0,149999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231008,COL22092231008-XS,1,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231008,COL22092231008-S,2,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
-Columbia,COL22092231008,COL22092231008-M,7,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
+Columbia,COL22092231008,COL22092231008-M,6,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231008,COL22092231008-L,2,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231008,COL22092231008-XL,2,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231008,COL22092231008-XXL,0,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
@@ -3796,8 +3794,8 @@ Crocs,C10014582,C10014582-C99,6,8999.00,Chocolate Chip Ice Cream Pop
 Crocs,C10001-C001,C10001-C001-M4/W6,10,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M5/W7,12,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M6/W8,8,54999.00,Classic Clog
-Crocs,C10001-C001,C10001-C001-M7/W9,8,54999.00,Classic Clog
-Crocs,C10001-C001,C10001-C001-M8/W10,24,54999.00,Classic Clog
+Crocs,C10001-C001,C10001-C001-M7/W9,7,54999.00,Classic Clog
+Crocs,C10001-C001,C10001-C001-M8/W10,23,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M9/W11,11,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M10/W12,23,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M11,14,54999.00,Classic Clog
@@ -3887,7 +3885,7 @@ Crocs,C10001-C5BX,C10001-C5BX-M4/W6,0,54999.00,Classic Clog
 Crocs,C10001-C5BX,C10001-C5BX-M5/W7,0,54999.00,Classic Clog
 Crocs,C10001-C5BX,C10001-C5BX-M6/W8,0,54999.00,Classic Clog
 Crocs,C10001-C5BX,C10001-C5BX-M7/W9,0,54999.00,Classic Clog
-Crocs,C10001-C5BX,C10001-C5BX-M8/W10,3,54999.00,Classic Clog
+Crocs,C10001-C5BX,C10001-C5BX-M8/W10,2,54999.00,Classic Clog
 Crocs,C10001-C5BX,C10001-C5BX-M9/W11,0,54999.00,Classic Clog
 Crocs,C10001-C309,C10001-C309-M4/W6,0,54999.00,Classic Clog
 Crocs,C10001-C309,C10001-C309-M5/W7,2,54999.00,Classic Clog
@@ -3912,7 +3910,7 @@ Crocs,C10001-C100,C10001-C100-M13,5,54999.00,Classic Clog
 Crocs,C10001-C76A,C10001-C76A-M4/W6,11,54999.00,Classic Clog
 Crocs,C10001-C76A,C10001-C76A-M5/W7,3,54999.00,Classic Clog
 Crocs,C10001-C76A,C10001-C76A-M6/W8,5,54999.00,Classic Clog
-Crocs,C10001-C76A,C10001-C76A-M7/W9,8,54999.00,Classic Clog
+Crocs,C10001-C76A,C10001-C76A-M7/W9,7,54999.00,Classic Clog
 Crocs,C10001-C3YF,C10001-C3YF-M4/W6,0,54999.00,Classic Clog
 Crocs,C10001-C3YF,C10001-C3YF-M5/W7,0,54999.00,Classic Clog
 Crocs,C10001-C3YF,C10001-C3YF-M6/W8,0,54999.00,Classic Clog
@@ -5263,7 +5261,7 @@ Crocs,C210521-C060,C210521-C060-M7/W9,2,99999.00,Crocs Echo Wave
 Crocs,C210521-C060,C210521-C060-M8/W10,3,99999.00,Crocs Echo Wave
 Crocs,C210521-C060,C210521-C060-M9/W11,3,99999.00,Crocs Echo Wave
 Crocs,C210521-C060,C210521-C060-M10/W12,6,99999.00,Crocs Echo Wave
-Crocs,C210521-C060,C210521-C060-M11,8,99999.00,Crocs Echo Wave
+Crocs,C210521-C060,C210521-C060-M11,7,99999.00,Crocs Echo Wave
 Crocs,C210521-C060,C210521-C060-M12,10,99999.00,Crocs Echo Wave
 Crocs,C210521-C060,C210521-C060-M13,2,99999.00,Crocs Echo Wave
 Crocs,C210521-C1FT,C210521-C1FT-M7/W9,0,99999.00,Crocs Echo Wave
@@ -6811,7 +6809,7 @@ Kappa,K2322C35WZ-KD00,K2322C35WZ-KD00-XL,15,124999.00,Camiseta Kappa Kombat Regu
 Kappa,K2322C35WZ-KD00,K2322C35WZ-KD00-XXL,2,124999.00,Camiseta Kappa Kombat Regular Away San Martín De Tucumán
 Kappa,K2322C33WZ-KA00B,K2322C33WZ-KA00B-S,3,124999.00,Camiseta Kappa Kombat Regular Home San Martín De Tucumán
 Kappa,K2322C33WZ-KA00B,K2322C33WZ-KA00B-M,14,124999.00,Camiseta Kappa Kombat Regular Home San Martín De Tucumán
-Kappa,K2322C33WZ-KA00B,K2322C33WZ-KA00B-L,14,124999.00,Camiseta Kappa Kombat Regular Home San Martín De Tucumán
+Kappa,K2322C33WZ-KA00B,K2322C33WZ-KA00B-L,13,124999.00,Camiseta Kappa Kombat Regular Home San Martín De Tucumán
 Kappa,K2322C33WZ-KA00B,K2322C33WZ-KA00B-XL,10,124999.00,Camiseta Kappa Kombat Regular Home San Martín De Tucumán
 Kappa,K2322C33WZ-KA00B,K2322C33WZ-KA00B-XXL,2,124999.00,Camiseta Kappa Kombat Regular Home San Martín De Tucumán
 Kappa,K2322C84WS-KY10,K2322C84WS-KY10-4,0,72499.00,Camiseta Kappa Kombat Third Huracán Kids
@@ -6841,9 +6839,9 @@ Kappa,K238237JWS-KA24C,K238237JWS-KA24C-10,3,72499.00,Camiseta Kombat Away Kids 
 Kappa,K238237JWS-KA24C,K238237JWS-KA24C-12,0,72499.00,Camiseta Kombat Away Kids Huracán
 Kappa,K234231EWS-KA06K,K234231EWS-KA06K-4,10,82799.00,Camiseta Kombat Away Kids Racing Club
 Kappa,K234231EWS-KA06K,K234231EWS-KA06K-6,9,82799.00,Camiseta Kombat Away Kids Racing Club
-Kappa,K234231EWS-KA06K,K234231EWS-KA06K-8,20,82799.00,Camiseta Kombat Away Kids Racing Club
+Kappa,K234231EWS-KA06K,K234231EWS-KA06K-8,19,82799.00,Camiseta Kombat Away Kids Racing Club
 Kappa,K234231EWS-KA06K,K234231EWS-KA06K-10,23,82799.00,Camiseta Kombat Away Kids Racing Club
-Kappa,K234231EWS-KA06K,K234231EWS-KA06K-12,12,82799.00,Camiseta Kombat Away Kids Racing Club
+Kappa,K234231EWS-KA06K,K234231EWS-KA06K-12,11,82799.00,Camiseta Kombat Away Kids Racing Club
 Kappa,K2342364W-K001,K2342364W-K001-10,1,67299.00,Camiseta Kombat Away Kids Tigre
 Kappa,K2342364W-K001,K2342364W-K001-12,5,67299.00,Camiseta Kombat Away Kids Tigre
 Kappa,K2342364W-K001,K2342364W-K001-4,3,67299.00,Camiseta Kombat Away Kids Tigre
@@ -6885,7 +6883,7 @@ Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-4,0,82799.00,Camiseta Kombat Home Kids R
 Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-6,0,82799.00,Camiseta Kombat Home Kids Racing Club
 Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-8,10,82799.00,Camiseta Kombat Home Kids Racing Club
 Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-10,27,82799.00,Camiseta Kombat Home Kids Racing Club
-Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-12,4,82799.00,Camiseta Kombat Home Kids Racing Club
+Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-12,3,82799.00,Camiseta Kombat Home Kids Racing Club
 Kappa,K2342363W-KY07,K2342363W-KY07-4,1,67299.00,Camiseta Kombat Home Kids Tigre 2
 Kappa,K2342363W-KY07,K2342363W-KY07-6,0,67299.00,Camiseta Kombat Home Kids Tigre 2
 Kappa,K2342363W-KY07,K2342363W-KY07-8,2,67299.00,Camiseta Kombat Home Kids Tigre 2
@@ -6900,7 +6898,7 @@ Kappa,K2331V3UW-KD39A,K2331V3UW-KD39A-XXL,0,79699.00,Camiseta Kombat Home Regula
 Kappa,K2331V3UW-KD39A,K2331V3UW-KD39A-XXXL,0,79699.00,Camiseta Kombat Home Regular Tigre
 Kappa,K2341Y4YW-KROO,K2341Y4YW-KROO-10,2,77699.00,Camiseta Kombat Home San Martín De Tucumán Kids
 Kappa,K2341Y4YW-KROO,K2341Y4YW-KROO-12,3,77699.00,Camiseta Kombat Home San Martín De Tucumán Kids
-Kappa,K2341Y4YW-KROO,K2341Y4YW-KROO-6,1,77699.00,Camiseta Kombat Home San Martín De Tucumán Kids
+Kappa,K2341Y4YW-KROO,K2341Y4YW-KROO-6,0,77699.00,Camiseta Kombat Home San Martín De Tucumán Kids
 Kappa,K2341Y4YW-KROO,K2341Y4YW-KROO-8,2,77699.00,Camiseta Kombat Home San Martín De Tucumán Kids
 Kappa,K2331V3YW-KA09C,K2331V3YW-KA09C-XS,6,67299.00,Camiseta Kombat Lady Away Tigre
 Kappa,K2331V3YW-KA09C,K2331V3YW-KA09C-S,5,67299.00,Camiseta Kombat Lady Away Tigre
@@ -7779,7 +7777,7 @@ Piccadilly,P26103500000001FW25,P26103500000001FW25-40,2,89999.00,Botineta sandy
 Piccadilly,P95004400000001FW25,P95004400000001FW25-35,0,104999.00,Botineta Vicky
 Piccadilly,P95004400000001FW25,P95004400000001FW25-36,1,104999.00,Botineta Vicky
 Piccadilly,P95004400000001FW25,P95004400000001FW25-37,5,104999.00,Botineta Vicky
-Piccadilly,P95004400000001FW25,P95004400000001FW25-38,2,104999.00,Botineta Vicky
+Piccadilly,P95004400000001FW25,P95004400000001FW25-38,1,104999.00,Botineta Vicky
 Piccadilly,P95004400000001FW25,P95004400000001FW25-39,8,104999.00,Botineta Vicky
 Piccadilly,P95004400000001FW25,P95004400000001FW25-40,4,104999.00,Botineta Vicky
 Piccadilly,P95004400000001FW25,P95004400000001FW25-41,0,104999.00,Botineta Vicky
