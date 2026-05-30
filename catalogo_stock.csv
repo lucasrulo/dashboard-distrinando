@@ -2,7 +2,7 @@ marca,modelo_color,sku,stock,precio,titulo
 Reebok,RBK2100241910,RBK2100241910-2XL,0,45499.00,Biker Reebok
 Reebok,RBK2100241910,RBK2100241910-2XS,0,45499.00,Biker Reebok
 Reebok,RBK2100241910,RBK2100241910-L,1,45499.00,Biker Reebok
-Reebok,RBK2100241910,RBK2100241910-M,2,45499.00,Biker Reebok
+Reebok,RBK2100241910,RBK2100241910-M,1,45499.00,Biker Reebok
 Reebok,RBK2100241910,RBK2100241910-S,2,45499.00,Biker Reebok
 Reebok,RBK2100241910,RBK2100241910-XL,3,45499.00,Biker Reebok
 Reebok,RBK2100241910,RBK2100241910-XS,4,45499.00,Biker Reebok
@@ -2205,7 +2205,7 @@ Columbia,COL22085651010,COL22085651010-XL,4,84999.00,Buzo de polar con medio cie
 Columbia,COL22085651010,COL22085651010-XXL,0,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
 Columbia,COL22085651010,COL22085651010-XXXL,0,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
 Columbia,COL22085651125,COL22085651125-XS,1,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
-Columbia,COL22085651125,COL22085651125-S,4,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
+Columbia,COL22085651125,COL22085651125-S,3,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
 Columbia,COL22085651125,COL22085651125-M,0,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
 Columbia,COL22085651125,COL22085651125-L,0,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
 Columbia,COL22085651125,COL22085651125-XL,3,84999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
@@ -2241,7 +2241,7 @@ Columbia,COL22090891379,COL22090891379-XXL,1,134999.00,Buzo de polar Helvetia™
 Columbia,COL22090891379,COL22090891379-XXXL,0,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
 Columbia,COL22090891461,COL22090891461-XS,1,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
 Columbia,COL22090891461,COL22090891461-S,4,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
-Columbia,COL22090891461,COL22090891461-M,2,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
+Columbia,COL22090891461,COL22090891461-M,1,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
 Columbia,COL22090891461,COL22090891461-L,0,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
 Columbia,COL22090891461,COL22090891461-XL,2,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
 Columbia,COL22090891461,COL22090891461-XXL,1,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
@@ -3075,7 +3075,7 @@ Columbia,COL22086241429,COL22086241429-XXXL,0,329999.00,Campera Delta Ridge™ I
 Columbia,COL22086241464,COL22086241464-XS,0,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241464,COL22086241464-S,7,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241464,COL22086241464-M,7,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
-Columbia,COL22086241464,COL22086241464-L,7,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
+Columbia,COL22086241464,COL22086241464-L,6,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241464,COL22086241464-XL,7,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241464,COL22086241464-XXL,5,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241464,COL22086241464-XXXL,0,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
@@ -3487,7 +3487,7 @@ Columbia,COL22086711100,COL22086711100-XXL,0,107999.00,Campera resistente al agu
 Columbia,COL22086711100,COL22086711100-XXXL,0,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
 Columbia,COL22086711397,COL22086711397-XS,1,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
 Columbia,COL22086711397,COL22086711397-S,1,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711397,COL22086711397-M,2,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
+Columbia,COL22086711397,COL22086711397-M,1,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
 Columbia,COL22086711397,COL22086711397-L,3,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
 Columbia,COL22086711397,COL22086711397-XL,2,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
 Columbia,COL22086711397,COL22086711397-XXL,0,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
@@ -3796,8 +3796,8 @@ Crocs,C10014582,C10014582-C99,6,8999.00,Chocolate Chip Ice Cream Pop
 Crocs,C10001-C001,C10001-C001-M4/W6,7,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M5/W7,9,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M6/W8,5,54999.00,Classic Clog
-Crocs,C10001-C001,C10001-C001-M7/W9,3,54999.00,Classic Clog
-Crocs,C10001-C001,C10001-C001-M8/W10,22,54999.00,Classic Clog
+Crocs,C10001-C001,C10001-C001-M7/W9,2,54999.00,Classic Clog
+Crocs,C10001-C001,C10001-C001-M8/W10,21,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M9/W11,9,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M10/W12,21,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M11,11,54999.00,Classic Clog
@@ -3864,11 +3864,11 @@ Crocs,C10001-C3YO,C10001-C3YO-M11,0,54999.00,Classic Clog
 Crocs,C10001-C3YO,C10001-C3YO-M12,0,54999.00,Classic Clog
 Crocs,C10001-C3YO,C10001-C3YO-M13,0,54999.00,Classic Clog
 Crocs,C10001-C410,C10001-C410-M4/W6,6,54999.00,Classic Clog
-Crocs,C10001-C410,C10001-C410-M5/W7,10,54999.00,Classic Clog
+Crocs,C10001-C410,C10001-C410-M5/W7,9,54999.00,Classic Clog
 Crocs,C10001-C410,C10001-C410-M6/W8,16,54999.00,Classic Clog
 Crocs,C10001-C410,C10001-C410-M7/W9,19,54999.00,Classic Clog
-Crocs,C10001-C410,C10001-C410-M8/W10,13,54999.00,Classic Clog
-Crocs,C10001-C410,C10001-C410-M9/W11,18,54999.00,Classic Clog
+Crocs,C10001-C410,C10001-C410-M8/W10,11,54999.00,Classic Clog
+Crocs,C10001-C410,C10001-C410-M9/W11,17,54999.00,Classic Clog
 Crocs,C10001-C410,C10001-C410-M10/W12,15,54999.00,Classic Clog
 Crocs,C10001-C410,C10001-C410-M11,7,54999.00,Classic Clog
 Crocs,C10001-C410,C10001-C410-M12,4,54999.00,Classic Clog
@@ -4240,7 +4240,7 @@ Crocs,C11016-C001,C11016-C001-M11,25,64999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M12,7,64999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M13,38,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M4/W6,0,64999.00,Crocband™ Clog
-Crocs,C11016-C410,C11016-C410-M5/W7,5,64999.00,Crocband™ Clog
+Crocs,C11016-C410,C11016-C410-M5/W7,4,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M6/W8,0,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M7/W9,1,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M8/W10,27,64999.00,Crocband™ Clog
@@ -5118,7 +5118,7 @@ Crocs,C207937-C001,C207937-C001-M11,2,109999.00,Crocs Echo Clog
 Crocs,C207937-C001,C207937-C001-M12,2,109999.00,Crocs Echo Clog
 Crocs,C207937-C001,C207937-C001-M13,2,109999.00,Crocs Echo Clog
 Crocs,C207937-C2YJ,C207937-C2YJ-M3/W5,0,109999.00,Crocs Echo Clog
-Crocs,C207937-C2YJ,C207937-C2YJ-M4/W6,1,109999.00,Crocs Echo Clog
+Crocs,C207937-C2YJ,C207937-C2YJ-M4/W6,0,109999.00,Crocs Echo Clog
 Crocs,C207937-C2YJ,C207937-C2YJ-M5/W7,2,109999.00,Crocs Echo Clog
 Crocs,C207937-C2YJ,C207937-C2YJ-M6/W8,3,109999.00,Crocs Echo Clog
 Crocs,C207937-C2YJ,C207937-C2YJ-M7/W9,3,109999.00,Crocs Echo Clog
@@ -5278,7 +5278,7 @@ Crocs,C210521-C060,C210521-C060-M12,10,99999.00,Crocs Echo Wave
 Crocs,C210521-C060,C210521-C060-M13,2,99999.00,Crocs Echo Wave
 Crocs,C210521-C1FT,C210521-C1FT-M7/W9,0,99999.00,Crocs Echo Wave
 Crocs,C210521-C1FT,C210521-C1FT-M8/W10,0,99999.00,Crocs Echo Wave
-Crocs,C210521-C1FT,C210521-C1FT-M9/W11,2,99999.00,Crocs Echo Wave
+Crocs,C210521-C1FT,C210521-C1FT-M9/W11,1,99999.00,Crocs Echo Wave
 Crocs,C210521-C1FT,C210521-C1FT-M10/W12,1,99999.00,Crocs Echo Wave
 Crocs,C210521-C1FT,C210521-C1FT-M11,1,99999.00,Crocs Echo Wave
 Crocs,C210521-C1FT,C210521-C1FT-M12,1,99999.00,Crocs Echo Wave
@@ -6895,7 +6895,7 @@ Kappa,K232253MW-KA0VF,K232253MW-KA0VF-12,9,72499.00,Camiseta Kombat Home Kids At
 Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-4,0,82799.00,Camiseta Kombat Home Kids Racing Club
 Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-6,0,82799.00,Camiseta Kombat Home Kids Racing Club
 Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-8,4,82799.00,Camiseta Kombat Home Kids Racing Club
-Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-10,23,82799.00,Camiseta Kombat Home Kids Racing Club
+Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-10,21,82799.00,Camiseta Kombat Home Kids Racing Club
 Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-12,0,82799.00,Camiseta Kombat Home Kids Racing Club
 Kappa,K2342363W-KY07,K2342363W-KY07-4,1,67299.00,Camiseta Kombat Home Kids Tigre 2
 Kappa,K2342363W-KY07,K2342363W-KY07-6,0,67299.00,Camiseta Kombat Home Kids Tigre 2
@@ -6958,7 +6958,7 @@ Kappa,K234231CWS-KY10,K234231CWS-KY10-4,5,82799.00,Camiseta Kombat Pro GK Kids R
 Kappa,K234231CWS-KY10,K234231CWS-KY10-6,0,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
 Kappa,K234231CWS-KY10,K234231CWS-KY10-8,4,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
 Kappa,K234231CWS-KY10,K234231CWS-KY10-10,6,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
-Kappa,K234231CWS-KY10,K234231CWS-KY10-12,3,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
+Kappa,K234231CWS-KY10,K234231CWS-KY10-12,2,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
 Kappa,K232255IW-KALV,K232255IW-KALV-XS,2,99999.00,Camiseta kombat pro gk San Martín de Tucumán 2025
 Kappa,K232255IW-KALV,K232255IW-KALV-S,4,99999.00,Camiseta kombat pro gk San Martín de Tucumán 2025
 Kappa,K232255IW-KALV,K232255IW-KALV-M,4,99999.00,Camiseta kombat pro gk San Martín de Tucumán 2025
@@ -7075,8 +7075,8 @@ Kappa,K2311N52W-KA0VF,K2311N52W-KA0VF-XL,0,99999.00,Camiseta Kombat Slim Home At
 Kappa,K2311N52W-KA0VF,K2311N52W-KA0VF-XXL,0,99999.00,Camiseta Kombat Slim Home Atlético Tucumán
 Kappa,K2361Y2JWSJ-KA00B,K2361Y2JWSJ-KA00B-XS,0,99999.00,Camiseta Kombat Slim Home Huracán Con Sponsor
 Kappa,K2361Y2JWSJ-KA00B,K2361Y2JWSJ-KA00B-S,4,99999.00,Camiseta Kombat Slim Home Huracán Con Sponsor
-Kappa,K2361Y2JWSJ-KA00B,K2361Y2JWSJ-KA00B-M,1,99999.00,Camiseta Kombat Slim Home Huracán Con Sponsor
-Kappa,K2361Y2JWSJ-KA00B,K2361Y2JWSJ-KA00B-L,14,99999.00,Camiseta Kombat Slim Home Huracán Con Sponsor
+Kappa,K2361Y2JWSJ-KA00B,K2361Y2JWSJ-KA00B-M,0,99999.00,Camiseta Kombat Slim Home Huracán Con Sponsor
+Kappa,K2361Y2JWSJ-KA00B,K2361Y2JWSJ-KA00B-L,13,99999.00,Camiseta Kombat Slim Home Huracán Con Sponsor
 Kappa,K2361Y2JWSJ-KA00B,K2361Y2JWSJ-KA00B-XL,2,99999.00,Camiseta Kombat Slim Home Huracán Con Sponsor
 Kappa,K2361Y2JWSJ-KA00B,K2361Y2JWSJ-KA00B-XXL,0,99999.00,Camiseta Kombat Slim Home Huracán Con Sponsor
 Kappa,K2361Y2JWSJ-KA00B,K2361Y2JWSJ-KA00B-XXXL,0,99999.00,Camiseta Kombat Slim Home Huracán Con Sponsor
@@ -7100,7 +7100,7 @@ Kappa,K234231FWS-KA41B,K234231FWS-KA41B-4,0,82799.00,Camiseta Kombat Third Kids 
 Kappa,K234231FWS-KA41B,K234231FWS-KA41B-6,1,82799.00,Camiseta Kombat Third Kids Racing Club
 Kappa,K234231FWS-KA41B,K234231FWS-KA41B-8,7,82799.00,Camiseta Kombat Third Kids Racing Club
 Kappa,K234231FWS-KA41B,K234231FWS-KA41B-10,24,82799.00,Camiseta Kombat Third Kids Racing Club
-Kappa,K234231FWS-KA41B,K234231FWS-KA41B-12,1,82799.00,Camiseta Kombat Third Kids Racing Club
+Kappa,K234231FWS-KA41B,K234231FWS-KA41B-12,0,82799.00,Camiseta Kombat Third Kids Racing Club
 Kappa,K2342365W-KY12,K2342365W-KY12-4,0,67299.00,Camiseta Kombat Third Kids Tigre
 Kappa,K2342365W-KY12,K2342365W-KY12-6,1,67299.00,Camiseta Kombat Third Kids Tigre
 Kappa,K2342365W-KY12,K2342365W-KY12-8,2,67299.00,Camiseta Kombat Third Kids Tigre
@@ -8088,7 +8088,7 @@ Piccadilly,P25027500000001FW26,P25027500000001FW26-41,0,83999.00,Mocasín Raquel
 Piccadilly,P25027500000004FW26,P25027500000004FW26-35,1,83999.00,Mocasín Raquel
 Piccadilly,P25027500000004FW26,P25027500000004FW26-36,8,83999.00,Mocasín Raquel
 Piccadilly,P25027500000004FW26,P25027500000004FW26-37,13,83999.00,Mocasín Raquel
-Piccadilly,P25027500000004FW26,P25027500000004FW26-38,11,83999.00,Mocasín Raquel
+Piccadilly,P25027500000004FW26,P25027500000004FW26-38,10,83999.00,Mocasín Raquel
 Piccadilly,P25027500000004FW26,P25027500000004FW26-39,12,83999.00,Mocasín Raquel
 Piccadilly,P25027500000004FW26,P25027500000004FW26-40,6,83999.00,Mocasín Raquel
 Piccadilly,P25027500000004FW26,P25027500000004FW26-41,5,83999.00,Mocasín Raquel
