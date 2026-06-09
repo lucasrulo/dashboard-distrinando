@@ -383,7 +383,7 @@ Reebok,RBK1100MC0010,RBK1100MC0010-4.5,0,99999.00,Botines Reebok Match 1 Ic
 Reebok,RBK1100MC0010,RBK1100MC0010-5,6,99999.00,Botines Reebok Match 1 Ic
 Reebok,RBK1100MC0010,RBK1100MC0010-5.5,0,99999.00,Botines Reebok Match 1 Ic
 Reebok,RBK1100MC0010,RBK1100MC0010-6,6,99999.00,Botines Reebok Match 1 Ic
-Reebok,RBK1100MC0010,RBK1100MC0010-6.5,3,99999.00,Botines Reebok Match 1 Ic
+Reebok,RBK1100MC0010,RBK1100MC0010-6.5,2,99999.00,Botines Reebok Match 1 Ic
 Reebok,RBK1100MC0010,RBK1100MC0010-7,0,99999.00,Botines Reebok Match 1 Ic
 Reebok,RBK1100MC0010,RBK1100MC0010-7.5,3,99999.00,Botines Reebok Match 1 Ic
 Reebok,RBK1100MC0010,RBK1100MC0010-8,2,99999.00,Botines Reebok Match 1 Ic
@@ -2159,7 +2159,7 @@ Columbia,COL12109441089,COL12109441089-41,2,329999.00,Botas para caminar Newton 
 Columbia,COL12109441089,COL12109441089-42,2,329999.00,Botas para caminar Newton Wander™ de Columbia para hombre
 Columbia,COL12109441089,COL12109441089-43,3,329999.00,Botas para caminar Newton Wander™ de Columbia para hombre
 Columbia,COL12109441089,COL12109441089-44,3,329999.00,Botas para caminar Newton Wander™ de Columbia para hombre
-Columbia,COL12109441089,COL12109441089-45,2,329999.00,Botas para caminar Newton Wander™ de Columbia para hombre
+Columbia,COL12109441089,COL12109441089-45,1,329999.00,Botas para caminar Newton Wander™ de Columbia para hombre
 Columbia,COL12125531083,COL12125531083-35,1,299999.00,Botas para caminar Newton Wander™ de Columbia para mujer
 Columbia,COL12125531083,COL12125531083-36,2,299999.00,Botas para caminar Newton Wander™ de Columbia para mujer
 Columbia,COL12125531083,COL12125531083-37,3,299999.00,Botas para caminar Newton Wander™ de Columbia para mujer
@@ -2879,13 +2879,6 @@ Columbia,COL22092161125,COL22092161125-L,2,109999.00,Campera de polar Backbowl�
 Columbia,COL22092161125,COL22092161125-XL,2,109999.00,Campera de polar Backbowl™ II con cierre delantero Columbia para mujer
 Columbia,COL22092161125,COL22092161125-XXL,0,109999.00,Campera de polar Backbowl™ II con cierre delantero Columbia para mujer
 Columbia,COL22092161125,COL22092161125-XXXL,0,109999.00,Campera de polar Backbowl™ II con cierre delantero Columbia para mujer
-Columbia,COL22092161552,COL22092161552-XS,0,109999.00,Campera de polar Backbowl™ II con cierre delantero Columbia para mujer
-Columbia,COL22092161552,COL22092161552-S,1,109999.00,Campera de polar Backbowl™ II con cierre delantero Columbia para mujer
-Columbia,COL22092161552,COL22092161552-M,0,109999.00,Campera de polar Backbowl™ II con cierre delantero Columbia para mujer
-Columbia,COL22092161552,COL22092161552-L,0,109999.00,Campera de polar Backbowl™ II con cierre delantero Columbia para mujer
-Columbia,COL22092161552,COL22092161552-XL,0,109999.00,Campera de polar Backbowl™ II con cierre delantero Columbia para mujer
-Columbia,COL22092161552,COL22092161552-XXL,0,109999.00,Campera de polar Backbowl™ II con cierre delantero Columbia para mujer
-Columbia,COL22092161552,COL22092161552-XXXL,0,109999.00,Campera de polar Backbowl™ II con cierre delantero Columbia para mujer
 Columbia,COL22092161694,COL22092161694-XS,1,109999.00,Campera de polar Backbowl™ II con cierre delantero Columbia para mujer
 Columbia,COL22092161694,COL22092161694-S,4,109999.00,Campera de polar Backbowl™ II con cierre delantero Columbia para mujer
 Columbia,COL22092161694,COL22092161694-M,2,109999.00,Campera de polar Backbowl™ II con cierre delantero Columbia para mujer
@@ -3733,10 +3726,17 @@ Columbia,COL22086971010,COL22086971010-L,3,249999.00,Chaleco aislante Powder Lit
 Columbia,COL22086971010,COL22086971010-XL,2,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
 Columbia,COL22086971010,COL22086971010-XXL,0,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
 Columbia,COL22086971010,COL22086971010-XXXL,0,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
+Columbia,COL22086971464,COL22086971464-XS,0,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
+Columbia,COL22086971464,COL22086971464-S,3,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
+Columbia,COL22086971464,COL22086971464-M,4,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
+Columbia,COL22086971464,COL22086971464-L,1,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
+Columbia,COL22086971464,COL22086971464-XL,2,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
+Columbia,COL22086971464,COL22086971464-XXL,2,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
+Columbia,COL22086971464,COL22086971464-XXXL,0,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
 Crocs,C10013551,C10013551-C99,4,8999.00,3D Dog With Paws
 Crocs,C10016643,C10016643-C90H,7,8999.00,3D Holiday Beach Umbrella
 Crocs,C10013552,C10013552-C99,17,8999.00,3D Kitty
-Crocs,C10013884,C10013884-C99,21,8999.00,A Tiny Friendship Letter
+Crocs,C10013884,C10013884-C99,20,8999.00,A Tiny Friendship Letter
 Crocs,C10014085,C10014085-C99,14,8999.00,B Tiny Friendship Letter
 Crocs,C10010634,C10010634-C99,1,8999.00,Baby Groot
 Crocs,C10009816,C10009816-C99,13,8999.00,Baseball Bats and Ball
@@ -3777,7 +3777,7 @@ Crocs,C10015209,C10015209-C99,18,11999.00,Blue Tape
 Crocs,C211705-C001,C211705-C001-U,5,109999.00,Bolso Crocs Classic
 Crocs,C211705-C100,C211705-C100-U,4,109999.00,Bolso Crocs Classic
 Crocs,C211705-C7CJ,C211705-C7CJ-U,10,109999.00,Bolso Crocs Classic
-Crocs,C211702-C001,C211702-C001-U,7,89999.00,Bolso Crocs Classic Small
+Crocs,C211702-C001,C211702-C001-U,6,89999.00,Bolso Crocs Classic Small
 Crocs,C211702-C100,C211702-C100-U,4,89999.00,Bolso Crocs Classic Small
 Crocs,C211702-C453,C211702-C453-U,6,89999.00,Bolso Crocs Classic Small
 Crocs,C211702-C78U,C211702-C78U-U,6,89999.00,Bolso Crocs Classic Small
@@ -3827,7 +3827,7 @@ Crocs,C206453-C2EL,C206453-C2EL-W7,18,109999.00,Brooklyn Low Wedge
 Crocs,C206453-C2EL,C206453-C2EL-W8,15,109999.00,Brooklyn Low Wedge
 Crocs,C206453-C2EL,C206453-C2EL-W9,6,109999.00,Brooklyn Low Wedge
 Crocs,C206453-C2EL,C206453-C2EL-W10,10,109999.00,Brooklyn Low Wedge
-Crocs,C10015941,C10015941-C99,17,11999.00,Cassette Tape Chain
+Crocs,C10015941,C10015941-C99,16,11999.00,Cassette Tape Chain
 Crocs,C10014582,C10014582-C99,6,8999.00,Chocolate Chip Ice Cream Pop
 Crocs,C10001-C001,C10001-C001-M4/W6,39,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M5/W7,38,54999.00,Classic Clog
@@ -4267,7 +4267,7 @@ Crocs,C11016-C001,C11016-C001-M6/W8,8,64999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M7/W9,15,64999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M8/W10,30,64999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M9/W11,35,64999.00,Crocband™ Clog
-Crocs,C11016-C001,C11016-C001-M10/W12,2,64999.00,Crocband™ Clog
+Crocs,C11016-C001,C11016-C001-M10/W12,1,64999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M11,20,64999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M12,7,64999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M13,35,64999.00,Crocband™ Clog
