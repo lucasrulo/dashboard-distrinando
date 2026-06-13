@@ -141,7 +141,7 @@ Reebok,RBK1100BP1251,RBK1100BP1251-6,0,113799.00,Botines Reebok Essence Ic
 Reebok,RBK1100BP1251,RBK1100BP1251-6.5,0,113799.00,Botines Reebok Essence Ic
 Reebok,RBK1100BP1251,RBK1100BP1251-7,0,113799.00,Botines Reebok Essence Ic
 Reebok,RBK1100BP1251,RBK1100BP1251-7.5,0,113799.00,Botines Reebok Essence Ic
-Reebok,RBK1100BP1251,RBK1100BP1251-8,0,89999.00,Botines Reebok Essence Ic
+Reebok,RBK1100BP1251,RBK1100BP1251-8,2,89999.00,Botines Reebok Essence Ic
 Reebok,RBK1100BP1251,RBK1100BP1251-8.5,0,89999.00,Botines Reebok Essence Ic
 Reebok,RBK1100BP1251,RBK1100BP1251-9,0,89999.00,Botines Reebok Essence Ic
 Reebok,RBK1100BP1251,RBK1100BP1251-9.5,0,89999.00,Botines Reebok Essence Ic
@@ -608,7 +608,7 @@ Reebok,RBK2100205874,RBK2100205874-S,7,83799.00,Buzo Reebok Coverup
 Reebok,RBK2100205874,RBK2100205874-L,1,83799.00,Buzo Reebok Coverup
 Reebok,RBK2100205874,RBK2100205874-M,3,83799.00,Buzo Reebok Coverup
 Reebok,RBK2100205874,RBK2100205874-2XL,0,83799.00,Buzo Reebok Coverup
-Reebok,RBK2100205874,RBK2100205874-XL,6,83799.00,Buzo Reebok Coverup
+Reebok,RBK2100205874,RBK2100205874-XL,5,83799.00,Buzo Reebok Coverup
 Reebok,RBK2100240669,RBK2100240669-2XL,3,77599.00,Buzo Reebok Curtis
 Reebok,RBK2100240669,RBK2100240669-2XS,0,77599.00,Buzo Reebok Curtis
 Reebok,RBK2100240669,RBK2100240669-L,3,77599.00,Buzo Reebok Curtis
@@ -2101,7 +2101,7 @@ Columbia,COL12099861053,COL12099861053-40,3,229999.00,Botas impermeables de send
 Columbia,COL12099861231,COL12099861231-35,3,229999.00,Botas impermeables de senderismo Crestwood™ Mid Waterproof de Columbia para mujer
 Columbia,COL12099861231,COL12099861231-36,4,229999.00,Botas impermeables de senderismo Crestwood™ Mid Waterproof de Columbia para mujer
 Columbia,COL12099861231,COL12099861231-37,0,229999.00,Botas impermeables de senderismo Crestwood™ Mid Waterproof de Columbia para mujer
-Columbia,COL12099861231,COL12099861231-38,2,229999.00,Botas impermeables de senderismo Crestwood™ Mid Waterproof de Columbia para mujer
+Columbia,COL12099861231,COL12099861231-38,1,229999.00,Botas impermeables de senderismo Crestwood™ Mid Waterproof de Columbia para mujer
 Columbia,COL12099861231,COL12099861231-39,1,229999.00,Botas impermeables de senderismo Crestwood™ Mid Waterproof de Columbia para mujer
 Columbia,COL12099861231,COL12099861231-40,2,229999.00,Botas impermeables de senderismo Crestwood™ Mid Waterproof de Columbia para mujer
 Columbia,COL12076861010,COL12076861010-40,2,209999.00,Botas impermeables de senderismo Strata Trail™ Mid de Columbia para hombre
@@ -2313,7 +2313,7 @@ Columbia,COL22092231429,COL22092231429-L,3,139999.00,Buzo Helvetia™ II de pola
 Columbia,COL22092231429,COL22092231429-XL,1,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231429,COL22092231429-XXL,0,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231429,COL22092231429-XXXL,0,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
-Columbia,COL22092231462,COL22092231462-XS,1,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
+Columbia,COL22092231462,COL22092231462-XS,0,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231462,COL22092231462-S,3,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231462,COL22092231462-M,1,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231462,COL22092231462-L,6,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
@@ -2938,8 +2938,8 @@ Columbia,COL22136841254,COL22136841254-XXL,2,129999.00,Campera de polar Essentia
 Columbia,COL22136841254,COL22136841254-XXXL,0,129999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
 Columbia,COL22136841464,COL22136841464-XS,2,129999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
 Columbia,COL22136841464,COL22136841464-S,1,129999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
-Columbia,COL22136841464,COL22136841464-M,1,129999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
-Columbia,COL22136841464,COL22136841464-L,1,129999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
+Columbia,COL22136841464,COL22136841464-M,0,129999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
+Columbia,COL22136841464,COL22136841464-L,0,129999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
 Columbia,COL22136841464,COL22136841464-XL,1,129999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
 Columbia,COL22136841464,COL22136841464-XXL,0,129999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
 Columbia,COL22136841464,COL22136841464-XXXL,0,129999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
@@ -3343,7 +3343,7 @@ Columbia,COL22086981278,COL22086981278-XL,1,186999.00,Campera impermeable con ca
 Columbia,COL22086981278,COL22086981278-XXL,0,186999.00,Campera impermeable con capucha Hikebound™ II de Columbia para mujer
 Columbia,COL22086981278,COL22086981278-XXXL,0,186999.00,Campera impermeable con capucha Hikebound™ II de Columbia para mujer
 Columbia,COL22086981397,COL22086981397-XS,1,186999.00,Campera impermeable con capucha Hikebound™ II de Columbia para mujer
-Columbia,COL22086981397,COL22086981397-S,2,186999.00,Campera impermeable con capucha Hikebound™ II de Columbia para mujer
+Columbia,COL22086981397,COL22086981397-S,1,186999.00,Campera impermeable con capucha Hikebound™ II de Columbia para mujer
 Columbia,COL22086981397,COL22086981397-M,1,186999.00,Campera impermeable con capucha Hikebound™ II de Columbia para mujer
 Columbia,COL22086981397,COL22086981397-L,3,186999.00,Campera impermeable con capucha Hikebound™ II de Columbia para mujer
 Columbia,COL22086981397,COL22086981397-XL,0,186999.00,Campera impermeable con capucha Hikebound™ II de Columbia para mujer
@@ -3836,7 +3836,7 @@ Crocs,C10001-C001,C10001-C001-M6/W8,34,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M7/W9,35,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M8/W10,45,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M9/W11,35,54999.00,Classic Clog
-Crocs,C10001-C001,C10001-C001-M10/W12,49,54999.00,Classic Clog
+Crocs,C10001-C001,C10001-C001-M10/W12,48,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M11,31,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M12,34,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M13,28,54999.00,Classic Clog
@@ -4269,10 +4269,10 @@ Crocs,C11016-C001,C11016-C001-M4/W6,5,64999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M5/W7,18,64999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M6/W8,9,64999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M7/W9,13,64999.00,Crocband™ Clog
-Crocs,C11016-C001,C11016-C001-M8/W10,29,64999.00,Crocband™ Clog
+Crocs,C11016-C001,C11016-C001-M8/W10,28,64999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M9/W11,32,64999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M10/W12,1,64999.00,Crocband™ Clog
-Crocs,C11016-C001,C11016-C001-M11,17,64999.00,Crocband™ Clog
+Crocs,C11016-C001,C11016-C001-M11,16,64999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M12,7,64999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M13,34,64999.00,Crocband™ Clog
 Crocs,C11016-C07W,C11016-C07W-M4/W6,0,64999.00,Crocband™ Clog
@@ -4289,12 +4289,12 @@ Crocs,C11016-C410,C11016-C410-M4/W6,35,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M5/W7,28,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M6/W8,30,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M7/W9,36,64999.00,Crocband™ Clog
-Crocs,C11016-C410,C11016-C410-M8/W10,26,64999.00,Crocband™ Clog
+Crocs,C11016-C410,C11016-C410-M8/W10,25,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M9/W11,36,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M10/W12,27,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M11,16,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M12,18,64999.00,Crocband™ Clog
-Crocs,C11016-C410,C11016-C410-M13,21,64999.00,Crocband™ Clog
+Crocs,C11016-C410,C11016-C410-M13,20,64999.00,Crocband™ Clog
 Crocs,C11016-C5AF,C11016-C5AF-M4/W6,1,64999.00,Crocband™ Clog
 Crocs,C11016-C5AF,C11016-C5AF-M5/W7,8,64999.00,Crocband™ Clog
 Crocs,C11016-C5AF,C11016-C5AF-M6/W8,13,64999.00,Crocband™ Clog
@@ -4336,7 +4336,7 @@ Crocs,C11016-C1WW,C11016-C1WW-M5/W7,6,64999.00,Crocband™ Clog
 Crocs,C11016-C1WW,C11016-C1WW-M6/W8,4,64999.00,Crocband™ Clog
 Crocs,C11016-C1WW,C11016-C1WW-M7/W9,1,64999.00,Crocband™ Clog
 Crocs,C11016-C1WW,C11016-C1WW-M8/W10,7,64999.00,Crocband™ Clog
-Crocs,C11016-C1WW,C11016-C1WW-M9/W11,4,64999.00,Crocband™ Clog
+Crocs,C11016-C1WW,C11016-C1WW-M9/W11,3,64999.00,Crocband™ Clog
 Crocs,C11016-C1WW,C11016-C1WW-M10/W12,5,64999.00,Crocband™ Clog
 Crocs,C11016-C1WW,C11016-C1WW-M11,7,64999.00,Crocband™ Clog
 Crocs,C11016-C1WW,C11016-C1WW-M12,9,64999.00,Crocband™ Clog
@@ -6984,7 +6984,7 @@ Kappa,K233281FWS-KA20,K233281FWS-KA20-12,1,72499.00,Camiseta Kombat Pro GK Kids 
 Kappa,K234231CWS-KY10,K234231CWS-KY10-4,0,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
 Kappa,K234231CWS-KY10,K234231CWS-KY10-6,0,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
 Kappa,K234231CWS-KY10,K234231CWS-KY10-8,5,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
-Kappa,K234231CWS-KY10,K234231CWS-KY10-10,3,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
+Kappa,K234231CWS-KY10,K234231CWS-KY10-10,2,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
 Kappa,K234231CWS-KY10,K234231CWS-KY10-12,0,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
 Kappa,K232255IW-KALV,K232255IW-KALV-XS,2,99999.00,Camiseta kombat pro gk San Martín de Tucumán 2025
 Kappa,K232255IW-KALV,K232255IW-KALV-S,4,99999.00,Camiseta kombat pro gk San Martín de Tucumán 2025
@@ -7025,7 +7025,7 @@ Kappa,K235218NW-KA07H,K235218NW-KA07H-XS,19,99999.00,Camiseta Kombat Regular Awa
 Kappa,K235218NW-KA07H,K235218NW-KA07H-S,18,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
 Kappa,K235218NW-KA07H,K235218NW-KA07H-M,17,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
 Kappa,K235218NW-KA07H,K235218NW-KA07H-L,12,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
-Kappa,K235218NW-KA07H,K235218NW-KA07H-XL,5,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
+Kappa,K235218NW-KA07H,K235218NW-KA07H-XL,4,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
 Kappa,K235218NW-KA07H,K235218NW-KA07H-XXL,13,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
 Kappa,K235218NW-KA07H,K235218NW-KA07H-XXXL,9,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
 Kappa,K238237EWSJ-KA24C,K238237EWSJ-KA24C-XS,1,99999.00,Camiseta Kombat Regular Away Huracán
@@ -7039,7 +7039,7 @@ Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XS,6,99999.00,Camiseta Kombat Regular Home
 Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-S,18,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-M,37,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-L,26,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
-Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XL,19,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
+Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XL,18,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XXL,11,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XXXL,15,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2361Y2KWSJ-KA00B,K2361Y2KWSJ-KA00B-XS,0,99999.00,Camiseta Kombat Regular Home Huracán
@@ -7793,7 +7793,7 @@ Piccadilly,P26103500000001FW25,P26103500000001FW25-40,2,89999.00,Botineta sandy
 Piccadilly,P95004400000001FW25,P95004400000001FW25-35,0,104999.00,Botineta Vicky
 Piccadilly,P95004400000001FW25,P95004400000001FW25-36,2,104999.00,Botineta Vicky
 Piccadilly,P95004400000001FW25,P95004400000001FW25-37,2,104999.00,Botineta Vicky
-Piccadilly,P95004400000001FW25,P95004400000001FW25-38,4,104999.00,Botineta Vicky
+Piccadilly,P95004400000001FW25,P95004400000001FW25-38,3,104999.00,Botineta Vicky
 Piccadilly,P95004400000001FW25,P95004400000001FW25-39,13,104999.00,Botineta Vicky
 Piccadilly,P95004400000001FW25,P95004400000001FW25-40,5,104999.00,Botineta Vicky
 Piccadilly,P95004400000001FW25,P95004400000001FW25-41,0,104999.00,Botineta Vicky
@@ -8192,7 +8192,7 @@ Piccadilly,P93500400000001FW25,P93500400000001FW25-35,5,119999.00,Zapatilla Ener
 Piccadilly,P93500400000001FW25,P93500400000001FW25-36,8,119999.00,Zapatilla Energy
 Piccadilly,P93500400000001FW25,P93500400000001FW25-37,15,119999.00,Zapatilla Energy
 Piccadilly,P93500400000001FW25,P93500400000001FW25-38,20,119999.00,Zapatilla Energy
-Piccadilly,P93500400000001FW25,P93500400000001FW25-39,18,119999.00,Zapatilla Energy
+Piccadilly,P93500400000001FW25,P93500400000001FW25-39,17,119999.00,Zapatilla Energy
 Piccadilly,P93500400000001FW25,P93500400000001FW25-40,3,119999.00,Zapatilla Energy
 Piccadilly,P93500400000001FW25,P93500400000001FW25-41,0,119999.00,Zapatilla Energy
 Piccadilly,P93500500000004FW25,P93500500000004FW25-36,0,119999.00,Zapatilla Energy
