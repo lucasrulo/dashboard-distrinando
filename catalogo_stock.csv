@@ -115,7 +115,7 @@ Reebok,RBK1100BP1234,RBK1100BP1234-6,0,113799.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1234,RBK1100BP1234-6.5,0,113799.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1234,RBK1100BP1234-7,0,113799.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1234,RBK1100BP1234-7.5,0,113799.00,Botines Reebok Essence FG
-Reebok,RBK1100BP1234,RBK1100BP1234-8,1,89999.00,Botines Reebok Essence FG
+Reebok,RBK1100BP1234,RBK1100BP1234-8,0,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1234,RBK1100BP1234-8.5,0,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1234,RBK1100BP1234-9,2,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1234,RBK1100BP1234-9.5,8,89999.00,Botines Reebok Essence FG
@@ -868,7 +868,7 @@ Reebok,RBK2100241911,RBK2100241911-2XL,0,77599.00,Calza High Rise Cycle
 Reebok,RBK2100241932,RBK2100241932-2XS,0,83799.00,Calza High Rise Full
 Reebok,RBK2100241932,RBK2100241932-XS,0,83799.00,Calza High Rise Full
 Reebok,RBK2100241932,RBK2100241932-S,5,83799.00,Calza High Rise Full
-Reebok,RBK2100241932,RBK2100241932-M,4,83799.00,Calza High Rise Full
+Reebok,RBK2100241932,RBK2100241932-M,3,83799.00,Calza High Rise Full
 Reebok,RBK2100241932,RBK2100241932-L,10,83799.00,Calza High Rise Full
 Reebok,RBK2100241932,RBK2100241932-XL,11,83799.00,Calza High Rise Full
 Reebok,RBK2100241932,RBK2100241932-2XL,0,83799.00,Calza High Rise Full
@@ -984,7 +984,7 @@ Reebok,RBK21000AD7792,RBK21000AD7792-XL,2,95199.00,Calza Reebok Lux High Rise
 Reebok,RBK21000AD7792,RBK21000AD7792-2XL,0,95199.00,Calza Reebok Lux High Rise
 Reebok,RBK21000AD7792,RBK21000AD7792-N SZ,0,95199.00,Calza Reebok Lux High Rise
 Reebok,RBK21000AD7792,RBK21000AD7792-SMEF,0,95199.00,Calza Reebok Lux High Rise
-Reebok,RBK2100250283,RBK2100250283-L,5,77599.00,Calza Reebok Lux High Rise
+Reebok,RBK2100250283,RBK2100250283-L,4,77599.00,Calza Reebok Lux High Rise
 Reebok,RBK2100250283,RBK2100250283-M,6,77599.00,Calza Reebok Lux High Rise
 Reebok,RBK2100250283,RBK2100250283-S,3,77599.00,Calza Reebok Lux High Rise
 Reebok,RBK2100250283,RBK2100250283-XL,7,77599.00,Calza Reebok Lux High Rise
@@ -1331,7 +1331,7 @@ Reebok,RBK2100250910,RBK2100250910-S,7,150099.00,Campera Reebok CL F FR Tracktop
 Reebok,RBK2100250910,RBK2100250910-M,3,150099.00,Campera Reebok CL F FR Tracktop
 Reebok,RBK2100250910,RBK2100250910-L,3,150099.00,Campera Reebok CL F FR Tracktop
 Reebok,RBK2100250910,RBK2100250910-XL,4,150099.00,Campera Reebok CL F FR Tracktop
-Reebok,RBK2100250910,RBK2100250910-2XL,2,150099.00,Campera Reebok CL F FR Tracktop
+Reebok,RBK2100250910,RBK2100250910-2XL,1,150099.00,Campera Reebok CL F FR Tracktop
 Reebok,RBK2100250911,RBK2100250911-2XS,0,150099.00,Campera Reebok CL F FR Tracktop
 Reebok,RBK2100250911,RBK2100250911-XS,6,150099.00,Campera Reebok CL F FR Tracktop
 Reebok,RBK2100250911,RBK2100250911-S,0,150099.00,Campera Reebok CL F FR Tracktop
@@ -1965,13 +1965,6 @@ Reebok,RBK2100202909,RBK2100202909-XS,0,62099.00,Pantalón Identity Small Logo F
 Reebok,RBK2100202909,RBK2100202909-S,0,62099.00,Pantalón Identity Small Logo Fleece
 Reebok,RBK2100202909,RBK2100202909-L,0,62099.00,Pantalón Identity Small Logo Fleece
 Reebok,RBK2100202909,RBK2100202909-XL,1,62099.00,Pantalón Identity Small Logo Fleece
-Columbia,COL22117001010,COL22117001010-XS,0,159999.00,Anorak rompevientos Challenger™ de Columbia para hombre
-Columbia,COL22117001010,COL22117001010-S,0,159999.00,Anorak rompevientos Challenger™ de Columbia para hombre
-Columbia,COL22117001010,COL22117001010-M,0,159999.00,Anorak rompevientos Challenger™ de Columbia para hombre
-Columbia,COL22117001010,COL22117001010-L,0,159999.00,Anorak rompevientos Challenger™ de Columbia para hombre
-Columbia,COL22117001010,COL22117001010-XL,1,159999.00,Anorak rompevientos Challenger™ de Columbia para hombre
-Columbia,COL22117001010,COL22117001010-XXL,0,159999.00,Anorak rompevientos Challenger™ de Columbia para hombre
-Columbia,COL22117001010,COL22117001010-XXXL,0,159999.00,Anorak rompevientos Challenger™ de Columbia para hombre
 Columbia,COL22117001461,COL22117001461-XS,0,159999.00,Anorak rompevientos Challenger™ de Columbia para hombre
 Columbia,COL22117001461,COL22117001461-S,4,159999.00,Anorak rompevientos Challenger™ de Columbia para hombre
 Columbia,COL22117001461,COL22117001461-M,3,159999.00,Anorak rompevientos Challenger™ de Columbia para hombre
@@ -2135,7 +2128,7 @@ Columbia,COL12067401231,COL12067401231-40,2,209999.00,Botas impermeables Transve
 Columbia,COL12067401231,COL12067401231-41,2,209999.00,Botas impermeables Transverse™ Hike de Columbia para hombre
 Columbia,COL12067401231,COL12067401231-42,3,209999.00,Botas impermeables Transverse™ Hike de Columbia para hombre
 Columbia,COL12067401231,COL12067401231-43,1,209999.00,Botas impermeables Transverse™ Hike de Columbia para hombre
-Columbia,COL12067401231,COL12067401231-44,1,209999.00,Botas impermeables Transverse™ Hike de Columbia para hombre
+Columbia,COL12067401231,COL12067401231-44,0,209999.00,Botas impermeables Transverse™ Hike de Columbia para hombre
 Columbia,COL12067401231,COL12067401231-45,1,209999.00,Botas impermeables Transverse™ Hike de Columbia para hombre
 Columbia,COL12109441231,COL12109441231-40,1,299999.00,Botas para caminar Newton Wander™ de Columbia para hombre
 Columbia,COL12109441231,COL12109441231-40.5,3,299999.00,Botas para caminar Newton Wander™ de Columbia para hombre
@@ -2263,7 +2256,7 @@ Columbia,COL22090891193,COL22090891193-XXL,0,134999.00,Buzo de polar Helvetia™
 Columbia,COL22090891193,COL22090891193-XXXL,0,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
 Columbia,COL22090891379,COL22090891379-XS,0,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
 Columbia,COL22090891379,COL22090891379-S,1,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
-Columbia,COL22090891379,COL22090891379-M,5,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
+Columbia,COL22090891379,COL22090891379-M,4,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
 Columbia,COL22090891379,COL22090891379-L,0,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
 Columbia,COL22090891379,COL22090891379-XL,0,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
 Columbia,COL22090891379,COL22090891379-XXL,0,134999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
@@ -2360,7 +2353,7 @@ Columbia,COL22098501554,COL22098501554-XL,0,149999.00,Buzo Helvetia™ II de pol
 Columbia,COL22098501554,COL22098501554-XXL,0,149999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22098501554,COL22098501554-XXXL,0,149999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231008,COL22092231008-XS,0,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
-Columbia,COL22092231008,COL22092231008-S,2,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
+Columbia,COL22092231008,COL22092231008-S,1,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231008,COL22092231008-M,5,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231008,COL22092231008-L,4,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231008,COL22092231008-XL,2,139999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
@@ -2388,7 +2381,7 @@ Columbia,COL21638601011,COL21638601011-XL,6,129999.00,Calza térmica larga Midwe
 Columbia,COL21638601011,COL21638601011-XXL,3,129999.00,Calza térmica larga Midweight Stretch   Columbia para hombre
 Columbia,COL21638601011,COL21638601011-XXXL,0,129999.00,Calza térmica larga Midweight Stretch   Columbia para hombre
 Columbia,COL21639031011,COL21639031011-XS,0,99999.00,Calza térmica larga Midweight Stretch Columbia para mujer
-Columbia,COL21639031011,COL21639031011-S,3,99999.00,Calza térmica larga Midweight Stretch Columbia para mujer
+Columbia,COL21639031011,COL21639031011-S,2,99999.00,Calza térmica larga Midweight Stretch Columbia para mujer
 Columbia,COL21639031011,COL21639031011-M,4,99999.00,Calza térmica larga Midweight Stretch Columbia para mujer
 Columbia,COL21639031011,COL21639031011-L,3,99999.00,Calza térmica larga Midweight Stretch Columbia para mujer
 Columbia,COL21639031011,COL21639031011-XL,3,99999.00,Calza térmica larga Midweight Stretch Columbia para mujer
@@ -2502,13 +2495,13 @@ Columbia,COL21011651162,COL21011651162-XXXL,0,109999.00,Camisa de manga corta Ba
 Columbia,COL21011651317,COL21011651317-XS,0,109999.00,Camisa de manga corta Bahama™ II de Columbia para hombre
 Columbia,COL21011651317,COL21011651317-S,2,109999.00,Camisa de manga corta Bahama™ II de Columbia para hombre
 Columbia,COL21011651317,COL21011651317-M,3,109999.00,Camisa de manga corta Bahama™ II de Columbia para hombre
-Columbia,COL21011651317,COL21011651317-L,2,109999.00,Camisa de manga corta Bahama™ II de Columbia para hombre
+Columbia,COL21011651317,COL21011651317-L,1,109999.00,Camisa de manga corta Bahama™ II de Columbia para hombre
 Columbia,COL21011651317,COL21011651317-XL,1,109999.00,Camisa de manga corta Bahama™ II de Columbia para hombre
 Columbia,COL21011651317,COL21011651317-XXL,1,109999.00,Camisa de manga corta Bahama™ II de Columbia para hombre
 Columbia,COL21011651317,COL21011651317-XXXL,0,109999.00,Camisa de manga corta Bahama™ II de Columbia para hombre
 Columbia,COL21011651466,COL21011651466-XS,0,109999.00,Camisa de manga corta Bahama™ II de Columbia para hombre
 Columbia,COL21011651466,COL21011651466-S,4,109999.00,Camisa de manga corta Bahama™ II de Columbia para hombre
-Columbia,COL21011651466,COL21011651466-M,4,109999.00,Camisa de manga corta Bahama™ II de Columbia para hombre
+Columbia,COL21011651466,COL21011651466-M,3,109999.00,Camisa de manga corta Bahama™ II de Columbia para hombre
 Columbia,COL21011651466,COL21011651466-L,3,109999.00,Camisa de manga corta Bahama™ II de Columbia para hombre
 Columbia,COL21011651466,COL21011651466-XL,2,109999.00,Camisa de manga corta Bahama™ II de Columbia para hombre
 Columbia,COL21011651466,COL21011651466-XXL,1,109999.00,Camisa de manga corta Bahama™ II de Columbia para hombre
@@ -2828,7 +2821,7 @@ Columbia,COL22087821010,COL22087821010-L,9,459999.00,Campera Bugaboo™ III inte
 Columbia,COL22087821010,COL22087821010-XL,4,459999.00,Campera Bugaboo™ III intercambiable impermeable Columbia para mujer
 Columbia,COL22087821010,COL22087821010-XXL,0,459999.00,Campera Bugaboo™ III intercambiable impermeable Columbia para mujer
 Columbia,COL22087821010,COL22087821010-XXXL,0,459999.00,Campera Bugaboo™ III intercambiable impermeable Columbia para mujer
-Columbia,COL22087821397,COL22087821397-XS,3,459999.00,Campera Bugaboo™ III intercambiable impermeable Columbia para mujer
+Columbia,COL22087821397,COL22087821397-XS,2,459999.00,Campera Bugaboo™ III intercambiable impermeable Columbia para mujer
 Columbia,COL22087821397,COL22087821397-S,6,459999.00,Campera Bugaboo™ III intercambiable impermeable Columbia para mujer
 Columbia,COL22087821397,COL22087821397-M,8,459999.00,Campera Bugaboo™ III intercambiable impermeable Columbia para mujer
 Columbia,COL22087821397,COL22087821397-L,8,459999.00,Campera Bugaboo™ III intercambiable impermeable Columbia para mujer
@@ -2957,7 +2950,7 @@ Columbia,COL22136231010,COL22136231010-XXXL,0,119999.00,Campera de polar Essenti
 Columbia,COL22136231429,COL22136231429-XS,1,119999.00,Campera de polar Essential Hike™ Grid de Columbia para mujer
 Columbia,COL22136231429,COL22136231429-S,2,119999.00,Campera de polar Essential Hike™ Grid de Columbia para mujer
 Columbia,COL22136231429,COL22136231429-M,5,119999.00,Campera de polar Essential Hike™ Grid de Columbia para mujer
-Columbia,COL22136231429,COL22136231429-L,2,119999.00,Campera de polar Essential Hike™ Grid de Columbia para mujer
+Columbia,COL22136231429,COL22136231429-L,1,119999.00,Campera de polar Essential Hike™ Grid de Columbia para mujer
 Columbia,COL22136231429,COL22136231429-XL,3,119999.00,Campera de polar Essential Hike™ Grid de Columbia para mujer
 Columbia,COL22136231429,COL22136231429-XXL,0,119999.00,Campera de polar Essential Hike™ Grid de Columbia para mujer
 Columbia,COL22136231429,COL22136231429-XXXL,0,119999.00,Campera de polar Essential Hike™ Grid de Columbia para mujer
@@ -2997,7 +2990,7 @@ Columbia,COL21420421397,COL21420421397-XL,0,109999.00,Campera de polar Fast Trek
 Columbia,COL21420421397,COL21420421397-XXL,0,109999.00,Campera de polar Fast Trek II con cierre delantero  Columbia para hombre
 Columbia,COL21420421397,COL21420421397-XXXL,0,109999.00,Campera de polar Fast Trek II con cierre delantero  Columbia para hombre
 Columbia,COL21420421442,COL21420421442-XS,0,109999.00,Campera de polar Fast Trek II con cierre delantero  Columbia para hombre
-Columbia,COL21420421442,COL21420421442-S,1,109999.00,Campera de polar Fast Trek II con cierre delantero  Columbia para hombre
+Columbia,COL21420421442,COL21420421442-S,0,109999.00,Campera de polar Fast Trek II con cierre delantero  Columbia para hombre
 Columbia,COL21420421442,COL21420421442-M,2,109999.00,Campera de polar Fast Trek II con cierre delantero  Columbia para hombre
 Columbia,COL21420421442,COL21420421442-L,0,109999.00,Campera de polar Fast Trek II con cierre delantero  Columbia para hombre
 Columbia,COL21420421442,COL21420421442-XL,1,109999.00,Campera de polar Fast Trek II con cierre delantero  Columbia para hombre
@@ -3028,14 +3021,14 @@ Columbia,COL22156451010,COL22156451010-XS,0,74999.00,Campera de polar Fast Trek�
 Columbia,COL22156451010,COL22156451010-S,1,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
 Columbia,COL22156451010,COL22156451010-M,2,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
 Columbia,COL22156451010,COL22156451010-L,1,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
-Columbia,COL22156451010,COL22156451010-XL,1,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
+Columbia,COL22156451010,COL22156451010-XL,0,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
 Columbia,COL22156451010,COL22156451010-XXL,0,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
 Columbia,COL22156451010,COL22156451010-XXXL,0,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
 Columbia,COL22156451433,COL22156451433-XS,1,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
 Columbia,COL22156451433,COL22156451433-S,6,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
 Columbia,COL22156451433,COL22156451433-M,0,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
 Columbia,COL22156451433,COL22156451433-L,1,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
-Columbia,COL22156451433,COL22156451433-XL,1,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
+Columbia,COL22156451433,COL22156451433-XL,0,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
 Columbia,COL22156451433,COL22156451433-XXL,0,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
 Columbia,COL22156451433,COL22156451433-XXXL,0,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
 Columbia,COL22156451525,COL22156451525-XS,0,74999.00,Campera de polar Fast Trek™ V de Columbia para niño
@@ -3111,7 +3104,7 @@ Columbia,COL22086221278,COL22086221278-XXXL,0,369999.00,Campera Delta Ridge™ I
 Columbia,COL22086221429,COL22086221429-XS,0,369999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086221429,COL22086221429-S,6,369999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086221429,COL22086221429-M,6,369999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
-Columbia,COL22086221429,COL22086221429-L,6,369999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
+Columbia,COL22086221429,COL22086221429-L,5,369999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086221429,COL22086221429-XL,9,369999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086221429,COL22086221429-XXL,11,369999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086221429,COL22086221429-XXXL,0,369999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
@@ -3224,7 +3217,7 @@ Columbia,COL21465351010,COL21465351010-XS,0,99999.00,Campera Fast Trek™ II de 
 Columbia,COL21465351010,COL21465351010-S,0,99999.00,Campera Fast Trek™ II de Columbia para mujer
 Columbia,COL21465351010,COL21465351010-M,0,99999.00,Campera Fast Trek™ II de Columbia para mujer
 Columbia,COL21465351010,COL21465351010-L,1,99999.00,Campera Fast Trek™ II de Columbia para mujer
-Columbia,COL21465351010,COL21465351010-XL,2,99999.00,Campera Fast Trek™ II de Columbia para mujer
+Columbia,COL21465351010,COL21465351010-XL,1,99999.00,Campera Fast Trek™ II de Columbia para mujer
 Columbia,COL21465351010,COL21465351010-XXL,0,99999.00,Campera Fast Trek™ II de Columbia para mujer
 Columbia,COL21465351010,COL21465351010-XXXL,0,99999.00,Campera Fast Trek™ II de Columbia para mujer
 Columbia,COL21465351024,COL21465351024-XS,0,99999.00,Campera Fast Trek™ II de Columbia para mujer
@@ -3243,9 +3236,9 @@ Columbia,COL21465351125,COL21465351125-XXL,0,99999.00,Campera Fast Trek™ II de
 Columbia,COL21465351125,COL21465351125-XXXL,0,99999.00,Campera Fast Trek™ II de Columbia para mujer
 Columbia,COL21465351379,COL21465351379-XS,1,99999.00,Campera Fast Trek™ II de Columbia para mujer
 Columbia,COL21465351379,COL21465351379-S,1,99999.00,Campera Fast Trek™ II de Columbia para mujer
-Columbia,COL21465351379,COL21465351379-M,2,99999.00,Campera Fast Trek™ II de Columbia para mujer
+Columbia,COL21465351379,COL21465351379-M,1,99999.00,Campera Fast Trek™ II de Columbia para mujer
 Columbia,COL21465351379,COL21465351379-L,0,99999.00,Campera Fast Trek™ II de Columbia para mujer
-Columbia,COL21465351379,COL21465351379-XL,2,99999.00,Campera Fast Trek™ II de Columbia para mujer
+Columbia,COL21465351379,COL21465351379-XL,1,99999.00,Campera Fast Trek™ II de Columbia para mujer
 Columbia,COL21465351379,COL21465351379-XXL,0,99999.00,Campera Fast Trek™ II de Columbia para mujer
 Columbia,COL21465351379,COL21465351379-XXXL,0,99999.00,Campera Fast Trek™ II de Columbia para mujer
 Columbia,COL21465351461,COL21465351461-XS,1,99999.00,Campera Fast Trek™ II de Columbia para mujer
@@ -3587,7 +3580,7 @@ Columbia,COL22086711100,COL22086711100-XXXL,0,107999.00,Campera resistente al ag
 Columbia,COL22086711397,COL22086711397-XS,1,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
 Columbia,COL22086711397,COL22086711397-S,1,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
 Columbia,COL22086711397,COL22086711397-M,3,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711397,COL22086711397-L,2,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
+Columbia,COL22086711397,COL22086711397-L,1,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
 Columbia,COL22086711397,COL22086711397-XL,1,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
 Columbia,COL22086711397,COL22086711397-XXL,0,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
 Columbia,COL22086711397,COL22086711397-XXXL,0,107999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
@@ -3731,6 +3724,13 @@ Columbia,COL22086971010,COL22086971010-L,2,249999.00,Chaleco aislante Powder Lit
 Columbia,COL22086971010,COL22086971010-XL,2,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
 Columbia,COL22086971010,COL22086971010-XXL,0,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
 Columbia,COL22086971010,COL22086971010-XXXL,0,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
+Columbia,COL22086971464,COL22086971464-XS,0,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
+Columbia,COL22086971464,COL22086971464-S,2,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
+Columbia,COL22086971464,COL22086971464-M,3,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
+Columbia,COL22086971464,COL22086971464-L,2,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
+Columbia,COL22086971464,COL22086971464-XL,3,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
+Columbia,COL22086971464,COL22086971464-XXL,0,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
+Columbia,COL22086971464,COL22086971464-XXXL,0,249999.00,Chaleco aislante Powder Lite™ II de Columbia para hombre
 Crocs,C10013551,C10013551-C99,4,8999.00,3D Dog With Paws
 Crocs,C10016643,C10016643-C90H,7,8999.00,3D Holiday Beach Umbrella
 Crocs,C10013552,C10013552-C99,17,8999.00,3D Kitty
@@ -3784,7 +3784,7 @@ Crocs,C208718-C001,C208718-C001-M3/W5,3,99999.00,Botas Stomp Lined
 Crocs,C208718-C001,C208718-C001-M4/W6,7,99999.00,Botas Stomp Lined
 Crocs,C208718-C001,C208718-C001-M5/W7,6,99999.00,Botas Stomp Lined
 Crocs,C208718-C001,C208718-C001-M6/W8,0,99999.00,Botas Stomp Lined
-Crocs,C208718-C001,C208718-C001-M7/W9,1,99999.00,Botas Stomp Lined
+Crocs,C208718-C001,C208718-C001-M7/W9,0,99999.00,Botas Stomp Lined
 Crocs,C208718-C001,C208718-C001-M8/W10,0,99999.00,Botas Stomp Lined
 Crocs,C208718-C001,C208718-C001-M9/W11,0,99999.00,Botas Stomp Lined
 Crocs,C208718-C001,C208718-C001-M10/W12,0,99999.00,Botas Stomp Lined
@@ -4196,7 +4196,7 @@ Crocs,C207010-C10M,C207010-C10M-J3,0,24999.00,Classic Lined Clog Kids
 Crocs,C207010-C459,C207010-C459-C11,0,24999.00,Classic Lined Clog Kids
 Crocs,C207010-C459,C207010-C459-C12,2,24999.00,Classic Lined Clog Kids
 Crocs,C207010-C459,C207010-C459-C13,0,24999.00,Classic Lined Clog Kids
-Crocs,C207010-C459,C207010-C459-J1,7,24999.00,Classic Lined Clog Kids
+Crocs,C207010-C459,C207010-C459-J1,6,24999.00,Classic Lined Clog Kids
 Crocs,C207010-C459,C207010-C459-J2,16,24999.00,Classic Lined Clog Kids
 Crocs,C207010-C459,C207010-C459-J3,11,24999.00,Classic Lined Clog Kids
 Crocs,C207010-C4KZ,C207010-C4KZ-C11,0,24999.00,Classic Lined Clog Kids
@@ -4284,12 +4284,12 @@ Crocs,C11016-C07W,C11016-C07W-M12,0,64999.00,Crocband™ Clog
 Crocs,C11016-C07W,C11016-C07W-M13,0,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M4/W6,34,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M5/W7,27,64999.00,Crocband™ Clog
-Crocs,C11016-C410,C11016-C410-M6/W8,30,64999.00,Crocband™ Clog
+Crocs,C11016-C410,C11016-C410-M6/W8,29,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M7/W9,34,64999.00,Crocband™ Clog
-Crocs,C11016-C410,C11016-C410-M8/W10,25,64999.00,Crocband™ Clog
+Crocs,C11016-C410,C11016-C410-M8/W10,24,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M9/W11,36,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M10/W12,26,64999.00,Crocband™ Clog
-Crocs,C11016-C410,C11016-C410-M11,16,64999.00,Crocband™ Clog
+Crocs,C11016-C410,C11016-C410-M11,15,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M12,17,64999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M13,20,64999.00,Crocband™ Clog
 Crocs,C11016-C5AF,C11016-C5AF-M4/W6,0,64999.00,Crocband™ Clog
@@ -4304,7 +4304,7 @@ Crocs,C11016-C5AF,C11016-C5AF-M12,0,64999.00,Crocband™ Clog
 Crocs,C11016-C5AF,C11016-C5AF-M13,0,64999.00,Crocband™ Clog
 Crocs,C11016-C1AS,C11016-C1AS-M4/W6,22,64999.00,Crocband™ Clog
 Crocs,C11016-C1AS,C11016-C1AS-M5/W7,22,64999.00,Crocband™ Clog
-Crocs,C11016-C1AS,C11016-C1AS-M6/W8,25,64999.00,Crocband™ Clog
+Crocs,C11016-C1AS,C11016-C1AS-M6/W8,24,64999.00,Crocband™ Clog
 Crocs,C11016-C1AS,C11016-C1AS-M7/W9,23,64999.00,Crocband™ Clog
 Crocs,C11016-C1AS,C11016-C1AS-M8/W10,28,64999.00,Crocband™ Clog
 Crocs,C11016-C1AS,C11016-C1AS-M9/W11,0,64999.00,Crocband™ Clog
@@ -4312,7 +4312,7 @@ Crocs,C11016-C1AS,C11016-C1AS-M10/W12,0,64999.00,Crocband™ Clog
 Crocs,C11016-C1AS,C11016-C1AS-M11,0,64999.00,Crocband™ Clog
 Crocs,C11016-C1AS,C11016-C1AS-M12,0,64999.00,Crocband™ Clog
 Crocs,C11016-C1AS,C11016-C1AS-M13,0,64999.00,Crocband™ Clog
-Crocs,C11016-C530,C11016-C530-M4/W6,1,64999.00,Crocband™ Clog
+Crocs,C11016-C530,C11016-C530-M4/W6,0,64999.00,Crocband™ Clog
 Crocs,C11016-C530,C11016-C530-M5/W7,7,64999.00,Crocband™ Clog
 Crocs,C11016-C530,C11016-C530-M6/W8,16,64999.00,Crocband™ Clog
 Crocs,C11016-C530,C11016-C530-M7/W9,9,64999.00,Crocband™ Clog
@@ -4372,7 +4372,7 @@ Crocs,C10998-C001,C10998-C001-C4/5,38,49999.00,Crocband™ Clog Kids
 Crocs,C10998-C001,C10998-C001-C6/7,21,49999.00,Crocband™ Clog Kids
 Crocs,C10998-C001,C10998-C001-C8/9,64,49999.00,Crocband™ Clog Kids
 Crocs,C10998-C001,C10998-C001-C10/11,26,49999.00,Crocband™ Clog Kids
-Crocs,C10998-C001,C10998-C001-C12/13,13,49999.00,Crocband™ Clog Kids
+Crocs,C10998-C001,C10998-C001-C12/13,12,49999.00,Crocband™ Clog Kids
 Crocs,C10998-C001,C10998-C001-J1,24,49999.00,Crocband™ Clog Kids
 Crocs,C10998-C001,C10998-C001-J2,11,49999.00,Crocband™ Clog Kids
 Crocs,C10998-C001,C10998-C001-J3,12,49999.00,Crocband™ Clog Kids
@@ -4411,7 +4411,7 @@ Crocs,C10998-C5P8,C10998-C5P8-J3,0,49999.00,Crocband™ Clog Kids
 Crocs,C10998-C7H5,C10998-C7H5-C4/5,0,49999.00,Crocband™ Clog Kids
 Crocs,C10998-C7H5,C10998-C7H5-C6/7,2,49999.00,Crocband™ Clog Kids
 Crocs,C10998-C7H5,C10998-C7H5-C8/9,12,49999.00,Crocband™ Clog Kids
-Crocs,C10998-C7H5,C10998-C7H5-C10/11,2,49999.00,Crocband™ Clog Kids
+Crocs,C10998-C7H5,C10998-C7H5-C10/11,1,49999.00,Crocband™ Clog Kids
 Crocs,C10998-C7H5,C10998-C7H5-C12/13,0,49999.00,Crocband™ Clog Kids
 Crocs,C10998-C7H5,C10998-C7H5-J1,1,49999.00,Crocband™ Clog Kids
 Crocs,C10998-C7H5,C10998-C7H5-J2,3,49999.00,Crocband™ Clog Kids
@@ -4655,7 +4655,7 @@ Crocs,C206302-C001,C206302-C001-W5,3,119999.00,Crocs Classic Bae Clog
 Crocs,C206302-C001,C206302-C001-W6,4,119999.00,Crocs Classic Bae Clog
 Crocs,C206302-C001,C206302-C001-W7,2,119999.00,Crocs Classic Bae Clog
 Crocs,C206302-C001,C206302-C001-W8,2,119999.00,Crocs Classic Bae Clog
-Crocs,C206302-C001,C206302-C001-W9,9,119999.00,Crocs Classic Bae Clog
+Crocs,C206302-C001,C206302-C001-W9,8,119999.00,Crocs Classic Bae Clog
 Crocs,C206302-C001,C206302-C001-W10,7,119999.00,Crocs Classic Bae Clog
 Crocs,C206302-C214,C206302-C214-W5,14,119999.00,Crocs Classic Bae Clog
 Crocs,C206302-C214,C206302-C214-W6,0,119999.00,Crocs Classic Bae Clog
@@ -4759,7 +4759,7 @@ Crocs,C207946-C2Y2,C207946-C2Y2-M3/W5,0,99999.00,Crocs Classic Crush Rain Boot
 Crocs,C207946-C2Y2,C207946-C2Y2-M4/W6,3,99999.00,Crocs Classic Crush Rain Boot
 Crocs,C207946-C2Y2,C207946-C2Y2-M5/W7,0,99999.00,Crocs Classic Crush Rain Boot
 Crocs,C207946-C2Y2,C207946-C2Y2-M6/W8,0,99999.00,Crocs Classic Crush Rain Boot
-Crocs,C207946-C2Y2,C207946-C2Y2-M7/W9,1,99999.00,Crocs Classic Crush Rain Boot
+Crocs,C207946-C2Y2,C207946-C2Y2-M7/W9,0,99999.00,Crocs Classic Crush Rain Boot
 Crocs,C207946-C2Y2,C207946-C2Y2-M8/W10,1,99999.00,Crocs Classic Crush Rain Boot
 Crocs,C207946-C2Y2,C207946-C2Y2-M9/W11,0,99999.00,Crocs Classic Crush Rain Boot
 Crocs,C207946-C2Y2,C207946-C2Y2-M10/W12,0,99999.00,Crocs Classic Crush Rain Boot
@@ -4800,7 +4800,7 @@ Crocs,C212143-C001,C212143-C001-M4/W6,5,99999.00,Crocs Classic Fuzz Scuff
 Crocs,C212143-C001,C212143-C001-M5/W7,7,99999.00,Crocs Classic Fuzz Scuff
 Crocs,C212143-C001,C212143-C001-M6/W8,5,99999.00,Crocs Classic Fuzz Scuff
 Crocs,C212143-C001,C212143-C001-M7/W9,3,99999.00,Crocs Classic Fuzz Scuff
-Crocs,C212143-C001,C212143-C001-M8/W10,3,99999.00,Crocs Classic Fuzz Scuff
+Crocs,C212143-C001,C212143-C001-M8/W10,2,99999.00,Crocs Classic Fuzz Scuff
 Crocs,C211371-C2JJ,C211371-C2JJ-C4/5,3,89999.00,Crocs Classic IAM Horse Clog
 Crocs,C211371-C2JJ,C211371-C2JJ-C6/7,2,89999.00,Crocs Classic IAM Horse Clog
 Crocs,C211371-C2JJ,C211371-C2JJ-C8/9,2,89999.00,Crocs Classic IAM Horse Clog
@@ -5003,7 +5003,7 @@ Crocs,C213224-C3CM,C213224-C3CM-M9/W11,18,109999.00,Crocs Crocband Heritage Clog
 Crocs,C213224-C3CM,C213224-C3CM-M10/W12,17,109999.00,Crocs Crocband Heritage Clog
 Crocs,C213224-C3CM,C213224-C3CM-M11,12,109999.00,Crocs Crocband Heritage Clog
 Crocs,C213224-C3CM,C213224-C3CM-M12,12,109999.00,Crocs Crocband Heritage Clog
-Crocs,C213224-C3CM,C213224-C3CM-M13,12,109999.00,Crocs Crocband Heritage Clog
+Crocs,C213224-C3CM,C213224-C3CM-M13,11,109999.00,Crocs Crocband Heritage Clog
 Crocs,C208731-C2CC,C208731-C2CC-M3/W5,0,68999.00,Crocs Crush Slide
 Crocs,C208731-C2CC,C208731-C2CC-M4/W6,2,68999.00,Crocs Crush Slide
 Crocs,C208731-C2CC,C208731-C2CC-M5/W7,0,68999.00,Crocs Crush Slide
@@ -5146,14 +5146,14 @@ Crocs,C211675-C7AF,C211675-C7AF-M6/W8,12,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C7AF,C211675-C7AF-M7/W9,9,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C7AF,C211675-C7AF-M8/W10,7,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C7AF,C211675-C7AF-M9/W11,8,119999.00,Crocs Echo Gum RO Clog
-Crocs,C211675-C309,C211675-C309-M4/W6,4,119999.00,Crocs Echo Gum RO Clog
+Crocs,C211675-C309,C211675-C309-M4/W6,3,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C309,C211675-C309-M5/W7,5,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C309,C211675-C309-M6/W8,10,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C309,C211675-C309-M7/W9,9,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C309,C211675-C309-M8/W10,1,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C309,C211675-C309-M9/W11,3,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C309,C211675-C309-M10/W12,1,119999.00,Crocs Echo Gum RO Clog
-Crocs,C211675-C309,C211675-C309-M11,2,119999.00,Crocs Echo Gum RO Clog
+Crocs,C211675-C309,C211675-C309-M11,1,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C309,C211675-C309-M12,1,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C309,C211675-C309-M13,1,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C001,C211675-C001-M4/W6,2,119999.00,Crocs Echo Gum RO Clog
@@ -5421,7 +5421,7 @@ Kappa,K135213IW-KSA05,K135213IW-KSA05-44,4,69999.00,Botín Kombat Marsella IC
 Kappa,K135213IW-KSA05,K135213IW-KSA05-45,2,69999.00,Botín Kombat Marsella IC
 Kappa,K135213HW-KSA01,K135213HW-KSA01-38,0,69999.00,Botín Kombat Marsella TG
 Kappa,K135213HW-KSA01,K135213HW-KSA01-39,0,69999.00,Botín Kombat Marsella TG
-Kappa,K135213HW-KSA01,K135213HW-KSA01-40,4,69999.00,Botín Kombat Marsella TG
+Kappa,K135213HW-KSA01,K135213HW-KSA01-40,3,69999.00,Botín Kombat Marsella TG
 Kappa,K135213HW-KSA01,K135213HW-KSA01-41,7,69999.00,Botín Kombat Marsella TG
 Kappa,K135213HW-KSA01,K135213HW-KSA01-42,8,69999.00,Botín Kombat Marsella TG
 Kappa,K135213HW-KSA01,K135213HW-KSA01-43,9,69999.00,Botín Kombat Marsella TG
@@ -7017,7 +7017,7 @@ Kappa,K235218NW-KA07H,K235218NW-KA07H-XS,19,99999.00,Camiseta Kombat Regular Awa
 Kappa,K235218NW-KA07H,K235218NW-KA07H-S,17,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
 Kappa,K235218NW-KA07H,K235218NW-KA07H-M,16,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
 Kappa,K235218NW-KA07H,K235218NW-KA07H-L,10,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
-Kappa,K235218NW-KA07H,K235218NW-KA07H-XL,4,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
+Kappa,K235218NW-KA07H,K235218NW-KA07H-XL,3,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
 Kappa,K235218NW-KA07H,K235218NW-KA07H-XXL,13,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
 Kappa,K235218NW-KA07H,K235218NW-KA07H-XXXL,9,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
 Kappa,K238237EWSJ-KA24C,K238237EWSJ-KA24C-XS,1,99999.00,Camiseta Kombat Regular Away Huracán
@@ -7031,7 +7031,7 @@ Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XS,6,99999.00,Camiseta Kombat Regular Home
 Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-S,18,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-M,36,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-L,25,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
-Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XL,18,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
+Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XL,17,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XXL,11,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XXXL,15,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2361Y2KWSJ-KA00B,K2361Y2KWSJ-KA00B-XS,0,99999.00,Camiseta Kombat Regular Home Huracán
@@ -7211,7 +7211,7 @@ Kappa,K237216QWE-KF29,K237216QWE-KF29-XS,2,155299.00,Campera De Invierno Club At
 Kappa,K237216QWE-KF29,K237216QWE-KF29-S,2,155299.00,Campera De Invierno Club Atlético Tucumán
 Kappa,K237216QWE-KF29,K237216QWE-KF29-M,0,155299.00,Campera De Invierno Club Atlético Tucumán
 Kappa,K237216QWE-KF29,K237216QWE-KF29-L,0,155299.00,Campera De Invierno Club Atlético Tucumán
-Kappa,K237216QWE-KF29,K237216QWE-KF29-XL,3,155299.00,Campera De Invierno Club Atlético Tucumán
+Kappa,K237216QWE-KF29,K237216QWE-KF29-XL,2,155299.00,Campera De Invierno Club Atlético Tucumán
 Kappa,K237216QWE-KF29,K237216QWE-KF29-XXL,0,155299.00,Campera De Invierno Club Atlético Tucumán
 Kappa,K237216QWE-KF29,K237216QWE-KF29-XXXL,0,155299.00,Campera De Invierno Club Atlético Tucumán
 Kappa,K234231IW-KY07,K234231IW-KY07-XS,2,155299.00,Campera De Invierno Tigre
@@ -7365,7 +7365,7 @@ Piccadilly,P14505800000002FW25,P14505800000002FW25-41,0,93999.00,Bota Caña Baja
 Piccadilly,P67500200000001FW26,P67500200000001FW26-35,0,133999.00,Bota Daiane
 Piccadilly,P67500200000001FW26,P67500200000001FW26-36,4,133999.00,Bota Daiane
 Piccadilly,P67500200000001FW26,P67500200000001FW26-37,27,133999.00,Bota Daiane
-Piccadilly,P67500200000001FW26,P67500200000001FW26-38,31,133999.00,Bota Daiane
+Piccadilly,P67500200000001FW26,P67500200000001FW26-38,30,133999.00,Bota Daiane
 Piccadilly,P67500200000001FW26,P67500200000001FW26-39,29,133999.00,Bota Daiane
 Piccadilly,P67500200000001FW26,P67500200000001FW26-40,28,133999.00,Bota Daiane
 Piccadilly,P67500200000001FW26,P67500200000001FW26-41,0,133999.00,Bota Daiane
@@ -7577,13 +7577,6 @@ Piccadilly,P14323000000003FW25,P14323000000003FW25-37,0,89999.00,Bota Ivone Cañ
 Piccadilly,P14323000000003FW25,P14323000000003FW25-38,2,89999.00,Bota Ivone Caña Baja
 Piccadilly,P14323000000003FW25,P14323000000003FW25-39,0,89999.00,Bota Ivone Caña Baja
 Piccadilly,P14323000000003FW25,P14323000000003FW25-40,0,89999.00,Bota Ivone Caña Baja
-Piccadilly,P91100600000003FW24,P91100600000003FW24-35,0,118999.00,BOTA LANA
-Piccadilly,P91100600000003FW24,P91100600000003FW24-36,0,118999.00,BOTA LANA
-Piccadilly,P91100600000003FW24,P91100600000003FW24-37,0,118999.00,BOTA LANA
-Piccadilly,P91100600000003FW24,P91100600000003FW24-38,0,118999.00,BOTA LANA
-Piccadilly,P91100600000003FW24,P91100600000003FW24-39,1,118999.00,BOTA LANA
-Piccadilly,P91100600000003FW24,P91100600000003FW24-40,0,118999.00,BOTA LANA
-Piccadilly,P91100600000003FW24,P91100600000003FW24-41,0,118999.00,BOTA LANA
 Piccadilly,P11020200000006FW26,P11020200000006FW26-34,0,127999.00,Bota Laura
 Piccadilly,P11020200000006FW26,P11020200000006FW26-35,5,127999.00,Bota Laura
 Piccadilly,P11020200000006FW26,P11020200000006FW26-36,5,127999.00,Bota Laura
@@ -7636,7 +7629,7 @@ Piccadilly,P11018100000008FW25,P11018100000008FW25-41,0,77999.00,Bota Laura Cañ
 Piccadilly,P65302100000010FW26,P65302100000010FW26-35,0,129999.00,Bota Leci
 Piccadilly,P65302100000010FW26,P65302100000010FW26-36,5,129999.00,Bota Leci
 Piccadilly,P65302100000010FW26,P65302100000010FW26-37,7,129999.00,Bota Leci
-Piccadilly,P65302100000010FW26,P65302100000010FW26-38,5,129999.00,Bota Leci
+Piccadilly,P65302100000010FW26,P65302100000010FW26-38,4,129999.00,Bota Leci
 Piccadilly,P65302100000010FW26,P65302100000010FW26-39,8,129999.00,Bota Leci
 Piccadilly,P65302100000010FW26,P65302100000010FW26-40,0,129999.00,Bota Leci
 Piccadilly,P65302100000010FW26,P65302100000010FW26-41,0,129999.00,Bota Leci
@@ -7754,7 +7747,7 @@ Piccadilly,P11710000000023FW26,P11710000000023FW26-35,2,121999.00,Botineta Beth
 Piccadilly,P11710000000023FW26,P11710000000023FW26-36,5,121999.00,Botineta Beth
 Piccadilly,P11710000000023FW26,P11710000000023FW26-37,42,121999.00,Botineta Beth
 Piccadilly,P11710000000023FW26,P11710000000023FW26-38,47,121999.00,Botineta Beth
-Piccadilly,P11710000000023FW26,P11710000000023FW26-39,18,121999.00,Botineta Beth
+Piccadilly,P11710000000023FW26,P11710000000023FW26-39,17,121999.00,Botineta Beth
 Piccadilly,P11710000000023FW26,P11710000000023FW26-40,15,121999.00,Botineta Beth
 Piccadilly,P11710000000023FW26,P11710000000023FW26-41,2,121999.00,Botineta Beth
 Piccadilly,P11710000000023FW26,P11710000000023FW26-42,0,121999.00,Botineta Beth
@@ -7791,7 +7784,7 @@ Piccadilly,P95004400000001FW25,P95004400000001FW25-35,0,104999.00,Botineta Vicky
 Piccadilly,P95004400000001FW25,P95004400000001FW25-36,1,104999.00,Botineta Vicky
 Piccadilly,P95004400000001FW25,P95004400000001FW25-37,2,104999.00,Botineta Vicky
 Piccadilly,P95004400000001FW25,P95004400000001FW25-38,0,104999.00,Botineta Vicky
-Piccadilly,P95004400000001FW25,P95004400000001FW25-39,12,104999.00,Botineta Vicky
+Piccadilly,P95004400000001FW25,P95004400000001FW25-39,11,104999.00,Botineta Vicky
 Piccadilly,P95004400000001FW25,P95004400000001FW25-40,4,104999.00,Botineta Vicky
 Piccadilly,P95004400000001FW25,P95004400000001FW25-41,0,104999.00,Botineta Vicky
 Piccadilly,P27405400000135SS24,P27405400000135SS24-35,0,83999.00,Chatita Ana
@@ -8135,9 +8128,9 @@ Piccadilly,P98500200000008SS24,P98500200000008SS24-40,0,71999.00,Zapatilla Beta 
 Piccadilly,P98500200000008SS24,P98500200000008SS24-41,0,71999.00,Zapatilla Beta Alta
 Piccadilly,P90300100000002FW26,P90300100000002FW26-35,2,127999.00,Zapatilla Caroline
 Piccadilly,P90300100000002FW26,P90300100000002FW26-36,6,127999.00,Zapatilla Caroline
-Piccadilly,P90300100000002FW26,P90300100000002FW26-37,12,127999.00,Zapatilla Caroline
+Piccadilly,P90300100000002FW26,P90300100000002FW26-37,13,127999.00,Zapatilla Caroline
 Piccadilly,P90300100000002FW26,P90300100000002FW26-38,8,127999.00,Zapatilla Caroline
-Piccadilly,P90300100000002FW26,P90300100000002FW26-39,7,127999.00,Zapatilla Caroline
+Piccadilly,P90300100000002FW26,P90300100000002FW26-39,6,127999.00,Zapatilla Caroline
 Piccadilly,P90300100000002FW26,P90300100000002FW26-40,7,127999.00,Zapatilla Caroline
 Piccadilly,P90300100000002FW26,P90300100000002FW26-41,0,127999.00,Zapatilla Caroline
 Piccadilly,P90300100000009FW26,P90300100000009FW26-35,4,133999.00,Zapatilla Caroline
@@ -8170,10 +8163,10 @@ Piccadilly,P93600400000008SS24,P93600400000008SS24-35,4,62999.00,Zapatilla Elian
 Piccadilly,P93600400000008SS24,P93600400000008SS24-36,13,62999.00,Zapatilla Eliane Juanete
 Piccadilly,P93600400000008SS24,P93600400000008SS24-37,0,62999.00,Zapatilla Eliane Juanete
 Piccadilly,P93600400000008SS24,P93600400000008SS24-38,5,62999.00,Zapatilla Eliane Juanete
-Piccadilly,P93600400000008SS24,P93600400000008SS24-39,21,62999.00,Zapatilla Eliane Juanete
+Piccadilly,P93600400000008SS24,P93600400000008SS24-39,20,62999.00,Zapatilla Eliane Juanete
 Piccadilly,P93600400000008SS24,P93600400000008SS24-40,0,62999.00,Zapatilla Eliane Juanete
 Piccadilly,P93600400000008SS24,P93600400000008SS24-41,0,62999.00,Zapatilla Eliane Juanete
-Piccadilly,P93500400000001FW25,P93500400000001FW25-35,5,119999.00,Zapatilla Energy
+Piccadilly,P93500400000001FW25,P93500400000001FW25-35,4,119999.00,Zapatilla Energy
 Piccadilly,P93500400000001FW25,P93500400000001FW25-36,8,119999.00,Zapatilla Energy
 Piccadilly,P93500400000001FW25,P93500400000001FW25-37,15,119999.00,Zapatilla Energy
 Piccadilly,P93500400000001FW25,P93500400000001FW25-38,16,119999.00,Zapatilla Energy
@@ -8915,3 +8908,8 @@ Piccadilly,P14505400000002FW25,P14505400000002FW25-38,0,62999.00,Zapato Mary Jan
 Piccadilly,P14505400000002FW25,P14505400000002FW25-39,0,62999.00,Zapato Mary Jane
 Piccadilly,P14505400000002FW25,P14505400000002FW25-40,1,62999.00,Zapato Mary Jane
 Piccadilly,P14505400000002FW25,P14505400000002FW25-41,0,62999.00,Zapato Mary Jane
+Piccadilly,P14505400000012FW25,P14505400000012FW25-37,0,62999.00,Zapato Mary Jane
+Piccadilly,P14505400000012FW25,P14505400000012FW25-38,0,62999.00,Zapato Mary Jane
+Piccadilly,P14505400000012FW25,P14505400000012FW25-39,1,62999.00,Zapato Mary Jane
+Piccadilly,P14505400000012FW25,P14505400000012FW25-40,0,62999.00,Zapato Mary Jane
+Piccadilly,P14505400000012FW25,P14505400000012FW25-41,0,62999.00,Zapato Mary Jane
