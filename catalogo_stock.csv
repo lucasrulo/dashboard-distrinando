@@ -351,7 +351,7 @@ Reebok,RBK1100MC0012,RBK1100MC0012-7.5,2,99999.00,Botines Reebok Match 1 Fg
 Reebok,RBK1100MC0012,RBK1100MC0012-8,1,99999.00,Botines Reebok Match 1 Fg
 Reebok,RBK1100MC0012,RBK1100MC0012-8.5,0,103499.00,Botines Reebok Match 1 Fg
 Reebok,RBK1100MC0012,RBK1100MC0012-9,2,99999.00,Botines Reebok Match 1 Fg
-Reebok,RBK1100MC0012,RBK1100MC0012-9.5,1,99999.00,Botines Reebok Match 1 Fg
+Reebok,RBK1100MC0012,RBK1100MC0012-9.5,0,99999.00,Botines Reebok Match 1 Fg
 Reebok,RBK1100MC0012,RBK1100MC0012-10,3,99999.00,Botines Reebok Match 1 Fg
 Reebok,RBK1100MC0012,RBK1100MC0012-10.5,0,103499.00,Botines Reebok Match 1 Fg
 Reebok,RBK1100MC0012,RBK1100MC0012-11,2,99999.00,Botines Reebok Match 1 Fg
@@ -3204,13 +3204,6 @@ Columbia,COL22086241397,COL22086241397-L,0,329999.00,Campera Delta Ridge™ II c
 Columbia,COL22086241397,COL22086241397-XL,0,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241397,COL22086241397-XXL,0,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241397,COL22086241397-XXXL,0,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
-Columbia,COL22086241478,COL22086241478-XS,0,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
-Columbia,COL22086241478,COL22086241478-S,0,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
-Columbia,COL22086241478,COL22086241478-M,1,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
-Columbia,COL22086241478,COL22086241478-L,0,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
-Columbia,COL22086241478,COL22086241478-XL,0,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
-Columbia,COL22086241478,COL22086241478-XXL,0,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
-Columbia,COL22086241478,COL22086241478-XXXL,0,329999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241845,COL22086241845-XS,0,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241845,COL22086241845-S,2,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241845,COL22086241845-M,3,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
@@ -3248,13 +3241,13 @@ Columbia,COL22086241464,COL22086241464-XXL,0,362999.00,Campera Delta Ridge™ II
 Columbia,COL22086241464,COL22086241464-XXXL,0,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22088271031,COL22088271031-XS,1,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22088271031,COL22088271031-S,3,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para mujer
-Columbia,COL22088271031,COL22088271031-M,1,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para mujer
+Columbia,COL22088271031,COL22088271031-M,0,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22088271031,COL22088271031-L,4,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22088271031,COL22088271031-XL,3,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22088271031,COL22088271031-XXL,0,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22088271031,COL22088271031-XXXL,0,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22088271551,COL22088271551-XS,0,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para mujer
-Columbia,COL22088271551,COL22088271551-S,2,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para mujer
+Columbia,COL22088271551,COL22088271551-S,1,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22088271551,COL22088271551-M,1,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22088271551,COL22088271551-L,1,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22088271551,COL22088271551-XL,2,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para mujer
@@ -3736,6 +3729,13 @@ Columbia,COL22155181379,COL22155181379-L,0,186999.00,Campera softshell con capuc
 Columbia,COL22155181379,COL22155181379-XL,0,186999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
 Columbia,COL22155181379,COL22155181379-XXL,0,186999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
 Columbia,COL22155181379,COL22155181379-XXXL,0,186999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
+Columbia,COL22155181429,COL22155181429-XS,0,186999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
+Columbia,COL22155181429,COL22155181429-S,2,186999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
+Columbia,COL22155181429,COL22155181429-M,1,186999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
+Columbia,COL22155181429,COL22155181429-L,0,186999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
+Columbia,COL22155181429,COL22155181429-XL,0,186999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
+Columbia,COL22155181429,COL22155181429-XXL,0,186999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
+Columbia,COL22155181429,COL22155181429-XXXL,0,186999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
 Crocs,C10016643,C10016643-C90H,7,8999.00,3D Holiday Beach Umbrella
 Crocs,C10013552,C10013552-C99,12,8999.00,3D Kitty
 Crocs,C10013884,C10013884-C99,18,8999.00,A Tiny Friendship Letter
@@ -3822,7 +3822,7 @@ Crocs,C206453-C2EL,C206453-C2EL-W10,10,109999.00,Brooklyn Low Wedge
 Crocs,C10015941,C10015941-C99,14,11999.00,Cassette Tape Chain
 Crocs,C10014582,C10014582-C99,6,8999.00,Chocolate Chip Ice Cream Pop
 Crocs,C10001-C001,C10001-C001-M4/W6,38,54999.00,Classic Clog
-Crocs,C10001-C001,C10001-C001-M5/W7,39,54999.00,Classic Clog
+Crocs,C10001-C001,C10001-C001-M5/W7,38,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M6/W8,30,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M7/W9,37,54999.00,Classic Clog
 Crocs,C10001-C001,C10001-C001-M8/W10,41,54999.00,Classic Clog
@@ -3885,7 +3885,7 @@ Crocs,C10001-C410,C10001-C410-M4/W6,36,54999.00,Classic Clog
 Crocs,C10001-C410,C10001-C410-M5/W7,38,54999.00,Classic Clog
 Crocs,C10001-C410,C10001-C410-M6/W8,38,54999.00,Classic Clog
 Crocs,C10001-C410,C10001-C410-M7/W9,41,54999.00,Classic Clog
-Crocs,C10001-C410,C10001-C410-M8/W10,30,54999.00,Classic Clog
+Crocs,C10001-C410,C10001-C410-M8/W10,29,54999.00,Classic Clog
 Crocs,C10001-C410,C10001-C410-M9/W11,40,54999.00,Classic Clog
 Crocs,C10001-C410,C10001-C410-M10/W12,42,54999.00,Classic Clog
 Crocs,C10001-C410,C10001-C410-M11,31,54999.00,Classic Clog
@@ -5014,7 +5014,7 @@ Crocs,C213010-C90H,C213010-C90H-M5/W7,3,134999.00,Crocs Disney & Pixar Toy Story
 Crocs,C213010-C90H,C213010-C90H-M6/W8,1,134999.00,Crocs Disney & Pixar Toy Story Alien Classic Clog
 Crocs,C213010-C90H,C213010-C90H-M7/W9,3,134999.00,Crocs Disney & Pixar Toy Story Alien Classic Clog
 Crocs,C213010-C90H,C213010-C90H-M8/W10,3,134999.00,Crocs Disney & Pixar Toy Story Alien Classic Clog
-Crocs,C213010-C90H,C213010-C90H-M9/W11,3,134999.00,Crocs Disney & Pixar Toy Story Alien Classic Clog
+Crocs,C213010-C90H,C213010-C90H-M9/W11,2,134999.00,Crocs Disney & Pixar Toy Story Alien Classic Clog
 Crocs,C213010-C90H,C213010-C90H-M10/W12,3,134999.00,Crocs Disney & Pixar Toy Story Alien Classic Clog
 Crocs,C213010-C90H,C213010-C90H-M11,2,134999.00,Crocs Disney & Pixar Toy Story Alien Classic Clog
 Crocs,C213010-C90H,C213010-C90H-M12,2,134999.00,Crocs Disney & Pixar Toy Story Alien Classic Clog
@@ -7333,7 +7333,7 @@ Piccadilly,P14321900000002FW24,P14321900000002FW24-38,0,89999.00,Bota Anabela Ca
 Piccadilly,P14321900000002FW24,P14321900000002FW24-39,0,89999.00,Bota Anabela Caña Media
 Piccadilly,P14321900000002FW24,P14321900000002FW24-40,0,89999.00,Bota Anabela Caña Media
 Piccadilly,P11712500000001FW25,P11712500000001FW25-36,0,119999.00,Bota Beth Caña Alta
-Piccadilly,P11712500000001FW25,P11712500000001FW25-37,6,119999.00,Bota Beth Caña Alta
+Piccadilly,P11712500000001FW25,P11712500000001FW25-37,5,119999.00,Bota Beth Caña Alta
 Piccadilly,P11712500000001FW25,P11712500000001FW25-38,9,119999.00,Bota Beth Caña Alta
 Piccadilly,P11712500000001FW25,P11712500000001FW25-39,0,119999.00,Bota Beth Caña Alta
 Piccadilly,P11712500000001FW25,P11712500000001FW25-40,1,119999.00,Bota Beth Caña Alta
@@ -8185,7 +8185,7 @@ Piccadilly,P93902200000003FW26,P93902200000003FW26-37,2,155999.00,Zapatilla Fasc
 Piccadilly,P93902200000003FW26,P93902200000003FW26-38,5,155999.00,Zapatilla Fascitis
 Piccadilly,P93902200000003FW26,P93902200000003FW26-39,4,155999.00,Zapatilla Fascitis
 Piccadilly,P93902200000003FW26,P93902200000003FW26-40,8,155999.00,Zapatilla Fascitis
-Piccadilly,P93902200000003FW26,P93902200000003FW26-41,3,155999.00,Zapatilla Fascitis
+Piccadilly,P93902200000003FW26,P93902200000003FW26-41,2,155999.00,Zapatilla Fascitis
 Piccadilly,P93902200000003FW26,P93902200000003FW26-42,0,155999.00,Zapatilla Fascitis
 Piccadilly,P93902200000007FW26,P93902200000007FW26-36,4,159999.00,Zapatilla Fascitis
 Piccadilly,P93902200000007FW26,P93902200000007FW26-37,0,159999.00,Zapatilla Fascitis
