@@ -276,11 +276,11 @@ Reebok,RBK1100BP1242,RBK1100BP1242-7,0,103499.00,Botines Reebok Essence Tg
 Reebok,RBK1100BP1242,RBK1100BP1242-7.5,0,103499.00,Botines Reebok Essence Tg
 Reebok,RBK1100BP1242,RBK1100BP1242-8,1,89999.00,Botines Reebok Essence Tg
 Reebok,RBK1100BP1242,RBK1100BP1242-8.5,0,89999.00,Botines Reebok Essence Tg
-Reebok,RBK1100BP1242,RBK1100BP1242-9,1,89999.00,Botines Reebok Essence Tg
+Reebok,RBK1100BP1242,RBK1100BP1242-9,0,89999.00,Botines Reebok Essence Tg
 Reebok,RBK1100BP1242,RBK1100BP1242-9.5,2,89999.00,Botines Reebok Essence Tg
 Reebok,RBK1100BP1242,RBK1100BP1242-10,3,89999.00,Botines Reebok Essence Tg
 Reebok,RBK1100BP1242,RBK1100BP1242-10.5,0,89999.00,Botines Reebok Essence Tg
-Reebok,RBK1100BP1242,RBK1100BP1242-11,1,89999.00,Botines Reebok Essence Tg
+Reebok,RBK1100BP1242,RBK1100BP1242-11,2,89999.00,Botines Reebok Essence Tg
 Reebok,RBK1100BP1242,RBK1100BP1242-11.5,5,89999.00,Botines Reebok Essence Tg
 Reebok,RBK1100BP1242,RBK1100BP1242-12,4,89999.00,Botines Reebok Essence Tg
 Reebok,RBK1100BP1242,RBK1100BP1242-13,1,89999.00,Botines Reebok Essence Tg
@@ -1328,7 +1328,7 @@ Reebok,RBK2100253839,RBK2100253839-XL,5,150099.00,Campera Reebok Street Sport
 Reebok,RBK2100256226,RBK2100256226-XS,6,170799.00,Campera Reebok Street Sport Vector Icon Track
 Reebok,RBK2100256226,RBK2100256226-S,6,170799.00,Campera Reebok Street Sport Vector Icon Track
 Reebok,RBK2100256226,RBK2100256226-M,9,170799.00,Campera Reebok Street Sport Vector Icon Track
-Reebok,RBK2100256226,RBK2100256226-L,3,170799.00,Campera Reebok Street Sport Vector Icon Track
+Reebok,RBK2100256226,RBK2100256226-L,9,170799.00,Campera Reebok Street Sport Vector Icon Track
 Reebok,RBK2100256226,RBK2100256226-XL,7,170799.00,Campera Reebok Street Sport Vector Icon Track
 Reebok,RBK2100256226,RBK2100256226-XXL,7,170799.00,Campera Reebok Street Sport Vector Icon Track
 Reebok,RBK2100206043,RBK2100206043-2XS,0,144899.00,Campera Reebok Tracktop
@@ -2366,8 +2366,8 @@ Columbia,COL22072961011,COL22072961011-XXL,0,87999.00,Calzas Move™ de Columbia
 Columbia,COL22072961011,COL22072961011-XXXL,0,87999.00,Calzas Move™ de Columbia para mujer
 Columbia,COL22072961429,COL22072961429-XS,0,87999.00,Calzas Move™ de Columbia para mujer
 Columbia,COL22072961429,COL22072961429-S,1,87999.00,Calzas Move™ de Columbia para mujer
-Columbia,COL22072961429,COL22072961429-M,1,87999.00,Calzas Move™ de Columbia para mujer
-Columbia,COL22072961429,COL22072961429-L,0,87999.00,Calzas Move™ de Columbia para mujer
+Columbia,COL22072961429,COL22072961429-M,0,87999.00,Calzas Move™ de Columbia para mujer
+Columbia,COL22072961429,COL22072961429-L,1,87999.00,Calzas Move™ de Columbia para mujer
 Columbia,COL22072961429,COL22072961429-XL,4,87999.00,Calzas Move™ de Columbia para mujer
 Columbia,COL22072961429,COL22072961429-XXL,0,87999.00,Calzas Move™ de Columbia para mujer
 Columbia,COL22072961429,COL22072961429-XXXL,0,87999.00,Calzas Move™ de Columbia para mujer
@@ -2905,7 +2905,7 @@ Columbia,COL22095891625,COL22095891625-XXL,0,120999.00,Campera de polar Columbia
 Columbia,COL22095891625,COL22095891625-XXXL,0,120999.00,Campera de polar Columbia Sequoia Grove™ para hombre
 Columbia,COL22085311461,COL22085311461-XS,2,120999.00,Campera de polar Columbia Sequoia Grove™ para mujer
 Columbia,COL22085311461,COL22085311461-S,2,120999.00,Campera de polar Columbia Sequoia Grove™ para mujer
-Columbia,COL22085311461,COL22085311461-M,1,120999.00,Campera de polar Columbia Sequoia Grove™ para mujer
+Columbia,COL22085311461,COL22085311461-M,0,120999.00,Campera de polar Columbia Sequoia Grove™ para mujer
 Columbia,COL22085311461,COL22085311461-L,2,120999.00,Campera de polar Columbia Sequoia Grove™ para mujer
 Columbia,COL22085311461,COL22085311461-XL,2,120999.00,Campera de polar Columbia Sequoia Grove™ para mujer
 Columbia,COL22085311461,COL22085311461-XXL,0,120999.00,Campera de polar Columbia Sequoia Grove™ para mujer
@@ -3152,7 +3152,7 @@ Columbia,COL22086241010,COL22086241010-XS,0,362999.00,Campera Delta Ridge™ II 
 Columbia,COL22086241010,COL22086241010-S,2,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241010,COL22086241010-M,0,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241010,COL22086241010-L,0,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
-Columbia,COL22086241010,COL22086241010-XL,2,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
+Columbia,COL22086241010,COL22086241010-XL,1,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241010,COL22086241010-XXL,0,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241010,COL22086241010-XXXL,0,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241278,COL22086241278-XS,0,362999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
@@ -4000,7 +4000,7 @@ Crocs,C207446-C100,C207446-C100-M4/W6,0,39999.00,Classic Cozzzy Sandal
 Crocs,C207446-C100,C207446-C100-M5/W7,0,39999.00,Classic Cozzzy Sandal
 Crocs,C207446-C100,C207446-C100-M6/W8,0,39999.00,Classic Cozzzy Sandal
 Crocs,C207446-C100,C207446-C100-M7/W9,6,39999.00,Classic Cozzzy Sandal
-Crocs,C207446-C100,C207446-C100-M8/W10,15,39999.00,Classic Cozzzy Sandal
+Crocs,C207446-C100,C207446-C100-M8/W10,14,39999.00,Classic Cozzzy Sandal
 Crocs,C207446-C100,C207446-C100-M9/W11,23,39999.00,Classic Cozzzy Sandal
 Crocs,C207446-C100,C207446-C100-M10/W12,3,39999.00,Classic Cozzzy Sandal
 Crocs,C207446-C100,C207446-C100-M11,5,39999.00,Classic Cozzzy Sandal
@@ -4956,7 +4956,7 @@ Crocs,C213010-C90H,C213010-C90H-M10/W12,1,134999.00,Crocs Disney & Pixar Toy Sto
 Crocs,C213010-C90H,C213010-C90H-M11,1,134999.00,Crocs Disney & Pixar Toy Story Alien Classic Clog
 Crocs,C213010-C90H,C213010-C90H-M12,2,134999.00,Crocs Disney & Pixar Toy Story Alien Classic Clog
 Crocs,C213010-C90H,C213010-C90H-M13,0,134999.00,Crocs Disney & Pixar Toy Story Alien Classic Clog
-Crocs,C212060-C90H,C212060-C90H-M4/W6,3,149999.00,Crocs Disney IAM Chip N Dale
+Crocs,C212060-C90H,C212060-C90H-M4/W6,2,149999.00,Crocs Disney IAM Chip N Dale
 Crocs,C212060-C90H,C212060-C90H-M5/W7,3,149999.00,Crocs Disney IAM Chip N Dale
 Crocs,C212060-C90H,C212060-C90H-M6/W8,0,149999.00,Crocs Disney IAM Chip N Dale
 Crocs,C212060-C90H,C212060-C90H-M7/W9,0,149999.00,Crocs Disney IAM Chip N Dale
@@ -6112,7 +6112,7 @@ Kappa,K1342233W-KSA01,K1342233W-KSA01-40,11,69999.00,Botines Kombat Marsella FG
 Kappa,K1342233W-KSA01,K1342233W-KSA01-41,15,69999.00,Botines Kombat Marsella FG
 Kappa,K1342233W-KSA01,K1342233W-KSA01-42,14,69999.00,Botines Kombat Marsella FG
 Kappa,K1342233W-KSA01,K1342233W-KSA01-43,12,69999.00,Botines Kombat Marsella FG
-Kappa,K1342233W-KSA01,K1342233W-KSA01-44,5,69999.00,Botines Kombat Marsella FG
+Kappa,K1342233W-KSA01,K1342233W-KSA01-44,4,69999.00,Botines Kombat Marsella FG
 Kappa,K1342233W-KSA01,K1342233W-KSA01-45,2,69999.00,Botines Kombat Marsella FG
 Kappa,K1342233W-KSA02,K1342233W-KSA02-38,2,69999.00,Botines Kombat Marsella FG
 Kappa,K1342233W-KSA02,K1342233W-KSA02-39,4,69999.00,Botines Kombat Marsella FG
@@ -6123,7 +6123,7 @@ Kappa,K1342233W-KSA02,K1342233W-KSA02-43,12,69999.00,Botines Kombat Marsella FG
 Kappa,K1342233W-KSA02,K1342233W-KSA02-44,6,69999.00,Botines Kombat Marsella FG
 Kappa,K1342233W-KSA02,K1342233W-KSA02-45,3,69999.00,Botines Kombat Marsella FG
 Kappa,K1342233W-KSA03,K1342233W-KSA03-38,2,69999.00,Botines Kombat Marsella FG
-Kappa,K1342233W-KSA03,K1342233W-KSA03-39,5,69999.00,Botines Kombat Marsella FG
+Kappa,K1342233W-KSA03,K1342233W-KSA03-39,4,69999.00,Botines Kombat Marsella FG
 Kappa,K1342233W-KSA03,K1342233W-KSA03-40,12,69999.00,Botines Kombat Marsella FG
 Kappa,K1342233W-KSA03,K1342233W-KSA03-41,12,69999.00,Botines Kombat Marsella FG
 Kappa,K1342233W-KSA03,K1342233W-KSA03-42,14,69999.00,Botines Kombat Marsella FG
@@ -6891,7 +6891,7 @@ Kappa,K2341Y4YW-KROO,K2341Y4YW-KROO-6,0,77699.00,Camiseta Kombat Home San Martí
 Kappa,K2341Y4YW-KROO,K2341Y4YW-KROO-8,2,77699.00,Camiseta Kombat Home San Martín De Tucumán Kids
 Kappa,K2331V3YW-KA09C,K2331V3YW-KA09C-XS,6,67299.00,Camiseta Kombat Lady Away Tigre
 Kappa,K2331V3YW-KA09C,K2331V3YW-KA09C-S,5,67299.00,Camiseta Kombat Lady Away Tigre
-Kappa,K2331V3YW-KA09C,K2331V3YW-KA09C-M,10,67299.00,Camiseta Kombat Lady Away Tigre
+Kappa,K2331V3YW-KA09C,K2331V3YW-KA09C-M,9,67299.00,Camiseta Kombat Lady Away Tigre
 Kappa,K2331V3YW-KA09C,K2331V3YW-KA09C-L,11,67299.00,Camiseta Kombat Lady Away Tigre
 Kappa,K2331V3YW-KA09C,K2331V3YW-KA09C-XL,15,67299.00,Camiseta Kombat Lady Away Tigre
 Kappa,K2351R7RW-KA01Q,K2351R7RW-KA01Q-XS,0,79699.00,Camiseta Kombat Pro Away Regular Huracán
@@ -6943,7 +6943,7 @@ Kappa,K232246PW-K564A,K232246PW-K564A-M,10,98399.00,Camiseta Kombat Pro GK Tigre
 Kappa,K232246PW-K564A,K232246PW-K564A-L,7,98399.00,Camiseta Kombat Pro GK Tigre
 Kappa,K232246PW-K564A,K232246PW-K564A-XL,3,98399.00,Camiseta Kombat Pro GK Tigre
 Kappa,K232246PW-K564A,K232246PW-K564A-XXL,1,98399.00,Camiseta Kombat Pro GK Tigre
-Kappa,K232246PW-K564A,K232246PW-K564A-XXXL,3,98399.00,Camiseta Kombat Pro GK Tigre
+Kappa,K232246PW-K564A,K232246PW-K564A-XXXL,2,98399.00,Camiseta Kombat Pro GK Tigre
 Kappa,K232246PW-KA55,K232246PW-KA55-XS,2,98399.00,Camiseta Kombat Pro GK Tigre
 Kappa,K232246PW-KA55,K232246PW-KA55-S,5,98399.00,Camiseta Kombat Pro GK Tigre
 Kappa,K232246PW-KA55,K232246PW-KA55-M,7,98399.00,Camiseta Kombat Pro GK Tigre
