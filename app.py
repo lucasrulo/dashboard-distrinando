@@ -227,7 +227,7 @@ try:
         # ======================================================================
         # --- BARRA LATERAL
         # ======================================================================
-        try: st.sidebar.image("image_2ab136.jpg", use_container_width=True)
+        try: st.sidebar.image("image_2ab136.jpg", width='stretch')
         except: st.sidebar.markdown("<h2 style='text-align: center; color: #38BDF8;'>DISTRINANDO</h2>", unsafe_allow_html=True)
             
         st.sidebar.markdown("---")
@@ -255,10 +255,10 @@ try:
                 "Marca": st.column_config.TextColumn("Marca", disabled=True),
                 "Unidades": st.column_config.NumberColumn("Unidades", min_value=0, step=1, format="%d"),
                 "Facturación ($)": st.column_config.NumberColumn("Facturación ($)", min_value=0, step=1000, format="$%d")
-            }, hide_index=True, use_container_width=True, key="editor_metas"
+            }, hide_index=True, width='stretch', key="editor_metas"
         )
         
-        if st.sidebar.button("💾 Guardar y Aplicar Metas", type="primary", use_container_width=True):
+        if st.sidebar.button("💾 Guardar y Aplicar Metas", type="primary", width='stretch'):
             nuevo_json = {row["Marca"]: {"unidades": int(row["Unidades"]), "facturacion": int(row["Facturación ($)"])} for idx, row in df_guardado.iterrows()}
             guardar_objetivos(nuevo_json)
             st.sidebar.success("¡Metas Guardadas Exitosamente!")
@@ -290,7 +290,7 @@ try:
             st.write("") 
             contenedor_contador = st.empty()
             
-            if st.button("🔄 Actualizar Datos", type="primary", use_container_width=True):
+            if st.button("🔄 Actualizar Datos", type="primary", width='stretch'):
                 owner = "lucasrulo"
                 repo = "dashboard-distrinando"
                 workflow_id = "actualizador.yml"
@@ -407,8 +407,8 @@ try:
             fig_fc = crear_velocimetro(fc_real, obj_fc, f"Facturación: {vel_sel}", es_moneda=True)
             fig_un = crear_velocimetro(un_real, obj_un, f"Unidades: {vel_sel}")
             
-        v1.plotly_chart(fig_fc, use_container_width=True)
-        v2.plotly_chart(fig_un, use_container_width=True)
+        v1.plotly_chart(fig_fc, width='stretch')
+        v2.plotly_chart(fig_un, width='stretch')
 
         # ======================================================================
         # --- SECCIÓN: FORECAST Y ANÁLISIS DE BRECHA ---
@@ -670,12 +670,12 @@ try:
                 desc_fc = df_promo.groupby(['descuento', 'marca'])['subtotal_producto'].sum().reset_index()
                 fig_desc_fc = px.bar(desc_fc, x='subtotal_producto', y='descuento', color='marca', orientation='h', text_auto='.0f', color_discrete_map=PALETA_MARCAS, title="Facturación por Código")
                 fig_desc_fc.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
-                st.plotly_chart(configurar_grafico(fig_desc_fc), use_container_width=True)
+                st.plotly_chart(configurar_grafico(fig_desc_fc), width='stretch')
             with col_d2:
                 desc_unid = df_promo.groupby(['descuento', 'marca'])['cantidad'].sum().reset_index()
                 fig_desc_unid = px.bar(desc_unid, x='cantidad', y='descuento', color='marca', orientation='h', text_auto=True, color_discrete_map=PALETA_MARCAS, title="Unidades por Código")
                 fig_desc_unid.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
-                st.plotly_chart(configurar_grafico(fig_desc_unid), use_container_width=True)
+                st.plotly_chart(configurar_grafico(fig_desc_unid), width='stretch')
         st.markdown('</div>', unsafe_allow_html=True)
 
         # --- SECCIÓN 8: FINANZAS Y LOGÍSTICA ---
@@ -709,7 +709,7 @@ try:
                            title="Share de Facturación por Pasarela", height=380)
             fig_g.update_traces(textposition='inside', textinfo='percent+label')
             fig_g.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
-            st.plotly_chart(configurar_grafico(fig_g), use_container_width=True)
+            st.plotly_chart(configurar_grafico(fig_g), width='stretch')
 
         with col_log:
             st.subheader("📦 Logística")
@@ -722,7 +722,7 @@ try:
             fig_log = px.pie(log_stat, values='id_pedido', names='fulfillment_status_es', hole=0.55, 
                              title="Estados de Envío", color_discrete_sequence=['#818CF8', '#34D399', '#F472B6', '#FBBF24'], height=380)
             fig_log.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
-            st.plotly_chart(configurar_grafico(fig_log), use_container_width=True)
+            st.plotly_chart(configurar_grafico(fig_log), width='stretch')
 
         # --- SECCIÓN 9: GEOGRAFÍA Y EMBUDO ---
         st.divider()
@@ -745,12 +745,12 @@ try:
                 top_fc = prov_stat.sort_values(by='total_pedido', ascending=True).tail(10)
                 fig_geo_fc = px.bar(top_fc, x='total_pedido', y='prov_limpia', orientation='h', title="TOP 10 por Facturación ($)", text_auto='.0f', color_discrete_sequence=['#38BDF8'])
                 fig_geo_fc.update_layout(yaxis_title="", xaxis_title="Facturación ($)", height=350)
-                st.plotly_chart(configurar_grafico(fig_geo_fc), use_container_width=True)
+                st.plotly_chart(configurar_grafico(fig_geo_fc), width='stretch')
             with cg2:
                 top_un = prov_stat.sort_values(by='cantidad', ascending=True).tail(10)
                 fig_geo_un = px.bar(top_un, x='cantidad', y='prov_limpia', orientation='h', title="TOP 10 por Unidades (un.)", text_auto=True, color_discrete_sequence=['#34D399'])
                 fig_geo_un.update_layout(yaxis_title="", xaxis_title="Unidades Vendidas", height=350)
-                st.plotly_chart(configurar_grafico(fig_geo_un), use_container_width=True)
+                st.plotly_chart(configurar_grafico(fig_geo_un), width='stretch')
             
         with col_fun:
             st.subheader("⏳ Eficiencia de Depósito (SLA)")
@@ -778,7 +778,7 @@ try:
                 fun_stat = fun_stat.sort_values(by='tramo_sla')
                 fig_fun = px.funnel(fun_stat, x='id_pedido', y='tramo_sla', title="Órdenes despachadas según SLA", color_discrete_sequence=['#34D399'])
                 fig_fun.update_layout(yaxis_title="Tiempo de Procesamiento", xaxis_title="Órdenes", height=350)
-                st.plotly_chart(configurar_grafico(fig_fun), use_container_width=True)
+                st.plotly_chart(configurar_grafico(fig_fun), width='stretch')
 
         # --- SECCIÓN 10: TENDENCIA ---
         st.divider()
@@ -824,7 +824,7 @@ try:
                 
             fig_l = px.line(v_t, x='eje_tiempo', y='pedidos', color='marca', markers=True, line_shape="spline", color_discrete_map=PALETA_MARCAS, title=titu_grafico)
             fig_l.update_layout(xaxis_title=eje_x_titu, yaxis_title="Cantidad de Pedidos", legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
-            st.plotly_chart(configurar_grafico(fig_l), use_container_width=True)
+            st.plotly_chart(configurar_grafico(fig_l), width='stretch')
             
         with g2:
             st.markdown("#### Resumen Operativo")
@@ -837,6 +837,6 @@ try:
             resumen_tec = pd.merge(resumen_tec, res_fc, on='marca')
             resumen_tec.columns = ['Marca', 'Órdenes Netas', 'Unid. Netas', 'Facturación Neta']
             resumen_tec['Ticket Med.'] = (resumen_tec['Facturación Neta'] / resumen_tec['Órdenes Netas']).round(0).fillna(0)
-            st.dataframe(resumen_tec, use_container_width=True, hide_index=True)
+            st.dataframe(resumen_tec, width='stretch', hide_index=True)
 
 except Exception as e: st.error(f"Se ha producido un error técnico: {e}")
