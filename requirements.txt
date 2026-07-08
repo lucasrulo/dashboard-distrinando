@@ -1,4 +1,6 @@
-streamlit
-pandas
-plotly
-streamlit-autorefresh
+streamlit>=1.38
+pandas>=2.0
+plotly>=5.20
+streamlit-autorefresh>=1.0.1
+requests>=2.31
+numpy>=1.26
