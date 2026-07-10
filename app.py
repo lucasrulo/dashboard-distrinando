@@ -9,7 +9,6 @@ import requests
 import time
 from datetime import datetime, timedelta, timezone
 from streamlit_autorefresh import st_autorefresh
-import streamlit.components.v1 as components
 from itertools import combinations
 
 # 1. CONFIGURACIÓN DE PÁGINA
@@ -731,7 +730,7 @@ try:
                             </div>
                             """
                             
-                        components.html(f"""<div style="background:#0F172A; padding:10px;">{html_combos}</div>""", height=900, scrolling=True)
+                        st.iframe(f"""<div style="background:#0F172A; padding:10px;">{html_combos}</div>""", height=900)
                     else: st.info("No hay combinaciones de productos suficientes.")
                 else: st.info("No hay pedidos con múltiples productos para esta selección.")
 
