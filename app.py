@@ -86,6 +86,7 @@ st.markdown("""
 DIAS_MAPA = {'Monday': 'Lunes', 'Tuesday': 'Martes', 'Wednesday': 'Miércoles', 'Thursday': 'Jueves', 'Friday': 'Viernes', 'Saturday': 'Sábado', 'Sunday': 'Domingo'}
 ESTADO_MAPA = {'fulfilled': 'Enviado', 'null': 'Pendiente', 'pending': 'En Preparación', 'restocked': 'Devuelto', 'unfulfilled': 'No Enviado'}
 PALETA_MARCAS = {'Reebok': '#38BDF8', 'Columbia': '#818CF8', 'Crocs': '#34D399', 'Kappa': '#F472B6', 'Piccadilly': '#FBBF24'}
+MESES_ES = {1: 'Enero', 2: 'Febrero', 3: 'Marzo', 4: 'Abril', 5: 'Mayo', 6: 'Junio', 7: 'Julio', 8: 'Agosto', 9: 'Septiembre', 10: 'Octubre', 11: 'Noviembre', 12: 'Diciembre'}
 
 # DOMINIOS OFICIALES PARA FALLBACK DE BÚSQUEDA
 DOMINIOS_OFICIALES = {
@@ -162,6 +163,15 @@ def load_data():
         
     return df
 
+@st.cache_data(ttl=60)
+def load_sesiones():
+    if not os.path.exists("sesiones_hot_sale.csv"): return pd.DataFrame()
+    df = pd.read_csv("sesiones_hot_sale.csv")
+    df['fecha'] = pd.to_datetime(df['fecha'], errors='coerce')
+    df = df.dropna(subset=['fecha'])
+    df['sesiones'] = pd.to_numeric(df['sesiones'], errors='coerce').fillna(0)
+    return df
+
 def load_objetivos():
     archivo = "objetivos_hot_sale.json"
     objetivos_por_defecto = {
@@ -217,7 +227,8 @@ def crear_velocimetro(valor_actual, objetivo, titulo_base, es_moneda=False):
 
 try:
     df_raw = load_data()
-    objetivos_actuales = load_objetivos() 
+    objetivos_actuales = load_objetivos()
+    df_sesiones_raw = load_sesiones()
     
     if df_raw.empty: st.warning("⚠️ No se encontró la base de datos.")
     else:
@@ -382,6 +393,66 @@ try:
                         <div class="brand-stat" title="Units Per Transaction"><span>UPT:</span><span class="brand-stat-val">{upt:,.2f}</span></div>
                         <div class="brand-stat" title="Average Selling Price"><span>ASP:</span><span class="brand-stat-val">${asp:,.0f}</span></div>
                     </div>""", unsafe_allow_html=True)
+
+        # --- SECCIÓN 3.5: SESIONES Y CONVERSION RATE ---
+        st.divider()
+        st.subheader("📈 Sesiones y Conversion Rate (CR)")
+        st.caption("Sesiones totales por tienda (Shopify Analytics, vía ShopifyQL) vs. Órdenes Netas del dashboard. CR = Órdenes Netas ÷ Sesiones.")
+
+        if df_sesiones_raw.empty:
+            st.info("Aún no hay datos de sesiones disponibles. Verificá que `sesiones_hot_sale.csv` ya se haya generado en el repositorio (corre cada 2 hs).")
+        else:
+            meses_disponibles = sorted(df_sesiones_raw['fecha'].dt.to_period('M').astype(str).unique(), reverse=True)
+
+            if not meses_disponibles:
+                st.info("No hay meses con datos de sesiones todavía.")
+            else:
+                nombres_mes = {
+                    m: f"{MESES_ES.get(pd.Period(m).month, pd.Period(m).month)} {pd.Period(m).year}"
+                    for m in meses_disponibles
+                }
+                mes_actual_str = str(pd.Period(hoy_dt, freq='M'))
+                default_idx = meses_disponibles.index(mes_actual_str) if mes_actual_str in meses_disponibles else 0
+
+                mes_sel = st.selectbox(
+                    "Mes a analizar:", meses_disponibles,
+                    index=default_idx, format_func=lambda m: nombres_mes.get(m, m), key="mes_sesiones"
+                )
+
+                periodo_sel = pd.Period(mes_sel)
+                df_ses_mes = df_sesiones_raw[df_sesiones_raw['fecha'].dt.to_period('M') == periodo_sel]
+                df_ses_mes = df_ses_mes[df_ses_mes['marca'].isin(marcas_sel)]
+
+                df_ventas_mes = df_f[df_f['fecha'].dt.to_period('M') == periodo_sel]
+                df_ventas_mes = df_ventas_mes[df_ventas_mes['marca'].isin(marcas_sel)]
+
+                cr_cols = st.columns(len(marcas_sel)) if marcas_sel else []
+                total_sesiones_global = 0
+                total_ordenes_global = 0
+
+                for i, m_nombre in enumerate(marcas_sel):
+                    sesiones_m = df_ses_mes[df_ses_mes['marca'] == m_nombre]['sesiones'].sum()
+                    ordenes_m = df_ventas_mes[df_ventas_mes['marca'] == m_nombre].groupby('id_pedido').first().shape[0]
+                    cr_m = (ordenes_m / sesiones_m * 100) if sesiones_m > 0 else 0
+                    total_sesiones_global += sesiones_m
+                    total_ordenes_global += ordenes_m
+                    accent = PALETA_MARCAS.get(m_nombre, "#94A3B8")
+
+                    cr_cols[i].markdown(f"""
+                        <div class="brand-card" style="border-top: 4px solid {accent};">
+                            <div class="brand-header" style="color: {accent};">{m_nombre}</div>
+                            <div class="brand-stat"><span>Sesiones:</span><span class="brand-stat-val">{sesiones_m:,.0f}</span></div>
+                            <div class="brand-stat"><span>Órdenes Netas:</span><span class="brand-stat-val">{ordenes_m:,}</span></div>
+                            <div style="border-bottom: 1px solid #334155; margin: 8px 0;"></div>
+                            <div class="brand-stat" title="Órdenes Netas / Sesiones"><span>CR:</span><span class="brand-stat-val" style="color:#34D399; font-size:16px;">{cr_m:.2f}%</span></div>
+                        </div>""", unsafe_allow_html=True)
+
+                st.write("")
+                cr_global = (total_ordenes_global / total_sesiones_global * 100) if total_sesiones_global > 0 else 0
+                g1, g2, g3 = st.columns(3)
+                g1.metric("Sesiones Totales (Marcas Seleccionadas)", f"{total_sesiones_global:,.0f}")
+                g2.metric("Órdenes Netas Totales", f"{total_ordenes_global:,}")
+                g3.metric("CR Global", f"{cr_global:.2f}%")
 
         # --- SECCIÓN 4: MEDIDORES ---
         st.divider()
