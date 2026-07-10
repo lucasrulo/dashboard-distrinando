@@ -51,7 +51,7 @@ def ejecutar_shopifyql(store_url, token, query, reintentos=3):
                   columns { name dataType displayName }
                   rows
                 }
-                parseErrors { code message }
+                parseErrors
               }
             }
         """,
