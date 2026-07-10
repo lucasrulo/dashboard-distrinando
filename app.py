@@ -145,10 +145,13 @@ def load_data():
     if 'descuento' not in df.columns: df['descuento'] = 'SIN DESCUENTO'
     
     if 'tags' in df.columns:
-        df['es_reverso'] = df.apply(
-            lambda r: 1 if ('reversso' in str(r.get('tags', '')).lower() or 'reversso' in str(r.get('medio_pago', '')).lower()) else 0, 
-            axis=1
-        )
+        df['tags'] = df['tags'].fillna('').astype(str)
+        df['medio_pago'] = df['medio_pago'].fillna('').astype(str)
+        # Vectorizado (en vez de .apply(axis=1)): mismo resultado, mucho más liviano en memoria/CPU
+        df['es_reverso'] = (
+            df['tags'].str.lower().str.contains('reversso', na=False) |
+            df['medio_pago'].str.lower().str.contains('reversso', na=False)
+        ).astype('int8')
     elif 'es_reverso' not in df.columns: 
         df['es_reverso'] = 0
     
@@ -160,7 +163,24 @@ def load_data():
         df['fecha_despacho'] = df['fecha'] + pd.to_timedelta(np.random.randint(1, 4, size=len(df)), unit='D')
     else:
         df['fecha_despacho'] = pd.to_datetime(df['fecha_despacho'], errors='coerce')
-        
+
+    # ==========================================================================
+    # 🪶 OPTIMIZACIÓN DE MEMORIA
+    # Columnas de texto que se repiten miles de veces pasan a "category" (Streamlit
+    # Cloud free tier tiene ~1GB de RAM; esto reduce el tamaño en memoria drásticamente
+    # sin tocar los valores). Los montos ($) se dejan en float64 a propósito: con
+    # facturaciones en miles de millones, float32 pierde precisión.
+    # ==========================================================================
+    cols_categoricas = ['marca', 'medio_pago', 'cuotas', 'descuento', 'provincia']
+    for col in cols_categoricas:
+        if col in df.columns:
+            df[col] = df[col].astype('category')
+
+    if 'cantidad' in df.columns:
+        df['cantidad'] = pd.to_numeric(df['cantidad'], errors='coerce').fillna(0).astype('int32')
+    if 'es_reverso' in df.columns:
+        df['es_reverso'] = df['es_reverso'].astype('int8')
+
     return df
 
 @st.cache_data(ttl=60)

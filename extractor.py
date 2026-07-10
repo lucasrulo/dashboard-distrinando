@@ -15,6 +15,11 @@ FORZAR_RECARGA_COMPLETA = False
 FECHA_INICIO = "2026-01-01T00:00:00-03:00" 
 
 FILENAME = "ventas_hot_sale.csv"
+FILENAME_HISTORICO = "ventas_historico.csv"
+# Días que se mantienen en el archivo "vivo" (el que lee el dashboard de Streamlit).
+# Todo lo más viejo se mueve a FILENAME_HISTORICO para que el dashboard no se quede
+# sin memoria cargando meses y meses de datos que ya nadie mira en el día a día.
+DIAS_RETENCION_LIVE = 90
 ZONA_AR = timezone(timedelta(hours=-3))
 
 
@@ -157,16 +162,35 @@ def sync():
             new_rows.extend(batch)
         else: print(f"   😴 {name}: Sin novedades.")
 
-    if new_rows:
-        df_final = pd.DataFrame(new_rows)
+    if new_rows or not df_old.empty:
+        df_final = pd.DataFrame(new_rows) if new_rows else pd.DataFrame()
         # Si no fue recarga completa, unificamos con lo que ya existía de forma segura
         if not df_old.empty:
-            df_final = pd.concat([df_old, df_final], ignore_index=True)
+            df_final = pd.concat([df_old, df_final], ignore_index=True) if not df_final.empty else df_old.copy()
             
         # Limpieza monolítica estricta por ID de pedido y SKU
         df_final = df_final.drop_duplicates(subset=['id_pedido', 'sku'], keep='last')
-        df_final.to_csv(FILENAME, index=False)
-        print(f"🚀 Base unificada guardada con éxito. Total: {len(df_final)} registros.")
+
+        # ======================================================================
+        # 🗄️ ARCHIVADO: separamos lo reciente (vivo) de lo viejo (histórico)
+        # ======================================================================
+        df_final['fecha'] = pd.to_datetime(df_final['fecha'], errors='coerce')
+        corte = datetime.now(ZONA_AR) - timedelta(days=DIAS_RETENCION_LIVE)
+        es_reciente = df_final['fecha'] >= corte
+
+        df_vivo = df_final[es_reciente].copy()
+        df_para_archivar = df_final[~es_reciente].copy()
+
+        if not df_para_archivar.empty:
+            if os.path.exists(FILENAME_HISTORICO):
+                df_hist_viejo = pd.read_csv(FILENAME_HISTORICO)
+                df_para_archivar = pd.concat([df_hist_viejo, df_para_archivar], ignore_index=True)
+            df_para_archivar = df_para_archivar.drop_duplicates(subset=['id_pedido', 'sku'], keep='last')
+            df_para_archivar.to_csv(FILENAME_HISTORICO, index=False)
+            print(f"   🗄️ {len(df_para_archivar):,} filas históricas archivadas en {FILENAME_HISTORICO}.")
+
+        df_vivo.to_csv(FILENAME, index=False)
+        print(f"🚀 Archivo vivo guardado. Total (últimos {DIAS_RETENCION_LIVE} días): {len(df_vivo):,} registros.")
 
 if __name__ == "__main__":
     try: sync(); print("✅ Proceso finalizado.")
