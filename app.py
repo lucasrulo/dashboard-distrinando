@@ -130,7 +130,7 @@ def load_data():
     if not os.path.exists("ventas_hot_sale.csv"): return pd.DataFrame()
     df = pd.read_csv("ventas_hot_sale.csv")
     
-    df['fecha'] = pd.to_datetime(df['fecha'], errors='coerce')
+    df['fecha'] = pd.to_datetime(df['fecha'], errors='coerce', format='mixed')
     
     if 'total_orden' in df.columns and 'total_pedido' not in df.columns: df.rename(columns={'total_orden': 'total_pedido'}, inplace=True)
     if 'total_pedido' not in df.columns: df['total_pedido'] = 0
@@ -160,7 +160,7 @@ def load_data():
     if 'fecha_despacho' not in df.columns: 
         df['fecha_despacho'] = df['fecha'] + pd.to_timedelta(np.random.randint(1, 4, size=len(df)), unit='D')
     else:
-        df['fecha_despacho'] = pd.to_datetime(df['fecha_despacho'], errors='coerce')
+        df['fecha_despacho'] = pd.to_datetime(df['fecha_despacho'], errors='coerce', format='mixed')
 
     # ==========================================================================
     # 🪶 OPTIMIZACIÓN DE MEMORIA
