@@ -82,7 +82,10 @@ class ShopifyManager:
         rows = []
         try:
             res = requests.get(f"{self.base_url}/orders.json", headers=self.headers, params=params, timeout=30)
-            if res.status_code == 429: time.sleep(5); return self.get_orders_batch(params)
+            if res.status_code == 429:
+                print(f"   ⏳ {self.name}: HTTP 429 (rate limit) - esperando 5s y reintentando...")
+                time.sleep(5)
+                return self.get_orders_batch(params)
             if res.status_code != 200:
                 # 🚨 Antes esto se tragaba en silencio (devolvía [] como si fuera "no hay más datos").
                 # Ahora devolvemos None para que el llamador sepa que fue un ERROR, no el fin real de la paginación.
@@ -159,7 +162,14 @@ class ShopifyManager:
         self.fetch_catalog()
         all_rows = []
         curr_id = last_id
+        pagina = 0
+        t_inicio = time.time()
+        MAX_PAGINAS = 500  # válvula de seguridad: si llega acá, algo anda mal (no es un límite normal)
         while True:
+            pagina += 1
+            if pagina > MAX_PAGINAS:
+                print(f"   🛑 {self.name}: se alcanzó el límite de seguridad de {MAX_PAGINAS} páginas. Corto acá para investigar (curr_id={curr_id}).")
+                break
             params = {"limit": 250, "status": "any", "order": "id asc"}
             if curr_id == 0: params["created_at_min"] = FECHA_INICIO
             else: params["since_id"] = curr_id
@@ -168,10 +178,13 @@ class ShopifyManager:
                 print(f"   ⚠️ {self.name}: paginación cortada por un error (arriba 👆). NO se asume que ya no hay más pedidos.")
                 break
             batch, num_pedidos, ultimo_id = resultado
+            elapsed = time.time() - t_inicio
+            print(f"      · {self.name} pág.{pagina}: {num_pedidos} pedidos, {len(batch)} líneas, since_id usado={curr_id}, último_id={ultimo_id}, t={elapsed:.1f}s")
             if num_pedidos == 0: break  # página realmente vacía: ahí sí se terminaron los pedidos
             all_rows.extend(batch)
             curr_id = ultimo_id
             if num_pedidos < 250: break  # página parcial = última página (esto SÍ es por cantidad de PEDIDOS)
+            time.sleep(0.5)  # pequeño respiro para no comernos el rate limit de Shopify (2 req/seg)
             
         ahora = datetime.now(ZONA_AR)
         inicio_hoy = ahora.replace(hour=0, minute=0, second=0).strftime("%Y-%m-%dT%H:%M:%S-03:00")
