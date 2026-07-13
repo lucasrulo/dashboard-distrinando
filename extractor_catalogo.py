@@ -22,6 +22,8 @@ STORES = {
 }
 
 FILENAME_CATALOGO = "catalogo_stock.csv"
+# Misma versión que extractor.py — mantenerlas sincronizadas al hacer el bump trimestral.
+API_VERSION = "2025-10"
 
 def sync_catalogo():
     print(f"--- 📦 INICIANDO SINCRONIZACIÓN DE CATÁLOGO: {datetime.now()} ---")
@@ -31,7 +33,7 @@ def sync_catalogo():
         if not info['token']: continue
         print(f"-> Extrayendo {name}...")
         
-        base_url = f"https://{info['url']}.myshopify.com/admin/api/2024-04/products.json"
+        base_url = f"https://{info['url']}.myshopify.com/admin/api/{API_VERSION}/products.json"
         headers = {"X-Shopify-Access-Token": info['token']}
         
         # Shopify limita a 250 por página
@@ -39,6 +41,11 @@ def sync_catalogo():
         
         try:
             res = requests.get(base_url, headers=headers, params=params, timeout=30)
+            if res.status_code != 200:
+                # Antes esto se tragaba en silencio. Ahora se ve en el log si el token
+                # o la versión de API tienen algún problema.
+                print(f"🚨 {name}: HTTP {res.status_code} -> {res.text[:300]}")
+                continue
             products = res.json().get('products', [])
             
             for p in products:
