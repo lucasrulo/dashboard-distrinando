@@ -109,7 +109,23 @@ class ShopifyManager:
                 fulfillments = o.get('fulfillments', [])
                 fecha_despacho = fulfillments[0].get('created_at') if fulfillments else None
                 
-                for item in o.get('line_items', []):
+                # 🚨 IMPORTANTE: algunos pedidos (cambios, devoluciones, ajustes) pueden no tener
+                # line_items. Igual necesitamos "visitarlos" para no perder la cuenta de paginación,
+                # aunque no generen ninguna fila en el CSV.
+                items = o.get('line_items', [])
+                if not items:
+                    rows.append({
+                        "id_pedido": o['id'], "fecha": fecha_limpia, "hora": hora_pico,
+                        "total_pedido": float(o['total_price']), "marca": self.name, "es_reverso": es_reverso,
+                        "cantidad": 0, "sku": "S/D", "modelo_color": "S/D",
+                        "producto": "Sin ítems (ajuste/cambio)", "producto_base": "Sin ítems (ajuste/cambio)",
+                        "fulfillment_status": o.get('fulfillment_status') or 'pending',
+                        "img_url": "", "url_web": "#",
+                        "subtotal_producto": 0.0, "medio_pago": medio_pago,
+                        "cuotas": cuotas, "descuento": descuento, "tags": tags_raw,
+                        "provincia": provincia, "fecha_despacho": fecha_despacho
+                    })
+                for item in items:
                     p_info = self.catalog.get(item.get('product_id'), {"img": "", "link": "#"})
                     cantidad = int(item.get('quantity', 1))
                     precio_unitario = float(item.get('price', 0))
@@ -132,7 +148,12 @@ class ShopifyManager:
         except Exception as e:
             print(f"   🚨 {self.name}: Excepción parseando lote de pedidos: {e}")
             return None
-        return rows
+        # 🎯 FIX CRÍTICO: devolvemos también cuántos PEDIDOS trajo la página (no líneas)
+        # y el id del último pedido, para que la paginación se corte por la cantidad real
+        # de pedidos (que es lo que Shopify pagina con "limit"), no por cantidad de renglones.
+        num_pedidos = len(orders)
+        ultimo_id = orders[-1]['id'] if orders else None
+        return rows, num_pedidos, ultimo_id
 
     def get_incremental_updates(self, last_id):
         self.fetch_catalog()
@@ -142,20 +163,22 @@ class ShopifyManager:
             params = {"limit": 250, "status": "any", "order": "id asc"}
             if curr_id == 0: params["created_at_min"] = FECHA_INICIO
             else: params["since_id"] = curr_id
-            batch = self.get_orders_batch(params)
-            if batch is None:
+            resultado = self.get_orders_batch(params)
+            if resultado is None:
                 print(f"   ⚠️ {self.name}: paginación cortada por un error (arriba 👆). NO se asume que ya no hay más pedidos.")
                 break
-            if not batch: break
+            batch, num_pedidos, ultimo_id = resultado
+            if num_pedidos == 0: break  # página realmente vacía: ahí sí se terminaron los pedidos
             all_rows.extend(batch)
-            curr_id = batch[-1]['id_pedido']
-            if len(batch) < 250: break
+            curr_id = ultimo_id
+            if num_pedidos < 250: break  # página parcial = última página (esto SÍ es por cantidad de PEDIDOS)
             
         ahora = datetime.now(ZONA_AR)
         inicio_hoy = ahora.replace(hour=0, minute=0, second=0).strftime("%Y-%m-%dT%H:%M:%S-03:00")
         params_update = {"limit": 250, "status": "any", "updated_at_min": inicio_hoy}
-        batch_updated = self.get_orders_batch(params_update)
-        if batch_updated:
+        resultado_update = self.get_orders_batch(params_update)
+        if resultado_update:
+            batch_updated, _, _ = resultado_update
             all_rows.extend(batch_updated)
         return all_rows
 
