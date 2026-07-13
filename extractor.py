@@ -229,7 +229,13 @@ def sync():
         # ======================================================================
         # 🗄️ ARCHIVADO: separamos lo reciente (vivo) de lo viejo (histórico)
         # ======================================================================
-        df_final['fecha'] = pd.to_datetime(df_final['fecha'], errors='coerce')
+        # 🎯 FIX CRÍTICO: sin format='mixed', pandas infiere el formato del PRIMER valor
+        # (los viejos, guardados con espacio: "2026-07-09 23:29:32-03:00") y con eso
+        # rechaza en silencio los nuevos (que llegan con "T": "...T12:15:09-03:00"),
+        # convirtiéndolos en NaT. Esto era lo que hacía que los pedidos nuevos
+        # terminaran siempre en el histórico con fecha vacía, sin importar cuántas
+        # corridas pasaran.
+        df_final['fecha'] = pd.to_datetime(df_final['fecha'], errors='coerce', format='mixed')
         corte = datetime.now(ZONA_AR) - timedelta(days=DIAS_RETENCION_LIVE)
         es_reciente = df_final['fecha'] >= corte
 
