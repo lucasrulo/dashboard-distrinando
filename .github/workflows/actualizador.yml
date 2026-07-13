@@ -8,6 +8,12 @@ on:
     - cron: '0 */2 * * *' 
   workflow_dispatch: # Botón manual de emergencia
 
+# 🔒 Si una corrida tarda más de 5 min (ej: poniéndose al día con un backlog grande),
+# esto evita que el cron siguiente arranque encima y se pisen entre sí. Se hace cola.
+concurrency:
+  group: actualizador-datos-shopify
+  cancel-in-progress: false
+
 jobs:
   actualizar-csv:
     runs-on: ubuntu-latest
