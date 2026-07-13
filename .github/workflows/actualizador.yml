@@ -4,7 +4,7 @@ on:
   schedule:
     # Ventas: cada 5 minutos
     - cron: '*/5 * * * *' 
-    # Catálogo y Sesiones: cada 2 horas
+    # Catálogo: cada 2 horas
     - cron: '0 */2 * * *' 
   workflow_dispatch: # Botón manual de emergencia
 
@@ -45,38 +45,22 @@ jobs:
           TOKEN_PICCADILLY: ${{ secrets.TOKEN_PICCADILLY }}
         run: python extractor_catalogo.py
 
-      - name: Ejecutar el Extractor de Sesiones (ShopifyQL)
-        # Solo corre en el cron de 2hs o al disparar manualmente, no en el de 5 min.
-        # Evita golpear innecesariamente el rate limit de ShopifyQL con datos que cambian poco.
-        if: github.event.schedule == '0 */2 * * *' || github.event_name == 'workflow_dispatch'
-        env:
-          TOKEN_REEBOK: ${{ secrets.TOKEN_REEBOK }}
-          TOKEN_COLUMBIA: ${{ secrets.TOKEN_COLUMBIA }}
-          TOKEN_CROCS: ${{ secrets.TOKEN_CROCS }}
-          TOKEN_KAPPA: ${{ secrets.TOKEN_KAPPA }}
-          TOKEN_PICCADILLY: ${{ secrets.TOKEN_PICCADILLY }}
-        run: python extractor_sesiones.py
-
       - name: Guardar los nuevos CSV en GitHub
         run: |
           git config --global user.name "Robot Distrinando"
           git config --global user.email "robot@distrinando.com"
           
-          # Agregamos ventas, histórico y catálogo siempre. Sesiones solo si el paso corrió
-          # en esta ejecución (no corre en el cron de 5 min), para no romper el step si no existe aún.
+          # Agregamos ventas, histórico y catálogo
           git add ventas_hot_sale.csv catalogo_stock.csv
           if [ -f ventas_historico.csv ]; then
             git add ventas_historico.csv
           fi
-          if [ -f sesiones_hot_sale.csv ]; then
-            git add sesiones_hot_sale.csv
-          fi
           
           # Lógica: Solo hace commit si hubo cambios reales en cualquiera de los archivos
           if git diff --staged --quiet; then
-            echo "ℹ️ No hay datos nuevos (ventas, stock o sesiones). El repositorio se mantiene igual."
+            echo "ℹ️ No hay datos nuevos (ventas o stock). El repositorio se mantiene igual."
           else
-            git commit -m "🔄 Datos actualizados: Ventas, Catálogo y Sesiones [$(date +'%d/%m %H:%M:%S')]"
+            git commit -m "🔄 Datos actualizados: Ventas y Catálogo [$(date +'%d/%m %H:%M:%S')]"
             git push
             echo "✅ Nuevos datos subidos exitosamente a la nube."
           fi
