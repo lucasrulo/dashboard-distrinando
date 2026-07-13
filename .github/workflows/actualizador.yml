@@ -36,11 +36,6 @@ jobs:
           TOKEN_PICCADILLY: ${{ secrets.TOKEN_PICCADILLY }}
         run: python extractor.py
 
-      - name: DIAGNOSTICO TEMPORAL
-        env:
-          TOKEN_REEBOK: ${{ secrets.TOKEN_REEBOK }}
-        run: python diagnostico_shopify.py
-
       - name: Ejecutar el Extractor de Catálogo (Stock y Precios)
         env:
           TOKEN_REEBOK: ${{ secrets.TOKEN_REEBOK }}
