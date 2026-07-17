@@ -1805,7 +1805,7 @@ Reebok,RBK2100250917,RBK2100250917-M,0,113799.00,Pantalón Reebok Trackpant
 Reebok,RBK2100250917,RBK2100250917-L,0,113799.00,Pantalón Reebok Trackpant
 Reebok,RBK2100250917,RBK2100250917-XL,0,113799.00,Pantalón Reebok Trackpant
 Reebok,RBK2100250917,RBK2100250917-XXL,0,113799.00,Pantalón Reebok Trackpant
-Reebok,RBK2100256661,RBK2100256661-XS,1,113799.00,Pantalón Reebok Vector
+Reebok,RBK2100256661,RBK2100256661-XS,2,113799.00,Pantalón Reebok Vector
 Reebok,RBK2100256661,RBK2100256661-S,2,113799.00,Pantalón Reebok Vector
 Reebok,RBK2100256661,RBK2100256661-M,0,113799.00,Pantalón Reebok Vector
 Reebok,RBK2100256661,RBK2100256661-L,0,113799.00,Pantalón Reebok Vector
@@ -2048,7 +2048,7 @@ Columbia,COL12109441089,COL12109441089-40,0,329999.00,Botas para caminar Newton 
 Columbia,COL12109441089,COL12109441089-41,2,329999.00,Botas para caminar Newton Wander™ de Columbia para hombre
 Columbia,COL12109441089,COL12109441089-42,2,329999.00,Botas para caminar Newton Wander™ de Columbia para hombre
 Columbia,COL12109441089,COL12109441089-43,2,329999.00,Botas para caminar Newton Wander™ de Columbia para hombre
-Columbia,COL12109441089,COL12109441089-44,2,329999.00,Botas para caminar Newton Wander™ de Columbia para hombre
+Columbia,COL12109441089,COL12109441089-44,1,329999.00,Botas para caminar Newton Wander™ de Columbia para hombre
 Columbia,COL12109441089,COL12109441089-45,1,329999.00,Botas para caminar Newton Wander™ de Columbia para hombre
 Columbia,COL12125531083,COL12125531083-35,1,329999.00,Botas para caminar Newton Wander™ de Columbia para mujer
 Columbia,COL12125531083,COL12125531083-36,2,329999.00,Botas para caminar Newton Wander™ de Columbia para mujer
@@ -4045,6 +4045,13 @@ Crocs,C206772-C143,C206772-C143-M6/W8,3,84999.00,Classic Hiker Clog
 Crocs,C206772-C143,C206772-C143-M7/W9,3,84999.00,Classic Hiker Clog
 Crocs,C206772-C143,C206772-C143-M8/W10,43,84999.00,Classic Hiker Clog
 Crocs,C206772-C143,C206772-C143-M9/W11,24,84999.00,Classic Hiker Clog
+Crocs,C203506-C459,C203506-C459-C6,0,24999.00,Classic Lined Clog K
+Crocs,C203506-C459,C203506-C459-C8,0,24999.00,Classic Lined Clog K
+Crocs,C203506-C459,C203506-C459-C10,0,24999.00,Classic Lined Clog K
+Crocs,C203506-C459,C203506-C459-C12,0,24999.00,Classic Lined Clog K
+Crocs,C203506-C459,C203506-C459-J1,0,24999.00,Classic Lined Clog K
+Crocs,C203506-C459,C203506-C459-J2,2,24999.00,Classic Lined Clog K
+Crocs,C203506-C459,C203506-C459-J3,0,24999.00,Classic Lined Clog K
 Crocs,C207010-C060,C207010-C060-C11,0,24999.00,Classic Lined Clog Kids
 Crocs,C207010-C060,C207010-C060-C12,4,24999.00,Classic Lined Clog Kids
 Crocs,C207010-C060,C207010-C060-C13,0,24999.00,Classic Lined Clog Kids
@@ -4079,13 +4086,6 @@ Crocs,C207010-C6SW,C207010-C6SW-C13,0,24999.00,Classic Lined Clog Kids
 Crocs,C207010-C6SW,C207010-C6SW-J1,1,24999.00,Classic Lined Clog Kids
 Crocs,C207010-C6SW,C207010-C6SW-J2,1,24999.00,Classic Lined Clog Kids
 Crocs,C207010-C6SW,C207010-C6SW-J3,0,24999.00,Classic Lined Clog Kids
-Crocs,C203506-C459,C203506-C459-C6,0,24999.00,Classic Lined Clog Toddler
-Crocs,C203506-C459,C203506-C459-C8,0,24999.00,Classic Lined Clog Toddler
-Crocs,C203506-C459,C203506-C459-C10,0,24999.00,Classic Lined Clog Toddler
-Crocs,C203506-C459,C203506-C459-C12,0,24999.00,Classic Lined Clog Toddler
-Crocs,C203506-C459,C203506-C459-J1,0,24999.00,Classic Lined Clog Toddler
-Crocs,C203506-C459,C203506-C459-J2,2,24999.00,Classic Lined Clog Toddler
-Crocs,C203506-C459,C203506-C459-J3,0,24999.00,Classic Lined Clog Toddler
 Crocs,C207464-C6WS,C207464-C6WS-C11,0,64999.00,Classic Marbled Clog K
 Crocs,C207464-C6WS,C207464-C6WS-C12,3,64999.00,Classic Marbled Clog K
 Crocs,C207464-C6WS,C207464-C6WS-C13,0,64999.00,Classic Marbled Clog K
