@@ -106,7 +106,7 @@ Reebok,RBK1100BP1236,RBK1100BP1236-10.5,0,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1236,RBK1100BP1236-11,2,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1236,RBK1100BP1236-11.5,1,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1236,RBK1100BP1236-12,0,89999.00,Botines Reebok Essence FG
-Reebok,RBK1100BP1236,RBK1100BP1236-13,1,89999.00,Botines Reebok Essence FG
+Reebok,RBK1100BP1236,RBK1100BP1236-13,0,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1234,RBK1100BP1234-4,0,113799.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1234,RBK1100BP1234-4.5,0,113799.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1234,RBK1100BP1234-5,0,113799.00,Botines Reebok Essence FG
@@ -534,11 +534,11 @@ Reebok,RBK2100205877,RBK2100205877-L,9,83799.00,Buzo Reebok Essentials
 Reebok,RBK2100205877,RBK2100205877-M,7,83799.00,Buzo Reebok Essentials
 Reebok,RBK2100205877,RBK2100205877-2XL,0,83799.00,Buzo Reebok Essentials
 Reebok,RBK2100205877,RBK2100205877-XL,7,83799.00,Buzo Reebok Essentials
-Reebok,RBK2100253053,RBK2100253053-XS,1,89999.00,Buzo Reebok Freshman
+Reebok,RBK2100253053,RBK2100253053-XS,7,89999.00,Buzo Reebok Freshman
 Reebok,RBK2100253053,RBK2100253053-S,0,89999.00,Buzo Reebok Freshman
-Reebok,RBK2100253053,RBK2100253053-M,0,89999.00,Buzo Reebok Freshman
-Reebok,RBK2100253053,RBK2100253053-L,0,89999.00,Buzo Reebok Freshman
-Reebok,RBK2100253053,RBK2100253053-XL,0,89999.00,Buzo Reebok Freshman
+Reebok,RBK2100253053,RBK2100253053-M,6,89999.00,Buzo Reebok Freshman
+Reebok,RBK2100253053,RBK2100253053-L,6,89999.00,Buzo Reebok Freshman
+Reebok,RBK2100253053,RBK2100253053-XL,6,89999.00,Buzo Reebok Freshman
 Reebok,RBK2100253053,RBK2100253053-XXL,0,89999.00,Buzo Reebok Freshman
 Reebok,RBK2100217136,RBK2100217136-2XS,0,83799.00,Buzo Reebok Identity Big Logo
 Reebok,RBK2100217136,RBK2100217136-XS,1,83799.00,Buzo Reebok Identity Big Logo
@@ -1655,7 +1655,7 @@ Reebok,RBK2100240240,RBK2100240240-XXL,0,77599.00,Pantalon Luther Small Logo
 Reebok,RBK2100240036,RBK2100240036-XS,0,113799.00,Pantalón Oversized
 Reebok,RBK2100240036,RBK2100240036-S,0,113799.00,Pantalón Oversized
 Reebok,RBK2100240036,RBK2100240036-M,0,113799.00,Pantalón Oversized
-Reebok,RBK2100240036,RBK2100240036-L,1,113799.00,Pantalón Oversized
+Reebok,RBK2100240036,RBK2100240036-L,2,113799.00,Pantalón Oversized
 Reebok,RBK2100240036,RBK2100240036-XL,1,113799.00,Pantalón Oversized
 Reebok,RBK2100240036,RBK2100240036-XXL,0,113799.00,Pantalón Oversized
 Reebok,RBK2100241203,RBK2100241203-L,0,77599.00,Pantalón Phillip Varsity
@@ -2217,7 +2217,7 @@ Columbia,COL22092231694,COL22092231694-XXL,0,169999.00,Buzo Helvetia™ II de po
 Columbia,COL22092231694,COL22092231694-XXXL,0,169999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22098501256,COL22098501256-XS,0,179999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22098501256,COL22098501256-S,0,179999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
-Columbia,COL22098501256,COL22098501256-M,2,179999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
+Columbia,COL22098501256,COL22098501256-M,1,179999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22098501256,COL22098501256-L,0,179999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22098501256,COL22098501256-XL,1,179999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22098501256,COL22098501256-XXL,0,179999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
@@ -2432,6 +2432,34 @@ Columbia,COL22155681348,COL22155681348-L,6,129999.00,Camisa de manga corta Silve
 Columbia,COL22155681348,COL22155681348-XL,4,129999.00,Camisa de manga corta Silver Ridge™ Utility II de Columbia para mujer
 Columbia,COL22155681348,COL22155681348-XXL,0,129999.00,Camisa de manga corta Silver Ridge™ Utility II de Columbia para mujer
 Columbia,COL22155681348,COL22155681348-XXXL,0,129999.00,Camisa de manga corta Silver Ridge™ Utility II de Columbia para mujer
+Columbia,COL22054721010,COL22054721010-XS,0,329999.00,Camisa Landroamer™ manga larga con bolsillos Columbia para hombre
+Columbia,COL22054721010,COL22054721010-S,4,329999.00,Camisa Landroamer™ manga larga con bolsillos Columbia para hombre
+Columbia,COL22054721010,COL22054721010-M,4,329999.00,Camisa Landroamer™ manga larga con bolsillos Columbia para hombre
+Columbia,COL22054721010,COL22054721010-L,4,329999.00,Camisa Landroamer™ manga larga con bolsillos Columbia para hombre
+Columbia,COL22054721010,COL22054721010-XL,4,329999.00,Camisa Landroamer™ manga larga con bolsillos Columbia para hombre
+Columbia,COL22054721010,COL22054721010-XXL,4,329999.00,Camisa Landroamer™ manga larga con bolsillos Columbia para hombre
+Columbia,COL22054721010,COL22054721010-XXXL,0,329999.00,Camisa Landroamer™ manga larga con bolsillos Columbia para hombre
+Columbia,COL21839311397,COL21839311397-XS,0,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311397,COL21839311397-S,4,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311397,COL21839311397-M,4,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311397,COL21839311397-L,4,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311397,COL21839311397-XL,4,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311397,COL21839311397-XXL,4,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311397,COL21839311397-XXXL,0,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311429,COL21839311429-XS,0,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311429,COL21839311429-S,4,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311429,COL21839311429-M,4,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311429,COL21839311429-L,4,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311429,COL21839311429-XL,4,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311429,COL21839311429-XXL,4,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311429,COL21839311429-XXXL,0,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311010,COL21839311010-XS,0,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311010,COL21839311010-S,4,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311010,COL21839311010-M,4,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311010,COL21839311010-L,4,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311010,COL21839311010-XL,4,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311010,COL21839311010-XXL,4,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
+Columbia,COL21839311010,COL21839311010-XXXL,0,149999.00,Camisa manga larga Silver Ridge™2.0 con protección solar Columbia para hombre
 Columbia,COL22120671010,COL22120671010-XS,0,124999.00,Camisa Sage Peak™ manga corta con protección solar Columbia para hombre
 Columbia,COL22120671010,COL22120671010-S,6,124999.00,Camisa Sage Peak™ manga corta con protección solar Columbia para hombre
 Columbia,COL22120671010,COL22120671010-M,6,124999.00,Camisa Sage Peak™ manga corta con protección solar Columbia para hombre
@@ -2439,6 +2467,13 @@ Columbia,COL22120671010,COL22120671010-L,6,124999.00,Camisa Sage Peak™ manga c
 Columbia,COL22120671010,COL22120671010-XL,6,124999.00,Camisa Sage Peak™ manga corta con protección solar Columbia para hombre
 Columbia,COL22120671010,COL22120671010-XXL,7,124999.00,Camisa Sage Peak™ manga corta con protección solar Columbia para hombre
 Columbia,COL22120671010,COL22120671010-XXXL,0,124999.00,Camisa Sage Peak™ manga corta con protección solar Columbia para hombre
+Columbia,COL22033344348,COL22033344348-XS,4,119999.00,Camisa Silver Ridge Utility™ manga larga con protección solar Columbia para mujer
+Columbia,COL22033344348,COL22033344348-S,4,119999.00,Camisa Silver Ridge Utility™ manga larga con protección solar Columbia para mujer
+Columbia,COL22033344348,COL22033344348-M,4,119999.00,Camisa Silver Ridge Utility™ manga larga con protección solar Columbia para mujer
+Columbia,COL22033344348,COL22033344348-L,4,119999.00,Camisa Silver Ridge Utility™ manga larga con protección solar Columbia para mujer
+Columbia,COL22033344348,COL22033344348-XL,4,119999.00,Camisa Silver Ridge Utility™ manga larga con protección solar Columbia para mujer
+Columbia,COL22033344348,COL22033344348-XXL,0,119999.00,Camisa Silver Ridge Utility™ manga larga con protección solar Columbia para mujer
+Columbia,COL22033344348,COL22033344348-XXXL,0,119999.00,Camisa Silver Ridge Utility™ manga larga con protección solar Columbia para mujer
 Columbia,COL22160161010,COL22160161010-XS,0,229999.00,Camisa Silver Ridge™ Elite de Columbia para hombre
 Columbia,COL22160161010,COL22160161010-S,4,229999.00,Camisa Silver Ridge™ Elite de Columbia para hombre
 Columbia,COL22160161010,COL22160161010-M,6,229999.00,Camisa Silver Ridge™ Elite de Columbia para hombre
@@ -2778,6 +2813,20 @@ Columbia,COL22088271461,COL22088271461-S,6,399999.00,Campera Columbia Delta Ridg
 Columbia,COL22088271461,COL22088271461-M,12,399999.00,Campera Columbia Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22088271461,COL22088271461-L,12,399999.00,Campera Columbia Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22088271461,COL22088271461-XL,6,399999.00,Campera Columbia Delta Ridge™ II con relleno de plumas Columbia para mujer
+Columbia,COL22087411433,COL22087411433-XS,0,415999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
+Columbia,COL22087411433,COL22087411433-S,4,415999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
+Columbia,COL22087411433,COL22087411433-M,4,415999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
+Columbia,COL22087411433,COL22087411433-L,4,415999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
+Columbia,COL22087411433,COL22087411433-XL,1,415999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
+Columbia,COL22087411433,COL22087411433-XXL,1,415999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
+Columbia,COL22087411433,COL22087411433-XXXL,0,415999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
+Columbia,COL22087411864,COL22087411864-XS,0,415999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
+Columbia,COL22087411864,COL22087411864-S,1,415999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
+Columbia,COL22087411864,COL22087411864-M,1,415999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
+Columbia,COL22087411864,COL22087411864-L,1,415999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
+Columbia,COL22087411864,COL22087411864-XL,1,415999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
+Columbia,COL22087411864,COL22087411864-XXL,1,415999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
+Columbia,COL22087411864,COL22087411864-XXXL,0,415999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
 Columbia,COL22087411262,COL22087411262-XS,0,499999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
 Columbia,COL22087411262,COL22087411262-S,6,499999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
 Columbia,COL22087411262,COL22087411262-M,6,499999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
@@ -2831,7 +2880,7 @@ Columbia,COL22136901010,COL22136901010-XS,0,239999.00,Campera de polar Arctic Pe
 Columbia,COL22136901010,COL22136901010-S,6,239999.00,Campera de polar Arctic Peak™ con cierre delantero  Columbia para hombre
 Columbia,COL22136901010,COL22136901010-M,8,239999.00,Campera de polar Arctic Peak™ con cierre delantero  Columbia para hombre
 Columbia,COL22136901010,COL22136901010-L,7,239999.00,Campera de polar Arctic Peak™ con cierre delantero  Columbia para hombre
-Columbia,COL22136901010,COL22136901010-XL,6,239999.00,Campera de polar Arctic Peak™ con cierre delantero  Columbia para hombre
+Columbia,COL22136901010,COL22136901010-XL,7,239999.00,Campera de polar Arctic Peak™ con cierre delantero  Columbia para hombre
 Columbia,COL22136901010,COL22136901010-XXL,4,239999.00,Campera de polar Arctic Peak™ con cierre delantero  Columbia para hombre
 Columbia,COL22136901010,COL22136901010-XXXL,0,239999.00,Campera de polar Arctic Peak™ con cierre delantero  Columbia para hombre
 Columbia,COL22092161694,COL22092161694-XS,0,134999.00,Campera de polar Backbowl™ II con cierre delantero Columbia para mujer
@@ -3116,8 +3165,8 @@ Columbia,COL22086241397,COL22086241397-XXL,0,399999.00,Campera Delta Ridge™ II
 Columbia,COL22086241397,COL22086241397-XXXL,0,399999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241845,COL22086241845-XS,0,399999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241845,COL22086241845-S,7,399999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
-Columbia,COL22086241845,COL22086241845-M,5,399999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
-Columbia,COL22086241845,COL22086241845-L,2,399999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
+Columbia,COL22086241845,COL22086241845-M,4,399999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
+Columbia,COL22086241845,COL22086241845-L,3,399999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241845,COL22086241845-XL,5,399999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241845,COL22086241845-XXL,4,399999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086241845,COL22086241845-XXXL,0,399999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
@@ -3234,11 +3283,11 @@ Columbia,COL22086911010,COL22086911010-XL,0,349999.00,Campera Fivemile Butte™ 
 Columbia,COL22086911010,COL22086911010-XXL,3,349999.00,Campera Fivemile Butte™ II Columbia para hombre
 Columbia,COL22086911010,COL22086911010-XXXL,0,349999.00,Campera Fivemile Butte™ II Columbia para hombre
 Columbia,COL22089791865,COL22089791865-XS,0,144999.00,Campera Glennaker Lake™ II impermeable Columbia para hombre
-Columbia,COL22089791865,COL22089791865-S,6,144999.00,Campera Glennaker Lake™ II impermeable Columbia para hombre
-Columbia,COL22089791865,COL22089791865-M,6,144999.00,Campera Glennaker Lake™ II impermeable Columbia para hombre
-Columbia,COL22089791865,COL22089791865-L,6,144999.00,Campera Glennaker Lake™ II impermeable Columbia para hombre
-Columbia,COL22089791865,COL22089791865-XL,6,144999.00,Campera Glennaker Lake™ II impermeable Columbia para hombre
-Columbia,COL22089791865,COL22089791865-XXL,6,144999.00,Campera Glennaker Lake™ II impermeable Columbia para hombre
+Columbia,COL22089791865,COL22089791865-S,7,144999.00,Campera Glennaker Lake™ II impermeable Columbia para hombre
+Columbia,COL22089791865,COL22089791865-M,7,144999.00,Campera Glennaker Lake™ II impermeable Columbia para hombre
+Columbia,COL22089791865,COL22089791865-L,7,144999.00,Campera Glennaker Lake™ II impermeable Columbia para hombre
+Columbia,COL22089791865,COL22089791865-XL,7,144999.00,Campera Glennaker Lake™ II impermeable Columbia para hombre
+Columbia,COL22089791865,COL22089791865-XXL,7,144999.00,Campera Glennaker Lake™ II impermeable Columbia para hombre
 Columbia,COL22089791865,COL22089791865-XXXL,0,144999.00,Campera Glennaker Lake™ II impermeable Columbia para hombre
 Columbia,COL21738151012,COL21738151012-XS,2,364999.00,Campera Heavenly™ Columbia para mujer
 Columbia,COL21738151012,COL21738151012-S,4,364999.00,Campera Heavenly™ Columbia para mujer
@@ -3353,9 +3402,9 @@ Columbia,COL22126251491,COL22126251491-XL,3,844999.00,Campera impermeable con ca
 Columbia,COL22126251491,COL22126251491-XXL,1,844999.00,Campera impermeable con capucha Whistler Peak™ de Columbia para hombre
 Columbia,COL22126251491,COL22126251491-XXXL,0,844999.00,Campera impermeable con capucha Whistler Peak™ de Columbia para hombre
 Columbia,COL22154481254,COL22154481254-XS,3,374999.00,Campera impermeable fácil de guardar Trailborne™ de Columbia para hombre
-Columbia,COL22154481254,COL22154481254-S,6,374999.00,Campera impermeable fácil de guardar Trailborne™ de Columbia para hombre
-Columbia,COL22154481254,COL22154481254-M,6,374999.00,Campera impermeable fácil de guardar Trailborne™ de Columbia para hombre
-Columbia,COL22154481254,COL22154481254-L,6,374999.00,Campera impermeable fácil de guardar Trailborne™ de Columbia para hombre
+Columbia,COL22154481254,COL22154481254-S,7,374999.00,Campera impermeable fácil de guardar Trailborne™ de Columbia para hombre
+Columbia,COL22154481254,COL22154481254-M,7,374999.00,Campera impermeable fácil de guardar Trailborne™ de Columbia para hombre
+Columbia,COL22154481254,COL22154481254-L,7,374999.00,Campera impermeable fácil de guardar Trailborne™ de Columbia para hombre
 Columbia,COL22154481254,COL22154481254-XL,6,374999.00,Campera impermeable fácil de guardar Trailborne™ de Columbia para hombre
 Columbia,COL22154481254,COL22154481254-XXL,0,374999.00,Campera impermeable fácil de guardar Trailborne™ de Columbia para hombre
 Columbia,COL22154481254,COL22154481254-XXXL,0,374999.00,Campera impermeable fácil de guardar Trailborne™ de Columbia para hombre
@@ -3597,55 +3646,6 @@ Columbia,COL22086711100,COL22086711100-L,3,129999.00,Campera resistente al agua 
 Columbia,COL22086711100,COL22086711100-XL,1,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
 Columbia,COL22086711100,COL22086711100-XXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
 Columbia,COL22086711100,COL22086711100-XXXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711397,COL22086711397-XS,1,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711397,COL22086711397-S,6,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711397,COL22086711397-M,4,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711397,COL22086711397-L,4,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711397,COL22086711397-XL,5,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711397,COL22086711397-XXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711397,COL22086711397-XXXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711429,COL22086711429-XS,1,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711429,COL22086711429-S,1,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711429,COL22086711429-M,1,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711429,COL22086711429-L,2,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711429,COL22086711429-XL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711429,COL22086711429-XXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711429,COL22086711429-XXXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711464,COL22086711464-XS,2,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711464,COL22086711464-S,2,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711464,COL22086711464-M,3,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711464,COL22086711464-L,2,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711464,COL22086711464-XL,2,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711464,COL22086711464-XXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711464,COL22086711464-XXXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711554,COL22086711554-XS,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711554,COL22086711554-S,1,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711554,COL22086711554-M,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711554,COL22086711554-L,2,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711554,COL22086711554-XL,1,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711554,COL22086711554-XXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711554,COL22086711554-XXXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711606,COL22086711606-XS,1,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711606,COL22086711606-S,1,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711606,COL22086711606-M,2,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711606,COL22086711606-L,3,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711606,COL22086711606-XL,2,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711606,COL22086711606-XXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22086711606,COL22086711606-XXXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
-Columbia,COL22117041010,COL22117041010-XS,0,119999.00,Campera rompevientos Discovery Loop™ Columbia para hombre
-Columbia,COL22117041010,COL22117041010-S,1,119999.00,Campera rompevientos Discovery Loop™ Columbia para hombre
-Columbia,COL22117041010,COL22117041010-M,0,119999.00,Campera rompevientos Discovery Loop™ Columbia para hombre
-Columbia,COL22117041010,COL22117041010-L,0,119999.00,Campera rompevientos Discovery Loop™ Columbia para hombre
-Columbia,COL22117041010,COL22117041010-XL,2,119999.00,Campera rompevientos Discovery Loop™ Columbia para hombre
-Columbia,COL22117041010,COL22117041010-XXL,0,119999.00,Campera rompevientos Discovery Loop™ Columbia para hombre
-Columbia,COL22117041010,COL22117041010-XXXL,0,119999.00,Campera rompevientos Discovery Loop™ Columbia para hombre
-Columbia,COL22154751125,COL22154751125-XS,2,199999.00,Campera rompevientos Willow Sky™ Columbia para mujer
-Columbia,COL22154751125,COL22154751125-S,6,199999.00,Campera rompevientos Willow Sky™ Columbia para mujer
-Columbia,COL22154751125,COL22154751125-M,6,199999.00,Campera rompevientos Willow Sky™ Columbia para mujer
-Columbia,COL22154751125,COL22154751125-L,6,199999.00,Campera rompevientos Willow Sky™ Columbia para mujer
-Columbia,COL22154751125,COL22154751125-XL,4,199999.00,Campera rompevientos Willow Sky™ Columbia para mujer
-Columbia,COL22154751125,COL22154751125-XXL,0,199999.00,Campera rompevientos Willow Sky™ Columbia para mujer
-Columbia,COL22154751125,COL22154751125-XXXL,0,199999.00,Campera rompevientos Willow Sky™ Columbia para mujer
 Crocs,C10013551,C10013551-C99,1,8999.00,3D Dog With Paws
 Crocs,C10016643,C10016643-C90H,6,8999.00,3D Holiday Beach Umbrella
 Crocs,C10013552,C10013552-C99,13,8999.00,3D Kitty
@@ -4652,10 +4652,10 @@ Crocs,C212567-C6UI,C212567-C6UI-M6/W8,0,109999.00,Crocs Classic Frosted Stacked 
 Crocs,C212567-C6UI,C212567-C6UI-M7/W9,1,109999.00,Crocs Classic Frosted Stacked Clog
 Crocs,C212567-C6UI,C212567-C6UI-M8/W10,2,109999.00,Crocs Classic Frosted Stacked Clog
 Crocs,C212567-C0Z3,C212567-C0Z3-M4/W6,1,109999.00,Crocs Classic Frosted Stacked Clog
-Crocs,C212567-C0Z3,C212567-C0Z3-M5/W7,2,109999.00,Crocs Classic Frosted Stacked Clog
+Crocs,C212567-C0Z3,C212567-C0Z3-M5/W7,1,109999.00,Crocs Classic Frosted Stacked Clog
 Crocs,C212567-C0Z3,C212567-C0Z3-M6/W8,1,109999.00,Crocs Classic Frosted Stacked Clog
 Crocs,C212567-C0Z3,C212567-C0Z3-M7/W9,1,109999.00,Crocs Classic Frosted Stacked Clog
-Crocs,C212567-C0Z3,C212567-C0Z3-M8/W10,2,109999.00,Crocs Classic Frosted Stacked Clog
+Crocs,C212567-C0Z3,C212567-C0Z3-M8/W10,1,109999.00,Crocs Classic Frosted Stacked Clog
 Crocs,C212567-C0Z3,C212567-C0Z3-M9/W11,0,109999.00,Crocs Classic Frosted Stacked Clog
 Crocs,C212143-C001,C212143-C001-M4/W6,1,99999.00,Crocs Classic Fuzz Scuff
 Crocs,C212143-C001,C212143-C001-M5/W7,4,99999.00,Crocs Classic Fuzz Scuff
@@ -6646,6 +6646,8 @@ Kappa,K2361N8GW-KUZ9,K2361N8GW-KUZ9-S,3,34199.00,Calza Logo Tape Atuiz
 Kappa,K2361N8GW-KUZ9,K2361N8GW-KUZ9-M,1,34199.00,Calza Logo Tape Atuiz
 Kappa,K2361N8GW-KUZ9,K2361N8GW-KUZ9-L,5,34199.00,Calza Logo Tape Atuiz
 Kappa,K2361N8GW-KUZ9,K2361N8GW-KUZ9-XL,9,34199.00,Calza Logo Tape Atuiz
+Kappa,K2381Y8SW-KA0VF,K2381Y8SW-KA0VF-L,1,31099.00,Calza Térmica Racing
+Kappa,K2381Y8SW-KA0VF,K2381Y8SW-KA0VF-XL,0,31099.00,Calza Térmica Racing
 Kappa,K2331V3ZW-KD39A,K2331V3ZW-KD39A-4,-1,55899.00,Camiseta Home Kids Tigre
 Kappa,K2331V3ZW-KD39A,K2331V3ZW-KD39A-6,5,55899.00,Camiseta Home Kids Tigre
 Kappa,K2331V3ZW-KD39A,K2331V3ZW-KD39A-8,0,55899.00,Camiseta Home Kids Tigre
@@ -7155,13 +7157,6 @@ Kappa,K2352564W-KA01O,K2352564W-KA01O-L,8,144999.00,Campera Kappa Helium Mavaro 
 Kappa,K2352564W-KA01O,K2352564W-KA01O-XL,4,144999.00,Campera Kappa Helium Mavaro Pro Huracan
 Kappa,K2352564W-KA01O,K2352564W-KA01O-XXL,0,144999.00,Campera Kappa Helium Mavaro Pro Huracan
 Kappa,K2352564W-KA01O,K2352564W-KA01O-XXXL,0,144999.00,Campera Kappa Helium Mavaro Pro Huracan
-Kappa,K236243ZW-KA02M,K236243ZW-KA02M-XS,6,144999.00,Campera Kappa Helium Mavaro Pro San Martín
-Kappa,K236243ZW-KA02M,K236243ZW-KA02M-S,12,144999.00,Campera Kappa Helium Mavaro Pro San Martín
-Kappa,K236243ZW-KA02M,K236243ZW-KA02M-M,21,144999.00,Campera Kappa Helium Mavaro Pro San Martín
-Kappa,K236243ZW-KA02M,K236243ZW-KA02M-L,19,144999.00,Campera Kappa Helium Mavaro Pro San Martín
-Kappa,K236243ZW-KA02M,K236243ZW-KA02M-XL,17,144999.00,Campera Kappa Helium Mavaro Pro San Martín
-Kappa,K236243ZW-KA02M,K236243ZW-KA02M-XXL,8,144999.00,Campera Kappa Helium Mavaro Pro San Martín
-Kappa,K236243ZW-KA02M,K236243ZW-KA02M-XXXL,9,144999.00,Campera Kappa Helium Mavaro Pro San Martín
 Piccadilly,P31801800000001FW26,P31801800000001FW26-35,0,155999.00,Borcego Fabiana
 Piccadilly,P31801800000001FW26,P31801800000001FW26-36,1,155999.00,Borcego Fabiana
 Piccadilly,P31801800000001FW26,P31801800000001FW26-37,3,155999.00,Borcego Fabiana
@@ -7255,10 +7250,10 @@ Piccadilly,P67500200000004FW26,P67500200000004FW26-39,10,133999.00,Bota Daiane
 Piccadilly,P67500200000004FW26,P67500200000004FW26-40,1,133999.00,Bota Daiane
 Piccadilly,P67500200000004FW26,P67500200000004FW26-41,0,133999.00,Bota Daiane
 Piccadilly,P67500200000006FW26,P67500200000006FW26-35,1,133999.00,Bota Daiane
-Piccadilly,P67500200000006FW26,P67500200000006FW26-36,0,133999.00,Bota Daiane
+Piccadilly,P67500200000006FW26,P67500200000006FW26-36,1,133999.00,Bota Daiane
 Piccadilly,P67500200000006FW26,P67500200000006FW26-37,3,133999.00,Bota Daiane
 Piccadilly,P67500200000006FW26,P67500200000006FW26-38,4,133999.00,Bota Daiane
-Piccadilly,P67500200000006FW26,P67500200000006FW26-39,4,133999.00,Bota Daiane
+Piccadilly,P67500200000006FW26,P67500200000006FW26-39,3,133999.00,Bota Daiane
 Piccadilly,P67500200000006FW26,P67500200000006FW26-40,0,133999.00,Bota Daiane
 Piccadilly,P67500200000006FW26,P67500200000006FW26-41,0,133999.00,Bota Daiane
 Piccadilly,P65406200000002FW25,P65406200000002FW25-35,0,89999.00,Bota Danubia Caña Baja
@@ -7272,7 +7267,7 @@ Piccadilly,P13024900000001FW26,P13024900000001FW26-35,0,133999.00,Bota Deise
 Piccadilly,P13024900000001FW26,P13024900000001FW26-36,0,133999.00,Bota Deise
 Piccadilly,P13024900000001FW26,P13024900000001FW26-37,5,133999.00,Bota Deise
 Piccadilly,P13024900000001FW26,P13024900000001FW26-38,11,133999.00,Bota Deise
-Piccadilly,P13024900000001FW26,P13024900000001FW26-39,10,133999.00,Bota Deise
+Piccadilly,P13024900000001FW26,P13024900000001FW26-39,9,133999.00,Bota Deise
 Piccadilly,P13024900000001FW26,P13024900000001FW26-40,9,133999.00,Bota Deise
 Piccadilly,P13024900000001FW26,P13024900000001FW26-41,6,133999.00,Bota Deise
 Piccadilly,P13024900000003FW26,P13024900000003FW26-35,0,133999.00,Bota Deise
@@ -7309,7 +7304,7 @@ Piccadilly,P13024000000001FW25,P13024000000001FW25-39,0,104999.00,Bota Deise Ca�
 Piccadilly,P13024000000001FW25,P13024000000001FW25-40,0,104999.00,Bota Deise Caña Baja
 Piccadilly,P13024000000001FW25,P13024000000001FW25-41,0,104999.00,Bota Deise Caña Baja
 Piccadilly,P13024000000004FW25,P13024000000004FW25-36,2,104999.00,Bota Deise Caña Baja
-Piccadilly,P13024000000004FW25,P13024000000004FW25-37,8,104999.00,Bota Deise Caña Baja
+Piccadilly,P13024000000004FW25,P13024000000004FW25-37,7,104999.00,Bota Deise Caña Baja
 Piccadilly,P13024000000004FW25,P13024000000004FW25-38,0,104999.00,Bota Deise Caña Baja
 Piccadilly,P13024000000004FW25,P13024000000004FW25-39,0,104999.00,Bota Deise Caña Baja
 Piccadilly,P13024000000004FW25,P13024000000004FW25-40,0,104999.00,Bota Deise Caña Baja
@@ -7990,7 +7985,7 @@ Piccadilly,P94901700000027FW25,P94901700000027FW25-41,0,97799.00,Zapatilla Fasci
 Piccadilly,P94901700000021FW25,P94901700000021FW25-35,2,97799.00,Zapatilla fascitis
 Piccadilly,P94901700000021FW25,P94901700000021FW25-36,2,97799.00,Zapatilla fascitis
 Piccadilly,P94901700000021FW25,P94901700000021FW25-37,1,97799.00,Zapatilla fascitis
-Piccadilly,P94901700000021FW25,P94901700000021FW25-38,14,97799.00,Zapatilla fascitis
+Piccadilly,P94901700000021FW25,P94901700000021FW25-38,13,97799.00,Zapatilla fascitis
 Piccadilly,P94901700000021FW25,P94901700000021FW25-39,4,97799.00,Zapatilla fascitis
 Piccadilly,P94901700000021FW25,P94901700000021FW25-40,0,97799.00,Zapatilla fascitis
 Piccadilly,P94901700000021FW25,P94901700000021FW25-41,0,97799.00,Zapatilla fascitis
