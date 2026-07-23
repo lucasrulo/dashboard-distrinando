@@ -1780,12 +1780,6 @@ Reebok,RBK2100036905,RBK2100036905-M,0,88999.00,Pantalón Reebok Classic
 Reebok,RBK2100036905,RBK2100036905-XL,1,88999.00,Pantalón Reebok Classic
 Reebok,RBK2100036905,RBK2100036905-2XL,0,88999.00,Pantalón Reebok Classic
 Reebok,RBK2100036905,RBK2100036905-N SZ,0,88999.00,Pantalón Reebok Classic
-Reebok,RBK2100067414,RBK2100067414-2XS,0,83799.00,Pantalón Reebok Classic BV
-Reebok,RBK2100067414,RBK2100067414-XS,2,83799.00,Pantalón Reebok Classic BV
-Reebok,RBK2100067414,RBK2100067414-M,0,83799.00,Pantalón Reebok Classic BV
-Reebok,RBK2100067414,RBK2100067414-L,0,83799.00,Pantalón Reebok Classic BV
-Reebok,RBK2100067414,RBK2100067414-XL,0,83799.00,Pantalón Reebok Classic BV
-Reebok,RBK2100067414,RBK2100067414-2XL,0,83799.00,Pantalón Reebok Classic BV
 Reebok,RBK2100250908,RBK2100250908-XS,1,113799.00,Pantalón Reebok Classics Vector Tracksuit
 Reebok,RBK2100250908,RBK2100250908-S,0,113799.00,Pantalón Reebok Classics Vector Tracksuit
 Reebok,RBK2100250908,RBK2100250908-M,0,113799.00,Pantalón Reebok Classics Vector Tracksuit
@@ -1882,6 +1876,12 @@ Reebok,RBK2100215104,RBK2100215104-M,1,156299.00,Pantalón Reebok Lab Tech
 Reebok,RBK2100215104,RBK2100215104-L,2,156299.00,Pantalón Reebok Lab Tech
 Reebok,RBK2100215104,RBK2100215104-XL,2,156299.00,Pantalón Reebok Lab Tech
 Reebok,RBK2100215104,RBK2100215104-2XL,1,156299.00,Pantalón Reebok Lab Tech
+Reebok,RBK2100240238,RBK2100240238-L,8,77599.00,Pantalón Reebok Luther Small Logo
+Reebok,RBK2100240238,RBK2100240238-M,0,77599.00,Pantalón Reebok Luther Small Logo
+Reebok,RBK2100240238,RBK2100240238-S,0,77599.00,Pantalón Reebok Luther Small Logo
+Reebok,RBK2100240238,RBK2100240238-XL,9,77599.00,Pantalón Reebok Luther Small Logo
+Reebok,RBK2100240238,RBK2100240238-XS,6,77599.00,Pantalón Reebok Luther Small Logo
+Reebok,RBK2100240238,RBK2100240238-XXL,6,77599.00,Pantalón Reebok Luther Small Logo
 Columbia,COL22117001461,COL22117001461-XS,0,199999.00,Anorak rompevientos Challenger™ de Columbia para hombre
 Columbia,COL22117001461,COL22117001461-S,4,199999.00,Anorak rompevientos Challenger™ de Columbia para hombre
 Columbia,COL22117001461,COL22117001461-M,3,199999.00,Anorak rompevientos Challenger™ de Columbia para hombre
@@ -1934,7 +1934,7 @@ Columbia,COL12079181010,COL12079181010-35,3,324999.00,Botas de nieve impermeable
 Columbia,COL12079181010,COL12079181010-36,4,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
 Columbia,COL12079181010,COL12079181010-37,1,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
 Columbia,COL12079181010,COL12079181010-37.5,3,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
-Columbia,COL12079181010,COL12079181010-38,4,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
+Columbia,COL12079181010,COL12079181010-38,3,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
 Columbia,COL12079181010,COL12079181010-39,3,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
 Columbia,COL12079181010,COL12079181010-40,5,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
 Columbia,COL12079181010,COL12079181010-40.5,4,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
@@ -4096,7 +4096,7 @@ Crocs,C207010-C6SW,C207010-C6SW-J1,1,24999.00,Classic Lined Clog Kids
 Crocs,C207010-C6SW,C207010-C6SW-J2,1,24999.00,Classic Lined Clog Kids
 Crocs,C207010-C6SW,C207010-C6SW-J3,0,24999.00,Classic Lined Clog Kids
 Crocs,C207464-C6WS,C207464-C6WS-C11,0,64999.00,Classic Marbled Clog K
-Crocs,C207464-C6WS,C207464-C6WS-C12,2,64999.00,Classic Marbled Clog K
+Crocs,C207464-C6WS,C207464-C6WS-C12,1,64999.00,Classic Marbled Clog K
 Crocs,C207464-C6WS,C207464-C6WS-C13,0,64999.00,Classic Marbled Clog K
 Crocs,C207464-C6WS,C207464-C6WS-J1,0,64999.00,Classic Marbled Clog K
 Crocs,C207464-C6WS,C207464-C6WS-J2,0,64999.00,Classic Marbled Clog K
@@ -5041,7 +5041,7 @@ Crocs,C207937-C3J5,C207937-C3J5-M13,3,109999.00,Crocs Echo Clog
 Crocs,C208190-C6TY,C208190-C6TY-C11,0,89999.00,Crocs Echo Clog K
 Crocs,C208190-C6TY,C208190-C6TY-C12,0,89999.00,Crocs Echo Clog K
 Crocs,C208190-C6TY,C208190-C6TY-C13,0,89999.00,Crocs Echo Clog K
-Crocs,C208190-C6TY,C208190-C6TY-J1,2,89999.00,Crocs Echo Clog K
+Crocs,C208190-C6TY,C208190-C6TY-J1,1,89999.00,Crocs Echo Clog K
 Crocs,C208190-C6TY,C208190-C6TY-J2,0,89999.00,Crocs Echo Clog K
 Crocs,C208190-C6TY,C208190-C6TY-J3,0,89999.00,Crocs Echo Clog K
 Crocs,C211630-C0DA,C211630-C0DA-M4/W6,14,109999.00,Crocs Echo Crackle
