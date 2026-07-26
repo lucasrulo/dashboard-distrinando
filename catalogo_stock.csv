@@ -344,7 +344,7 @@ Reebok,RBK1100MC0010,RBK1100MC0010-11.5,5,99999.00,Botines Reebok Match 1 Ic
 Reebok,RBK1100MC0010,RBK1100MC0010-12,0,99999.00,Botines Reebok Match 1 Ic
 Reebok,RBK1100MC0010,RBK1100MC0010-12.5,0,99999.00,Botines Reebok Match 1 Ic
 Reebok,RBK1100MC0010,RBK1100MC0010-13,0,99999.00,Botines Reebok Match 1 Ic
-Reebok,RBK1100MC0014,RBK1100MC0014-4,1,99999.00,Botines Reebok Match 1 Ic
+Reebok,RBK1100MC0014,RBK1100MC0014-4,0,99999.00,Botines Reebok Match 1 Ic
 Reebok,RBK1100MC0014,RBK1100MC0014-4.5,0,99999.00,Botines Reebok Match 1 Ic
 Reebok,RBK1100MC0014,RBK1100MC0014-5,10,99999.00,Botines Reebok Match 1 Ic
 Reebok,RBK1100MC0014,RBK1100MC0014-5.5,0,99999.00,Botines Reebok Match 1 Ic
@@ -1424,7 +1424,7 @@ Reebok,RBK2100242060,RBK2100242060-M,0,55899.00,Musculosa Sl Reebok
 Reebok,RBK2100242060,RBK2100242060-S,1,55899.00,Musculosa Sl Reebok
 Reebok,RBK2100242060,RBK2100242060-XL,0,55899.00,Musculosa Sl Reebok
 Reebok,RBK2100242060,RBK2100242060-XS,0,55899.00,Musculosa Sl Reebok
-Reebok,RBK1100200313,RBK1100200313-4,6,49999.00,Ojotas Reebok Clean Slide
+Reebok,RBK1100200313,RBK1100200313-4,5,49999.00,Ojotas Reebok Clean Slide
 Reebok,RBK1100200313,RBK1100200313-5,8,49999.00,Ojotas Reebok Clean Slide
 Reebok,RBK1100200313,RBK1100200313-6,0,49999.00,Ojotas Reebok Clean Slide
 Reebok,RBK1100200313,RBK1100200313-7,0,49999.00,Ojotas Reebok Clean Slide
@@ -1917,7 +1917,7 @@ Columbia,COL12079181010,COL12079181010-35,4,324999.00,Botas de nieve impermeable
 Columbia,COL12079181010,COL12079181010-36,5,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
 Columbia,COL12079181010,COL12079181010-37,5,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
 Columbia,COL12079181010,COL12079181010-37.5,5,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
-Columbia,COL12079181010,COL12079181010-38,3,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
+Columbia,COL12079181010,COL12079181010-38,2,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
 Columbia,COL12079181010,COL12079181010-39,4,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
 Columbia,COL12079181010,COL12079181010-40,5,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
 Columbia,COL12079181010,COL12079181010-40.5,5,324999.00,Botas de nieve impermeable Columbia Minx™ Shorty IV para mujer
@@ -2185,17 +2185,10 @@ Columbia,COL22092231694,COL22092231694-L,5,169999.00,Buzo Helvetia™ II de pola
 Columbia,COL22092231694,COL22092231694-XL,3,169999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231694,COL22092231694-XXL,0,169999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231694,COL22092231694-XXXL,0,169999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
-Columbia,COL22098501256,COL22098501256-XS,0,179999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
-Columbia,COL22098501256,COL22098501256-S,0,179999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
-Columbia,COL22098501256,COL22098501256-M,1,179999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
-Columbia,COL22098501256,COL22098501256-L,0,179999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
-Columbia,COL22098501256,COL22098501256-XL,0,179999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
-Columbia,COL22098501256,COL22098501256-XXL,0,179999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
-Columbia,COL22098501256,COL22098501256-XXXL,0,179999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231008,COL22092231008-XS,0,169999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231008,COL22092231008-S,0,169999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231008,COL22092231008-M,0,169999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
-Columbia,COL22092231008,COL22092231008-L,7,169999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
+Columbia,COL22092231008,COL22092231008-L,6,169999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231008,COL22092231008-XL,2,169999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231008,COL22092231008-XXL,0,169999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
 Columbia,COL22092231008,COL22092231008-XXXL,0,169999.00,Buzo Helvetia™ II de polar con medio cierre snap Columbia para mujer
@@ -3630,6 +3623,13 @@ Columbia,COL22086711429,COL22086711429-L,2,129999.00,Campera resistente al agua 
 Columbia,COL22086711429,COL22086711429-XL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
 Columbia,COL22086711429,COL22086711429-XXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
 Columbia,COL22086711429,COL22086711429-XXXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
+Columbia,COL22086711464,COL22086711464-XS,2,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
+Columbia,COL22086711464,COL22086711464-S,2,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
+Columbia,COL22086711464,COL22086711464-M,3,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
+Columbia,COL22086711464,COL22086711464-L,2,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
+Columbia,COL22086711464,COL22086711464-XL,2,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
+Columbia,COL22086711464,COL22086711464-XXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
+Columbia,COL22086711464,COL22086711464-XXXL,0,129999.00,Campera resistente al agua Columbia Switchback™ IV para mujer
 Crocs,C10016643,C10016643-C90H,6,8999.00,3D Holiday Beach Umbrella
 Crocs,C10013552,C10013552-C99,12,8999.00,3D Kitty
 Crocs,C10013884,C10013884-C99,18,8999.00,A Tiny Friendship Letter
@@ -5307,7 +5307,7 @@ Kappa,K135213HW-KSA02,K135213HW-KSA02-38,0,69999.00,Botín Kombat Marsella TG
 Kappa,K135213HW-KSA02,K135213HW-KSA02-39,0,69999.00,Botín Kombat Marsella TG
 Kappa,K135213HW-KSA02,K135213HW-KSA02-40,0,69999.00,Botín Kombat Marsella TG
 Kappa,K135213HW-KSA02,K135213HW-KSA02-41,0,69999.00,Botín Kombat Marsella TG
-Kappa,K135213HW-KSA02,K135213HW-KSA02-42,5,69999.00,Botín Kombat Marsella TG
+Kappa,K135213HW-KSA02,K135213HW-KSA02-42,4,69999.00,Botín Kombat Marsella TG
 Kappa,K135213HW-KSA02,K135213HW-KSA02-43,4,69999.00,Botín Kombat Marsella TG
 Kappa,K135213HW-KSA02,K135213HW-KSA02-44,3,69999.00,Botín Kombat Marsella TG
 Kappa,K135213HW-KSA02,K135213HW-KSA02-45,2,69999.00,Botín Kombat Marsella TG
@@ -7136,7 +7136,7 @@ Piccadilly,P31801900000001FW26,P31801900000001FW26-35,0,151999.00,Borcego Fabian
 Piccadilly,P31801900000001FW26,P31801900000001FW26-36,3,151999.00,Borcego Fabiana
 Piccadilly,P31801900000001FW26,P31801900000001FW26-37,16,151999.00,Borcego Fabiana
 Piccadilly,P31801900000001FW26,P31801900000001FW26-38,20,151999.00,Borcego Fabiana
-Piccadilly,P31801900000001FW26,P31801900000001FW26-39,20,151999.00,Borcego Fabiana
+Piccadilly,P31801900000001FW26,P31801900000001FW26-39,19,151999.00,Borcego Fabiana
 Piccadilly,P31801900000001FW26,P31801900000001FW26-40,8,151999.00,Borcego Fabiana
 Piccadilly,P31801900000001FW26,P31801900000001FW26-41,0,151999.00,Borcego Fabiana
 Piccadilly,P31801900000002FW26,P31801900000002FW26-35,2,151999.00,Borcego Fabiana
@@ -7294,7 +7294,7 @@ Piccadilly,P31801700000005FW26,P31801700000005FW26-35,0,135999.00,Bota Fabiana
 Piccadilly,P31801700000005FW26,P31801700000005FW26-36,0,135999.00,Bota Fabiana
 Piccadilly,P31801700000005FW26,P31801700000005FW26-37,0,135999.00,Bota Fabiana
 Piccadilly,P31801700000005FW26,P31801700000005FW26-38,0,135999.00,Bota Fabiana
-Piccadilly,P31801700000005FW26,P31801700000005FW26-39,3,135999.00,Bota Fabiana
+Piccadilly,P31801700000005FW26,P31801700000005FW26-39,2,135999.00,Bota Fabiana
 Piccadilly,P31801700000005FW26,P31801700000005FW26-40,2,135999.00,Bota Fabiana
 Piccadilly,P31801700000005FW26,P31801700000005FW26-41,0,135999.00,Bota Fabiana
 Piccadilly,P31800900000001FW25,P31800900000001FW25-36,0,119999.00,Bota Fabiana Chelsea
@@ -8292,7 +8292,7 @@ Piccadilly,P11018600000004FW25,P11018600000004FW25-41,0,66999.00,Zapato Laura Sc
 Piccadilly,P11018600000008FW25,P11018600000008FW25-36,0,66999.00,Zapato Laura Scarpin
 Piccadilly,P11018600000008FW25,P11018600000008FW25-37,1,66999.00,Zapato Laura Scarpin
 Piccadilly,P11018600000008FW25,P11018600000008FW25-38,7,66999.00,Zapato Laura Scarpin
-Piccadilly,P11018600000008FW25,P11018600000008FW25-39,12,66999.00,Zapato Laura Scarpin
+Piccadilly,P11018600000008FW25,P11018600000008FW25-39,11,66999.00,Zapato Laura Scarpin
 Piccadilly,P11018600000008FW25,P11018600000008FW25-40,0,66999.00,Zapato Laura Scarpin
 Piccadilly,P11007200003312SS26,P11007200003312SS26-34,1,77999.00,Zapato Laura Scarpin
 Piccadilly,P11007200003312SS26,P11007200003312SS26-35,2,77999.00,Zapato Laura Scarpin
