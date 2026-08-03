@@ -289,7 +289,7 @@ try:
         if len(rango_fecha) == 2: 
             df_f_all = df_f_all[(df_f_all['fecha'].dt.date >= rango_fecha[0]) & (df_f_all['fecha'].dt.date <= rango_fecha[1])]
 
-        p_global_all = df_f_all.groupby(['marca', 'id_pedido']).first()
+        p_global_all = df_f_all.groupby(['marca', 'id_pedido'], observed=True).first()
         pedi_g_all = len(p_global_all)
         dev_g = (p_global_all['es_reverso'].sum() / pedi_g_all * 100) if pedi_g_all > 0 else 0
 
@@ -338,7 +338,7 @@ try:
         if df_hoy.empty: st.info("Sin registros válidos para la fecha actual con los filtros seleccionados.")
         else:
             h1, h2, h3, h4, h5 = st.columns(5)
-            p_hoy = df_hoy.groupby(['marca', 'id_pedido']).first()
+            p_hoy = df_hoy.groupby(['marca', 'id_pedido'], observed=True).first()
             fact_hoy = p_hoy['total_pedido'].sum()
             h1.metric("Facturación Neta", f"${fact_hoy:,.0f}")
             h2.metric("Órdenes Netas", f"{len(p_hoy):,}")
@@ -351,7 +351,7 @@ try:
         st.markdown("<br>", unsafe_allow_html=True)
 
         # --- SECCIÓN 2: KPIs ---
-        p_global = df_f.groupby(['marca', 'id_pedido']).first()
+        p_global = df_f.groupby(['marca', 'id_pedido'], observed=True).first()
         fact_g = p_global['total_pedido'].sum()
         pedi_g = len(p_global)
         unid_g = df_f['cantidad'].sum()
@@ -504,7 +504,7 @@ try:
                 cf1, cf2, cf3 = st.columns(3)
                 cf1.metric("Tiempo Consumido", f"{dias_transcurridos:.1f} de {dias_totales_periodo:.0f} días")
                 cf2.metric("Tiempo Restante", f"{dias_restantes:.1f} días" if dias_restantes >= 1 else f"{(dias_restantes * 24):.1f} horas")
-                p_sem_glob = df_semana.groupby(['marca', 'id_pedido']).first()
+                p_sem_glob = df_semana.groupby(['marca', 'id_pedido'], observed=True).first()
                 venta_sem_glob = p_sem_glob['total_pedido'].sum() if not p_sem_glob.empty else 0
                 
                 divisor_metric_g = (dias_transcurridos * 24.0) if es_contrarreloj else dias_transcurridos
@@ -686,12 +686,12 @@ try:
         else:
             col_d1, col_d2 = st.columns([1, 1])
             with col_d1:
-                desc_fc = df_promo.groupby(['descuento', 'marca'])['subtotal_producto'].sum().reset_index()
+                desc_fc = df_promo.groupby(['descuento', 'marca'], observed=True)['subtotal_producto'].sum().reset_index()
                 fig_desc_fc = px.bar(desc_fc, x='subtotal_producto', y='descuento', color='marca', orientation='h', text_auto='.0f', color_discrete_map=PALETA_MARCAS, title="Facturación por Código")
                 fig_desc_fc.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
                 st.plotly_chart(configurar_grafico(fig_desc_fc), width='stretch')
             with col_d2:
-                desc_unid = df_promo.groupby(['descuento', 'marca'])['cantidad'].sum().reset_index()
+                desc_unid = df_promo.groupby(['descuento', 'marca'], observed=True)['cantidad'].sum().reset_index()
                 fig_desc_unid = px.bar(desc_unid, x='cantidad', y='descuento', color='marca', orientation='h', text_auto=True, color_discrete_map=PALETA_MARCAS, title="Unidades por Código")
                 fig_desc_unid.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
                 st.plotly_chart(configurar_grafico(fig_desc_unid), width='stretch')
@@ -718,7 +718,7 @@ try:
                 if 'reversso' in v: return 'Reversso'
                 return 'Otros Gateways'
             
-            p_finanzas = df_fin.groupby(['marca', 'id_pedido']).first().reset_index()
+            p_finanzas = df_fin.groupby(['marca', 'id_pedido'], observed=True).first().reset_index()
             p_finanzas['gateway_agrupado'] = p_finanzas['medio_pago'].apply(limpiar_gateway)
             p_finanzas = p_finanzas[p_finanzas['gateway_agrupado'].isin(pass_f_activas)]
             gate_fc = p_finanzas.groupby('gateway_agrupado')['total_pedido'].sum().reset_index()
@@ -754,7 +754,7 @@ try:
             df_geo = df_f[df_f['marca'].isin(marcas_g_activas)].copy()
             df_geo['prov_limpia'] = df_geo['provincia'].apply(lambda x: PROVINCIAS_MAPA.get(str(x).lower().strip(), 'Buenos Aires'))
             
-            p_geo = df_geo.groupby(['marca', 'id_pedido']).first().reset_index()
+            p_geo = df_geo.groupby(['marca', 'id_pedido'], observed=True).first().reset_index()
             geo_fc = p_geo.groupby('prov_limpia')['total_pedido'].sum().reset_index()
             geo_un = df_geo.groupby('prov_limpia')['cantidad'].sum().reset_index()
             prov_stat = pd.merge(geo_fc, geo_un, on='prov_limpia')
@@ -812,7 +812,7 @@ try:
             if len(rango_local) == 2:
                 df_tendencia_base = df_tendencia_base[(df_tendencia_base['fecha'].dt.date >= rango_local[0]) & (df_tendencia_base['fecha'].dt.date <= rango_local[1])]
                 
-            p_tendencia = df_tendencia_base.groupby(['marca', 'id_pedido']).first().reset_index()
+            p_tendencia = df_tendencia_base.groupby(['marca', 'id_pedido'], observed=True).first().reset_index()
             
             es_un_solo_dia = False
             if len(rango_local) == 2:
@@ -831,12 +831,12 @@ try:
                 orden_horas = ["00:00 hs", "03:00 hs", "06:00 hs", "09:00 hs", "12:00 hs", "15:00 hs", "18:00 hs", "21:00 hs"]
                 p_tendencia['eje_tiempo'] = pd.Categorical(p_tendencia['eje_tiempo'], categories=orden_horas, ordered=True)
                 
-                v_t = p_tendencia.groupby(['eje_tiempo', 'marca'])['id_pedido'].count().reset_index(name='pedidos')
+                v_t = p_tendencia.groupby(['eje_tiempo', 'marca'], observed=True)['id_pedido'].count().reset_index(name='pedidos')
                 titu_grafico = "Volumen de Pedidos Netos por Bloques Horarios"
                 eje_x_titu = "Bloque Horario"
             else:
                 p_tendencia['eje_tiempo'] = p_tendencia['fecha'].dt.strftime('%Y-%m-%d')
-                v_t = p_tendencia.groupby(['eje_tiempo', 'marca'])['id_pedido'].count().reset_index(name='pedidos')
+                v_t = p_tendencia.groupby(['eje_tiempo', 'marca'], observed=True)['id_pedido'].count().reset_index(name='pedidos')
                 v_t = v_t.sort_values('eje_tiempo')
                 titu_grafico = "Tendencia Histórica de Pedidos Netos Diarios"
                 eje_x_titu = "Fecha"
@@ -847,10 +847,10 @@ try:
             
         with g2:
             st.markdown("#### Resumen Operativo")
-            p_res = df_f.groupby(['marca', 'id_pedido']).first().reset_index()
-            res_fc = p_res.groupby('marca')['total_pedido'].sum().reset_index()
-            res_ord = p_res.groupby('marca')['id_pedido'].nunique().reset_index()
-            res_un = df_f.groupby('marca')['cantidad'].sum().reset_index()
+            p_res = df_f.groupby(['marca', 'id_pedido'], observed=True).first().reset_index()
+            res_fc = p_res.groupby('marca', observed=True)['total_pedido'].sum().reset_index()
+            res_ord = p_res.groupby('marca', observed=True)['id_pedido'].nunique().reset_index()
+            res_un = df_f.groupby('marca', observed=True)['cantidad'].sum().reset_index()
             
             resumen_tec = pd.merge(res_ord, res_un, on='marca')
             resumen_tec = pd.merge(resumen_tec, res_fc, on='marca')
