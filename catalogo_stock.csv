@@ -82,7 +82,7 @@ Reebok,RBK1100BP1237,RBK1100BP1237-7.5,0,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1237,RBK1100BP1237-8,1,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1237,RBK1100BP1237-8.5,0,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1237,RBK1100BP1237-9,2,89999.00,Botines Reebok Essence FG
-Reebok,RBK1100BP1237,RBK1100BP1237-9.5,3,89999.00,Botines Reebok Essence FG
+Reebok,RBK1100BP1237,RBK1100BP1237-9.5,4,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1237,RBK1100BP1237-10,10,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1237,RBK1100BP1237-10.5,0,89999.00,Botines Reebok Essence FG
 Reebok,RBK1100BP1237,RBK1100BP1237-11,10,89999.00,Botines Reebok Essence FG
@@ -422,7 +422,7 @@ Reebok,RBK5100MC0017,RBK5100MC0017-1.5,13,99999.00,Botines Reebok Match 1 Kids
 Reebok,RBK5100MC0017,RBK5100MC0017-2,1,99999.00,Botines Reebok Match 1 Kids
 Reebok,RBK5100MC0017,RBK5100MC0017-3,2,99999.00,Botines Reebok Match 1 Kids
 Reebok,RBK5100MC0017,RBK5100MC0017-4,4,99999.00,Botines Reebok Match 1 Kids
-Reebok,RBK5100MC0017,RBK5100MC0017-5,3,99999.00,Botines Reebok Match 1 Kids
+Reebok,RBK5100MC0017,RBK5100MC0017-5,2,99999.00,Botines Reebok Match 1 Kids
 Reebok,RBK5100MC0017,RBK5100MC0017-6,1,99999.00,Botines Reebok Match 1 Kids
 Reebok,RBK5100MC0017,"RBK5100MC0017-6,5",1,99999.00,Botines Reebok Match 1 Kids
 Reebok,RBK1100MC0011,RBK1100MC0011-4,1,99999.00,Botines Reebok Match 1 Tg
@@ -1198,7 +1198,7 @@ Reebok,RBK2100063398,RBK2100063398-L,0,134499.00,Campera Certified Jacket
 Reebok,RBK2100063398,RBK2100063398-XL,2,134499.00,Campera Certified Jacket
 Reebok,RBK2100063398,RBK2100063398-2XL,0,134499.00,Campera Certified Jacket
 Reebok,RBK2100076217,RBK2100076217-2XS,0,103499.00,Campera Classics Franchise Track
-Reebok,RBK2100076217,RBK2100076217-M,0,103499.00,Campera Classics Franchise Track
+Reebok,RBK2100076217,RBK2100076217-M,2,103499.00,Campera Classics Franchise Track
 Reebok,RBK2100076217,RBK2100076217-L,1,103499.00,Campera Classics Franchise Track
 Reebok,RBK2100076217,RBK2100076217-XL,1,103499.00,Campera Classics Franchise Track
 Reebok,RBK2100253711,RBK2100253711-XS,5,155199.00,Campera deportiva Heritage Dance Blocked
@@ -1724,7 +1724,7 @@ Reebok,RBK2100243259,RBK2100243259-M,2,45499.00,Musculosa Reebok Chill Athletic
 Reebok,RBK2100243259,RBK2100243259-L,1,45499.00,Musculosa Reebok Chill Athletic
 Reebok,RBK2100243259,RBK2100243259-XL,1,45499.00,Musculosa Reebok Chill Athletic
 Reebok,RBK2100243259,RBK2100243259-XXL,0,45499.00,Musculosa Reebok Chill Athletic
-Reebok,RBK2100242048,RBK2100242048-2XL,2,39299.00,Musculosa Reebok Court
+Reebok,RBK2100242048,RBK2100242048-2XL,3,39299.00,Musculosa Reebok Court
 Reebok,RBK2100242048,RBK2100242048-2XS,0,39299.00,Musculosa Reebok Court
 Reebok,RBK2100242048,RBK2100242048-L,0,39299.00,Musculosa Reebok Court
 Reebok,RBK2100242048,RBK2100242048-M,0,39299.00,Musculosa Reebok Court
@@ -2155,13 +2155,6 @@ Columbia,COL22085651668,COL22085651668-L,0,99999.00,Buzo de polar con medio cier
 Columbia,COL22085651668,COL22085651668-XL,0,99999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
 Columbia,COL22085651668,COL22085651668-XXL,0,99999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
 Columbia,COL22085651668,COL22085651668-XXXL,0,99999.00,Buzo de polar con medio cierre Benton Springs™ II de Columbia para mujer
-Columbia,COL22090891193,COL22090891193-XS,0,164999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
-Columbia,COL22090891193,COL22090891193-S,1,164999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
-Columbia,COL22090891193,COL22090891193-M,0,164999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
-Columbia,COL22090891193,COL22090891193-L,0,164999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
-Columbia,COL22090891193,COL22090891193-XL,0,164999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
-Columbia,COL22090891193,COL22090891193-XXL,0,164999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
-Columbia,COL22090891193,COL22090891193-XXXL,0,164999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
 Columbia,COL22090891379,COL22090891379-XS,1,164999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
 Columbia,COL22090891379,COL22090891379-S,0,164999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
 Columbia,COL22090891379,COL22090891379-M,2,164999.00,Buzo de polar Helvetia™ II con medio cierre snap Columbia para hombre
@@ -2827,7 +2820,7 @@ Columbia,COL22088271554,COL22088271554-L,11,399999.00,Campera Columbia Delta Rid
 Columbia,COL22088271554,COL22088271554-XL,5,399999.00,Campera Columbia Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22088271461,COL22088271461-XS,5,399999.00,Campera Columbia Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22088271461,COL22088271461-S,6,399999.00,Campera Columbia Delta Ridge™ II con relleno de plumas Columbia para mujer
-Columbia,COL22088271461,COL22088271461-M,6,399999.00,Campera Columbia Delta Ridge™ II con relleno de plumas Columbia para mujer
+Columbia,COL22088271461,COL22088271461-M,5,399999.00,Campera Columbia Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22088271461,COL22088271461-L,6,399999.00,Campera Columbia Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22088271461,COL22088271461-XL,1,399999.00,Campera Columbia Delta Ridge™ II con relleno de plumas Columbia para mujer
 Columbia,COL22087411433,COL22087411433-XS,0,499999.00,Campera de esquí Columbia Last Tracks™ II para hombre Columbia para hombre
@@ -2951,7 +2944,7 @@ Columbia,COL22085311551,COL22085311551-XXL,0,134999.00,Campera de polar Columbia
 Columbia,COL22085311551,COL22085311551-XXXL,0,134999.00,Campera de polar Columbia Sequoia Grove™ para mujer
 Columbia,COL21372111030,COL21372111030-XS,0,99999.00,Campera de polar con cierre de arriba abajo Benton Springs™ de Columbia para mujer
 Columbia,COL21372111030,COL21372111030-S,0,99999.00,Campera de polar con cierre de arriba abajo Benton Springs™ de Columbia para mujer
-Columbia,COL21372111030,COL21372111030-M,3,99999.00,Campera de polar con cierre de arriba abajo Benton Springs™ de Columbia para mujer
+Columbia,COL21372111030,COL21372111030-M,2,99999.00,Campera de polar con cierre de arriba abajo Benton Springs™ de Columbia para mujer
 Columbia,COL21372111030,COL21372111030-L,8,99999.00,Campera de polar con cierre de arriba abajo Benton Springs™ de Columbia para mujer
 Columbia,COL21372111030,COL21372111030-XL,0,99999.00,Campera de polar con cierre de arriba abajo Benton Springs™ de Columbia para mujer
 Columbia,COL21372111030,COL21372111030-XXL,0,99999.00,Campera de polar con cierre de arriba abajo Benton Springs™ de Columbia para mujer
@@ -3056,9 +3049,9 @@ Columbia,COL22126241348,COL22126241348-XXL,0,144999.00,Campera de polar lBackbow
 Columbia,COL22126241348,COL22126241348-XXXL,0,144999.00,Campera de polar lBackbowl™ II de Columbia para hombre
 Columbia,COL21476671011,COL21476671011-XS,0,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
 Columbia,COL21476671011,COL21476671011-S,0,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
-Columbia,COL21476671011,COL21476671011-M,0,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
-Columbia,COL21476671011,COL21476671011-L,0,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
-Columbia,COL21476671011,COL21476671011-XL,2,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
+Columbia,COL21476671011,COL21476671011-M,29,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
+Columbia,COL21476671011,COL21476671011-L,30,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
+Columbia,COL21476671011,COL21476671011-XL,32,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
 Columbia,COL21476671011,COL21476671011-XXL,42,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
 Columbia,COL21476671011,COL21476671011-XXXL,0,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
 Columbia,COL21476671048,COL21476671048-XS,0,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
@@ -3072,7 +3065,7 @@ Columbia,COL21476671464,COL21476671464-XS,0,99999.00,Campera de polar Steens Mou
 Columbia,COL21476671464,COL21476671464-S,0,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
 Columbia,COL21476671464,COL21476671464-M,0,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
 Columbia,COL21476671464,COL21476671464-L,0,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
-Columbia,COL21476671464,COL21476671464-XL,2,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
+Columbia,COL21476671464,COL21476671464-XL,1,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
 Columbia,COL21476671464,COL21476671464-XXL,4,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
 Columbia,COL21476671464,COL21476671464-XXXL,0,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
 Columbia,COL21476671479,COL21476671479-XS,0,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
@@ -3127,7 +3120,7 @@ Columbia,COL21618261398,COL21618261398-XXXL,0,99999.00,Campera de polar Zing™ 
 Columbia,COL22086221278,COL22086221278-XS,0,449999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086221278,COL22086221278-S,10,449999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086221278,COL22086221278-M,0,449999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
-Columbia,COL22086221278,COL22086221278-L,8,449999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
+Columbia,COL22086221278,COL22086221278-L,6,449999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086221278,COL22086221278-XL,16,449999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086221278,COL22086221278-XXL,4,449999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
 Columbia,COL22086221278,COL22086221278-XXXL,0,449999.00,Campera Delta Ridge™ II con relleno de plumas Columbia para hombre
@@ -3656,6 +3649,13 @@ Columbia,COL22155181027,COL22155181027-L,0,199999.00,Campera softshell con capuc
 Columbia,COL22155181027,COL22155181027-XL,0,199999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
 Columbia,COL22155181027,COL22155181027-XXL,1,199999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
 Columbia,COL22155181027,COL22155181027-XXXL,0,199999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
+Columbia,COL22155181379,COL22155181379-XS,0,199999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
+Columbia,COL22155181379,COL22155181379-S,1,199999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
+Columbia,COL22155181379,COL22155181379-M,0,199999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
+Columbia,COL22155181379,COL22155181379-L,0,199999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
+Columbia,COL22155181379,COL22155181379-XL,1,199999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
+Columbia,COL22155181379,COL22155181379-XXL,0,199999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
+Columbia,COL22155181379,COL22155181379-XXXL,0,199999.00,Campera softshell con capucha Tall Heights™ III de Columbia para hombre
 Crocs,C10016643,C10016643-C90H,5,8999.00,3D Holiday Beach Umbrella
 Crocs,C10013552,C10013552-C99,6,8999.00,3D Kitty
 Crocs,C10013884,C10013884-C99,14,8999.00,A Tiny Friendship Letter
@@ -3783,7 +3783,7 @@ Crocs,C10001-C2Q9,C10001-C2Q9-M12,0,54999.00,Classic Clog
 Crocs,C10001-C2Q9,C10001-C2Q9-M13,0,54999.00,Classic Clog
 Crocs,C10001-C2Y2,C10001-C2Y2-M4/W6,16,54999.00,Classic Clog
 Crocs,C10001-C2Y2,C10001-C2Y2-M5/W7,12,54999.00,Classic Clog
-Crocs,C10001-C2Y2,C10001-C2Y2-M6/W8,14,54999.00,Classic Clog
+Crocs,C10001-C2Y2,C10001-C2Y2-M6/W8,13,54999.00,Classic Clog
 Crocs,C10001-C2Y2,C10001-C2Y2-M7/W9,6,54999.00,Classic Clog
 Crocs,C10001-C2Y2,C10001-C2Y2-M8/W10,9,54999.00,Classic Clog
 Crocs,C10001-C2Y2,C10001-C2Y2-M9/W11,14,54999.00,Classic Clog
@@ -3869,7 +3869,7 @@ Crocs,C10006-C001,C10006-C001-C6/7,51,44999.00,Classic Clog Kids
 Crocs,C10006-C001,C10006-C001-C8/9,14,44999.00,Classic Clog Kids
 Crocs,C10006-C001,C10006-C001-C10/11,41,44999.00,Classic Clog Kids
 Crocs,C10006-C001,C10006-C001-C12/13,56,44999.00,Classic Clog Kids
-Crocs,C10006-C001,C10006-C001-J1,50,44999.00,Classic Clog Kids
+Crocs,C10006-C001,C10006-C001-J1,49,44999.00,Classic Clog Kids
 Crocs,C10006-C001,C10006-C001-J2,27,44999.00,Classic Clog Kids
 Crocs,C10006-C001,C10006-C001-J3,34,44999.00,Classic Clog Kids
 Crocs,C10006-C2Y2,C10006-C2Y2-C4/5,1,44999.00,Classic Clog Kids
@@ -4090,17 +4090,17 @@ Crocs,C11016-C001,C11016-C001-M7/W9,28,69999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M8/W10,12,69999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M9/W11,19,69999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M10/W12,0,69999.00,Crocband™ Clog
-Crocs,C11016-C001,C11016-C001-M11,44,69999.00,Crocband™ Clog
+Crocs,C11016-C001,C11016-C001-M11,43,69999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M12,14,69999.00,Crocband™ Clog
 Crocs,C11016-C001,C11016-C001-M13,24,69999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M4/W6,14,69999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M5/W7,17,69999.00,Crocband™ Clog
-Crocs,C11016-C410,C11016-C410-M6/W8,16,69999.00,Crocband™ Clog
+Crocs,C11016-C410,C11016-C410-M6/W8,15,69999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M7/W9,19,69999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M8/W10,22,69999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M9/W11,26,69999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M10/W12,11,69999.00,Crocband™ Clog
-Crocs,C11016-C410,C11016-C410-M11,12,69999.00,Crocband™ Clog
+Crocs,C11016-C410,C11016-C410-M11,11,69999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M12,9,69999.00,Crocband™ Clog
 Crocs,C11016-C410,C11016-C410-M13,12,69999.00,Crocband™ Clog
 Crocs,C11016-C5AF,C11016-C5AF-M4/W6,0,69999.00,Crocband™ Clog
@@ -4123,7 +4123,17 @@ Crocs,C11016-C1AS,C11016-C1AS-M10/W12,0,69999.00,Crocband™ Clog
 Crocs,C11016-C1AS,C11016-C1AS-M11,0,69999.00,Crocband™ Clog
 Crocs,C11016-C1AS,C11016-C1AS-M12,0,69999.00,Crocband™ Clog
 Crocs,C11016-C1AS,C11016-C1AS-M13,0,69999.00,Crocband™ Clog
-Crocs,C11016-C1WE,C11016-C1WE-M4/W6,1,69999.00,Crocband™ Clog
+Crocs,C11016-C530,C11016-C530-M4/W6,1,69999.00,Crocband™ Clog
+Crocs,C11016-C530,C11016-C530-M5/W7,0,69999.00,Crocband™ Clog
+Crocs,C11016-C530,C11016-C530-M6/W8,0,69999.00,Crocband™ Clog
+Crocs,C11016-C530,C11016-C530-M7/W9,0,69999.00,Crocband™ Clog
+Crocs,C11016-C530,C11016-C530-M8/W10,0,69999.00,Crocband™ Clog
+Crocs,C11016-C530,C11016-C530-M9/W11,0,69999.00,Crocband™ Clog
+Crocs,C11016-C530,C11016-C530-M10/W12,0,69999.00,Crocband™ Clog
+Crocs,C11016-C530,C11016-C530-M11,0,69999.00,Crocband™ Clog
+Crocs,C11016-C530,C11016-C530-M12,0,69999.00,Crocband™ Clog
+Crocs,C11016-C530,C11016-C530-M13,0,69999.00,Crocband™ Clog
+Crocs,C11016-C1WE,C11016-C1WE-M4/W6,0,69999.00,Crocband™ Clog
 Crocs,C11016-C1WE,C11016-C1WE-M5/W7,0,69999.00,Crocband™ Clog
 Crocs,C11016-C1WE,C11016-C1WE-M6/W8,0,69999.00,Crocband™ Clog
 Crocs,C11016-C1WE,C11016-C1WE-M7/W9,0,69999.00,Crocband™ Clog
@@ -4149,8 +4159,8 @@ Crocs,C11016-C2JJ,C11016-C2JJ-M10/W12,0,69999.00,Crocband™ Clog
 Crocs,C11016-C2JJ,C11016-C2JJ-M11,0,69999.00,Crocband™ Clog
 Crocs,C11016-C2JJ,C11016-C2JJ-M12,4,69999.00,Crocband™ Clog
 Crocs,C11016-C2JJ,C11016-C2JJ-M13,6,69999.00,Crocband™ Clog
-Crocs,C11016-C5P8,C11016-C5P8-M4/W6,5,69999.00,Crocband™ Clog
-Crocs,C11016-C5P8,C11016-C5P8-M5/W7,6,69999.00,Crocband™ Clog
+Crocs,C11016-C5P8,C11016-C5P8-M4/W6,4,69999.00,Crocband™ Clog
+Crocs,C11016-C5P8,C11016-C5P8-M5/W7,5,69999.00,Crocband™ Clog
 Crocs,C11016-C5P8,C11016-C5P8-M6/W8,0,69999.00,Crocband™ Clog
 Crocs,C11016-C5P8,C11016-C5P8-M7/W9,6,69999.00,Crocband™ Clog
 Crocs,C11016-C5P8,C11016-C5P8-M8/W10,4,69999.00,Crocband™ Clog
@@ -4487,7 +4497,7 @@ Crocs,C210191-C78U,C210191-C78U-U,5,139999.00,Crocs Classic Crossbody
 Crocs,C212561-C510,C212561-C510-C12/13,0,49999.00,Crocs Classic Fantasy Glitter Clog Kid
 Crocs,C212561-C510,C212561-C510-J1,3,49999.00,Crocs Classic Fantasy Glitter Clog Kid
 Crocs,C212561-C510,C212561-C510-J2,3,49999.00,Crocs Classic Fantasy Glitter Clog Kid
-Crocs,C212561-C510,C212561-C510-J3,4,49999.00,Crocs Classic Fantasy Glitter Clog Kid
+Crocs,C212561-C510,C212561-C510-J3,3,49999.00,Crocs Classic Fantasy Glitter Clog Kid
 Crocs,C212561-C100,C212561-C100-C12/13,0,49999.00,Crocs Classic Fantasy Glitter Clog Kid
 Crocs,C212561-C100,C212561-C100-J1,2,49999.00,Crocs Classic Fantasy Glitter Clog Kid
 Crocs,C212561-C100,C212561-C100-J2,4,49999.00,Crocs Classic Fantasy Glitter Clog Kid
@@ -4666,7 +4676,7 @@ Crocs,C213224-C410,C213224-C410-M13,11,109999.00,Crocs Crocband Heritage Clog
 Crocs,C213224-C7CU,C213224-C7CU-M4/W6,1,109999.00,Crocs Crocband Heritage Clog
 Crocs,C213224-C7CU,C213224-C7CU-M5/W7,3,109999.00,Crocs Crocband Heritage Clog
 Crocs,C213224-C7CU,C213224-C7CU-M6/W8,6,109999.00,Crocs Crocband Heritage Clog
-Crocs,C213224-C7CU,C213224-C7CU-M7/W9,11,109999.00,Crocs Crocband Heritage Clog
+Crocs,C213224-C7CU,C213224-C7CU-M7/W9,10,109999.00,Crocs Crocband Heritage Clog
 Crocs,C213224-C7CU,C213224-C7CU-M8/W10,14,109999.00,Crocs Crocband Heritage Clog
 Crocs,C213224-C7CU,C213224-C7CU-M9/W11,5,109999.00,Crocs Crocband Heritage Clog
 Crocs,C213224-C7CU,C213224-C7CU-M10/W12,3,109999.00,Crocs Crocband Heritage Clog
@@ -4842,7 +4852,7 @@ Crocs,C211675-C0WV,C211675-C0WV-M13,3,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C0DA,C211675-C0DA-M4/W6,1,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C0DA,C211675-C0DA-M5/W7,3,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C0DA,C211675-C0DA-M6/W8,6,119999.00,Crocs Echo Gum RO Clog
-Crocs,C211675-C0DA,C211675-C0DA-M7/W9,3,119999.00,Crocs Echo Gum RO Clog
+Crocs,C211675-C0DA,C211675-C0DA-M7/W9,2,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C0DA,C211675-C0DA-M8/W10,4,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C0DA,C211675-C0DA-M9/W11,3,119999.00,Crocs Echo Gum RO Clog
 Crocs,C211675-C0DA,C211675-C0DA-M10/W12,4,119999.00,Crocs Echo Gum RO Clog
@@ -4910,12 +4920,7 @@ Crocs,C210521-C1LM,C210521-C1LM-M9/W11,1,79999.00,Crocs Echo Wave
 Crocs,C210521-C1LM,C210521-C1LM-M10/W12,2,79999.00,Crocs Echo Wave
 Crocs,C210521-C1LM,C210521-C1LM-M11,3,79999.00,Crocs Echo Wave
 Crocs,C210521-C1LM,C210521-C1LM-M12,3,79999.00,Crocs Echo Wave
-Crocs,C210521-C1LM,C210521-C1LM-M13,4,79999.00,Crocs Echo Wave
-Crocs,C210521-C685,C210521-C685-M4/W6,0,79999.00,Crocs Echo Wave
-Crocs,C210521-C685,C210521-C685-M5/W7,1,79999.00,Crocs Echo Wave
-Crocs,C210521-C685,C210521-C685-M6/W8,0,79999.00,Crocs Echo Wave
-Crocs,C210521-C685,C210521-C685-M7/W9,0,79999.00,Crocs Echo Wave
-Crocs,C210521-C685,C210521-C685-M8/W10,0,79999.00,Crocs Echo Wave
+Crocs,C210521-C1LM,C210521-C1LM-M13,3,79999.00,Crocs Echo Wave
 Crocs,C209410-C001,C209410-C001-W5,5,89999.00,Crocs Getaway Platform Flip
 Crocs,C209410-C001,C209410-C001-W6,4,89999.00,Crocs Getaway Platform Flip
 Crocs,C209410-C001,C209410-C001-W7,4,89999.00,Crocs Getaway Platform Flip
@@ -5239,7 +5244,7 @@ Crocs,C212373-C90H,C212373-C90H-C8/9,9,99999.00,Crocs Mickey Mouse Classic Clog 
 Crocs,C212373-C90H,C212373-C90H-C10/11,8,99999.00,Crocs Mickey Mouse Classic Clog T
 Crocs,C212717-C90H,C212717-C90H-M4/W6,2,124999.00,Crocs Minnie Mouse Classic Clog
 Crocs,C212717-C90H,C212717-C90H-M5/W7,5,124999.00,Crocs Minnie Mouse Classic Clog
-Crocs,C212717-C90H,C212717-C90H-M6/W8,3,124999.00,Crocs Minnie Mouse Classic Clog
+Crocs,C212717-C90H,C212717-C90H-M6/W8,2,124999.00,Crocs Minnie Mouse Classic Clog
 Crocs,C212717-C90H,C212717-C90H-M7/W9,6,124999.00,Crocs Minnie Mouse Classic Clog
 Crocs,C212717-C90H,C212717-C90H-M8/W10,1,124999.00,Crocs Minnie Mouse Classic Clog
 Crocs,C212372-C90H,C212372-C90H-C6/7,7,89999.00,Crocs Minnie Mouse Classic Clog T
@@ -5265,6 +5270,13 @@ Crocs,C212651-C6UI,C212651-C6UI-W7,3,94999.00,Crocs Soho Frosted Y-Strap Sandal
 Crocs,C212651-C6UI,C212651-C6UI-W8,3,94999.00,Crocs Soho Frosted Y-Strap Sandal
 Crocs,C212651-C6UI,C212651-C6UI-W9,1,94999.00,Crocs Soho Frosted Y-Strap Sandal
 Crocs,C212651-C6UI,C212651-C6UI-W10,1,94999.00,Crocs Soho Frosted Y-Strap Sandal
+Kappa,K2372719W-KY10,K2372719W-KY10-XS,0,77699.00,Bermuda de Salida Huracán
+Kappa,K2372719W-KY10,K2372719W-KY10-S,0,77699.00,Bermuda de Salida Huracán
+Kappa,K2372719W-KY10,K2372719W-KY10-M,0,77699.00,Bermuda de Salida Huracán
+Kappa,K2372719W-KY10,K2372719W-KY10-L,-1,77699.00,Bermuda de Salida Huracán
+Kappa,K2372719W-KY10,K2372719W-KY10-XL,0,77699.00,Bermuda de Salida Huracán
+Kappa,K2372719W-KY10,K2372719W-KY10-XXL,6,77699.00,Bermuda de Salida Huracán
+Kappa,K2372719W-KY10,K2372719W-KY10-XXXL,0,77699.00,Bermuda de Salida Huracán
 Kappa,K2361Y2QW-KY07,K2361Y2QW-KY07-XS,1,72499.00,Bermuda De Salida Tigre
 Kappa,K2361Y2QW-KY07,K2361Y2QW-KY07-S,3,72499.00,Bermuda De Salida Tigre
 Kappa,K2361Y2QW-KY07,K2361Y2QW-KY07-M,2,72499.00,Bermuda De Salida Tigre
@@ -5299,6 +5311,8 @@ Kappa,K235294EW-K005,K235294EW-K005-L,2,46599.00,Body Kappa Authentic
 Kappa,K235294EW-K005,K235294EW-K005-XL,4,46599.00,Body Kappa Authentic
 Kappa,K3304RMU0-K900AG,K3304RMU0-K900AG-Unico,4,17599.00,Bolso Authentic Bayes
 Kappa,K3351J4WW-K005,K3351J4WW-K005-Unico,5,25899.00,Bolso Diak Pouch
+Kappa,K3351M28W-K005,K3351M28W-K005-Unico,4,45599.00,Bolso Kappa Bag Soccer Ball
+Kappa,K3331P7BW-K005,K3331P7BW-K005-Unico,5,45599.00,Bolso Kappa Bag Soccer Utilería
 Kappa,K3611168W-K490,K3611168W-K490-Unico,3,55899.00,Bolso Kappa Heather
 Kappa,K365115EW-KPA05B,K365115EW-KPA05B-Unico,4,67299.00,Bolso Kappa Heather Stripes
 Kappa,K365115EW-KPA09A,K365115EW-KPA09A-Unico,5,67299.00,Bolso Kappa Heather Stripes
@@ -5399,6 +5413,7 @@ Kappa,K138263PW-KA0Z,K138263PW-KA0Z-42,2,95999.00,Botín Venzone FG
 Kappa,K138263PW-KA0Z,K138263PW-KA0Z-43,3,95999.00,Botín Venzone FG
 Kappa,K138263PW-KA0Z,K138263PW-KA0Z-44,3,95999.00,Botín Venzone FG
 Kappa,K138263PW-KA0Z,K138263PW-KA0Z-45,2,95999.00,Botín Venzone FG
+Kappa,K337244NW-KA07M,K337244NW-KA07M-Unico,12,31099.00,Botinero Racing Club
 Kappa,K1311K8FW-K903Z,K1311K8FW-K903Z-34,0,59999.00,Botines Imola IC
 Kappa,K1311K8FW-K903Z,K1311K8FW-K903Z-35,0,59999.00,Botines Imola IC
 Kappa,K1311K8FW-K903Z,K1311K8FW-K903Z-36,2,59999.00,Botines Imola IC
@@ -5440,12 +5455,12 @@ Kappa,K1311K26W-K903Z,K1311K26W-K903Z-36,1,64999.00,Botines Imola Tg
 Kappa,K1311K26W-K903Z,K1311K26W-K903Z-37,2,64999.00,Botines Imola Tg
 Kappa,K1311K26W-K903Z,K1311K26W-K903Z-38,3,64999.00,Botines Imola Tg
 Kappa,K1311K26W-K903Z,K1311K26W-K903Z-39,2,64999.00,Botines Imola Tg
-Kappa,K1311K26W-K903Z,K1311K26W-K903Z-40,0,64999.00,Botines Imola Tg
-Kappa,K1311K26W-K903Z,K1311K26W-K903Z-41,0,64999.00,Botines Imola Tg
-Kappa,K1311K26W-K903Z,K1311K26W-K903Z-42,3,64999.00,Botines Imola Tg
-Kappa,K1311K26W-K903Z,K1311K26W-K903Z-43,3,64999.00,Botines Imola Tg
-Kappa,K1311K26W-K903Z,K1311K26W-K903Z-44,3,64999.00,Botines Imola Tg
-Kappa,K1311K26W-K903Z,K1311K26W-K903Z-45,0,64999.00,Botines Imola Tg
+Kappa,K1311K26W-K903Z,K1311K26W-K903Z-40,1,64999.00,Botines Imola Tg
+Kappa,K1311K26W-K903Z,K1311K26W-K903Z-41,2,64999.00,Botines Imola Tg
+Kappa,K1311K26W-K903Z,K1311K26W-K903Z-42,6,64999.00,Botines Imola Tg
+Kappa,K1311K26W-K903Z,K1311K26W-K903Z-43,6,64999.00,Botines Imola Tg
+Kappa,K1311K26W-K903Z,K1311K26W-K903Z-44,5,64999.00,Botines Imola Tg
+Kappa,K1311K26W-K903Z,K1311K26W-K903Z-45,1,64999.00,Botines Imola Tg
 Kappa,K1311K26W-KC20,K1311K26W-KC20-34,0,64999.00,Botines Imola Tg
 Kappa,K1311K26W-KC20,K1311K26W-KC20-35,1,64999.00,Botines Imola Tg
 Kappa,K1311K26W-KC20,K1311K26W-KC20-36,1,64999.00,Botines Imola Tg
@@ -6675,11 +6690,11 @@ Kappa,K2352919W-KH01,K2352919W-KH01-XXXL,6,67999.00,Camiseta Kappa Helium Masco 
 Kappa,K238237IWSJ-KA00B,K238237IWSJ-KA00B-4,0,72499.00,Camiseta Kappa Kombat Home Kids con sponsor
 Kappa,K238237IWSJ-KA00B,K238237IWSJ-KA00B-6,0,72499.00,Camiseta Kappa Kombat Home Kids con sponsor
 Kappa,K238237IWSJ-KA00B,K238237IWSJ-KA00B-8,2,72499.00,Camiseta Kappa Kombat Home Kids con sponsor
-Kappa,K238237IWSJ-KA00B,K238237IWSJ-KA00B-10,0,72499.00,Camiseta Kappa Kombat Home Kids con sponsor
+Kappa,K238237IWSJ-KA00B,K238237IWSJ-KA00B-10,5,72499.00,Camiseta Kappa Kombat Home Kids con sponsor
 Kappa,K238237IWSJ-KA00B,K238237IWSJ-KA00B-12,0,72499.00,Camiseta Kappa Kombat Home Kids con sponsor
 Kappa,K238237GWSJ-KA00B,K238237GWSJ-KA00B-S,0,82799.00,Camiseta Kappa Kombat Home Lady Huracán con Sponsor
 Kappa,K238237GWSJ-KA00B,K238237GWSJ-KA00B-M,0,82799.00,Camiseta Kappa Kombat Home Lady Huracán con Sponsor
-Kappa,K238237GWSJ-KA00B,K238237GWSJ-KA00B-L,0,82799.00,Camiseta Kappa Kombat Home Lady Huracán con Sponsor
+Kappa,K238237GWSJ-KA00B,K238237GWSJ-KA00B-L,5,82799.00,Camiseta Kappa Kombat Home Lady Huracán con Sponsor
 Kappa,K238237GWSJ-KA00B,K238237GWSJ-KA00B-XL,5,82799.00,Camiseta Kappa Kombat Home Lady Huracán con Sponsor
 Kappa,K238237GWSJ-KA00B,K238237GWSJ-KA00B-XXL,7,82799.00,Camiseta Kappa Kombat Home Lady Huracán con Sponsor
 Kappa,K2382D68W-KALV,K2382D68W-KALV-XS,0,98999.00,Camiseta Kappa Kombat Pro GK Aldosivi
@@ -6731,6 +6746,7 @@ Kappa,K2322C35WZ-KD00,K2322C35WZ-KD00-M,18,134999.00,Camiseta Kappa Kombat Regul
 Kappa,K2322C35WZ-KD00,K2322C35WZ-KD00-L,14,134999.00,Camiseta Kappa Kombat Regular Away San Martín De Tucumán
 Kappa,K2322C35WZ-KD00,K2322C35WZ-KD00-XL,13,134999.00,Camiseta Kappa Kombat Regular Away San Martín De Tucumán
 Kappa,K2322C35WZ-KD00,K2322C35WZ-KD00-XXL,1,134999.00,Camiseta Kappa Kombat Regular Away San Martín De Tucumán
+Kappa,K2311N2IWP-KA0VF,K2311N2IWP-KA0VF-XS,13,99999.00,Camiseta Kappa Kombat Regular Home Racing
 Kappa,K2322C33WZ-KA00B,K2322C33WZ-KA00B-S,2,134999.00,Camiseta Kappa Kombat Regular Home San Martín De Tucumán
 Kappa,K2322C33WZ-KA00B,K2322C33WZ-KA00B-M,14,134999.00,Camiseta Kappa Kombat Regular Home San Martín De Tucumán
 Kappa,K2322C33WZ-KA00B,K2322C33WZ-KA00B-L,8,134999.00,Camiseta Kappa Kombat Regular Home San Martín De Tucumán
@@ -6760,9 +6776,9 @@ Kappa,K232253NW-KA07H,K232253NW-KA07H-10,4,72499.00,Camiseta Kombat Away Kids At
 Kappa,K232253NW-KA07H,K232253NW-KA07H-12,3,72499.00,Camiseta Kombat Away Kids Atlético Tucumán 2025
 Kappa,K234231EWS-KA06K,K234231EWS-KA06K-4,0,82799.00,Camiseta Kombat Away Kids Racing Club
 Kappa,K234231EWS-KA06K,K234231EWS-KA06K-6,0,82799.00,Camiseta Kombat Away Kids Racing Club
-Kappa,K234231EWS-KA06K,K234231EWS-KA06K-8,0,82799.00,Camiseta Kombat Away Kids Racing Club
-Kappa,K234231EWS-KA06K,K234231EWS-KA06K-10,2,82799.00,Camiseta Kombat Away Kids Racing Club
-Kappa,K234231EWS-KA06K,K234231EWS-KA06K-12,0,82799.00,Camiseta Kombat Away Kids Racing Club
+Kappa,K234231EWS-KA06K,K234231EWS-KA06K-8,10,82799.00,Camiseta Kombat Away Kids Racing Club
+Kappa,K234231EWS-KA06K,K234231EWS-KA06K-10,7,82799.00,Camiseta Kombat Away Kids Racing Club
+Kappa,K234231EWS-KA06K,K234231EWS-KA06K-12,10,82799.00,Camiseta Kombat Away Kids Racing Club
 Kappa,K2342364W-K001,K2342364W-K001-10,1,67299.00,Camiseta Kombat Away Kids Tigre
 Kappa,K2342364W-K001,K2342364W-K001-12,4,67299.00,Camiseta Kombat Away Kids Tigre
 Kappa,K2342364W-K001,K2342364W-K001-4,2,67299.00,Camiseta Kombat Away Kids Tigre
@@ -6773,7 +6789,14 @@ Kappa,K238237HWSJ-KA24C,K238237HWSJ-KA24C-S,3,82799.00,Camiseta Kombat Away Lady
 Kappa,K238237HWSJ-KA24C,K238237HWSJ-KA24C-M,1,82799.00,Camiseta Kombat Away Lady con sponsor
 Kappa,K238237HWSJ-KA24C,K238237HWSJ-KA24C-L,3,82799.00,Camiseta Kombat Away Lady con sponsor
 Kappa,K238237HWSJ-KA24C,K238237HWSJ-KA24C-XL,5,82799.00,Camiseta Kombat Away Lady con sponsor
-Kappa,K238237HWSJ-KA24C,K238237HWSJ-KA24C-XXL,1,82799.00,Camiseta Kombat Away Lady con sponsor
+Kappa,K238237HWSJ-KA24C,K238237HWSJ-KA24C-XXL,4,82799.00,Camiseta Kombat Away Lady con sponsor
+Kappa,K237256MW-KA06K,K237256MW-KA06K-XS,0,124199.00,Camiseta Kombat Away Manga Larga Racing Club
+Kappa,K237256MW-KA06K,K237256MW-KA06K-S,0,124199.00,Camiseta Kombat Away Manga Larga Racing Club
+Kappa,K237256MW-KA06K,K237256MW-KA06K-M,0,124199.00,Camiseta Kombat Away Manga Larga Racing Club
+Kappa,K237256MW-KA06K,K237256MW-KA06K-L,0,124199.00,Camiseta Kombat Away Manga Larga Racing Club
+Kappa,K237256MW-KA06K,K237256MW-KA06K-XL,11,124199.00,Camiseta Kombat Away Manga Larga Racing Club
+Kappa,K237256MW-KA06K,K237256MW-KA06K-XXL,0,124199.00,Camiseta Kombat Away Manga Larga Racing Club
+Kappa,K237256MW-KA06K,K237256MW-KA06K-XXXL,0,124199.00,Camiseta Kombat Away Manga Larga Racing Club
 Kappa,K2331V3VW-KA09C,K2331V3VW-KA09C-XS,3,79699.00,Camiseta Kombat Away Regular Tigre
 Kappa,K2331V3VW-KA09C,K2331V3VW-KA09C-S,2,79699.00,Camiseta Kombat Away Regular Tigre
 Kappa,K2331V3VW-KA09C,K2331V3VW-KA09C-M,0,79699.00,Camiseta Kombat Away Regular Tigre
@@ -6785,7 +6808,7 @@ Kappa,K2372169W-K001,K2372169W-K001-XS,10,99999.00,Camiseta Kombat Away Regular 
 Kappa,K2372169W-K001,K2372169W-K001-S,11,99999.00,Camiseta Kombat Away Regular Tigre
 Kappa,K2372169W-K001,K2372169W-K001-M,0,99999.00,Camiseta Kombat Away Regular Tigre
 Kappa,K2372169W-K001,K2372169W-K001-L,0,99999.00,Camiseta Kombat Away Regular Tigre
-Kappa,K2372169W-K001,K2372169W-K001-XL,0,99999.00,Camiseta Kombat Away Regular Tigre
+Kappa,K2372169W-K001,K2372169W-K001-XL,5,99999.00,Camiseta Kombat Away Regular Tigre
 Kappa,K2372169W-K001,K2372169W-K001-XXL,0,99999.00,Camiseta Kombat Away Regular Tigre
 Kappa,K2372169W-K001,K2372169W-K001-XXXL,0,99999.00,Camiseta Kombat Away Regular Tigre
 Kappa,K2371X18W-KA0VF,K2371X18W-KA0VF-XS,1,87999.00,Camiseta Kombat Gk Racing
@@ -6807,6 +6830,11 @@ Kappa,K232253MW-KA0VF,K232253MW-KA0VF-6,4,72499.00,Camiseta Kombat Home Kids Atl
 Kappa,K232253MW-KA0VF,K232253MW-KA0VF-8,4,72499.00,Camiseta Kombat Home Kids Atlético Tucumán
 Kappa,K232253MW-KA0VF,K232253MW-KA0VF-10,14,72499.00,Camiseta Kombat Home Kids Atlético Tucumán
 Kappa,K232253MW-KA0VF,K232253MW-KA0VF-12,3,72499.00,Camiseta Kombat Home Kids Atlético Tucumán
+Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-4,0,82799.00,Camiseta Kombat Home Kids Racing Club
+Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-6,0,82799.00,Camiseta Kombat Home Kids Racing Club
+Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-8,0,82799.00,Camiseta Kombat Home Kids Racing Club
+Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-10,14,82799.00,Camiseta Kombat Home Kids Racing Club
+Kappa,K234231DWS-KA0VF,K234231DWS-KA0VF-12,0,82799.00,Camiseta Kombat Home Kids Racing Club
 Kappa,K2342363W-KY07,K2342363W-KY07-4,0,67299.00,Camiseta Kombat Home Kids Tigre 2
 Kappa,K2342363W-KY07,K2342363W-KY07-6,0,67299.00,Camiseta Kombat Home Kids Tigre 2
 Kappa,K2342363W-KY07,K2342363W-KY07-8,0,67299.00,Camiseta Kombat Home Kids Tigre 2
@@ -6814,8 +6842,8 @@ Kappa,K2342363W-KY07,K2342363W-KY07-10,3,67299.00,Camiseta Kombat Home Kids Tigr
 Kappa,K2342363W-KY07,K2342363W-KY07-12,3,67299.00,Camiseta Kombat Home Kids Tigre 2
 Kappa,K2331V3UW-KD39A,K2331V3UW-KD39A-XS,11,79699.00,Camiseta Kombat Home Regular Tigre
 Kappa,K2331V3UW-KD39A,K2331V3UW-KD39A-S,11,79699.00,Camiseta Kombat Home Regular Tigre
-Kappa,K2331V3UW-KD39A,K2331V3UW-KD39A-M,1,79699.00,Camiseta Kombat Home Regular Tigre
-Kappa,K2331V3UW-KD39A,K2331V3UW-KD39A-L,0,79699.00,Camiseta Kombat Home Regular Tigre
+Kappa,K2331V3UW-KD39A,K2331V3UW-KD39A-M,4,79699.00,Camiseta Kombat Home Regular Tigre
+Kappa,K2331V3UW-KD39A,K2331V3UW-KD39A-L,5,79699.00,Camiseta Kombat Home Regular Tigre
 Kappa,K2331V3UW-KD39A,K2331V3UW-KD39A-XL,0,79699.00,Camiseta Kombat Home Regular Tigre
 Kappa,K2331V3UW-KD39A,K2331V3UW-KD39A-XXL,0,79699.00,Camiseta Kombat Home Regular Tigre
 Kappa,K2331V3UW-KD39A,K2331V3UW-KD39A-XXXL,0,79699.00,Camiseta Kombat Home Regular Tigre
@@ -6846,11 +6874,21 @@ Kappa,K2311N54W-KY02,K2311N54W-KY02-L,0,99999.00,Camiseta Kombat Pro Gk Atlétic
 Kappa,K2311N54W-KY02,K2311N54W-KY02-XL,0,99999.00,Camiseta Kombat Pro Gk Atlético Tucumán
 Kappa,K2311N54W-KY02,K2311N54W-KY02-XXL,1,99999.00,Camiseta Kombat Pro Gk Atlético Tucumán
 Kappa,K2311N54W-KY02,K2311N54W-KY02-XXXL,2,99999.00,Camiseta Kombat Pro Gk Atlético Tucumán
+Kappa,K2361Y2LWSJ-KA20,K2361Y2LWSJ-KA20-M,0,99999.00,Camiseta Kombat Pro GK Huracán con sponsor
+Kappa,K2361Y2LWSJ-KA20,K2361Y2LWSJ-KA20-L,0,99999.00,Camiseta Kombat Pro GK Huracán con sponsor
+Kappa,K2361Y2LWSJ-KA20,K2361Y2LWSJ-KA20-XL,3,99999.00,Camiseta Kombat Pro GK Huracán con sponsor
+Kappa,K2361Y2LWSJ-KA20,K2361Y2LWSJ-KA20-XXL,0,99999.00,Camiseta Kombat Pro GK Huracán con sponsor
+Kappa,K2361Y2LWSJ-KA20,K2361Y2LWSJ-KA20-XXXL,0,99999.00,Camiseta Kombat Pro GK Huracán con sponsor
 Kappa,K233281FWS-KA20,K233281FWS-KA20-4,1,72499.00,Camiseta Kombat Pro GK Kids Huracán
 Kappa,K233281FWS-KA20,K233281FWS-KA20-6,0,72499.00,Camiseta Kombat Pro GK Kids Huracán
 Kappa,K233281FWS-KA20,K233281FWS-KA20-8,0,72499.00,Camiseta Kombat Pro GK Kids Huracán
 Kappa,K233281FWS-KA20,K233281FWS-KA20-10,0,72499.00,Camiseta Kombat Pro GK Kids Huracán
 Kappa,K233281FWS-KA20,K233281FWS-KA20-12,0,72499.00,Camiseta Kombat Pro GK Kids Huracán
+Kappa,K234231CWS-KY10,K234231CWS-KY10-4,0,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
+Kappa,K234231CWS-KY10,K234231CWS-KY10-6,0,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
+Kappa,K234231CWS-KY10,K234231CWS-KY10-8,0,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
+Kappa,K234231CWS-KY10,K234231CWS-KY10-10,4,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
+Kappa,K234231CWS-KY10,K234231CWS-KY10-12,4,82799.00,Camiseta Kombat Pro GK Kids Racing con sponsor
 Kappa,K232255IW-KALV,K232255IW-KALV-XS,2,99999.00,Camiseta kombat pro gk San Martín de Tucumán 2025
 Kappa,K232255IW-KALV,K232255IW-KALV-S,4,99999.00,Camiseta kombat pro gk San Martín de Tucumán 2025
 Kappa,K232255IW-KALV,K232255IW-KALV-M,3,99999.00,Camiseta kombat pro gk San Martín de Tucumán 2025
@@ -6879,7 +6917,7 @@ Kappa,K232246PW-KZ14,K232246PW-KZ14-L,1,98399.00,Camiseta Kombat Pro GK Tigre
 Kappa,K232246PW-KZ14,K232246PW-KZ14-XL,0,98399.00,Camiseta Kombat Pro GK Tigre
 Kappa,K232246PW-KZ14,K232246PW-KZ14-XXL,3,98399.00,Camiseta Kombat Pro GK Tigre
 Kappa,K232246PW-KZ14,K232246PW-KZ14-XXXL,2,98399.00,Camiseta Kombat Pro GK Tigre
-Kappa,K2331V3RW-KD39A,K2331V3RW-KD39A-S,0,79699.00,Camiseta Kombat Pro Home Slim Tigre
+Kappa,K2331V3RW-KD39A,K2331V3RW-KD39A-S,6,79699.00,Camiseta Kombat Pro Home Slim Tigre
 Kappa,K2331V3RW-KD39A,K2331V3RW-KD39A-M,3,79699.00,Camiseta Kombat Pro Home Slim Tigre
 Kappa,K2331V3RW-KD39A,K2331V3RW-KD39A-L,1,79699.00,Camiseta Kombat Pro Home Slim Tigre
 Kappa,K2331V3RW-KD39A,K2331V3RW-KD39A-XL,0,79699.00,Camiseta Kombat Pro Home Slim Tigre
@@ -6893,15 +6931,15 @@ Kappa,K2331V3TW-K193,K2331V3TW-K193-M,1,79699.00,Camiseta Kombat Pro Third Slim 
 Kappa,K2331V3TW-K193,K2331V3TW-K193-L,0,79699.00,Camiseta Kombat Pro Third Slim Tigre
 Kappa,K235218NW-KA07H,K235218NW-KA07H-XS,13,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
 Kappa,K235218NW-KA07H,K235218NW-KA07H-S,7,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
-Kappa,K235218NW-KA07H,K235218NW-KA07H-M,0,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
-Kappa,K235218NW-KA07H,K235218NW-KA07H-L,0,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
-Kappa,K235218NW-KA07H,K235218NW-KA07H-XL,0,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
+Kappa,K235218NW-KA07H,K235218NW-KA07H-M,3,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
+Kappa,K235218NW-KA07H,K235218NW-KA07H-L,5,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
+Kappa,K235218NW-KA07H,K235218NW-KA07H-XL,5,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
 Kappa,K235218NW-KA07H,K235218NW-KA07H-XXL,0,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
 Kappa,K235218NW-KA07H,K235218NW-KA07H-XXXL,0,99999.00,Camiseta Kombat Regular Away Atlético Tucumán
 Kappa,K238237EWSJ-KA24C,K238237EWSJ-KA24C-XS,0,99999.00,Camiseta Kombat Regular Away Huracán
 Kappa,K238237EWSJ-KA24C,K238237EWSJ-KA24C-S,0,99999.00,Camiseta Kombat Regular Away Huracán
-Kappa,K238237EWSJ-KA24C,K238237EWSJ-KA24C-M,0,99999.00,Camiseta Kombat Regular Away Huracán
-Kappa,K238237EWSJ-KA24C,K238237EWSJ-KA24C-L,1,99999.00,Camiseta Kombat Regular Away Huracán
+Kappa,K238237EWSJ-KA24C,K238237EWSJ-KA24C-M,5,99999.00,Camiseta Kombat Regular Away Huracán
+Kappa,K238237EWSJ-KA24C,K238237EWSJ-KA24C-L,4,99999.00,Camiseta Kombat Regular Away Huracán
 Kappa,K238237EWSJ-KA24C,K238237EWSJ-KA24C-XL,0,99999.00,Camiseta Kombat Regular Away Huracán
 Kappa,K238237EWSJ-KA24C,K238237EWSJ-KA24C-XXL,0,99999.00,Camiseta Kombat Regular Away Huracán
 Kappa,K238237EWSJ-KA24C,K238237EWSJ-KA24C-XXXL,1,99999.00,Camiseta Kombat Regular Away Huracán
@@ -6912,18 +6950,32 @@ Kappa,K238237EWS-KA24C,K238237EWS-KA24C-L,0,99999.00,Camiseta Kombat Regular Awa
 Kappa,K238237EWS-KA24C,K238237EWS-KA24C-XL,1,99999.00,Camiseta Kombat Regular Away Huracán
 Kappa,K238237EWS-KA24C,K238237EWS-KA24C-XXL,0,99999.00,Camiseta Kombat Regular Away Huracán
 Kappa,K238237EWS-KA24C,K238237EWS-KA24C-XXXL,0,99999.00,Camiseta Kombat Regular Away Huracán
-Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XS,3,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
+Kappa,K2311N2JWS-KA06K,K2311N2JWS-KA06K-XS,0,113899.00,Camiseta Kombat Regular Away Racing Con Sponsor 2025
+Kappa,K2311N2JWS-KA06K,K2311N2JWS-KA06K-S,0,113899.00,Camiseta Kombat Regular Away Racing Con Sponsor 2025
+Kappa,K2311N2JWS-KA06K,K2311N2JWS-KA06K-M,8,113899.00,Camiseta Kombat Regular Away Racing Con Sponsor 2025
+Kappa,K2311N2JWS-KA06K,K2311N2JWS-KA06K-L,0,113899.00,Camiseta Kombat Regular Away Racing Con Sponsor 2025
+Kappa,K2311N2JWS-KA06K,K2311N2JWS-KA06K-XL,0,113899.00,Camiseta Kombat Regular Away Racing Con Sponsor 2025
+Kappa,K2311N2JWS-KA06K,K2311N2JWS-KA06K-XXL,0,113899.00,Camiseta Kombat Regular Away Racing Con Sponsor 2025
+Kappa,K2311N2JWS-KA06K,K2311N2JWS-KA06K-XXXL,0,113899.00,Camiseta Kombat Regular Away Racing Con Sponsor 2025
+Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XS,2,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-S,9,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
-Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-M,15,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
-Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-L,0,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
+Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-M,14,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
+Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-L,4,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XL,2,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
-Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XXL,2,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
+Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XXL,5,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2311N53W-KA0VF,K2311N53W-KA0VF-XXXL,5,99999.00,Camiseta Kombat Regular Home Atlético Tucumán
+Kappa,K2361Y2KWSJ-KA00B,K2361Y2KWSJ-KA00B-XS,0,99999.00,Camiseta Kombat Regular Home Huracán
+Kappa,K2361Y2KWSJ-KA00B,K2361Y2KWSJ-KA00B-S,0,99999.00,Camiseta Kombat Regular Home Huracán
+Kappa,K2361Y2KWSJ-KA00B,K2361Y2KWSJ-KA00B-M,6,99999.00,Camiseta Kombat Regular Home Huracán
+Kappa,K2361Y2KWSJ-KA00B,K2361Y2KWSJ-KA00B-L,0,99999.00,Camiseta Kombat Regular Home Huracán
+Kappa,K2361Y2KWSJ-KA00B,K2361Y2KWSJ-KA00B-XL,4,99999.00,Camiseta Kombat Regular Home Huracán
+Kappa,K2361Y2KWSJ-KA00B,K2361Y2KWSJ-KA00B-XXL,1,99999.00,Camiseta Kombat Regular Home Huracán
+Kappa,K2361Y2KWSJ-KA00B,K2361Y2KWSJ-KA00B-XXXL,0,99999.00,Camiseta Kombat Regular Home Huracán
 Kappa,K2372H1GWZ-KA00B,K2372H1GWZ-KA00B-XS,8,134999.00,Camiseta Kombat Regular Home Huracán
 Kappa,K2372H1GWZ-KA00B,K2372H1GWZ-KA00B-S,37,134999.00,Camiseta Kombat Regular Home Huracán
 Kappa,K2372H1GWZ-KA00B,K2372H1GWZ-KA00B-M,14,134999.00,Camiseta Kombat Regular Home Huracán
 Kappa,K2372H1GWZ-KA00B,K2372H1GWZ-KA00B-L,5,134999.00,Camiseta Kombat Regular Home Huracán
-Kappa,K2372H1GWZ-KA00B,K2372H1GWZ-KA00B-XL,1,134999.00,Camiseta Kombat Regular Home Huracán
+Kappa,K2372H1GWZ-KA00B,K2372H1GWZ-KA00B-XL,4,134999.00,Camiseta Kombat Regular Home Huracán
 Kappa,K2372H1GWZ-KA00B,K2372H1GWZ-KA00B-XXL,16,134999.00,Camiseta Kombat Regular Home Huracán
 Kappa,K2372H1GWZ-KA00B,K2372H1GWZ-KA00B-XXXL,13,134999.00,Camiseta Kombat Regular Home Huracán
 Kappa,K232255HW-KROO,K232255HW-KROO-XS,14,99999.00,Camiseta Kombat Regular Home San Martín de Tucumán 2025
@@ -6937,7 +6989,7 @@ Kappa,K2372183W-KY07,K2372183W-KY07-XS,12,99999.00,Camiseta Kombat Regular Home 
 Kappa,K2372183W-KY07,K2372183W-KY07-S,10,99999.00,Camiseta Kombat Regular Home Tigre
 Kappa,K2372183W-KY07,K2372183W-KY07-M,0,99999.00,Camiseta Kombat Regular Home Tigre
 Kappa,K2372183W-KY07,K2372183W-KY07-L,0,99999.00,Camiseta Kombat Regular Home Tigre
-Kappa,K2372183W-KY07,K2372183W-KY07-XL,0,99999.00,Camiseta Kombat Regular Home Tigre
+Kappa,K2372183W-KY07,K2372183W-KY07-XL,5,99999.00,Camiseta Kombat Regular Home Tigre
 Kappa,K2372183W-KY07,K2372183W-KY07-XXL,0,99999.00,Camiseta Kombat Regular Home Tigre
 Kappa,K2372183W-KY07,K2372183W-KY07-XXXL,0,99999.00,Camiseta Kombat Regular Home Tigre
 Kappa,K2382J32W-KXF3,K2382J32W-KXF3-XS,4,134999.00,Camiseta Kombat Regular Third Aldosivi
@@ -6967,8 +7019,6 @@ Kappa,K238237CWSJ-KA24C,K238237CWSJ-KA24C-M,9,99999.00,Camiseta Kombat Slim Away
 Kappa,K238237CWSJ-KA24C,K238237CWSJ-KA24C-L,3,99999.00,Camiseta Kombat Slim Away Huracán con sponsor
 Kappa,K238237CWSJ-KA24C,K238237CWSJ-KA24C-XL,2,99999.00,Camiseta Kombat Slim Away Huracán con sponsor
 Kappa,K238237CWSJ-KA24C,K238237CWSJ-KA24C-XXL,0,99999.00,Camiseta Kombat Slim Away Huracán con sponsor
-Kappa,K2311N2GWS-KA06K,K2311N2GWS-KA06K-XL,0,113899.00,Camiseta Kombat Slim Away Racing con sponsor
-Kappa,K2311N2GWS-KA06K,K2311N2GWS-KA06K-XXL,1,113899.00,Camiseta Kombat Slim Away Racing con sponsor
 Kappa,K2311N52W-KA0VF,K2311N52W-KA0VF-L,0,99999.00,Camiseta Kombat Slim Home Atlético Tucumán
 Kappa,K2311N52W-KA0VF,K2311N52W-KA0VF-M,0,99999.00,Camiseta Kombat Slim Home Atlético Tucumán
 Kappa,K2311N52W-KA0VF,K2311N52W-KA0VF-S,2,99999.00,Camiseta Kombat Slim Home Atlético Tucumán
@@ -6983,8 +7033,15 @@ Kappa,K232255GW-KROO,K232255GW-KROO-XXL,0,87999.00,Camiseta Kombat Slim Home San
 Kappa,K232255GW-KROO,K232255GW-KROO-XXXL,0,87999.00,Camiseta Kombat Slim Home San Martín de Tucumán
 Kappa,K235218MW-KA56A,K235218MW-KA56A-S,3,99999.00,Camiseta Kombat Slim Third Atlético Tucumán
 Kappa,K235218MW-KA56A,K235218MW-KA56A-M,3,99999.00,Camiseta Kombat Slim Third Atlético Tucumán
-Kappa,K235218MW-KA56A,K235218MW-KA56A-L,0,99999.00,Camiseta Kombat Slim Third Atlético Tucumán
+Kappa,K235218MW-KA56A,K235218MW-KA56A-L,5,99999.00,Camiseta Kombat Slim Third Atlético Tucumán
 Kappa,K235218MW-KA56A,K235218MW-KA56A-XL,3,99999.00,Camiseta Kombat Slim Third Atlético Tucumán
+Kappa,K2311N2HWS-KA41B,K2311N2HWS-KA41B-XS,0,113899.00,Camiseta Kombat Slim Third Racing con sponsor
+Kappa,K2311N2HWS-KA41B,K2311N2HWS-KA41B-S,0,113899.00,Camiseta Kombat Slim Third Racing con sponsor
+Kappa,K2311N2HWS-KA41B,K2311N2HWS-KA41B-M,0,113899.00,Camiseta Kombat Slim Third Racing con sponsor
+Kappa,K2311N2HWS-KA41B,K2311N2HWS-KA41B-L,0,113899.00,Camiseta Kombat Slim Third Racing con sponsor
+Kappa,K2311N2HWS-KA41B,K2311N2HWS-KA41B-XL,0,113899.00,Camiseta Kombat Slim Third Racing con sponsor
+Kappa,K2311N2HWS-KA41B,K2311N2HWS-KA41B-XXL,11,113899.00,Camiseta Kombat Slim Third Racing con sponsor
+Kappa,K2311N2HWS-KA41B,K2311N2HWS-KA41B-XXXL,0,113899.00,Camiseta Kombat Slim Third Racing con sponsor
 Kappa,K232253PW-KA56A,K232253PW-KA56A-4,3,72499.00,Camiseta Kombat Third Kids Atlético Tucumán
 Kappa,K232253PW-KA56A,K232253PW-KA56A-6,3,72499.00,Camiseta Kombat Third Kids Atlético Tucumán
 Kappa,K232253PW-KA56A,K232253PW-KA56A-8,3,72499.00,Camiseta Kombat Third Kids Atlético Tucumán
@@ -7012,7 +7069,7 @@ Kappa,K235285HW-KS003,K235285HW-KS003-XS,0,186299.00,Camiseta Kombat XXV Tigre
 Kappa,K235285HW-KS003,K235285HW-KS003-S,8,186299.00,Camiseta Kombat XXV Tigre
 Kappa,K235285HW-KS003,K235285HW-KS003-M,10,186299.00,Camiseta Kombat XXV Tigre
 Kappa,K235285HW-KS003,K235285HW-KS003-L,1,186299.00,Camiseta Kombat XXV Tigre
-Kappa,K235285HW-KS003,K235285HW-KS003-XL,1,186299.00,Camiseta Kombat XXV Tigre
+Kappa,K235285HW-KS003,K235285HW-KS003-XL,4,186299.00,Camiseta Kombat XXV Tigre
 Kappa,K235285HW-KS003,K235285HW-KS003-XXL,1,186299.00,Camiseta Kombat XXV Tigre
 Kappa,K235285HW-KS003,K235285HW-KS003-XXXL,6,186299.00,Camiseta Kombat XXV Tigre
 Kappa,K232255JW-KC21,K232255JW-KC21-XS,8,77699.00,Camiseta Pre March San Martín de Tucumán
@@ -7093,81 +7150,14 @@ Kappa,K2372641W-K900AI,K2372641W-K900AI-XL,0,128399.00,Campera Kappa 222 Banda
 Kappa,K2372641W-K900AI,K2372641W-K900AI-XXL,0,128399.00,Campera Kappa 222 Banda
 Kappa,K2372641W-K907X,K2372641W-K907X-S,4,128399.00,Campera Kappa 222 Banda
 Kappa,K2372641W-K907X,K2372641W-K907X-M,2,128399.00,Campera Kappa 222 Banda
-Kappa,K2372641W-K907X,K2372641W-K907X-L,2,128399.00,Campera Kappa 222 Banda
+Kappa,K2372641W-K907X,K2372641W-K907X-L,3,128399.00,Campera Kappa 222 Banda
 Kappa,K2372641W-K907X,K2372641W-K907X-XL,1,128399.00,Campera Kappa 222 Banda
-Kappa,K2372641W-K907X,K2372641W-K907X-XXL,0,128399.00,Campera Kappa 222 Banda
+Kappa,K2372641W-K907X,K2372641W-K907X-XXL,4,128399.00,Campera Kappa 222 Banda
 Kappa,K2372641W-KF74,K2372641W-KF74-S,1,128399.00,Campera Kappa 222 Banda
-Kappa,K2372641W-KF74,K2372641W-KF74-M,0,128399.00,Campera Kappa 222 Banda
-Kappa,K2372641W-KF74,K2372641W-KF74-L,0,128399.00,Campera Kappa 222 Banda
-Kappa,K2372641W-KF74,K2372641W-KF74-XL,1,128399.00,Campera Kappa 222 Banda
+Kappa,K2372641W-KF74,K2372641W-KF74-M,2,128399.00,Campera Kappa 222 Banda
+Kappa,K2372641W-KF74,K2372641W-KF74-L,2,128399.00,Campera Kappa 222 Banda
+Kappa,K2372641W-KF74,K2372641W-KF74-XL,2,128399.00,Campera Kappa 222 Banda
 Kappa,K2372641W-KF74,K2372641W-KF74-XXL,2,128399.00,Campera Kappa 222 Banda
-Kappa,K2322D78W-K005,K2322D78W-K005-XS,1,128999.00,Campera Kappa 222 Banda Anthem Aldosivi
-Kappa,K2322D78W-K005,K2322D78W-K005-XXL,2,128999.00,Campera Kappa 222 Banda Anthem Aldosivi
-Kappa,K2322D78W-K005,K2322D78W-K005-XXXL,2,128999.00,Campera Kappa 222 Banda Anthem Aldosivi
-Kappa,K2322H7ZW-KY12,K2322H7ZW-KY12-XS,4,128999.00,Campera Kappa 222 Banda Anthem Tigre
-Kappa,K2322H7ZW-KY12,K2322H7ZW-KY12-S,8,128999.00,Campera Kappa 222 Banda Anthem Tigre
-Kappa,K2322H7ZW-KY12,K2322H7ZW-KY12-M,16,128999.00,Campera Kappa 222 Banda Anthem Tigre
-Kappa,K2322H7ZW-KY12,K2322H7ZW-KY12-L,16,128999.00,Campera Kappa 222 Banda Anthem Tigre
-Kappa,K2322H7ZW-KY12,K2322H7ZW-KY12-XL,12,128999.00,Campera Kappa 222 Banda Anthem Tigre
-Kappa,K2322H7ZW-KY12,K2322H7ZW-KY12-XXL,4,128999.00,Campera Kappa 222 Banda Anthem Tigre
-Kappa,K2322H7ZW-KY12,K2322H7ZW-KY12-XXXL,4,128999.00,Campera Kappa 222 Banda Anthem Tigre
-Kappa,K2372D2HW-K001,K2372D2HW-K001-XS,0,134599.00,Campera Kappa 222 Banda Carlise 2
-Kappa,K2372D2HW-K001,K2372D2HW-K001-S,0,134599.00,Campera Kappa 222 Banda Carlise 2
-Kappa,K2372D2HW-K001,K2372D2HW-K001-M,6,134599.00,Campera Kappa 222 Banda Carlise 2
-Kappa,K2372D2HW-K001,K2372D2HW-K001-L,4,134599.00,Campera Kappa 222 Banda Carlise 2
-Kappa,K2372D2HW-K001,K2372D2HW-K001-XL,1,134599.00,Campera Kappa 222 Banda Carlise 2
-Kappa,K2372D2HW-K005,K2372D2HW-K005-XS,0,134599.00,Campera Kappa 222 Banda Carlise 2
-Kappa,K2372D2HW-K005,K2372D2HW-K005-S,1,134599.00,Campera Kappa 222 Banda Carlise 2
-Kappa,K2372D2HW-K005,K2372D2HW-K005-M,1,134599.00,Campera Kappa 222 Banda Carlise 2
-Kappa,K2372D2HW-K005,K2372D2HW-K005-L,2,134599.00,Campera Kappa 222 Banda Carlise 2
-Kappa,K2372D2HW-K005,K2372D2HW-K005-XL,3,134599.00,Campera Kappa 222 Banda Carlise 2
-Kappa,K2372D2HW-KC17,K2372D2HW-KC17-XS,1,134599.00,Campera Kappa 222 Banda Carlise 2
-Kappa,K2372D2HW-KC17,K2372D2HW-KC17-S,3,134599.00,Campera Kappa 222 Banda Carlise 2
-Kappa,K2372D2HW-KC17,K2372D2HW-KC17-M,5,134599.00,Campera Kappa 222 Banda Carlise 2
-Kappa,K2372D2HW-KC17,K2372D2HW-KC17-L,5,134599.00,Campera Kappa 222 Banda Carlise 2
-Kappa,K2372D2HW-KC17,K2372D2HW-KC17-XL,3,134599.00,Campera Kappa 222 Banda Carlise 2
-Kappa,K238222GW-KA02T,K238222GW-KA02T-XS,2,179099.00,Campera Kappa Arsaco 2024
-Kappa,K238222GW-KA02T,K238222GW-KA02T-S,3,179099.00,Campera Kappa Arsaco 2024
-Kappa,K238222GW-KA02T,K238222GW-KA02T-M,4,179099.00,Campera Kappa Arsaco 2024
-Kappa,K238222GW-KA02T,K238222GW-KA02T-L,1,179099.00,Campera Kappa Arsaco 2024
-Kappa,K238222GW-KA02T,K238222GW-KA02T-XL,0,179099.00,Campera Kappa Arsaco 2024
-Kappa,K238222GW-KA02T,K238222GW-KA02T-XXL,0,179099.00,Campera Kappa Arsaco 2024
-Kappa,K238222GW-KA02T,K238222GW-KA02T-XXXL,0,179099.00,Campera Kappa Arsaco 2024
-Kappa,K2322D77W-KY10,K2322D77W-KY10-XS,0,144999.00,Campera Kappa Helium Mavaro Pro Aldosivi
-Kappa,K2322D77W-KY10,K2322D77W-KY10-S,2,144999.00,Campera Kappa Helium Mavaro Pro Aldosivi
-Kappa,K2322D77W-KY10,K2322D77W-KY10-M,8,144999.00,Campera Kappa Helium Mavaro Pro Aldosivi
-Kappa,K2322D77W-KY10,K2322D77W-KY10-L,5,144999.00,Campera Kappa Helium Mavaro Pro Aldosivi
-Kappa,K2322D77W-KY10,K2322D77W-KY10-XL,3,144999.00,Campera Kappa Helium Mavaro Pro Aldosivi
-Kappa,K2322D77W-KY10,K2322D77W-KY10-XXL,2,144999.00,Campera Kappa Helium Mavaro Pro Aldosivi
-Kappa,K2322D77W-KY10,K2322D77W-KY10-XXXL,0,144999.00,Campera Kappa Helium Mavaro Pro Aldosivi
-Kappa,K235242ZW-KA09F,K235242ZW-KA09F-XS,2,144999.00,Campera Kappa Helium Mavaro Pro Club Atlético Tucumán
-Kappa,K235242ZW-KA09F,K235242ZW-KA09F-S,4,144999.00,Campera Kappa Helium Mavaro Pro Club Atlético Tucumán
-Kappa,K235242ZW-KA09F,K235242ZW-KA09F-M,0,144999.00,Campera Kappa Helium Mavaro Pro Club Atlético Tucumán
-Kappa,K235242ZW-KA09F,K235242ZW-KA09F-L,0,144999.00,Campera Kappa Helium Mavaro Pro Club Atlético Tucumán
-Kappa,K235242ZW-KA09F,K235242ZW-KA09F-XL,0,144999.00,Campera Kappa Helium Mavaro Pro Club Atlético Tucumán
-Kappa,K235242ZW-KA09F,K235242ZW-KA09F-XXL,0,144999.00,Campera Kappa Helium Mavaro Pro Club Atlético Tucumán
-Kappa,K235242ZW-KA09F,K235242ZW-KA09F-XXXL,0,144999.00,Campera Kappa Helium Mavaro Pro Club Atlético Tucumán
-Kappa,K2352564W-KA01O,K2352564W-KA01O-XS,1,144999.00,Campera Kappa Helium Mavaro Pro Huracan
-Kappa,K2352564W-KA01O,K2352564W-KA01O-S,3,144999.00,Campera Kappa Helium Mavaro Pro Huracan
-Kappa,K2352564W-KA01O,K2352564W-KA01O-M,4,144999.00,Campera Kappa Helium Mavaro Pro Huracan
-Kappa,K2352564W-KA01O,K2352564W-KA01O-L,8,144999.00,Campera Kappa Helium Mavaro Pro Huracan
-Kappa,K2352564W-KA01O,K2352564W-KA01O-XL,2,144999.00,Campera Kappa Helium Mavaro Pro Huracan
-Kappa,K2352564W-KA01O,K2352564W-KA01O-XXL,0,144999.00,Campera Kappa Helium Mavaro Pro Huracan
-Kappa,K2352564W-KA01O,K2352564W-KA01O-XXXL,0,144999.00,Campera Kappa Helium Mavaro Pro Huracan
-Kappa,K236243ZW-KA02M,K236243ZW-KA02M-XS,6,144999.00,Campera Kappa Helium Mavaro Pro San Martín
-Kappa,K236243ZW-KA02M,K236243ZW-KA02M-S,12,144999.00,Campera Kappa Helium Mavaro Pro San Martín
-Kappa,K236243ZW-KA02M,K236243ZW-KA02M-M,21,144999.00,Campera Kappa Helium Mavaro Pro San Martín
-Kappa,K236243ZW-KA02M,K236243ZW-KA02M-L,19,144999.00,Campera Kappa Helium Mavaro Pro San Martín
-Kappa,K236243ZW-KA02M,K236243ZW-KA02M-XL,17,144999.00,Campera Kappa Helium Mavaro Pro San Martín
-Kappa,K236243ZW-KA02M,K236243ZW-KA02M-XXL,8,144999.00,Campera Kappa Helium Mavaro Pro San Martín
-Kappa,K236243ZW-KA02M,K236243ZW-KA02M-XXXL,9,144999.00,Campera Kappa Helium Mavaro Pro San Martín
-Kappa,K236243XW-KA03B,K236243XW-KA03B-XS,0,175999.00,Campera Kappa Helium Migolo Pro San Martín
-Kappa,K236243XW-KA03B,K236243XW-KA03B-S,8,175999.00,Campera Kappa Helium Migolo Pro San Martín
-Kappa,K236243XW-KA03B,K236243XW-KA03B-M,11,175999.00,Campera Kappa Helium Migolo Pro San Martín
-Kappa,K236243XW-KA03B,K236243XW-KA03B-L,15,175999.00,Campera Kappa Helium Migolo Pro San Martín
-Kappa,K236243XW-KA03B,K236243XW-KA03B-XL,7,175999.00,Campera Kappa Helium Migolo Pro San Martín
-Kappa,K236243XW-KA03B,K236243XW-KA03B-XXL,0,175999.00,Campera Kappa Helium Migolo Pro San Martín
-Kappa,K236243XW-KA03B,K236243XW-KA03B-XXXL,5,175999.00,Campera Kappa Helium Migolo Pro San Martín
 Piccadilly,P31801800000001FW26,P31801800000001FW26-35,0,155999.00,Borcego Fabiana
 Piccadilly,P31801800000001FW26,P31801800000001FW26-36,2,155999.00,Borcego Fabiana
 Piccadilly,P31801800000001FW26,P31801800000001FW26-37,4,155999.00,Borcego Fabiana
@@ -7318,7 +7308,7 @@ Piccadilly,P13024900000001FW26,P13024900000001FW26-35,3,133999.00,Bota Deise
 Piccadilly,P13024900000001FW26,P13024900000001FW26-36,2,133999.00,Bota Deise
 Piccadilly,P13024900000001FW26,P13024900000001FW26-37,6,133999.00,Bota Deise
 Piccadilly,P13024900000001FW26,P13024900000001FW26-38,3,133999.00,Bota Deise
-Piccadilly,P13024900000001FW26,P13024900000001FW26-39,4,133999.00,Bota Deise
+Piccadilly,P13024900000001FW26,P13024900000001FW26-39,3,133999.00,Bota Deise
 Piccadilly,P13024900000001FW26,P13024900000001FW26-40,2,133999.00,Bota Deise
 Piccadilly,P13024900000001FW26,P13024900000001FW26-41,0,133999.00,Bota Deise
 Piccadilly,P13024900000003FW26,P13024900000003FW26-35,0,133999.00,Bota Deise
@@ -7357,7 +7347,7 @@ Piccadilly,P13024000000004FW25,P13024000000004FW25-36,1,104999.00,Bota Deise Ca�
 Piccadilly,P13024000000004FW25,P13024000000004FW25-37,0,104999.00,Bota Deise Caña Baja
 Piccadilly,P13024000000004FW25,P13024000000004FW25-38,0,104999.00,Bota Deise Caña Baja
 Piccadilly,P13024000000004FW25,P13024000000004FW25-39,0,104999.00,Bota Deise Caña Baja
-Piccadilly,P13024000000004FW25,P13024000000004FW25-40,0,104999.00,Bota Deise Caña Baja
+Piccadilly,P13024000000004FW25,P13024000000004FW25-40,3,104999.00,Bota Deise Caña Baja
 Piccadilly,P13024000000004FW25,P13024000000004FW25-41,0,104999.00,Bota Deise Caña Baja
 Piccadilly,P76900200000003FW25,P76900200000003FW25-36,7,119999.00,Bota Denise
 Piccadilly,P76900200000003FW25,P76900200000003FW25-37,3,119999.00,Bota Denise
@@ -7366,12 +7356,12 @@ Piccadilly,P76900200000003FW25,P76900200000003FW25-39,4,119999.00,Bota Denise
 Piccadilly,P76900200000003FW25,P76900200000003FW25-40,2,119999.00,Bota Denise
 Piccadilly,P76900200000003FW25,P76900200000003FW25-41,0,119999.00,Bota Denise
 Piccadilly,P31801800000003FW26,P31801800000003FW26-35,0,155999.00,Bota Fabiana
-Piccadilly,P31801800000003FW26,P31801800000003FW26-36,0,155999.00,Bota Fabiana
-Piccadilly,P31801800000003FW26,P31801800000003FW26-37,3,155999.00,Bota Fabiana
-Piccadilly,P31801800000003FW26,P31801800000003FW26-38,3,155999.00,Bota Fabiana
-Piccadilly,P31801800000003FW26,P31801800000003FW26-39,5,155999.00,Bota Fabiana
-Piccadilly,P31801800000003FW26,P31801800000003FW26-40,1,155999.00,Bota Fabiana
-Piccadilly,P31801800000003FW26,P31801800000003FW26-41,0,155999.00,Bota Fabiana
+Piccadilly,P31801800000003FW26,P31801800000003FW26-36,1,155999.00,Bota Fabiana
+Piccadilly,P31801800000003FW26,P31801800000003FW26-37,5,155999.00,Bota Fabiana
+Piccadilly,P31801800000003FW26,P31801800000003FW26-38,7,155999.00,Bota Fabiana
+Piccadilly,P31801800000003FW26,P31801800000003FW26-39,8,155999.00,Bota Fabiana
+Piccadilly,P31801800000003FW26,P31801800000003FW26-40,3,155999.00,Bota Fabiana
+Piccadilly,P31801800000003FW26,P31801800000003FW26-41,1,155999.00,Bota Fabiana
 Piccadilly,P31801700000004FW26,P31801700000004FW26-35,0,135999.00,Bota Fabiana
 Piccadilly,P31801700000004FW26,P31801700000004FW26-36,0,135999.00,Bota Fabiana
 Piccadilly,P31801700000004FW26,P31801700000004FW26-37,0,135999.00,Bota Fabiana
@@ -7439,20 +7429,20 @@ Piccadilly,P11020100000001FW26,P11020100000001FW26-39,0,117999.00,Bota Laura
 Piccadilly,P11020100000001FW26,P11020100000001FW26-40,0,117999.00,Bota Laura
 Piccadilly,P11020100000001FW26,P11020100000001FW26-41,0,117999.00,Bota Laura
 Piccadilly,P11020100000001FW26,P11020100000001FW26-42,0,117999.00,Bota Laura
-Piccadilly,P11020100000006FW26,P11020100000006FW26-35,0,117999.00,Bota Laura
-Piccadilly,P11020100000006FW26,P11020100000006FW26-36,5,117999.00,Bota Laura
-Piccadilly,P11020100000006FW26,P11020100000006FW26-37,4,117999.00,Bota Laura
-Piccadilly,P11020100000006FW26,P11020100000006FW26-38,0,117999.00,Bota Laura
-Piccadilly,P11020100000006FW26,P11020100000006FW26-39,5,117999.00,Bota Laura
-Piccadilly,P11020100000006FW26,P11020100000006FW26-40,8,117999.00,Bota Laura
+Piccadilly,P11020100000006FW26,P11020100000006FW26-35,1,117999.00,Bota Laura
+Piccadilly,P11020100000006FW26,P11020100000006FW26-36,7,117999.00,Bota Laura
+Piccadilly,P11020100000006FW26,P11020100000006FW26-37,7,117999.00,Bota Laura
+Piccadilly,P11020100000006FW26,P11020100000006FW26-38,3,117999.00,Bota Laura
+Piccadilly,P11020100000006FW26,P11020100000006FW26-39,7,117999.00,Bota Laura
+Piccadilly,P11020100000006FW26,P11020100000006FW26-40,9,117999.00,Bota Laura
 Piccadilly,P11020100000006FW26,P11020100000006FW26-41,0,117999.00,Bota Laura
 Piccadilly,P11020200000004FW26,P11020200000004FW26-35,0,127999.00,Bota Laura
-Piccadilly,P11020200000004FW26,P11020200000004FW26-36,2,127999.00,Bota Laura
-Piccadilly,P11020200000004FW26,P11020200000004FW26-37,1,127999.00,Bota Laura
-Piccadilly,P11020200000004FW26,P11020200000004FW26-38,0,127999.00,Bota Laura
-Piccadilly,P11020200000004FW26,P11020200000004FW26-39,1,127999.00,Bota Laura
-Piccadilly,P11020200000004FW26,P11020200000004FW26-40,0,127999.00,Bota Laura
-Piccadilly,P11020200000004FW26,P11020200000004FW26-41,0,127999.00,Bota Laura
+Piccadilly,P11020200000004FW26,P11020200000004FW26-36,3,127999.00,Bota Laura
+Piccadilly,P11020200000004FW26,P11020200000004FW26-37,3,127999.00,Bota Laura
+Piccadilly,P11020200000004FW26,P11020200000004FW26-38,3,127999.00,Bota Laura
+Piccadilly,P11020200000004FW26,P11020200000004FW26-39,4,127999.00,Bota Laura
+Piccadilly,P11020200000004FW26,P11020200000004FW26-40,2,127999.00,Bota Laura
+Piccadilly,P11020200000004FW26,P11020200000004FW26-41,1,127999.00,Bota Laura
 Piccadilly,P11017900000003FW25,P11017900000003FW25-36,0,79999.00,Bota Laura Caña Baja
 Piccadilly,P11017900000003FW25,P11017900000003FW25-37,0,79999.00,Bota Laura Caña Baja
 Piccadilly,P11017900000003FW25,P11017900000003FW25-38,1,79999.00,Bota Laura Caña Baja
@@ -7599,7 +7589,7 @@ Piccadilly,P27410900000002FW25,P27410900000002FW25-38,1,83999.00,Chatita Ana
 Piccadilly,P27410900000002FW25,P27410900000002FW25-39,0,83999.00,Chatita Ana
 Piccadilly,P27410900000002FW25,P27410900000002FW25-40,0,83999.00,Chatita Ana
 Piccadilly,P29500400000001SS26,P29500400000001SS26-35,6,63999.00,Chatita Mary Jane Solange
-Piccadilly,P29500400000001SS26,P29500400000001SS26-36,1,63999.00,Chatita Mary Jane Solange
+Piccadilly,P29500400000001SS26,P29500400000001SS26-36,0,63999.00,Chatita Mary Jane Solange
 Piccadilly,P29500400000001SS26,P29500400000001SS26-37,0,63999.00,Chatita Mary Jane Solange
 Piccadilly,P29500400000001SS26,P29500400000001SS26-38,0,63999.00,Chatita Mary Jane Solange
 Piccadilly,P29500400000001SS26,P29500400000001SS26-39,0,63999.00,Chatita Mary Jane Solange
@@ -7730,13 +7720,6 @@ Piccadilly,P25011500000645FW26,P25011500000645FW26-38,11,69999.00,Chatita Raquel
 Piccadilly,P25011500000645FW26,P25011500000645FW26-39,12,69999.00,Chatita Raquel
 Piccadilly,P25011500000645FW26,P25011500000645FW26-40,7,69999.00,Chatita Raquel
 Piccadilly,P25011500000645FW26,P25011500000645FW26-41,3,69999.00,Chatita Raquel
-Piccadilly,P25011500000520SS24,P25011500000520SS24-35,0,69999.00,Chatita Raquel Glitter Negro
-Piccadilly,P25011500000520SS24,P25011500000520SS24-36,0,69999.00,Chatita Raquel Glitter Negro
-Piccadilly,P25011500000520SS24,P25011500000520SS24-37,1,69999.00,Chatita Raquel Glitter Negro
-Piccadilly,P25011500000520SS24,P25011500000520SS24-38,0,69999.00,Chatita Raquel Glitter Negro
-Piccadilly,P25011500000520SS24,P25011500000520SS24-39,0,69999.00,Chatita Raquel Glitter Negro
-Piccadilly,P25011500000520SS24,P25011500000520SS24-40,0,69999.00,Chatita Raquel Glitter Negro
-Piccadilly,P25011500000520SS24,P25011500000520SS24-41,0,69999.00,Chatita Raquel Glitter Negro
 Piccadilly,P31801500000016FW26,P31801500000016FW26-35,0,115999.00,Mocasín Fabiana
 Piccadilly,P31801500000016FW26,P31801500000016FW26-36,1,115999.00,Mocasín Fabiana
 Piccadilly,P31801500000016FW26,P31801500000016FW26-37,0,115999.00,Mocasín Fabiana
@@ -7918,13 +7901,13 @@ Piccadilly,P93501500000001FW26,P93501500000001FW26-35,0,167999.00,Zapatilla Ener
 Piccadilly,P93501500000001FW26,P93501500000001FW26-36,0,167999.00,Zapatilla Energy
 Piccadilly,P93501500000001FW26,P93501500000001FW26-37,5,167999.00,Zapatilla Energy
 Piccadilly,P93501500000001FW26,P93501500000001FW26-38,4,167999.00,Zapatilla Energy
-Piccadilly,P93501500000001FW26,P93501500000001FW26-39,4,167999.00,Zapatilla Energy
+Piccadilly,P93501500000001FW26,P93501500000001FW26-39,3,167999.00,Zapatilla Energy
 Piccadilly,P93501500000001FW26,P93501500000001FW26-40,0,167999.00,Zapatilla Energy
 Piccadilly,P93501500000001FW26,P93501500000001FW26-41,0,167999.00,Zapatilla Energy
 Piccadilly,P93501500000001FW26,P93501500000001FW26-42,0,167999.00,Zapatilla Energy
 Piccadilly,P93501500000001FW26,P93501500000001FW26-43,0,167999.00,Zapatilla Energy
 Piccadilly,P97012000000002SS26,P97012000000002SS26-35,1,89999.00,Zapatilla Fabi
-Piccadilly,P97012000000002SS26,P97012000000002SS26-36,3,89999.00,Zapatilla Fabi
+Piccadilly,P97012000000002SS26,P97012000000002SS26-36,2,89999.00,Zapatilla Fabi
 Piccadilly,P97012000000002SS26,P97012000000002SS26-37,5,89999.00,Zapatilla Fabi
 Piccadilly,P97012000000002SS26,P97012000000002SS26-38,5,89999.00,Zapatilla Fabi
 Piccadilly,P97012000000002SS26,P97012000000002SS26-39,5,89999.00,Zapatilla Fabi
@@ -8007,6 +7990,13 @@ Piccadilly,P93701000000002FW26,P93701000000002FW26-38,0,127999.00,Zapatilla Fran
 Piccadilly,P93701000000002FW26,P93701000000002FW26-39,2,127999.00,Zapatilla Franciele
 Piccadilly,P93701000000002FW26,P93701000000002FW26-40,0,127999.00,Zapatilla Franciele
 Piccadilly,P93701000000002FW26,P93701000000002FW26-41,0,127999.00,Zapatilla Franciele
+Piccadilly,P93701000000004FW26,P93701000000004FW26-35,0,121999.00,Zapatilla Franciele
+Piccadilly,P93701000000004FW26,P93701000000004FW26-36,0,121999.00,Zapatilla Franciele
+Piccadilly,P93701000000004FW26,P93701000000004FW26-37,0,121999.00,Zapatilla Franciele
+Piccadilly,P93701000000004FW26,P93701000000004FW26-38,0,121999.00,Zapatilla Franciele
+Piccadilly,P93701000000004FW26,P93701000000004FW26-39,0,121999.00,Zapatilla Franciele
+Piccadilly,P93701000000004FW26,P93701000000004FW26-40,0,121999.00,Zapatilla Franciele
+Piccadilly,P93701000000004FW26,P93701000000004FW26-41,1,121999.00,Zapatilla Franciele
 Piccadilly,P93300100000001FW26,P93300100000001FW26-35,1,155999.00,Zapatilla Lavinia
 Piccadilly,P93300100000001FW26,P93300100000001FW26-36,6,155999.00,Zapatilla Lavinia
 Piccadilly,P93300100000001FW26,P93300100000001FW26-37,0,155999.00,Zapatilla Lavinia
@@ -8065,7 +8055,7 @@ Piccadilly,P93800300000002FW26,P93800300000002FW26-38,2,133999.00,Zapatilla Oria
 Piccadilly,P93800300000002FW26,P93800300000002FW26-39,5,133999.00,Zapatilla Oriana
 Piccadilly,P93800300000002FW26,P93800300000002FW26-40,0,133999.00,Zapatilla Oriana
 Piccadilly,P93800300000002FW26,P93800300000002FW26-41,0,133999.00,Zapatilla Oriana
-Piccadilly,P94000200000029FW26,P94000200000029FW26-35,0,103999.00,Zapatilla Softstep
+Piccadilly,P94000200000029FW26,P94000200000029FW26-35,1,103999.00,Zapatilla Softstep
 Piccadilly,P94000200000029FW26,P94000200000029FW26-36,6,103999.00,Zapatilla Softstep
 Piccadilly,P94000200000029FW26,P94000200000029FW26-37,0,103999.00,Zapatilla Softstep
 Piccadilly,P94000200000029FW26,P94000200000029FW26-38,0,103999.00,Zapatilla Softstep
@@ -8232,9 +8222,9 @@ Piccadilly,P74804200000001FW25,P74804200000001FW25-40,0,79999.00,Zapato Estela
 Piccadilly,P74804100000003FW25,P74804100000003FW25-35,1,83999.00,Zapato Estela Mary Jane
 Piccadilly,P74804100000003FW25,P74804100000003FW25-36,4,83999.00,Zapato Estela Mary Jane
 Piccadilly,P74804100000003FW25,P74804100000003FW25-37,7,83999.00,Zapato Estela Mary Jane
-Piccadilly,P74804100000003FW25,P74804100000003FW25-38,5,83999.00,Zapato Estela Mary Jane
+Piccadilly,P74804100000003FW25,P74804100000003FW25-38,4,83999.00,Zapato Estela Mary Jane
 Piccadilly,P74804100000003FW25,P74804100000003FW25-39,4,83999.00,Zapato Estela Mary Jane
-Piccadilly,P74804100000003FW25,P74804100000003FW25-40,2,83999.00,Zapato Estela Mary Jane
+Piccadilly,P74804100000003FW25,P74804100000003FW25-40,1,83999.00,Zapato Estela Mary Jane
 Piccadilly,P31801200000005FW25,P31801200000005FW25-37,0,94999.00,Zapato Fabiana Loafer
 Piccadilly,P31801200000005FW25,P31801200000005FW25-38,1,94999.00,Zapato Fabiana Loafer
 Piccadilly,P31801200000005FW25,P31801200000005FW25-39,0,94999.00,Zapato Fabiana Loafer
@@ -8243,7 +8233,7 @@ Piccadilly,P31801200000005FW25,P31801200000005FW25-41,0,94999.00,Zapato Fabiana 
 Piccadilly,P66300100000003FW26,P66300100000003FW26-35,0,103999.00,Zapato Francisca
 Piccadilly,P66300100000003FW26,P66300100000003FW26-36,2,103999.00,Zapato Francisca
 Piccadilly,P66300100000003FW26,P66300100000003FW26-37,4,103999.00,Zapato Francisca
-Piccadilly,P66300100000003FW26,P66300100000003FW26-38,2,103999.00,Zapato Francisca
+Piccadilly,P66300100000003FW26,P66300100000003FW26-38,4,103999.00,Zapato Francisca
 Piccadilly,P66300100000003FW26,P66300100000003FW26-39,6,103999.00,Zapato Francisca
 Piccadilly,P66300100000003FW26,P66300100000003FW26-40,4,103999.00,Zapato Francisca
 Piccadilly,P66300100000003FW26,P66300100000003FW26-41,1,103999.00,Zapato Francisca
@@ -8258,7 +8248,7 @@ Piccadilly,P66300100000002FW26,P66300100000002FW26-36,1,103999.00,Zapato Francis
 Piccadilly,P66300100000002FW26,P66300100000002FW26-37,3,103999.00,Zapato Francisca
 Piccadilly,P66300100000002FW26,P66300100000002FW26-38,5,103999.00,Zapato Francisca
 Piccadilly,P66300100000002FW26,P66300100000002FW26-39,3,103999.00,Zapato Francisca
-Piccadilly,P66300100000002FW26,P66300100000002FW26-40,0,103999.00,Zapato Francisca
+Piccadilly,P66300100000002FW26,P66300100000002FW26-40,1,103999.00,Zapato Francisca
 Piccadilly,P66300100000002FW26,P66300100000002FW26-41,1,103999.00,Zapato Francisca
 Piccadilly,P66200900000001SS26,P66200900000001SS26-35,1,67999.00,Zapato Giovanna
 Piccadilly,P66200900000001SS26,P66200900000001SS26-36,0,67999.00,Zapato Giovanna
@@ -8274,6 +8264,12 @@ Piccadilly,P66200900000005SS26,P66200900000005SS26-38,7,67999.00,Zapato Giovanna
 Piccadilly,P66200900000005SS26,P66200900000005SS26-39,0,67999.00,Zapato Giovanna
 Piccadilly,P66200900000005SS26,P66200900000005SS26-40,1,67999.00,Zapato Giovanna
 Piccadilly,P66200900000005SS26,P66200900000005SS26-41,0,67999.00,Zapato Giovanna
+Piccadilly,P73503900000012FW26,P73503900000012FW26-35,1,119999.00,Zapato Gisa
+Piccadilly,P73503900000012FW26,P73503900000012FW26-36,2,119999.00,Zapato Gisa
+Piccadilly,P73503900000012FW26,P73503900000012FW26-37,3,119999.00,Zapato Gisa
+Piccadilly,P73503900000012FW26,P73503900000012FW26-38,3,119999.00,Zapato Gisa
+Piccadilly,P73503900000012FW26,P73503900000012FW26-39,2,119999.00,Zapato Gisa
+Piccadilly,P73503900000012FW26,P73503900000012FW26-40,1,119999.00,Zapato Gisa
 Piccadilly,P73502700000022FW25,P73502700000022FW25-35,0,103999.00,Zapato Gisa Mocasín/Loafer
 Piccadilly,P73502700000022FW25,P73502700000022FW25-36,0,103999.00,Zapato Gisa Mocasín/Loafer
 Piccadilly,P73502700000022FW25,P73502700000022FW25-37,0,103999.00,Zapato Gisa Mocasín/Loafer
@@ -8296,10 +8292,10 @@ Piccadilly,P76401700000001FW25,P76401700000001FW25-40,1,88999.00,Zapato Irene
 Piccadilly,P76401700000001FW25,P76401700000001FW25-41,1,88999.00,Zapato Irene
 Piccadilly,P76401700000002FW25,P76401700000002FW25-35,1,88999.00,Zapato Irene
 Piccadilly,P76401700000002FW25,P76401700000002FW25-36,2,88999.00,Zapato Irene
-Piccadilly,P76401700000002FW25,P76401700000002FW25-37,0,88999.00,Zapato Irene
+Piccadilly,P76401700000002FW25,P76401700000002FW25-37,3,88999.00,Zapato Irene
 Piccadilly,P76401700000002FW25,P76401700000002FW25-38,3,88999.00,Zapato Irene
 Piccadilly,P76401700000002FW25,P76401700000002FW25-39,2,88999.00,Zapato Irene
-Piccadilly,P76401700000002FW25,P76401700000002FW25-40,0,88999.00,Zapato Irene
+Piccadilly,P76401700000002FW25,P76401700000002FW25-40,1,88999.00,Zapato Irene
 Piccadilly,P14323100000006FW25,P14323100000006FW25-36,1,62999.00,Zapato Ivone
 Piccadilly,P14323100000006FW25,P14323100000006FW25-37,0,62999.00,Zapato Ivone
 Piccadilly,P14323100000006FW25,P14323100000006FW25-38,0,62999.00,Zapato Ivone
@@ -8317,11 +8313,11 @@ Piccadilly,P14323500000002FW25,P14323500000002FW25-38,1,69999.00,Zapato Ivone
 Piccadilly,P14323500000002FW25,P14323500000002FW25-39,0,69999.00,Zapato Ivone
 Piccadilly,P14323500000002FW25,P14323500000002FW25-40,0,69999.00,Zapato Ivone
 Piccadilly,P14323500000002FW25,P14323500000002FW25-41,0,69999.00,Zapato Ivone
-Piccadilly,P14324100000001SS26,P14324100000001SS26-36,7,83999.00,Zapato Ivone
-Piccadilly,P14324100000001SS26,P14324100000001SS26-37,2,83999.00,Zapato Ivone
-Piccadilly,P14324100000001SS26,P14324100000001SS26-38,0,83999.00,Zapato Ivone
-Piccadilly,P14324100000001SS26,P14324100000001SS26-39,2,83999.00,Zapato Ivone
-Piccadilly,P14324100000001SS26,P14324100000001SS26-40,2,83999.00,Zapato Ivone
+Piccadilly,P14324100000001SS26,P14324100000001SS26-36,8,83999.00,Zapato Ivone
+Piccadilly,P14324100000001SS26,P14324100000001SS26-37,4,83999.00,Zapato Ivone
+Piccadilly,P14324100000001SS26,P14324100000001SS26-38,3,83999.00,Zapato Ivone
+Piccadilly,P14324100000001SS26,P14324100000001SS26-39,5,83999.00,Zapato Ivone
+Piccadilly,P14324100000001SS26,P14324100000001SS26-40,5,83999.00,Zapato Ivone
 Piccadilly,P14324100000004SS26,P14324100000004SS26-36,1,83999.00,Zapato Ivone
 Piccadilly,P14324100000004SS26,P14324100000004SS26-37,3,83999.00,Zapato Ivone
 Piccadilly,P14324100000004SS26,P14324100000004SS26-38,3,83999.00,Zapato Ivone
@@ -8371,14 +8367,14 @@ Piccadilly,P11010200001212SS26,P11010200001212SS26-38,0,91999.00,Zapato Laura
 Piccadilly,P11010200001212SS26,P11010200001212SS26-39,0,91999.00,Zapato Laura
 Piccadilly,P11010200001212SS26,P11010200001212SS26-40,0,91999.00,Zapato Laura
 Piccadilly,P11010200001212SS26,P11010200001212SS26-41,2,91999.00,Zapato Laura
-Piccadilly,P11019300000001SS26,P11019300000001SS26-36,1,67999.00,Zapato Laura
-Piccadilly,P11019300000001SS26,P11019300000001SS26-37,0,67999.00,Zapato Laura
-Piccadilly,P11019300000001SS26,P11019300000001SS26-38,5,67999.00,Zapato Laura
-Piccadilly,P11019300000001SS26,P11019300000001SS26-39,6,67999.00,Zapato Laura
-Piccadilly,P11019300000001SS26,P11019300000001SS26-40,8,67999.00,Zapato Laura
-Piccadilly,P11019300000001SS26,P11019300000001SS26-41,0,67999.00,Zapato Laura
+Piccadilly,P11019300000001SS26,P11019300000001SS26-36,2,67999.00,Zapato Laura
+Piccadilly,P11019300000001SS26,P11019300000001SS26-37,2,67999.00,Zapato Laura
+Piccadilly,P11019300000001SS26,P11019300000001SS26-38,8,67999.00,Zapato Laura
+Piccadilly,P11019300000001SS26,P11019300000001SS26-39,9,67999.00,Zapato Laura
+Piccadilly,P11019300000001SS26,P11019300000001SS26-40,10,67999.00,Zapato Laura
+Piccadilly,P11019300000001SS26,P11019300000001SS26-41,1,67999.00,Zapato Laura
 Piccadilly,P11019300000006SS26,P11019300000006SS26-36,2,67999.00,Zapato Laura
-Piccadilly,P11019300000006SS26,P11019300000006SS26-37,2,67999.00,Zapato Laura
+Piccadilly,P11019300000006SS26,P11019300000006SS26-37,1,67999.00,Zapato Laura
 Piccadilly,P11019300000006SS26,P11019300000006SS26-38,7,67999.00,Zapato Laura
 Piccadilly,P11019300000006SS26,P11019300000006SS26-39,4,67999.00,Zapato Laura
 Piccadilly,P11019300000006SS26,P11019300000006SS26-40,10,67999.00,Zapato Laura
@@ -8430,7 +8426,7 @@ Piccadilly,P11018300000009FW25,P11018300000009FW25-39,5,66999.00,Zapato Laura He
 Piccadilly,P11018300000009FW25,P11018300000009FW25-40,0,66999.00,Zapato Laura Hebilla
 Piccadilly,P11018600000001FW25,P11018600000001FW25-35,0,66999.00,Zapato Laura Scarpin
 Piccadilly,P11018600000001FW25,P11018600000001FW25-36,0,66999.00,Zapato Laura Scarpin
-Piccadilly,P11018600000001FW25,P11018600000001FW25-37,4,66999.00,Zapato Laura Scarpin
+Piccadilly,P11018600000001FW25,P11018600000001FW25-37,3,66999.00,Zapato Laura Scarpin
 Piccadilly,P11018600000001FW25,P11018600000001FW25-38,12,66999.00,Zapato Laura Scarpin
 Piccadilly,P11018600000001FW25,P11018600000001FW25-39,4,66999.00,Zapato Laura Scarpin
 Piccadilly,P11018600000001FW25,P11018600000001FW25-40,4,66999.00,Zapato Laura Scarpin
@@ -8520,7 +8516,7 @@ Piccadilly,P12200500000064FW25,P12200500000064FW25-40,1,74999.00,Zapato michele
 Piccadilly,P12200500000064FW25,P12200500000064FW25-41,0,74999.00,Zapato michele
 Piccadilly,P12203700000005SS26,P12203700000005SS26-35,0,61999.00,Zapato Michele
 Piccadilly,P12203700000005SS26,P12203700000005SS26-36,0,61999.00,Zapato Michele
-Piccadilly,P12203700000005SS26,P12203700000005SS26-37,3,61999.00,Zapato Michele
+Piccadilly,P12203700000005SS26,P12203700000005SS26-37,2,61999.00,Zapato Michele
 Piccadilly,P12203700000005SS26,P12203700000005SS26-38,0,61999.00,Zapato Michele
 Piccadilly,P12203700000005SS26,P12203700000005SS26-39,0,61999.00,Zapato Michele
 Piccadilly,P12203700000005SS26,P12203700000005SS26-40,0,61999.00,Zapato Michele
@@ -8605,7 +8601,7 @@ Piccadilly,P27904700000006FW26,P27904700000006FW26-40,3,109999.00,Zapato Silvia
 Piccadilly,P27904700000006FW26,P27904700000006FW26-41,3,109999.00,Zapato Silvia
 Piccadilly,P73901500000306FW25,P73901500000306FW25-35,1,89999.00,Zapato Taci
 Piccadilly,P73901500000306FW25,P73901500000306FW25-36,1,89999.00,Zapato Taci
-Piccadilly,P73901500000306FW25,P73901500000306FW25-37,3,89999.00,Zapato Taci
+Piccadilly,P73901500000306FW25,P73901500000306FW25-37,2,89999.00,Zapato Taci
 Piccadilly,P73901500000306FW25,P73901500000306FW25-38,0,89999.00,Zapato Taci
 Piccadilly,P73901500000306FW25,P73901500000306FW25-39,2,89999.00,Zapato Taci
 Piccadilly,P73901500000306FW25,P73901500000306FW25-40,0,89999.00,Zapato Taci
@@ -8636,7 +8632,7 @@ Piccadilly,P16010700000005SS26,P16010700000005SS26-41,0,79999.00,Zapato Tati
 Piccadilly,P16010900000012FW26,P16010900000012FW26-34,0,111999.00,Zapato Tati
 Piccadilly,P16010900000012FW26,P16010900000012FW26-35,0,111999.00,Zapato Tati
 Piccadilly,P16010900000012FW26,P16010900000012FW26-36,1,111999.00,Zapato Tati
-Piccadilly,P16010900000012FW26,P16010900000012FW26-37,2,111999.00,Zapato Tati
+Piccadilly,P16010900000012FW26,P16010900000012FW26-37,1,111999.00,Zapato Tati
 Piccadilly,P16010900000012FW26,P16010900000012FW26-38,3,111999.00,Zapato Tati
 Piccadilly,P16010900000012FW26,P16010900000012FW26-39,13,111999.00,Zapato Tati
 Piccadilly,P16010900000012FW26,P16010900000012FW26-40,1,111999.00,Zapato Tati
@@ -8663,11 +8659,11 @@ Piccadilly,P16010900000006FW26,P16010900000006FW26-37,3,111999.00,Zapato Tati
 Piccadilly,P16010900000006FW26,P16010900000006FW26-38,3,111999.00,Zapato Tati
 Piccadilly,P16010900000006FW26,P16010900000006FW26-39,4,111999.00,Zapato Tati
 Piccadilly,P16010900000006FW26,P16010900000006FW26-40,2,111999.00,Zapato Tati
-Piccadilly,P34400300000001SS26,P34400300000001SS26-36,0,85999.00,Zapato Uniforme
-Piccadilly,P34400300000001SS26,P34400300000001SS26-37,1,85999.00,Zapato Uniforme
-Piccadilly,P34400300000001SS26,P34400300000001SS26-38,0,85999.00,Zapato Uniforme
-Piccadilly,P34400300000001SS26,P34400300000001SS26-39,4,85999.00,Zapato Uniforme
-Piccadilly,P34400300000001SS26,P34400300000001SS26-40,2,85999.00,Zapato Uniforme
+Piccadilly,P34400300000001SS26,P34400300000001SS26-36,1,85999.00,Zapato Uniforme
+Piccadilly,P34400300000001SS26,P34400300000001SS26-37,3,85999.00,Zapato Uniforme
+Piccadilly,P34400300000001SS26,P34400300000001SS26-38,3,85999.00,Zapato Uniforme
+Piccadilly,P34400300000001SS26,P34400300000001SS26-39,7,85999.00,Zapato Uniforme
+Piccadilly,P34400300000001SS26,P34400300000001SS26-40,5,85999.00,Zapato Uniforme
 Piccadilly,P34400300000002SS26,P34400300000002SS26-35,1,85999.00,Zapato Uniforme
 Piccadilly,P34400300000002SS26,P34400300000002SS26-36,6,85999.00,Zapato Uniforme
 Piccadilly,P34400300000002SS26,P34400300000002SS26-37,4,85999.00,Zapato Uniforme
