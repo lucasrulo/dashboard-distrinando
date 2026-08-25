@@ -1214,7 +1214,7 @@ Reebok,RBK2100254020,RBK2100254020-XL,1,82799.00,Camiseta Reebok Street Sport Fo
 Reebok,RBK2100254020,RBK2100254020-XXL,0,82799.00,Camiseta Reebok Street Sport Football
 Reebok,RBK2100239872,RBK2100239872-2XL,0,156299.00,Campera Brooklyn Cropped Bomber
 Reebok,RBK2100239872,RBK2100239872-2XS,0,156299.00,Campera Brooklyn Cropped Bomber
-Reebok,RBK2100239872,RBK2100239872-L,1,156299.00,Campera Brooklyn Cropped Bomber
+Reebok,RBK2100239872,RBK2100239872-L,0,156299.00,Campera Brooklyn Cropped Bomber
 Reebok,RBK2100239872,RBK2100239872-M,0,156299.00,Campera Brooklyn Cropped Bomber
 Reebok,RBK2100239872,RBK2100239872-S,0,156299.00,Campera Brooklyn Cropped Bomber
 Reebok,RBK2100239872,RBK2100239872-XL,2,156299.00,Campera Brooklyn Cropped Bomber
@@ -2241,7 +2241,7 @@ Columbia,COL21639031466,COL21639031466-XXL,0,119999.00,Calza térmica larga Midw
 Columbia,COL21639031466,COL21639031466-XXXL,0,119999.00,Calza térmica larga Midweight Stretch Columbia para mujer
 Columbia,COL21639031011,COL21639031011-XS,4,119999.00,Calza térmica larga Midweight Stretch Columbia para mujer
 Columbia,COL21639031011,COL21639031011-S,0,119999.00,Calza térmica larga Midweight Stretch Columbia para mujer
-Columbia,COL21639031011,COL21639031011-M,10,119999.00,Calza térmica larga Midweight Stretch Columbia para mujer
+Columbia,COL21639031011,COL21639031011-M,9,119999.00,Calza térmica larga Midweight Stretch Columbia para mujer
 Columbia,COL21639031011,COL21639031011-L,3,119999.00,Calza térmica larga Midweight Stretch Columbia para mujer
 Columbia,COL21639031011,COL21639031011-XL,3,119999.00,Calza térmica larga Midweight Stretch Columbia para mujer
 Columbia,COL21639031011,COL21639031011-XXL,0,119999.00,Calza térmica larga Midweight Stretch Columbia para mujer
@@ -2932,7 +2932,7 @@ Columbia,COL22136841254,COL22136841254-XS,2,154999.00,Campera de polar Essential
 Columbia,COL22136841254,COL22136841254-S,4,154999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
 Columbia,COL22136841254,COL22136841254-M,0,154999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
 Columbia,COL22136841254,COL22136841254-L,0,154999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
-Columbia,COL22136841254,COL22136841254-XL,1,154999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
+Columbia,COL22136841254,COL22136841254-XL,0,154999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
 Columbia,COL22136841254,COL22136841254-XXL,1,154999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
 Columbia,COL22136841254,COL22136841254-XXXL,0,154999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
 Columbia,COL22136841464,COL22136841464-XS,3,154999.00,Campera de polar Essential Hike™ Grid de Columbia para hombre
@@ -3019,13 +3019,6 @@ Columbia,COL22156451010,COL22156451010-L,0,99999.00,Campera de polar Fast Trek�
 Columbia,COL22156451010,COL22156451010-XL,0,99999.00,Campera de polar Fast Trek™ V de Columbia para niño
 Columbia,COL22156451010,COL22156451010-XXL,0,99999.00,Campera de polar Fast Trek™ V de Columbia para niño
 Columbia,COL22156451010,COL22156451010-XXXL,0,99999.00,Campera de polar Fast Trek™ V de Columbia para niño
-Columbia,COL22126241348,COL22126241348-XS,0,144999.00,Campera de polar lBackbowl™ II de Columbia para hombre
-Columbia,COL22126241348,COL22126241348-S,0,144999.00,Campera de polar lBackbowl™ II de Columbia para hombre
-Columbia,COL22126241348,COL22126241348-M,0,144999.00,Campera de polar lBackbowl™ II de Columbia para hombre
-Columbia,COL22126241348,COL22126241348-L,0,144999.00,Campera de polar lBackbowl™ II de Columbia para hombre
-Columbia,COL22126241348,COL22126241348-XL,1,144999.00,Campera de polar lBackbowl™ II de Columbia para hombre
-Columbia,COL22126241348,COL22126241348-XXL,0,144999.00,Campera de polar lBackbowl™ II de Columbia para hombre
-Columbia,COL22126241348,COL22126241348-XXXL,0,144999.00,Campera de polar lBackbowl™ II de Columbia para hombre
 Columbia,COL21476671011,COL21476671011-XS,0,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
 Columbia,COL21476671011,COL21476671011-S,0,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
 Columbia,COL21476671011,COL21476671011-M,19,99999.00,Campera de polar Steens Mountain™ 2.0 de Columbia para hombre
@@ -3649,6 +3642,13 @@ Columbia,COL22094961278,COL22094961278-L,3,199999.00,Campera Triple Canyon™ co
 Columbia,COL22094961278,COL22094961278-XL,3,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
 Columbia,COL22094961278,COL22094961278-XXL,1,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
 Columbia,COL22094961278,COL22094961278-XXXL,0,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
+Columbia,COL22094961397,COL22094961397-XS,0,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
+Columbia,COL22094961397,COL22094961397-S,1,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
+Columbia,COL22094961397,COL22094961397-M,0,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
+Columbia,COL22094961397,COL22094961397-L,0,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
+Columbia,COL22094961397,COL22094961397-XL,3,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
+Columbia,COL22094961397,COL22094961397-XXL,1,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
+Columbia,COL22094961397,COL22094961397-XXXL,0,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
 Crocs,C10016643,C10016643-C90H,5,8999.00,3D Holiday Beach Umbrella
 Crocs,C10013552,C10013552-C99,1,8999.00,3D Kitty
 Crocs,C10013884,C10013884-C99,12,8999.00,A Tiny Friendship Letter
@@ -4263,7 +4263,7 @@ Crocs,C211873-C100,C211873-C100-M12,0,139999.00,Crocs 4LW System Clog
 Crocs,C211873-C100,C211873-C100-M13,0,139999.00,Crocs 4LW System Clog
 Crocs,C211874-C001,C211874-C001-C12/13,7,99999.00,Crocs 4LW System Clog K
 Crocs,C211874-C001,C211874-C001-J1,1,99999.00,Crocs 4LW System Clog K
-Crocs,C211874-C001,C211874-C001-J2,2,99999.00,Crocs 4LW System Clog K
+Crocs,C211874-C001,C211874-C001-J2,1,99999.00,Crocs 4LW System Clog K
 Crocs,C211874-C001,C211874-C001-J3,0,99999.00,Crocs 4LW System Clog K
 Crocs,C211874-C100,C211874-C100-C12/13,6,99999.00,Crocs 4LW System Clog K
 Crocs,C211874-C100,C211874-C100-J1,5,99999.00,Crocs 4LW System Clog K
