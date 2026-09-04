@@ -2811,13 +2811,6 @@ Columbia,COL22085311461,COL22085311461-L,0,109999.00,Campera de polar Columbia S
 Columbia,COL22085311461,COL22085311461-XL,1,109999.00,Campera de polar Columbia Sequoia Grove™ para mujer
 Columbia,COL22085311461,COL22085311461-XXL,0,109999.00,Campera de polar Columbia Sequoia Grove™ para mujer
 Columbia,COL22085311461,COL22085311461-XXXL,0,109999.00,Campera de polar Columbia Sequoia Grove™ para mujer
-Columbia,COL22085311551,COL22085311551-XS,0,109999.00,Campera de polar Columbia Sequoia Grove™ para mujer
-Columbia,COL22085311551,COL22085311551-S,0,109999.00,Campera de polar Columbia Sequoia Grove™ para mujer
-Columbia,COL22085311551,COL22085311551-M,0,109999.00,Campera de polar Columbia Sequoia Grove™ para mujer
-Columbia,COL22085311551,COL22085311551-L,1,109999.00,Campera de polar Columbia Sequoia Grove™ para mujer
-Columbia,COL22085311551,COL22085311551-XL,0,109999.00,Campera de polar Columbia Sequoia Grove™ para mujer
-Columbia,COL22085311551,COL22085311551-XXL,0,109999.00,Campera de polar Columbia Sequoia Grove™ para mujer
-Columbia,COL22085311551,COL22085311551-XXXL,0,109999.00,Campera de polar Columbia Sequoia Grove™ para mujer
 Columbia,COL21372111010,COL21372111010-XS,0,89999.00,Campera de polar con cierre de arriba abajo Benton Springs™ de Columbia para mujer
 Columbia,COL21372111010,COL21372111010-S,0,89999.00,Campera de polar con cierre de arriba abajo Benton Springs™ de Columbia para mujer
 Columbia,COL21372111010,COL21372111010-M,0,89999.00,Campera de polar con cierre de arriba abajo Benton Springs™ de Columbia para mujer
@@ -3548,7 +3541,7 @@ Columbia,COL22094961010,COL22094961010-XXL,0,199999.00,Campera Triple Canyon™ 
 Columbia,COL22094961010,COL22094961010-XXXL,0,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
 Columbia,COL22094961278,COL22094961278-XS,0,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
 Columbia,COL22094961278,COL22094961278-S,3,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
-Columbia,COL22094961278,COL22094961278-M,1,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
+Columbia,COL22094961278,COL22094961278-M,0,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
 Columbia,COL22094961278,COL22094961278-L,3,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
 Columbia,COL22094961278,COL22094961278-XL,3,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
 Columbia,COL22094961278,COL22094961278-XXL,1,199999.00,Campera Triple Canyon™ con bolsillo delantero  Columbia para hombre
@@ -3600,6 +3593,11 @@ Columbia,COL21533891632,COL21533891632-M,3,179999.00,Campera Watertight™ II im
 Columbia,COL21533891632,COL21533891632-L,3,179999.00,Campera Watertight™ II impermeable Columbia para hombre
 Columbia,COL21533891632,COL21533891632-XL,3,179999.00,Campera Watertight™ II impermeable Columbia para hombre
 Columbia,COL21533891632,COL21533891632-XXL,1,179999.00,Campera Watertight™ II impermeable Columbia para hombre
+Columbia,COL21533891026,COL21533891026-S,4,179999.00,Campera Watertight™ II impermeable Columbia para hombre
+Columbia,COL21533891026,COL21533891026-M,5,179999.00,Campera Watertight™ II impermeable Columbia para hombre
+Columbia,COL21533891026,COL21533891026-L,6,179999.00,Campera Watertight™ II impermeable Columbia para hombre
+Columbia,COL21533891026,COL21533891026-XL,6,179999.00,Campera Watertight™ II impermeable Columbia para hombre
+Columbia,COL21533891026,COL21533891026-XXL,2,179999.00,Campera Watertight™ II impermeable Columbia para hombre
 Crocs,C10016643,C10016643-C90H,13,8999.00,3D Holiday Beach Umbrella
 Crocs,C10013884,C10013884-C99,10,8999.00,A Tiny Friendship Letter
 Crocs,C10014085,C10014085-C99,13,8999.00,B Tiny Friendship Letter
@@ -4060,8 +4058,8 @@ Crocs,C11016-C530,C11016-C530-M10/W12,0,74999.00,Crocband™ Clog
 Crocs,C11016-C530,C11016-C530-M11,0,74999.00,Crocband™ Clog
 Crocs,C11016-C530,C11016-C530-M12,0,74999.00,Crocband™ Clog
 Crocs,C11016-C530,C11016-C530-M13,0,74999.00,Crocband™ Clog
-Crocs,C11016-C1WW,C11016-C1WW-M4/W6,6,74999.00,Crocband™ Clog
-Crocs,C11016-C1WW,C11016-C1WW-M5/W7,6,74999.00,Crocband™ Clog
+Crocs,C11016-C1WW,C11016-C1WW-M4/W6,5,74999.00,Crocband™ Clog
+Crocs,C11016-C1WW,C11016-C1WW-M5/W7,5,74999.00,Crocband™ Clog
 Crocs,C11016-C1WW,C11016-C1WW-M6/W8,5,74999.00,Crocband™ Clog
 Crocs,C11016-C1WW,C11016-C1WW-M7/W9,0,74999.00,Crocband™ Clog
 Crocs,C11016-C1WW,C11016-C1WW-M8/W10,6,74999.00,Crocband™ Clog
@@ -5984,7 +5982,7 @@ Kappa,K135213IW-KSA03,K135213IW-KSA03-39,0,69999.00,Botines Kombat Marsella Ic
 Kappa,K135213IW-KSA03,K135213IW-KSA03-40,0,69999.00,Botines Kombat Marsella Ic
 Kappa,K135213IW-KSA03,K135213IW-KSA03-41,0,69999.00,Botines Kombat Marsella Ic
 Kappa,K135213IW-KSA03,K135213IW-KSA03-42,0,69999.00,Botines Kombat Marsella Ic
-Kappa,K135213IW-KSA03,K135213IW-KSA03-43,2,69999.00,Botines Kombat Marsella Ic
+Kappa,K135213IW-KSA03,K135213IW-KSA03-43,1,69999.00,Botines Kombat Marsella Ic
 Kappa,K135213IW-KSA03,K135213IW-KSA03-44,0,69999.00,Botines Kombat Marsella Ic
 Kappa,K135213IW-KSA03,K135213IW-KSA03-45,0,69999.00,Botines Kombat Marsella Ic
 Kappa,K135213IW-KSA05,K135213IW-KSA05-38,0,69999.00,Botines Kombat Marsella Ic
@@ -5992,7 +5990,7 @@ Kappa,K135213IW-KSA05,K135213IW-KSA05-39,0,69999.00,Botines Kombat Marsella Ic
 Kappa,K135213IW-KSA05,K135213IW-KSA05-40,0,69999.00,Botines Kombat Marsella Ic
 Kappa,K135213IW-KSA05,K135213IW-KSA05-41,0,69999.00,Botines Kombat Marsella Ic
 Kappa,K135213IW-KSA05,K135213IW-KSA05-42,0,69999.00,Botines Kombat Marsella Ic
-Kappa,K135213IW-KSA05,K135213IW-KSA05-43,5,69999.00,Botines Kombat Marsella Ic
+Kappa,K135213IW-KSA05,K135213IW-KSA05-43,4,69999.00,Botines Kombat Marsella Ic
 Kappa,K135213IW-KSA05,K135213IW-KSA05-44,3,69999.00,Botines Kombat Marsella Ic
 Kappa,K135213IW-KSA05,K135213IW-KSA05-45,1,69999.00,Botines Kombat Marsella Ic
 Kappa,K135213HW-KSA01,K135213HW-KSA01-38,0,69999.00,Botines Kombat Marsella Tg
@@ -6886,7 +6884,7 @@ Kappa,K2382H6VW-KA0VF,K2382H6VW-KA0VF-XS,0,134999.00,Camiseta Kombat Regular Hom
 Kappa,K2382H6VW-KA0VF,K2382H6VW-KA0VF-S,0,134999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2382H6VW-KA0VF,K2382H6VW-KA0VF-M,0,134999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2382H6VW-KA0VF,K2382H6VW-KA0VF-L,11,134999.00,Camiseta Kombat Regular Home Atlético Tucumán
-Kappa,K2382H6VW-KA0VF,K2382H6VW-KA0VF-XL,6,134999.00,Camiseta Kombat Regular Home Atlético Tucumán
+Kappa,K2382H6VW-KA0VF,K2382H6VW-KA0VF-XL,5,134999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2382H6VW-KA0VF,K2382H6VW-KA0VF-XXL,16,134999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2382H6VW-KA0VF,K2382H6VW-KA0VF-XXXL,18,134999.00,Camiseta Kombat Regular Home Atlético Tucumán
 Kappa,K2361Y2KWSJ-KA00B,K2361Y2KWSJ-KA00B-XS,0,99999.00,Camiseta Kombat Regular Home Huracán
@@ -7342,7 +7340,7 @@ Piccadilly,P11020200000006FW26,P11020200000006FW26-35,0,127999.00,Bota Laura
 Piccadilly,P11020200000006FW26,P11020200000006FW26-36,0,127999.00,Bota Laura
 Piccadilly,P11020200000006FW26,P11020200000006FW26-37,1,127999.00,Bota Laura
 Piccadilly,P11020200000006FW26,P11020200000006FW26-38,1,127999.00,Bota Laura
-Piccadilly,P11020200000006FW26,P11020200000006FW26-39,1,127999.00,Bota Laura
+Piccadilly,P11020200000006FW26,P11020200000006FW26-39,0,127999.00,Bota Laura
 Piccadilly,P11020200000006FW26,P11020200000006FW26-40,0,127999.00,Bota Laura
 Piccadilly,P11020200000006FW26,P11020200000006FW26-41,0,127999.00,Bota Laura
 Piccadilly,P11020200000006FW26,P11020200000006FW26-42,0,127999.00,Bota Laura
@@ -7718,7 +7716,7 @@ Piccadilly,P31801500000011FW26,P31801500000011FW26-35,1,115999.00,Mocasín Fabia
 Piccadilly,P31801500000011FW26,P31801500000011FW26-36,0,115999.00,Mocasín Fabiana
 Piccadilly,P31801500000011FW26,P31801500000011FW26-37,0,115999.00,Mocasín Fabiana
 Piccadilly,P31801500000011FW26,P31801500000011FW26-38,9,115999.00,Mocasín Fabiana
-Piccadilly,P31801500000011FW26,P31801500000011FW26-39,10,115999.00,Mocasín Fabiana
+Piccadilly,P31801500000011FW26,P31801500000011FW26-39,9,115999.00,Mocasín Fabiana
 Piccadilly,P31801500000011FW26,P31801500000011FW26-40,6,115999.00,Mocasín Fabiana
 Piccadilly,P31801500000011FW26,P31801500000011FW26-41,0,115999.00,Mocasín Fabiana
 Piccadilly,P31801500000012FW26,P31801500000012FW26-35,0,115999.00,Mocasín Fabiana
