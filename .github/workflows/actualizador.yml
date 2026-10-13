@@ -40,6 +40,7 @@ jobs:
           TOKEN_CROCS: ${{ secrets.TOKEN_CROCS }}
           TOKEN_KAPPA: ${{ secrets.TOKEN_KAPPA }}
           TOKEN_PICCADILLY: ${{ secrets.TOKEN_PICCADILLY }}
+          CLIENTES_SALT: ${{ secrets.CLIENTES_SALT }}
         run: python extractor.py
 
       - name: Ejecutar el Extractor de Catálogo (Stock y Precios)
@@ -61,6 +62,7 @@ jobs:
           MELI_KAPPA: ${{ secrets.MELI_KAPPA }}
           MELI_COLUMBIA: ${{ secrets.MELI_COLUMBIA }}
           GH_PAT_SECRETS: ${{ secrets.GH_PAT_SECRETS }}
+          CLIENTES_SALT: ${{ secrets.CLIENTES_SALT }}
         run: python extractor_meli.py
 
       - name: Guardar los nuevos CSV en GitHub
