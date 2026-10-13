@@ -1,0 +1,56 @@
+name: Probar extractor MeLi
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar librerías
+        run: pip install requests "pandas>=2.1,<3.0"
+
+      - name: Correr extractor (sin commitear nada)
+        env:
+          MELI_APP_ID: ${{ secrets.MELI_APP_ID }}
+          MELI_CLIENT_SECRET: ${{ secrets.MELI_CLIENT_SECRET }}
+          MELI_REEBOK: ${{ secrets.MELI_REEBOK }}
+          MELI_CROCS: ${{ secrets.MELI_CROCS }}
+          MELI_KAPPA: ${{ secrets.MELI_KAPPA }}
+          MELI_COLUMBIA: ${{ secrets.MELI_COLUMBIA }}
+          GH_PAT_SECRETS: ${{ secrets.GH_PAT_SECRETS }}
+        run: |
+          export MELI_FECHA_INICIO="$(TZ=America/Argentina/Buenos_Aires date -d '7 days ago' +%Y-%m-%dT00:00:00.000-03:00)"
+          rm -f ventas_meli.csv ventas_meli_historico.csv
+          python extractor_meli.py
+
+      - name: Resumen
+        run: |
+          python - <<'EOF'
+          import pandas as pd, os
+          if not os.path.exists("ventas_meli.csv"):
+              raise SystemExit("❌ No se generó ventas_meli.csv (mirá el paso anterior)")
+          df = pd.read_csv("ventas_meli.csv")
+          neto = df[df["es_reverso"] == 0]
+          ped = neto.drop_duplicates(["marca", "id_pedido"])
+          print(f"Líneas: {len(df):,} | Pedidos netos: {len(ped):,} | Unidades netas: {neto['cantidad'].sum():,}")
+          print(f"Facturación neta: ${ped['total_pedido'].sum():,.0f} | Comisiones: ${neto['comision_meli'].sum():,.0f}")
+          print(f"Rango: {df['fecha'].min()} -> {df['fecha'].max()}")
+          print("\nPor marca:\n", ped.groupby("marca")["total_pedido"].agg(["count", "sum"]).to_string())
+          print("\nLogística:\n", ped["logistica"].value_counts().to_string())
+          print("\nEstado envío:\n", neto["fulfillment_status"].value_counts().to_string())
+          print("\nSKUs vacíos (sin seller_sku):", (df["sku"].astype(str).str.startswith("MLA")).sum())
+          print("\nMuestra:\n", df[["fecha", "marca", "sku", "producto", "cantidad", "total_pedido", "provincia"]].head(10).to_string())
+          EOF
+
+      - name: Subir CSV para revisar
+        uses: actions/upload-artifact@v4
+        with:
+          name: ventas_meli_prueba
+          path: ventas_meli.csv
