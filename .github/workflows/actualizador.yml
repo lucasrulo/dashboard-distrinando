@@ -51,6 +51,18 @@ jobs:
           TOKEN_PICCADILLY: ${{ secrets.TOKEN_PICCADILLY }}
         run: python extractor_catalogo.py
 
+      - name: Ejecutar el Extractor de MercadoLibre
+        continue-on-error: true   # si MeLi falla, Shopify igual se publica
+        env:
+          MELI_APP_ID: ${{ secrets.MELI_APP_ID }}
+          MELI_CLIENT_SECRET: ${{ secrets.MELI_CLIENT_SECRET }}
+          MELI_REEBOK: ${{ secrets.MELI_REEBOK }}
+          MELI_CROCS: ${{ secrets.MELI_CROCS }}
+          MELI_KAPPA: ${{ secrets.MELI_KAPPA }}
+          MELI_COLUMBIA: ${{ secrets.MELI_COLUMBIA }}
+          GH_PAT_SECRETS: ${{ secrets.GH_PAT_SECRETS }}
+        run: python extractor_meli.py
+
       - name: Guardar los nuevos CSV en GitHub
         run: |
           git config --global user.name "Robot Distrinando"
@@ -58,15 +70,17 @@ jobs:
           
           # Agregamos ventas, histórico y catálogo
           git add ventas_hot_sale.csv catalogo_stock.csv
-          if [ -f ventas_historico.csv ]; then
-            git add ventas_historico.csv
-          fi
+          for f in ventas_historico.csv ventas_meli.csv ventas_meli_historico.csv; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
           
           # Lógica: Solo hace commit si hubo cambios reales en cualquiera de los archivos
           if git diff --staged --quiet; then
             echo "ℹ️ No hay datos nuevos (ventas o stock). El repositorio se mantiene igual."
           else
-            git commit -m "🔄 Datos actualizados: Ventas y Catálogo [$(date +'%d/%m %H:%M:%S')]"
+            git commit -m "🔄 Datos actualizados: Ventas (Shopify+MeLi) y Catálogo [$(date +'%d/%m %H:%M:%S')]"
+            # Por si entró otro commit mientras corría (ej: metas guardadas desde el dashboard)
+            git pull --rebase -X theirs origin main || git pull --rebase origin main
             git push
             echo "✅ Nuevos datos subidos exitosamente a la nube."
           fi
