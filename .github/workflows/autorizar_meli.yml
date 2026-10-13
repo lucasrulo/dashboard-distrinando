@@ -26,13 +26,17 @@ jobs:
           python3 - <<'EOF'
           import os, json, time, subprocess, urllib.request, urllib.parse, urllib.error
 
+          def fallar(msg):
+              print(f"::error::{msg}")
+              raise SystemExit(1)
+
           marca = os.environ["MARCA"].strip()
           code_in = os.environ["CODE_IN"].strip()
           code = urllib.parse.parse_qs(urllib.parse.urlparse(code_in).query).get("code", [code_in])[0]
 
           for k in ("APP_ID", "CLIENT_SECRET", "GH_TOKEN"):
               if not os.environ.get(k):
-                  raise SystemExit(f"❌ Falta el secret para {k} (MELI_APP_ID / MELI_CLIENT_SECRET / GH_PAT_SECRETS)")
+                  fallar(f"❌ Falta el secret para {k} (MELI_APP_ID / MELI_CLIENT_SECRET / GH_PAT_SECRETS)")
 
           data = urllib.parse.urlencode({
               "grant_type": "authorization_code",
@@ -46,24 +50,31 @@ jobs:
           try:
               d = json.loads(urllib.request.urlopen(req, timeout=30).read())
           except urllib.error.HTTPError as e:
-              raise SystemExit(f"❌ MeLi rechazó el code (HTTP {e.code}): {e.read().decode()[:300]}\n"
+              fallar(f"❌ MeLi rechazó el code (HTTP {e.code}): {e.read().decode()[:300]}\n"
                                "   Suele ser: code vencido/ya usado -> generá uno nuevo y corré de nuevo rápido.")
 
           print(f"::add-mask::{d['access_token']}")
           if "refresh_token" not in d:
-              raise SystemExit("❌ No vino refresh_token: en la app de MeLi marcá el flujo 'Refresh Token'.")
+              fallar("❌ No vino refresh_token: en la app de MeLi marcá el flujo 'Refresh Token'.")
           print(f"::add-mask::{d['refresh_token']}")
 
           tok = {"access_token": d["access_token"], "refresh_token": d["refresh_token"],
                  "expires_at": int(time.time()) + int(d.get("expires_in", 21600)), "user_id": d["user_id"]}
 
-          u = json.loads(urllib.request.urlopen(f"https://api.mercadolibre.com/users/{d['user_id']}", timeout=30).read())
           nombre = "MELI_" + marca.upper().replace(" ", "_")
           r = subprocess.run(["gh", "secret", "set", nombre, "--repo", os.environ["REPO"], "--body", json.dumps(tok)],
                              capture_output=True, text=True)
           if r.returncode != 0:
-              raise SystemExit(f"❌ No se pudo guardar el secret: {r.stderr[:300]}\n   Revisá permisos del GH_PAT_SECRETS (Secrets: Read and write).")
+              fallar(f"❌ No se pudo guardar el secret: {r.stderr[:300]}\n   Revisá permisos del GH_PAT_SECRETS (Secrets: Read and write).")
 
-          print(f"✅ Autorizado: nickname={u.get('nickname')} | user_id={d['user_id']}")
+          # Nickname solo para verificar la cuenta (con token; si falla no importa, el secret ya está guardado)
+          nick = "?"
+          try:
+              rq = urllib.request.Request("https://api.mercadolibre.com/users/me",
+                                          headers={"Authorization": f"Bearer {d['access_token']}"})
+              nick = json.loads(urllib.request.urlopen(rq, timeout=30).read()).get("nickname", "?")
+          except Exception as e:
+              print(f"⚠️ No pude leer el nickname ({e}), pero los tokens se guardaron bien.")
+          print(f"✅ Autorizado: nickname={nick} | user_id={d['user_id']}")
           print(f"🔒 Guardado en el secret {nombre}")
           EOF
