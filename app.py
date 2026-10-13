@@ -4,6 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
 import os
+import io
 import json
 import requests
 import time
@@ -83,8 +84,9 @@ st.markdown("""
 
 # 3. CONSTANTES Y MAPEOS
 DIAS_MAPA = {'Monday': 'Lunes', 'Tuesday': 'Martes', 'Wednesday': 'Miércoles', 'Thursday': 'Jueves', 'Friday': 'Viernes', 'Saturday': 'Sábado', 'Sunday': 'Domingo'}
-ESTADO_MAPA = {'fulfilled': 'Enviado', 'null': 'Pendiente', 'pending': 'En Preparación', 'restocked': 'Devuelto', 'unfulfilled': 'No Enviado'}
+ESTADO_MAPA = {'fulfilled': 'Enviado', 'null': 'Pendiente', 'pending': 'En Preparación', 'restocked': 'Devuelto', 'unfulfilled': 'No Enviado', 'partial': 'Envío Parcial'}
 PALETA_MARCAS = {'Reebok': '#38BDF8', 'Columbia': '#818CF8', 'Crocs': '#34D399', 'Kappa': '#F472B6', 'Piccadilly': '#FBBF24'}
+PALETA_CANALES = {'Tienda Online': '#38BDF8', 'MercadoLibre': '#FFE600'}
 
 # DOMINIOS OFICIALES PARA FALLBACK DE BÚSQUEDA
 DOMINIOS_OFICIALES = {
@@ -125,12 +127,39 @@ def generar_url_imagen_propia(marca, modelo_color):
 # --- DESPLIEGUE DEL DASHBOARD PRINCIPAL
 # ==============================================================================
 
+def leer_csv_repo(nombre):
+    """Lee un CSV del repo de datos. Si hay GH_TOKEN en secrets lo usa (sirve si el repo pasa a privado)."""
+    url = f"https://raw.githubusercontent.com/lucasrulo/dashboard-distrinando/main/{nombre}?t={int(time.time() // 60)}"
+    headers = {}
+    try:
+        if "GH_TOKEN" in st.secrets: headers["Authorization"] = f"token {st.secrets['GH_TOKEN']}"
+    except Exception: pass
+    r = requests.get(url, headers=headers, timeout=60)
+    if r.status_code != 200: return pd.DataFrame()
+    return pd.read_csv(io.BytesIO(r.content))
+
 @st.cache_data(ttl=60)
 def load_data():
-    if not os.path.exists("ventas_hot_sale.csv"): return pd.DataFrame()
-    df = pd.read_csv("ventas_hot_sale.csv")
-    
-    df['fecha'] = pd.to_datetime(df['fecha'], errors='coerce', format='mixed')
+    # Los datos viven en el repo lucasrulo/dashboard-distrinando (lo actualiza GitHub Actions)
+    try:
+        df_shop = leer_csv_repo("ventas_hot_sale.csv")
+    except Exception:
+        df_shop = pd.DataFrame()
+    try:
+        df_meli = leer_csv_repo("ventas_meli.csv")
+    except Exception:
+        df_meli = pd.DataFrame()
+    if not df_shop.empty: df_shop['canal'] = 'Tienda Online'
+    if not df_meli.empty: df_meli['canal'] = 'MercadoLibre'
+    df = pd.concat([d for d in [df_shop, df_meli] if not d.empty], ignore_index=True) if not (df_shop.empty and df_meli.empty) else pd.DataFrame()
+    if df.empty: return df
+    if 'comision_meli' not in df.columns: df['comision_meli'] = 0.0
+    df['comision_meli'] = pd.to_numeric(df['comision_meli'], errors='coerce').fillna(0)
+    if 'logistica' not in df.columns: df['logistica'] = 'Tienda Online'
+    df['logistica'] = df['logistica'].fillna('Tienda Online')
+
+    # utc=True + tz_convert: MeLi informa fechas en -04:00 y Shopify en -03:00; así no se mezclan zonas
+    df['fecha'] = pd.to_datetime(df['fecha'], errors='coerce', format='mixed', utc=True).dt.tz_convert(ZONA_AR)
     
     if 'total_orden' in df.columns and 'total_pedido' not in df.columns: df.rename(columns={'total_orden': 'total_pedido'}, inplace=True)
     if 'total_pedido' not in df.columns: df['total_pedido'] = 0
@@ -146,7 +175,10 @@ def load_data():
         df['tags'] = df['tags'].fillna('').astype(str)
         df['medio_pago'] = df['medio_pago'].fillna('').astype(str)
         # Vectorizado (en vez de .apply(axis=1)): mismo resultado, mucho más liviano en memoria/CPU
+        # Se combina con el es_reverso que ya viene del extractor (MeLi marca canceladas/reembolsadas ahí)
+        es_rev_origen = pd.to_numeric(df['es_reverso'], errors='coerce').fillna(0).astype(bool) if 'es_reverso' in df.columns else False
         df['es_reverso'] = (
+            es_rev_origen |
             df['tags'].str.lower().str.contains('reversso', na=False) |
             df['medio_pago'].str.lower().str.contains('reversso', na=False)
         ).astype('int8')
@@ -160,7 +192,7 @@ def load_data():
     if 'fecha_despacho' not in df.columns: 
         df['fecha_despacho'] = df['fecha'] + pd.to_timedelta(np.random.randint(1, 4, size=len(df)), unit='D')
     else:
-        df['fecha_despacho'] = pd.to_datetime(df['fecha_despacho'], errors='coerce', format='mixed')
+        df['fecha_despacho'] = pd.to_datetime(df['fecha_despacho'], errors='coerce', format='mixed', utc=True).dt.tz_convert(ZONA_AR)
 
     # ==========================================================================
     # 🪶 OPTIMIZACIÓN DE MEMORIA
@@ -169,7 +201,7 @@ def load_data():
     # sin tocar los valores). Los montos ($) se dejan en float64 a propósito: con
     # facturaciones en miles de millones, float32 pierde precisión.
     # ==========================================================================
-    cols_categoricas = ['marca', 'medio_pago', 'cuotas', 'descuento', 'provincia']
+    cols_categoricas = ['marca', 'medio_pago', 'cuotas', 'descuento', 'provincia', 'canal', 'logistica']
     for col in cols_categoricas:
         if col in df.columns:
             df[col] = df[col].astype('category')
@@ -253,7 +285,9 @@ try:
         st.sidebar.markdown("### ⚙️ Filtros Globales")
         marcas_disponibles = sorted(df_raw['marca'].unique())
         marcas_sel = st.sidebar.multiselect("Marcas a Visualizar", marcas_disponibles, default=marcas_disponibles)
-        
+        canales_disponibles = sorted(df_raw['canal'].dropna().unique())
+        canales_sel = st.sidebar.multiselect("Canales", canales_disponibles, default=canales_disponibles) or canales_disponibles
+
         f_min, f_max = df_raw['fecha'].min().date(), df_raw['fecha'].max().date()
         rango_fecha = st.sidebar.date_input("Rango de Fechas", [f_min, f_max], min_value=f_min, max_value=f_max)
 
@@ -285,7 +319,7 @@ try:
             st.rerun()
 
         # 1. Filtro Global (Bruto)
-        df_f_all = df_raw[df_raw['marca'].isin(marcas_sel)].copy()
+        df_f_all = df_raw[df_raw['marca'].isin(marcas_sel) & df_raw['canal'].isin(canales_sel)].copy()
         if len(rango_fecha) == 2: 
             df_f_all = df_f_all[(df_f_all['fecha'].dt.date >= rango_fecha[0]) & (df_f_all['fecha'].dt.date <= rango_fecha[1])]
 
@@ -303,7 +337,7 @@ try:
         
         with col_titu:
             st.title("📊 Panel de datos (Venta Neta)")
-            st.caption(f"Última actualización: {ahora_ar.strftime('%d/%m/%Y %H:%M')} hs (ARG) | Filtros Activos: {len(marcas_sel)} Marcas")
+            st.caption(f"Última actualización: {ahora_ar.strftime('%d/%m/%Y %H:%M')} hs (ARG) | Filtros Activos: {len(marcas_sel)} Marcas | Canales: {', '.join(canales_sel)}")
             
         with col_bot:
             st.write("") 
@@ -401,6 +435,41 @@ try:
                         <div class="brand-stat" title="Units Per Transaction"><span>UPT:</span><span class="brand-stat-val">{upt:,.2f}</span></div>
                         <div class="brand-stat" title="Average Selling Price"><span>ASP:</span><span class="brand-stat-val">${asp:,.0f}</span></div>
                     </div>""", unsafe_allow_html=True)
+
+        # --- SECCIÓN 3B: CANALES (TIENDA ONLINE vs MERCADOLIBRE) ---
+        if df_raw['canal'].nunique() > 1:
+            st.divider()
+            st.subheader("🛒 Tienda Online vs. MercadoLibre")
+            p_can = df_f.groupby(['canal', 'marca', 'id_pedido'], observed=True).first().reset_index()
+            can_fc = p_can.groupby(['marca', 'canal'], observed=True)['total_pedido'].sum().reset_index()
+            can_tot = p_can.groupby('canal', observed=True).agg(fact=('total_pedido', 'sum'), ords=('id_pedido', 'nunique'))
+            can_un = df_f.groupby('canal', observed=True)['cantidad'].sum()
+            com_meli = df_f.loc[df_f['canal'] == 'MercadoLibre', 'comision_meli'].sum()
+            fact_meli = can_tot['fact'].get('MercadoLibre', 0)
+
+            kc = st.columns(4)
+            for i_c, canal in enumerate(['Tienda Online', 'MercadoLibre']):
+                if canal in can_tot.index:
+                    f_c, o_c = can_tot.loc[canal, 'fact'], can_tot.loc[canal, 'ords']
+                    share = f_c / can_tot['fact'].sum() * 100 if can_tot['fact'].sum() > 0 else 0
+                    render_kpi(kc[i_c], f"{canal} ({share:.0f}%)", f"${f_c:,.0f}", PALETA_CANALES[canal])
+            render_kpi(kc[2], "Comisiones MeLi", f"${com_meli:,.0f}", "#F87171")
+            render_kpi(kc[3], "Neto MeLi (s/comisión)", f"${(fact_meli - com_meli):,.0f}", "#34D399")
+
+            cc1, cc2 = st.columns([1.4, 1])
+            with cc1:
+                fig_can = px.bar(can_fc, x='marca', y='total_pedido', color='canal', barmode='group', text_auto='.3s',
+                                 color_discrete_map=PALETA_CANALES, title="Facturación Neta por Marca y Canal")
+                fig_can.update_layout(xaxis_title="", yaxis_title="Facturación ($)", legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
+                st.plotly_chart(configurar_grafico(fig_can), width='stretch')
+            with cc2:
+                df_ml = df_f[df_f['canal'] == 'MercadoLibre']
+                if not df_ml.empty:
+                    log_ml = df_ml.groupby('logistica', observed=True)['id_pedido'].nunique().reset_index()
+                    fig_lml = px.pie(log_ml, values='id_pedido', names='logistica', hole=0.55, title="MeLi: Pedidos por Logística (Full / Flex / Colecta)",
+                                     color_discrete_sequence=['#FFE600', '#38BDF8', '#34D399', '#F472B6', '#94A3B8'])
+                    fig_lml.update_layout(legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5))
+                    st.plotly_chart(configurar_grafico(fig_lml), width='stretch')
 
         # --- SECCIÓN 4: MEDIDORES ---
         st.divider()
@@ -526,9 +595,17 @@ try:
                 if not df_p.empty:
                     col_nom = 'producto_base' if "Modelo/Color" in tipo_agrupacion else 'producto'
                     
-                    df_p['img_azure'] = df_p.apply(lambda r: generar_url_imagen_propia(r['marca'], r['modelo_color']), axis=1)
-                    
-                    top_10 = df_p.groupby([col_nom, 'img_azure', 'url_web', 'modelo_color']).agg({'cantidad': 'sum', 'subtotal_producto': 'sum'}).sort_values(by='cantidad', ascending=False).head(10).reset_index()
+                    # Agrupa por código (modelo_color o SKU) para sumar Tienda Online + MeLi del mismo artículo
+                    clave_top = 'modelo_color' if "Modelo/Color" in tipo_agrupacion else 'sku'
+                    def primer_link(s):
+                        return next((u for u in s.astype(str) if u.startswith('http') and not u.endswith('/#')), '#')
+                    top_10 = (df_p[df_p['cantidad'] > 0].groupby(clave_top)
+                              .agg(nombre=(col_nom, 'first'), url_web=('url_web', primer_link),
+                                   mc=('modelo_color', 'first'), cantidad=('cantidad', 'sum'), subtotal_producto=('subtotal_producto', 'sum'))
+                              .sort_values(by='cantidad', ascending=False).head(10).reset_index(drop=True))
+                    top_10[col_nom] = top_10['nombre']
+                    top_10['modelo_color'] = top_10['mc']
+                    top_10['img_azure'] = [generar_url_imagen_propia(m_tab, mc) for mc in top_10['mc']]
                     for r_idx in range(0, len(top_10), 5):
                         filas_p = st.columns(5)
                         for c_idx, s_idx in enumerate(range(r_idx, r_idx + 5)):
@@ -671,7 +748,8 @@ try:
         col_f1, col_f2 = st.columns([1, 2])
         with col_f1: desc_marcas_sel = st.multiselect("Marca (Promo)", marcas_disponibles, default=marcas_disponibles, key="desc_marca")
         with col_f2:
-            df_desc_base = df_raw[(df_raw['descuento'] != 'SIN DESCUENTO') & (df_raw['descuento'] != '')]
+            desc_norm = df_raw['descuento'].astype(str).str.strip().str.upper()
+            df_desc_base = df_raw[~desc_norm.isin(['SIN DESCUENTO', '', 'NAN']) & df_raw['canal'].isin(canales_sel)]
             df_desc_filtrado_marcas = df_desc_base[df_desc_base['marca'].isin(desc_marcas_sel)]
             desc_disponibles = sorted(df_desc_filtrado_marcas['descuento'].astype(str).unique())
             desc_sel = st.multiselect("Código Promocional", desc_disponibles, default=desc_disponibles[:5] if len(desc_disponibles) > 0 else [], key="desc_promo")
