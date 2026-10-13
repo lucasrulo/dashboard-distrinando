@@ -1,0 +1,54 @@
+name: Backfill clientes (correr UNA vez)
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: actualizador-datos-shopify
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Instalar librerías
+        run: pip install -r requirements.txt
+
+      - name: Completar columna cliente en las ventas
+        env:
+          CLIENTES_SALT: ${{ secrets.CLIENTES_SALT }}
+          TOKEN_REEBOK: ${{ secrets.TOKEN_REEBOK }}
+          TOKEN_COLUMBIA: ${{ secrets.TOKEN_COLUMBIA }}
+          TOKEN_CROCS: ${{ secrets.TOKEN_CROCS }}
+          TOKEN_KAPPA: ${{ secrets.TOKEN_KAPPA }}
+          TOKEN_PICCADILLY: ${{ secrets.TOKEN_PICCADILLY }}
+          MELI_APP_ID: ${{ secrets.MELI_APP_ID }}
+          MELI_CLIENT_SECRET: ${{ secrets.MELI_CLIENT_SECRET }}
+          MELI_REEBOK: ${{ secrets.MELI_REEBOK }}
+          MELI_CROCS: ${{ secrets.MELI_CROCS }}
+          MELI_KAPPA: ${{ secrets.MELI_KAPPA }}
+          MELI_COLUMBIA: ${{ secrets.MELI_COLUMBIA }}
+          GH_PAT_SECRETS: ${{ secrets.GH_PAT_SECRETS }}
+        run: python backfill_clientes.py
+
+      - name: Resumen de clientes
+        run: python extractor_clientes.py
+
+      - name: Guardar en GitHub
+        run: |
+          git config --global user.name "Robot Distrinando"
+          git config --global user.email "robot@distrinando.com"
+          for f in ventas_hot_sale.csv ventas_historico.csv ventas_meli.csv ventas_meli_historico.csv clientes_resumen.csv clientes_cohortes.csv; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
+          git diff --staged --quiet || (git commit -m "👥 Backfill de clientes" && git pull --rebase -X theirs origin main && git push)

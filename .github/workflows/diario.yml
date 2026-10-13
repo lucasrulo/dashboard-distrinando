@@ -1,0 +1,62 @@
+name: Actualizador diario (Publicaciones MeLi + Clientes)
+
+on:
+  schedule:
+    # 06:10 y 14:10 hora Argentina (09:10 y 17:10 UTC)
+    - cron: '10 9,17 * * *'
+  workflow_dispatch:
+
+# Misma cola que el actualizador de ventas: nunca corren a la vez
+# (así no se pisan los commits ni la renovación de tokens de MeLi).
+concurrency:
+  group: actualizador-datos-shopify
+  cancel-in-progress: false
+
+jobs:
+  diario:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Instalar librerías
+        run: pip install -r requirements.txt
+
+      - name: Publicaciones de MercadoLibre
+        continue-on-error: true
+        env:
+          MELI_APP_ID: ${{ secrets.MELI_APP_ID }}
+          MELI_CLIENT_SECRET: ${{ secrets.MELI_CLIENT_SECRET }}
+          MELI_REEBOK: ${{ secrets.MELI_REEBOK }}
+          MELI_CROCS: ${{ secrets.MELI_CROCS }}
+          MELI_KAPPA: ${{ secrets.MELI_KAPPA }}
+          MELI_COLUMBIA: ${{ secrets.MELI_COLUMBIA }}
+          GH_PAT_SECRETS: ${{ secrets.GH_PAT_SECRETS }}
+        run: python extractor_meli_publicaciones.py
+
+      - name: Resumen de clientes
+        continue-on-error: true
+        run: python extractor_clientes.py
+
+      - name: Guardar en GitHub
+        run: |
+          git config --global user.name "Robot Distrinando"
+          git config --global user.email "robot@distrinando.com"
+          for f in meli_publicaciones.csv clientes_resumen.csv clientes_cohortes.csv; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
+          if git diff --staged --quiet; then
+            echo "ℹ️ Sin cambios."
+          else
+            git commit -m "📊 Datos diarios: publicaciones MeLi y clientes [$(date +'%d/%m %H:%M')]"
+            git pull --rebase -X theirs origin main || git pull --rebase origin main
+            git push
+          fi
