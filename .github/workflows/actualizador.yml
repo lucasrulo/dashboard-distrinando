@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Descargar el código
         uses: actions/checkout@v3
+        with:
+          ref: main   # siempre la última versión (no la del momento en que se encoló)
 
       - name: Preparar Python
         uses: actions/setup-python@v4
@@ -82,7 +84,7 @@ jobs:
           else
             git commit -m "🔄 Datos actualizados: Ventas (Shopify+MeLi) y Catálogo [$(date +'%d/%m %H:%M:%S')]"
             # Por si entró otro commit mientras corría (ej: metas guardadas desde el dashboard)
-            git pull --rebase -X theirs origin main || git pull --rebase origin main
+            git pull --rebase origin main
             git push
             echo "✅ Nuevos datos subidos exitosamente a la nube."
           fi
