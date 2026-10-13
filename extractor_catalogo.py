@@ -1,7 +1,9 @@
 import requests
 import pandas as pd
 import os
+import time
 from datetime import datetime
+
 
 # Función para leer tokens
 def obtener_token(nombre_secret):
@@ -12,6 +14,7 @@ def obtener_token(nombre_secret):
         if nombre_secret in secrets: return secrets[nombre_secret]
     except Exception: pass
     return None
+
 
 STORES = {
     "Reebok": {"url": "reebok-ar", "token": obtener_token("TOKEN_REEBOK")},
@@ -24,51 +27,61 @@ STORES = {
 FILENAME_CATALOGO = "catalogo_stock.csv"
 # Misma versión que extractor.py — mantenerlas sincronizadas al hacer el bump trimestral.
 API_VERSION = "2025-10"
+MAX_PAGINAS = 200  # válvula de seguridad (200 x 250 = 50.000 productos)
+
 
 def sync_catalogo():
     print(f"--- 📦 INICIANDO SINCRONIZACIÓN DE CATÁLOGO: {datetime.now()} ---")
     all_products = []
-    
+
     for name, info in STORES.items():
         if not info['token']: continue
         print(f"-> Extrayendo {name}...")
-        
-        base_url = f"https://{info['url']}.myshopify.com/admin/api/{API_VERSION}/products.json"
         headers = {"X-Shopify-Access-Token": info['token']}
-        
-        # Shopify limita a 250 por página
-        params = {"limit": 250, "status": "active"}
-        
+        url = f"https://{info['url']}.myshopify.com/admin/api/{API_VERSION}/products.json"
+        params = {"limit": 250, "status": "active", "fields": "id,title,handle,variants"}
+        store_url = f"https://{info['url']}.myshopify.com"
+        n_prod, pagina = 0, 0
         try:
-            res = requests.get(base_url, headers=headers, params=params, timeout=30)
-            if res.status_code != 200:
-                # Antes esto se tragaba en silencio. Ahora se ve en el log si el token
-                # o la versión de API tienen algún problema.
-                print(f"🚨 {name}: HTTP {res.status_code} -> {res.text[:300]}")
-                continue
-            products = res.json().get('products', [])
-            
-            for p in products:
-                for variant in p.get('variants', []):
-                    # El SKU es la clave para cruzar con tus ventas
-                    sku = str(variant.get('sku', '')).strip()
-                    if sku == '': continue
-                    
-                    all_products.append({
-                        "marca": name,
-                        "modelo_color": sku.rsplit('-', 1)[0] if '-' in sku else sku,
-                        "sku": sku,
-                        "stock": variant.get('inventory_quantity', 0),
-                        "precio": variant.get('price', 0),
-                        "titulo": p.get('title', 'S/D')
-                    })
+            # 🎯 FIX: antes se leía solo la primera página (250 productos por marca).
+            # Ahora se sigue el header "Link: rel=next" hasta traer todo el catálogo activo.
+            while url and pagina < MAX_PAGINAS:
+                pagina += 1
+                res = requests.get(url, headers=headers, params=params, timeout=30)
+                if res.status_code == 429:
+                    time.sleep(3)
+                    continue
+                if res.status_code != 200:
+                    print(f"🚨 {name}: HTTP {res.status_code} -> {res.text[:300]}")
+                    break
+                products = res.json().get('products', [])
+                n_prod += len(products)
+                for p in products:
+                    for variant in p.get('variants', []):
+                        sku = str(variant.get('sku') or '').strip()
+                        if sku == '': continue
+                        all_products.append({
+                            "marca": name,
+                            "modelo_color": sku.rsplit('-', 1)[0] if '-' in sku else sku,
+                            "sku": sku,
+                            "stock": variant.get('inventory_quantity', 0),
+                            "precio": variant.get('price', 0),
+                            "titulo": p.get('title', 'S/D'),
+                            "url_web": f"{store_url}/products/{p.get('handle')}",
+                        })
+                # La página siguiente ya trae sus parámetros en la URL (page_info)
+                url = res.links.get("next", {}).get("url")
+                params = None
+                time.sleep(0.5)
+            print(f"   ✅ {name}: {n_prod} productos activos en {pagina} páginas")
         except Exception as e:
             print(f"🚨 Error en {name}: {e}")
-            
+
     if all_products:
-        df = pd.DataFrame(all_products)
+        df = pd.DataFrame(all_products).drop_duplicates(subset=["marca", "sku"], keep="last")
         df.to_csv(FILENAME_CATALOGO, index=False)
         print(f"✅ Catálogo guardado. {len(df)} variantes procesadas.")
+
 
 if __name__ == "__main__":
     sync_catalogo()
