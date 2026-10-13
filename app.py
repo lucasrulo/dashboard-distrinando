@@ -107,8 +107,8 @@ section[data-testid="stSidebar"] { background: rgba(6,10,19,.94); border-right: 
 .kpi::after { content:""; position:absolute; right:-40px; top:-40px; width:120px; height:120px; border-radius:50%;
   background: var(--kpi-accent, #22D3EE); opacity:.07; filter: blur(4px); }
 .kpi-label { font-size:11px; text-transform:uppercase; letter-spacing:1.4px; color:var(--muted); font-weight:700; }
-.kpi-value { font-family:'Space Grotesk', sans-serif; font-size:30px; font-weight:700; color:#F8FAFC; margin:6px 0 8px; letter-spacing:-.5px; white-space:nowrap; }
-.kpi.sm .kpi-value { font-size:24px; }
+.kpi-value { font-family:'Space Grotesk', sans-serif; font-size:clamp(22px, 1.9vw, 30px); font-weight:700; color:#F8FAFC; margin:6px 0 8px; letter-spacing:-.5px; white-space:nowrap; }
+.kpi.sm .kpi-value { font-size:clamp(19px, 1.6vw, 24px); }
 .delta { display:inline-block; font-size:11.5px; font-weight:700; padding:2px 9px; border-radius:999px; }
 .delta.up { color:#34D399; background:rgba(52,211,153,.13); }
 .delta.down { color:#F87171; background:rgba(248,113,113,.13); }
@@ -132,25 +132,25 @@ section[data-testid="stSidebar"] { background: rgba(6,10,19,.94); border-right: 
 .pgrid { display:grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap:14px; }
 .prod { background:var(--card); border:1px solid var(--border); border-radius:18px; padding:12px; position:relative; transition: all .2s; display:flex; flex-direction:column; }
 .prod:hover { border-color: rgba(34,211,238,.5); transform: translateY(-3px); }
-.prod-rank { position:absolute; top:10px; left:10px; z-index:2; font-family:'Space Grotesk'; font-weight:700; font-size:12px; padding:2px 9px; border-radius:999px; background:rgba(6,10,19,.85); color:#F8FAFC; border:1px solid var(--border); }
+.prod-rank { position:absolute; top:10px; left:10px; z-index:2; font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:12px; padding:2px 9px; border-radius:999px; background:rgba(6,10,19,.85); color:#F8FAFC; border:1px solid var(--border); }
 .prod img { width:100%; height:150px; object-fit:contain; background:#fff; border-radius:12px; padding:6px; }
 .prod-name { font-size:12px; font-weight:600; color:#E5E7EB; line-height:1.3; height:32px; overflow:hidden; margin:10px 0 8px; }
 .prod-stats { display:flex; justify-content:space-between; border-top:1px solid var(--border); padding-top:8px; }
 .prod-stats div { font-size:9.5px; color:var(--muted); text-transform:uppercase; font-weight:700; letter-spacing:.6px; }
-.prod-stats b { display:block; font-family:'Space Grotesk'; font-size:15px; color:#22D3EE; letter-spacing:0; text-transform:none; }
+.prod-stats b { display:block; font-family:'Space Grotesk', sans-serif; font-size:15px; color:#22D3EE; letter-spacing:0; text-transform:none; }
 .chips { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
 .chip { font-size:10.5px; padding:2px 8px; border-radius:999px; background:rgba(148,163,184,.10); color:#CBD5E1; border:1px solid var(--border); }
 .prod a { text-decoration:none; }
 
 /* COMBOS */
 .combo { display:flex; align-items:center; gap:12px; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:10px 14px; margin-bottom:10px; }
-.combo-n { font-family:'Space Grotesk'; font-weight:700; color:#22D3EE; font-size:18px; width:34px; text-align:center; }
+.combo-n { font-family:'Space Grotesk', sans-serif; font-weight:700; color:#22D3EE; font-size:18px; width:34px; text-align:center; }
 .combo img { width:62px; height:62px; object-fit:contain; background:#fff; border-radius:10px; padding:3px; }
 .combo-plus { color:var(--muted); font-size:20px; font-weight:700; }
 .combo-txt { flex:1; font-size:13px; color:#E5E7EB; font-weight:600; line-height:1.45; }
 .combo-txt span { color:var(--muted); font-size:11px; font-weight:500; }
-.combo-f { text-align:right; font-family:'Space Grotesk'; color:#34D399; font-size:19px; font-weight:700; }
-.combo-f span { display:block; font-family:'Inter'; color:var(--muted); font-size:9.5px; text-transform:uppercase; letter-spacing:.8px; }
+.combo-f { text-align:right; font-family:'Space Grotesk', sans-serif; color:#34D399; font-size:19px; font-weight:700; }
+.combo-f span { display:block; font-family:'Inter', sans-serif; color:var(--muted); font-size:9.5px; text-transform:uppercase; letter-spacing:.8px; }
 
 /* TABLAS */
 .tbl-wrap { background:var(--card); border:1px solid var(--border); border-radius:18px; overflow-x:auto; }
@@ -167,17 +167,24 @@ section[data-testid="stSidebar"] { background: rgba(6,10,19,.94); border-right: 
 .pill.warn { background:rgba(251,191,36,.14); color:#FBBF24; }
 .pill.bad { background:rgba(248,113,113,.14); color:#F87171; }
 
-/* TABS */
-.stTabs [data-baseweb="tab-list"] { gap:6px; background:rgba(15,23,42,.7); padding:6px; border-radius:16px; border:1px solid var(--border); flex-wrap:wrap; }
-.stTabs [data-baseweb="tab"] { height:42px; padding:0 18px; border-radius:11px; color:var(--muted); font-weight:600; background:transparent; }
-.stTabs [data-baseweb="tab"]:hover { color:#E5E7EB; background:rgba(148,163,184,.08); }
-.stTabs [aria-selected="true"] { background:linear-gradient(135deg, rgba(34,211,238,.22), rgba(167,139,250,.22)) !important; color:#F8FAFC !important; }
+/* TABS (selectores por rol: funcionan en versiones nuevas y viejas de Streamlit) */
+.stTabs [role="tablist"] { gap:6px; background:rgba(15,23,42,.7); padding:6px; border-radius:16px; border:1px solid var(--border); flex-wrap:wrap; }
+.stTabs [role="tab"] { height:42px; padding:0 18px; border-radius:11px; color:var(--muted); font-weight:600; background:transparent; display:flex; align-items:center; border:none !important; }
+.stTabs [role="tab"] p { font-weight:600; font-size:14px; }
+.stTabs [role="tab"]:hover { color:#E5E7EB; background:rgba(148,163,184,.08); }
+.stTabs [role="tab"][aria-selected="true"] { background:linear-gradient(135deg, rgba(34,211,238,.24), rgba(167,139,250,.24)) !important; color:#F8FAFC !important; box-shadow: inset 0 0 0 1px rgba(34,211,238,.35); }
+.stTabs [role="tab"][aria-selected="true"] p { color:#F8FAFC; }
 .stTabs [data-baseweb="tab-highlight"], .stTabs [data-baseweb="tab-border"] { display:none; }
+.stTabs [role="tabpanel"] { padding-top: 6px; }
+
+/* TAGS DEL MULTISELECT */
+[data-testid="stMultiSelectTagsContainer"] [data-tag], span[data-baseweb="tag"] {
+  background: rgba(34,211,238,.14) !important; color:#A5F3FC !important; border:1px solid rgba(34,211,238,.35) !important; border-radius:8px !important; }
 
 /* GRÁFICOS COMO CARDS */
 div[data-testid="stPlotlyChart"] { background:var(--card); border:1px solid var(--border); border-radius:18px; padding:6px 4px 2px; }
 div[data-testid="stExpander"] details { background:var(--card); border:1px solid var(--border); border-radius:16px; }
-.scope-head { display:flex; align-items:center; gap:8px; font-family:'Space Grotesk'; font-weight:700; font-size:16px; color:#F8FAFC; margin:6px 0 8px; }
+.scope-head { display:flex; align-items:center; gap:8px; font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:16px; color:#F8FAFC; margin:6px 0 8px; }
 
 @media (max-width: 900px) {
   .pgrid { grid-template-columns: repeat(2, minmax(0,1fr)); }
@@ -202,7 +209,7 @@ pio.templates["distri"] = go.layout.Template(layout=dict(
 
 
 def estilo(fig, h=360):
-    fig.update_layout(template="distri", height=h)
+    fig.update_layout(template="distri", height=h, legend_title_text="", uniformtext_minsize=9, uniformtext_mode="hide")
     return fig
 
 
@@ -211,6 +218,11 @@ def estilo(fig, h=360):
 # ==============================================================================
 def fmt_ars(v):
     return "$" + f"{v:,.0f}".replace(",", ".")
+
+
+def fmt_kpi(v):
+    """Montos de tarjetas: completos hasta 999 M; desde mil millones, en millones."""
+    return fmt_ars(v) if abs(v) < 1e9 else "$" + fmt_num(v / 1e6) + " M"
 
 
 def fmt_num(v):
@@ -515,16 +527,17 @@ def gauge(valor, objetivo, titulo, color, moneda=False):
            if objetivo > 0 else "<span style='font-size:12px;color:#8B95A7'>Sin meta cargada</span>")
     tope = max(objetivo * 1.2, valor * 1.05, 1)
     fig = go.Figure(go.Indicator(
-        mode="gauge+number", value=valor,
-        number=dict(prefix="$" if moneda else "", suffix="" if moneda else " un.", valueformat=",.0f",
-                    font=dict(size=24, family="Space Grotesk", color="#F8FAFC")),
+        mode="gauge", value=valor, domain=dict(x=[0, 1], y=[0.12, 1]),
         title=dict(text=f"{titulo}<br>{sub}", font=dict(size=13, color="#CBD5E1")),
         gauge=dict(shape="angular", axis=dict(range=[0, tope], visible=False),
                    bar=dict(color=color, thickness=0.3), bgcolor="rgba(148,163,184,.10)", borderwidth=0,
-                   threshold=dict(line=dict(color="#F8FAFC", width=3), thickness=0.95,
-                                  value=objetivo if objetivo > 0 else tope * 2)),
+                   threshold=dict(line=dict(color="#F8FAFC", width=3 if objetivo > 0 else 0), thickness=0.95,
+                                  value=objetivo if objetivo > 0 else 0)),
     ))
-    fig.update_layout(height=225, margin=dict(l=24, r=24, t=62, b=6), paper_bgcolor="rgba(0,0,0,0)",
+    txt = fmt_kpi(valor) if moneda else f"{fmt_num(valor)} un."
+    fig.add_annotation(x=0.5, y=0.08, xref="paper", yref="paper", showarrow=False, text=f"<b>{txt}</b>",
+                       font=dict(size=22, family="Space Grotesk, sans-serif", color="#F8FAFC"))
+    fig.update_layout(height=235, margin=dict(l=24, r=24, t=62, b=6), paper_bgcolor="rgba(0,0,0,0)",
                       separators=",.", font=dict(family="Inter"))
     return fig
 
@@ -547,7 +560,7 @@ f_min = df_raw["dia"].min()
 
 # ---------------- SIDEBAR ----------------
 with st.sidebar:
-    html("<div style='font-family:Space Grotesk;font-size:22px;font-weight:700;color:#F8FAFC;letter-spacing:1px'>DISTRINANDO</div>"
+    html("<div style='font-family:Space Grotesk, sans-serif;font-size:22px;font-weight:700;color:#F8FAFC;letter-spacing:1px'>DISTRINANDO</div>"
          "<div style='font-size:11px;color:#8B95A7;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px'>E-commerce · Analytics</div>")
     marcas_disp = sorted(map(str, df_raw["marca"].unique()))
     marcas_sel = st.multiselect("Marcas", marcas_disp, default=marcas_disp) or marcas_disp
@@ -636,7 +649,7 @@ with tab_res:
         av = (lambda key: a[key]) if a else (lambda key: None)
         pico = int(P_hoy["fecha"].dt.hour.value_counts().idxmax())
         cols = st.columns(5)
-        cols[0].markdown(kpi_card("Facturación hoy", fmt_ars(h["fact"]), delta_html(h["fact"], av("fact"), cap="vs ayer"),
+        cols[0].markdown(kpi_card("Facturación hoy", fmt_kpi(h["fact"]), delta_html(h["fact"], av("fact"), cap="vs ayer"),
                                   split_html(por_canal_vals(P_hoy, "total_pedido")), "#22D3EE", sm=True), unsafe_allow_html=True)
         cols[1].markdown(kpi_card("Órdenes", fmt_num(h["ords"]), delta_html(h["ords"], av("ords"), cap="vs ayer"),
                                   split_html(por_canal_vals(P_hoy, "ords")), "#A78BFA", sm=True), unsafe_allow_html=True)
@@ -655,7 +668,7 @@ with tab_res:
     dev_prev = P_prev_all["es_reverso"].mean() * 100 if (hay_prev and len(P_prev_all)) else None
     pv = (lambda key: kp[key]) if hay_prev else (lambda key: None)
     cols = st.columns(5)
-    cols[0].markdown(kpi_card("Facturación neta", fmt_ars(k["fact"]), delta_html(k["fact"], pv("fact")),
+    cols[0].markdown(kpi_card("Facturación neta", fmt_kpi(k["fact"]), delta_html(k["fact"], pv("fact")),
                               split_html(por_canal_vals(P, "total_pedido")), "#22D3EE"), unsafe_allow_html=True)
     cols[1].markdown(kpi_card("Órdenes netas", fmt_num(k["ords"]), delta_html(k["ords"], pv("ords")),
                               split_html(por_canal_vals(P, "ords")), "#A78BFA"), unsafe_allow_html=True)
@@ -683,8 +696,9 @@ with tab_res:
         st.plotly_chart(estilo(fig, 340), width="stretch")
     with c2:
         mc = a_str(P.groupby(["marca", "canal"], observed=True)["total_pedido"].sum().reset_index())
+        mc["txt"] = mc["total_pedido"].map(fmt_compact)
         fig = px.bar(mc, x="marca", y="total_pedido", color="canal", barmode="group", color_discrete_map=COLOR_CANAL,
-                     title="Facturación por marca y canal", text_auto=".3s")
+                     title="Facturación por marca y canal", text="txt")
         fig.update_traces(marker_line_width=0, textfont_size=11, hovertemplate="%{x}<br>$%{y:,.0f}<extra></extra>")
         fig.update_layout(xaxis_title="", yaxis_title="", bargap=0.25)
         st.plotly_chart(estilo(fig, 340), width="stretch")
@@ -694,7 +708,7 @@ with tab_res:
             html(kpi_card("Comisiones MeLi", "—", "<span class='delta flat'>sin ventas MeLi en el período</span>", "", "#FFE600"))
         else:
             com, fm = Pm["comision"].sum(), Pm["total_pedido"].sum()
-            html(kpi_card("Comisiones MeLi", fmt_ars(com),
+            html(kpi_card("Comisiones MeLi", fmt_kpi(com),
                           f"<span class='delta down'>{fmt_dec(com / fm * 100 if fm else 0)}% de la venta</span>",
                           f"<div class='split-legend' style='margin-top:12px'><span>Neto MeLi</span><b style='color:#34D399'>{fmt_ars(fm - com)}</b></div>",
                           "#FFE600", sm=True))
@@ -721,7 +735,7 @@ with tab_res:
             asp = r["fact"] / r["un"] if r["un"] else 0
             cols[j].markdown(
                 f"<div class='brand' style='--b-accent:{acc}'><div class='brand-name' style='color:{acc}'>{m}</div>"
-                f"<div class='brand-big'>{fmt_ars(r['fact'])}</div>{delta_html(r['fact'], rp['fact'] if rp else None, cap='vs ant.')}"
+                f"<div class='brand-big'>{fmt_kpi(r['fact'])}</div>{delta_html(r['fact'], rp['fact'] if rp else None, cap='vs ant.')}"
                 f"<div class='sep'></div>"
                 f"<div class='row'><span>Hoy</span><b style='color:#22D3EE'>{fmt_ars(hoy_m)}</b></div>"
                 f"<div class='row'><span>Órdenes</span><b>{fmt_num(r['ords'])}</b></div>"
@@ -1002,7 +1016,7 @@ with tab_com:
         else:
             ped_cod = dsel.drop_duplicates(["canal", "marca", "id_pedido"]).shape[0]
             cp = st.columns(3)
-            cp[0].markdown(kpi_card("Facturación con código", fmt_ars(dsel["subtotal_producto"].sum()), "", "", "#22D3EE", sm=True),
+            cp[0].markdown(kpi_card("Facturación con código", fmt_kpi(dsel["subtotal_producto"].sum()), "", "", "#22D3EE", sm=True),
                            unsafe_allow_html=True)
             cp[1].markdown(kpi_card("Pedidos con código", fmt_num(ped_cod),
                                     f"<span class='delta flat'>{fmt_dec(ped_cod / max(len(Pc), 1) * 100)}% del total</span>", "", "#A78BFA", sm=True),
@@ -1015,15 +1029,17 @@ with tab_com:
             g1, g2 = st.columns(2)
             with g1:
                 d_ = a_str(dsel.groupby(["descuento", dim_p], observed=True)["subtotal_producto"].sum().reset_index())
+                d_["txt"] = d_["subtotal_producto"].map(fmt_compact)
                 fig = px.bar(d_, x="subtotal_producto", y="descuento", color=dim_p, orientation="h", color_discrete_map=cm_p,
-                             title="Facturación por código", text_auto=".3s")
+                             title="Facturación por código", text="txt")
                 fig.update_layout(xaxis_title="", yaxis_title="", yaxis=dict(categoryorder="total ascending"))
                 fig.update_traces(marker_line_width=0)
                 st.plotly_chart(estilo(fig, 380), width="stretch")
             with g2:
                 d_ = a_str(dsel.groupby(["descuento", dim_p], observed=True)["cantidad"].sum().reset_index())
+                d_["txt"] = d_["cantidad"].map(fmt_num)
                 fig = px.bar(d_, x="cantidad", y="descuento", color=dim_p, orientation="h", color_discrete_map=cm_p,
-                             title="Unidades por código", text_auto=True)
+                             title="Unidades por código", text="txt")
                 fig.update_layout(xaxis_title="", yaxis_title="", yaxis=dict(categoryorder="total ascending"))
                 fig.update_traces(marker_line_width=0)
                 st.plotly_chart(estilo(fig, 380), width="stretch")
@@ -1072,7 +1088,8 @@ with tab_ops:
             env["lt"] = np.maximum(np.busday_count(fc_, fd_), 0)
 
         # ---------- LOGÍSTICA ----------
-        seccion("Logística", "Estado de despachos y eficiencia de depósito", "Órdenes netas del período.")
+        seccion("Logística", "Estado de despachos y eficiencia de depósito",
+            "Órdenes netas del período. SLA = días hábiles entre la compra y el despacho (excluye sábados y domingos).")
         enviadas = Po[Po["estado"] == "Enviado"]
         pend = Po[Po["estado"].isin(["En preparación", "Pendiente"])]
         lt_prom = env["lt"].mean() if not env.empty else 0
@@ -1092,8 +1109,9 @@ with tab_ops:
         with g1:
             if sel_o == "Consolidado":
                 es = a_str(Po.groupby(["canal", "estado"], observed=True).size().rename("n").reset_index())
+                es["txt"] = es["n"].map(fmt_num)
                 fig = px.bar(es, x="canal", y="n", color="estado", color_discrete_map=COLOR_ESTADO, title="Estados de envío por canal",
-                             text_auto=True)
+                             text="txt")
                 fig.update_traces(marker_line_width=0)
                 fig.update_layout(xaxis_title="", yaxis_title="Órdenes", bargap=0.4)
             else:
@@ -1116,7 +1134,7 @@ with tab_ops:
                              category_orders={"tramo": orden_t}, text_auto=".0f", custom_data=["n"],
                              title="Eficiencia de depósito (SLA) · % de órdenes despachadas")
                 fig.update_traces(marker_line_width=0, hovertemplate="%{x}<br>%{y:.1f}% · %{customdata[0]} órdenes<extra></extra>")
-                fig.update_layout(xaxis_title="Días hábiles entre compra y despacho (excluye sáb. y dom.)", yaxis_title="%", bargap=0.25)
+                fig.update_layout(xaxis_title="", yaxis_title="% de órdenes", bargap=0.25)
                 st.plotly_chart(estilo(fig, 380), width="stretch")
 
         # ---------- GEO ----------
@@ -1124,16 +1142,18 @@ with tab_ops:
         top_prov = Po.groupby("provincia", observed=True)["total_pedido"].sum().nlargest(10).index
         gp = a_str(Po[Po["provincia"].isin(top_prov)].groupby(["provincia", "canal"], observed=True)
                    .agg(fact=("total_pedido", "sum"), un=("unidades", "sum")).reset_index())
+        gp["txt_f"] = gp["fact"].map(fmt_compact)
+        gp["txt_u"] = gp["un"].map(fmt_num)
         g1, g2 = st.columns(2)
         with g1:
             fig = px.bar(gp, x="fact", y="provincia", color="canal", orientation="h", color_discrete_map=COLOR_CANAL,
-                         title="Facturación por provincia", text_auto=".3s")
+                         title="Facturación por provincia", text="txt_f")
             fig.update_layout(xaxis_title="", yaxis_title="", yaxis=dict(categoryorder="total ascending"))
             fig.update_traces(marker_line_width=0)
             st.plotly_chart(estilo(fig, 420), width="stretch")
         with g2:
             fig = px.bar(gp, x="un", y="provincia", color="canal", orientation="h", color_discrete_map=COLOR_CANAL,
-                         title="Unidades por provincia", text_auto=True)
+                         title="Unidades por provincia", text="txt_u")
             fig.update_layout(xaxis_title="", yaxis_title="", yaxis=dict(categoryorder="total ascending"))
             fig.update_traces(marker_line_width=0)
             st.plotly_chart(estilo(fig, 420), width="stretch")
