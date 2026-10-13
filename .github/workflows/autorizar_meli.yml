@@ -1,0 +1,69 @@
+name: Autorizar cuenta MeLi
+
+on:
+  workflow_dispatch:
+    inputs:
+      marca:
+        description: "Marca (ej: Reebok)"
+        required: true
+      code:
+        description: "URL completa de google.com/?code=TG-... (o solo el code)"
+        required: true
+
+jobs:
+  autorizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Canjear code por tokens y guardar secret
+        env:
+          APP_ID: ${{ secrets.MELI_APP_ID }}
+          CLIENT_SECRET: ${{ secrets.MELI_CLIENT_SECRET }}
+          GH_TOKEN: ${{ secrets.GH_PAT_SECRETS }}
+          MARCA: ${{ inputs.marca }}
+          CODE_IN: ${{ inputs.code }}
+          REPO: ${{ github.repository }}
+        run: |
+          python3 - <<'EOF'
+          import os, json, time, subprocess, urllib.request, urllib.parse, urllib.error
+
+          marca = os.environ["MARCA"].strip()
+          code_in = os.environ["CODE_IN"].strip()
+          code = urllib.parse.parse_qs(urllib.parse.urlparse(code_in).query).get("code", [code_in])[0]
+
+          for k in ("APP_ID", "CLIENT_SECRET", "GH_TOKEN"):
+              if not os.environ.get(k):
+                  raise SystemExit(f"❌ Falta el secret para {k} (MELI_APP_ID / MELI_CLIENT_SECRET / GH_PAT_SECRETS)")
+
+          data = urllib.parse.urlencode({
+              "grant_type": "authorization_code",
+              "client_id": os.environ["APP_ID"],
+              "client_secret": os.environ["CLIENT_SECRET"],
+              "code": code,
+              "redirect_uri": "https://www.google.com",
+          }).encode()
+          req = urllib.request.Request("https://api.mercadolibre.com/oauth/token", data=data, headers={
+              "accept": "application/json", "content-type": "application/x-www-form-urlencoded"})
+          try:
+              d = json.loads(urllib.request.urlopen(req, timeout=30).read())
+          except urllib.error.HTTPError as e:
+              raise SystemExit(f"❌ MeLi rechazó el code (HTTP {e.code}): {e.read().decode()[:300]}\n"
+                               "   Suele ser: code vencido/ya usado -> generá uno nuevo y corré de nuevo rápido.")
+
+          print(f"::add-mask::{d['access_token']}")
+          if "refresh_token" not in d:
+              raise SystemExit("❌ No vino refresh_token: en la app de MeLi marcá el flujo 'Refresh Token'.")
+          print(f"::add-mask::{d['refresh_token']}")
+
+          tok = {"access_token": d["access_token"], "refresh_token": d["refresh_token"],
+                 "expires_at": int(time.time()) + int(d.get("expires_in", 21600)), "user_id": d["user_id"]}
+
+          u = json.loads(urllib.request.urlopen(f"https://api.mercadolibre.com/users/{d['user_id']}", timeout=30).read())
+          nombre = "MELI_" + marca.upper().replace(" ", "_")
+          r = subprocess.run(["gh", "secret", "set", nombre, "--repo", os.environ["REPO"], "--body", json.dumps(tok)],
+                             capture_output=True, text=True)
+          if r.returncode != 0:
+              raise SystemExit(f"❌ No se pudo guardar el secret: {r.stderr[:300]}\n   Revisá permisos del GH_PAT_SECRETS (Secrets: Read and write).")
+
+          print(f"✅ Autorizado: nickname={u.get('nickname')} | user_id={d['user_id']}")
+          print(f"🔒 Guardado en el secret {nombre}")
+          EOF
