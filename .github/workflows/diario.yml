@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Descargar el código
         uses: actions/checkout@v4
+        with:
+          ref: main   # siempre la última versión (no la del momento en que se encoló)
 
       - name: Preparar Python
         uses: actions/setup-python@v5
@@ -57,6 +59,6 @@ jobs:
             echo "ℹ️ Sin cambios."
           else
             git commit -m "📊 Datos diarios: publicaciones MeLi y clientes [$(date +'%d/%m %H:%M')]"
-            git pull --rebase -X theirs origin main || git pull --rebase origin main
+            git pull --rebase origin main
             git push
           fi
