@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 import time
 import os
+import hashlib
 from datetime import datetime, timedelta, timezone
 
 # ==============================================================================
@@ -21,6 +22,23 @@ FILENAME_HISTORICO = "ventas_historico.csv"
 # sin memoria cargando meses y meses de datos que ya nadie mira en el día a día.
 DIAS_RETENCION_LIVE = 90
 ZONA_AR = timezone(timedelta(hours=-3))
+
+# 🔒 Cliente seudonimizado: el repo de datos es público, así que NUNCA se guarda el email.
+# Se guarda un hash con "sal" secreta (secret CLIENTES_SALT): permite contar clientes nuevos/
+# recurrentes y cruzar marcas (mismo email en distintas tiendas), sin exponer a nadie.
+CLIENTES_SALT = os.environ.get("CLIENTES_SALT", "")
+
+
+def hash_cliente(valor):
+    v = str(valor or "").strip().lower()
+    if not v or v in ("none", "nan"):
+        return ""
+    return hashlib.sha256((CLIENTES_SALT + v).encode()).hexdigest()[:16]
+
+
+def cliente_de_orden(o):
+    cust = o.get('customer') or {}
+    return hash_cliente(o.get('email') or o.get('contact_email') or cust.get('email') or cust.get('id'))
 
 # Versión del Admin API REST. Shopify sostiene cada versión ~12 meses; hay que
 # subirla cada 3-4 meses. Julio 2026: estables son 2025-10, 2026-01, 2026-04.
@@ -54,14 +72,27 @@ class ShopifyManager:
         self.catalog = {}
 
     def fetch_catalog(self):
+        # 🎯 FIX: antes se leía solo la primera página (250 productos) y la mayoría de las
+        # ventas quedaba sin link (url_web = "#"). Ahora se recorre todo el catálogo.
         try:
-            res = requests.get(f"{self.base_url}/products.json", headers=self.headers, params={"limit": 250, "fields": "id,handle,image"}, timeout=20)
-            if res.status_code != 200:
-                print(f"   🚨 {self.name} (catálogo): HTTP {res.status_code} - {res.text[:300]}")
-                return
-            for p in res.json().get('products', []):
-                img = p.get('image', {}).get('src', '') if p.get('image') else ''
-                self.catalog[p['id']] = {"img": img, "link": f"{self.store_url}/products/{p.get('handle')}"}
+            url = f"{self.base_url}/products.json"
+            params = {"limit": 250, "fields": "id,handle,image"}
+            for _ in range(200):
+                res = requests.get(url, headers=self.headers, params=params, timeout=20)
+                if res.status_code == 429:
+                    time.sleep(3)
+                    continue
+                if res.status_code != 200:
+                    print(f"   🚨 {self.name} (catálogo): HTTP {res.status_code} - {res.text[:300]}")
+                    return
+                for p in res.json().get('products', []):
+                    img = p.get('image', {}).get('src', '') if p.get('image') else ''
+                    self.catalog[p['id']] = {"img": img, "link": f"{self.store_url}/products/{p.get('handle')}"}
+                url = res.links.get("next", {}).get("url")
+                params = None
+                if not url:
+                    break
+                time.sleep(0.5)
         except Exception as e:
             print(f"   🚨 {self.name} (catálogo): Excepción {e}")
 
@@ -125,7 +156,7 @@ class ShopifyManager:
                         "fulfillment_status": o.get('fulfillment_status') or 'pending',
                         "img_url": "", "url_web": "#",
                         "subtotal_producto": 0.0, "medio_pago": medio_pago,
-                        "cuotas": cuotas, "descuento": descuento, "tags": tags_raw,
+                        "cuotas": cuotas, "descuento": descuento, "tags": tags_raw, "cliente": cliente_de_orden(o),
                         "provincia": provincia, "fecha_despacho": fecha_despacho
                     })
                 for item in items:
@@ -145,7 +176,7 @@ class ShopifyManager:
                         "fulfillment_status": o.get('fulfillment_status') or 'pending',
                         "img_url": p_info['img'], "url_web": p_info['link'],
                         "subtotal_producto": precio_unitario * cantidad, "medio_pago": medio_pago,
-                        "cuotas": cuotas, "descuento": descuento, "tags": tags_raw,
+                        "cuotas": cuotas, "descuento": descuento, "tags": tags_raw, "cliente": cliente_de_orden(o),
                         "provincia": provincia, "fecha_despacho": fecha_despacho
                     })
         except Exception as e:
