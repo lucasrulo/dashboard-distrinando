@@ -12,6 +12,7 @@ Secrets necesarios en GitHub Actions:
 import os
 import json
 import time
+import hashlib
 import subprocess
 from datetime import datetime, timedelta, timezone
 
@@ -38,6 +39,17 @@ CUENTAS = {
     "Kappa": "MELI_KAPPA",
     "Columbia": "MELI_COLUMBIA",
 }
+
+CLIENTES_SALT = os.environ.get("CLIENTES_SALT", "")
+
+
+def hash_cliente(valor):
+    """Comprador seudonimizado (el repo es público: nunca se guarda el id real)."""
+    v = str(valor or "").strip().lower()
+    if not v or v in ("none", "nan"):
+        return ""
+    return hashlib.sha256((CLIENTES_SALT + v).encode()).hexdigest()[:16]
+
 
 APP_ID = os.environ.get("MELI_APP_ID")
 CLIENT_SECRET = os.environ.get("MELI_CLIENT_SECRET")
@@ -219,6 +231,8 @@ class MeliCuenta:
                 "fecha_despacho": envio.get("fecha_despacho"),
                 # --- columnas propias de MeLi ---
                 "orden_meli": o["id"],
+                "item_id": item_id,
+                "cliente": hash_cliente(f"meli:{(o.get('buyer') or {}).get('id', '')}"),
                 "total_orden_meli": float(o.get("total_amount", 0) or 0),
                 "comision_meli": float(oi.get("sale_fee", 0) or 0) * cant,
                 "logistica": envio.get("logistica", "S/D"),
