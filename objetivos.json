@@ -1,0 +1,46 @@
+{
+  "Tienda Online": {
+    "Columbia": {
+      "unidades": 1200,
+      "facturacion": 320000000
+    },
+    "Crocs": {
+      "unidades": 1200,
+      "facturacion": 500000000
+    },
+    "Kappa": {
+      "unidades": 1200,
+      "facturacion": 250000000
+    },
+    "Piccadilly": {
+      "unidades": 1200,
+      "facturacion": 250000000
+    },
+    "Reebok": {
+      "unidades": 1200,
+      "facturacion": 400000000
+    }
+  },
+  "MercadoLibre": {
+    "Columbia": {
+      "unidades": 0,
+      "facturacion": 0
+    },
+    "Crocs": {
+      "unidades": 0,
+      "facturacion": 0
+    },
+    "Kappa": {
+      "unidades": 0,
+      "facturacion": 0
+    },
+    "Piccadilly": {
+      "unidades": 0,
+      "facturacion": 0
+    },
+    "Reebok": {
+      "unidades": 0,
+      "facturacion": 0
+    }
+  }
+}
