@@ -54,11 +54,45 @@ def hash_cliente(valor):
 APP_ID = os.environ.get("MELI_APP_ID")
 CLIENT_SECRET = os.environ.get("MELI_CLIENT_SECRET")
 
-ESTADO_ENVIO = {  # estado de shipment MeLi -> fulfillment_status estilo Shopify (lo entiende el dashboard)
-    "shipped": "fulfilled", "delivered": "fulfilled",
-    "ready_to_ship": "pending", "handling": "pending", "pending": "pending",
-    "not_delivered": "restocked", "cancelled": "unfulfilled",
-}
+# 🚚 Estado detallado del envío (mismas etiquetas que Shopify, para comparar canales)
+FALLA_ENTREGA = {"receiver_absent", "not_visited", "delivery_failed", "bad_address", "not_localized",
+                 "unvisited_address", "dangerous_area", "contact_with_carrier", "rescheduled_by_meli"}
+
+
+def estado_envio_meli(status, sub):
+    status, sub = (status or "").lower(), (sub or "").lower()
+    if status in ("", "pending", "handling"):
+        return "Pendiente"
+    if status == "ready_to_ship":
+        return "Despachado" if sub in ("dropped_off", "in_hub", "picked_up", "in_packing_list", "at_the_door") else "Listo para despachar"
+    if status == "shipped":
+        if sub == "out_for_delivery":
+            return "En reparto"
+        if sub in ("waiting_for_withdrawal", "ready_to_pickup"):
+            return "Listo para retirar"
+        if sub in FALLA_ENTREGA:
+            return "Intento fallido"
+        return "En camino"
+    if status == "delivered":
+        return "Entregado"
+    if status == "not_delivered":
+        return "Devolución" if "return" in sub else "No entregado"
+    if status == "cancelled":
+        return "Cancelado"
+    return "Pendiente"
+
+
+# envio_estado -> fulfillment_status estilo Shopify (lo usan otras partes del dashboard)
+ESTADO_FULFILL = {"Pendiente": "pending", "Listo para despachar": "pending", "Despachado": "fulfilled",
+                  "En camino": "fulfilled", "En reparto": "fulfilled", "Listo para retirar": "fulfilled",
+                  "Intento fallido": "fulfilled", "Entregado": "fulfilled", "No entregado": "restocked",
+                  "Devolución": "restocked", "Cancelado": "unfulfilled"}
+EN_CURSO = {"Despachado", "En camino", "En reparto", "Listo para retirar", "Intento fallido"}
+REFRESCAR_ENTREGAS = os.environ.get("MELI_REFRESCAR_ENTREGAS") == "1"
+
+
+def a_iso_ar(v):
+    return pd.Timestamp(v).tz_convert(ZONA_AR).strftime("%Y-%m-%dT%H:%M:%S-03:00") if v else None
 LOGISTICA = {"fulfillment": "Full", "self_service": "Flex", "cross_docking": "Colecta",
              "xd_drop_off": "Drop-off", "drop_off": "Drop-off", "custom": "Acordar"}
 
@@ -176,11 +210,16 @@ class MeliCuenta:
             ((s.get("destination") or {}).get("shipping_address")) or {}
         hist = s.get("status_history") or {}
         logistic = s.get("logistic_type") or (s.get("logistic") or {}).get("type") or ""
+        status, sub = s.get("status", ""), s.get("substatus") or ""
+        envio = estado_envio_meli(status, sub)
         return {
-            "estado_envio": s.get("status", ""),
+            "estado_envio": status,
+            "envio_estado": envio,
+            "envio_detalle": f"{status}/{sub}" if sub else status,
             "provincia": ((recv.get("state") or {}).get("name")) or "Buenos Aires",
-            "fecha_despacho": (pd.Timestamp(hist["date_shipped"]).tz_convert(ZONA_AR).strftime("%Y-%m-%dT%H:%M:%S-03:00")
-                               if hist.get("date_shipped") else None),
+            "fecha_despacho": a_iso_ar(hist.get("date_shipped")),
+            "fecha_entrega": a_iso_ar(hist.get("date_delivered")),
+            "transportista": "Mercado Envíos",
             "logistica": LOGISTICA.get(logistic, logistic or "S/D"),
         }
 
@@ -195,7 +234,7 @@ class MeliCuenta:
         es_reverso = 1 if (o.get("status") == "cancelled" or reembolsado) else 0
 
         fecha = pd.Timestamp(o["date_created"]).tz_convert(ZONA_AR)
-        estado_envio = envio.get("estado_envio", "")
+        envio_estado = envio.get("envio_estado", "Pendiente")
         filas = []
         for oi in o.get("order_items", []):
             item = oi.get("item", {})
@@ -219,7 +258,7 @@ class MeliCuenta:
                 "modelo_color": sku.rsplit("-", 1)[0] if "-" in sku else sku,
                 "producto": f"{titulo} / {talle}" if talle else titulo,
                 "producto_base": titulo,
-                "fulfillment_status": ESTADO_ENVIO.get(estado_envio, "pending"),
+                "fulfillment_status": ESTADO_FULFILL.get(envio_estado, "pending"),
                 "img_url": "",
                 "url_web": f"https://articulo.mercadolibre.com.ar/{item_id[:3]}-{item_id[3:]}" if item_id else "#",
                 "subtotal_producto": precio * cant,
@@ -236,6 +275,11 @@ class MeliCuenta:
                 "total_orden_meli": float(o.get("total_amount", 0) or 0),
                 "comision_meli": float(oi.get("sale_fee", 0) or 0) * cant,
                 "logistica": envio.get("logistica", "S/D"),
+                "envio_estado": envio_estado,
+                "envio_detalle": envio.get("envio_detalle", ""),
+                "fecha_entrega": envio.get("fecha_entrega"),
+                "transportista": envio.get("transportista", "Mercado Envíos"),
+                "nro_pedido": str(o.get("pack_id") or o["id"]),
                 "shipping_id": (o.get("shipping") or {}).get("id"),
                 "estado_orden": o.get("status", ""),
                 "ultima_actualizacion": o.get("date_last_updated") or o.get("date_created"),
@@ -252,13 +296,21 @@ class MeliCuenta:
 
 
 def refrescar_envios(cuenta, df_marca):
-    """Actualiza estado/fecha de despacho de envíos pendientes recientes."""
-    corte = datetime.now(ZONA_AR) - timedelta(days=DIAS_REVISION_ENVIOS)
-    f = pd.to_datetime(df_marca["fecha"], errors="coerce", format="mixed")
-    pend = df_marca[(df_marca["fulfillment_status"] == "pending") & (f >= corte)
-                    & df_marca["shipping_id"].notna()]
+    """Re-consulta envíos que todavía pueden cambiar de estado.
+    - Pendientes / listos para despachar de los últimos 15 días: en cada corrida.
+    - Despachados y en camino de los últimos 30 días: cada 2 hs (MELI_REFRESCAR_ENTREGAS=1)."""
+    ahora = datetime.now(ZONA_AR)
+    f = pd.to_datetime(df_marca["fecha"], errors="coerce", format="mixed", utc=True).dt.tz_convert(ZONA_AR)
+    if "envio_estado" in df_marca.columns:
+        est = df_marca["envio_estado"].fillna("")
+        pend = est.isin(["Pendiente", "Listo para despachar", ""]) & (f >= ahora - timedelta(days=DIAS_REVISION_ENVIOS))
+        curso = est.isin(EN_CURSO) & (f >= ahora - timedelta(days=30)) if REFRESCAR_ENTREGAS else False
+        msk = pend | curso
+    else:
+        msk = (df_marca["fulfillment_status"] == "pending") & (f >= ahora - timedelta(days=DIAS_REVISION_ENVIOS))
+    sel = df_marca[msk & df_marca["shipping_id"].notna()]
     cambios = {}
-    for sid in pend["shipping_id"].unique():
+    for sid in sel["shipping_id"].unique():
         env = cuenta.envio(int(sid))
         if env:
             cambios[sid] = env
@@ -309,11 +361,14 @@ def sync():
             # Envíos pendientes que pudieron despacharse sin que cambie la orden
             if not df_m.empty and "shipping_id" in df_m.columns:
                 cambios = refrescar_envios(c, df_m)
+                for c_ in ["envio_estado", "envio_detalle", "fecha_entrega", "transportista"]:
+                    if c_ not in df_old.columns:
+                        df_old[c_] = None
                 for sid, env in cambios.items():
                     msk = (df_old["marca"] == marca) & (df_old["shipping_id"] == sid)
-                    df_old.loc[msk, "fulfillment_status"] = ESTADO_ENVIO.get(env["estado_envio"], "pending")
-                    df_old.loc[msk, "fecha_despacho"] = env["fecha_despacho"]
-                    df_old.loc[msk, "logistica"] = env["logistica"]
+                    df_old.loc[msk, "fulfillment_status"] = ESTADO_FULFILL.get(env["envio_estado"], "pending")
+                    for c_ in ["fecha_despacho", "logistica", "envio_estado", "envio_detalle", "fecha_entrega", "transportista"]:
+                        df_old.loc[msk, c_] = env.get(c_)
                 if cambios:
                     print(f"   🚚 {marca}: {len(cambios)} envíos re-consultados")
         except Exception as e:

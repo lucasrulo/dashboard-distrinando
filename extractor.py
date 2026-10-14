@@ -36,6 +36,29 @@ def hash_cliente(valor):
     return hashlib.sha256((CLIENTES_SALT + v).encode()).hexdigest()[:16]
 
 
+# 🚚 Estado del envío (Shopify): sale del último fulfillment del pedido.
+# shipment_status lo informa el transportista (si está integrado); si no informa, queda "Despachado".
+SHOPIFY_ENVIO = {"label_printed": "Despachado", "label_purchased": "Despachado", "confirmed": "Despachado",
+                 "in_transit": "En camino", "out_for_delivery": "En reparto", "attempted_delivery": "Intento fallido",
+                 "ready_for_pickup": "Listo para retirar", "picked_up": "Entregado", "delivered": "Entregado",
+                 "failure": "No entregado"}
+
+
+def envio_shopify(o):
+    if o.get('cancelled_at'):
+        return {"envio_estado": "Cancelado", "envio_detalle": "cancelled", "fecha_entrega": None, "transportista": ""}
+    fs = [f for f in (o.get('fulfillments') or []) if f.get('status') not in ('cancelled', 'error', 'failure')]
+    if not fs:
+        return {"envio_estado": "Pendiente", "envio_detalle": o.get('fulfillment_status') or 'unfulfilled',
+                "fecha_entrega": None, "transportista": ""}
+    f = fs[-1]
+    ss = f.get('shipment_status') or ""
+    estado = SHOPIFY_ENVIO.get(ss, "Despachado")
+    return {"envio_estado": estado, "envio_detalle": ss or "fulfilled",
+            "fecha_entrega": f.get('updated_at') if estado == "Entregado" else None,
+            "transportista": f.get('tracking_company') or ""}
+
+
 def cliente_de_orden(o):
     cust = o.get('customer') or {}
     return hash_cliente(o.get('email') or o.get('contact_email') or cust.get('email') or cust.get('id'))
@@ -156,7 +179,7 @@ class ShopifyManager:
                         "fulfillment_status": o.get('fulfillment_status') or 'pending',
                         "img_url": "", "url_web": "#",
                         "subtotal_producto": 0.0, "medio_pago": medio_pago,
-                        "cuotas": cuotas, "descuento": descuento, "tags": tags_raw, "cliente": cliente_de_orden(o),
+                        "cuotas": cuotas, "descuento": descuento, "tags": tags_raw, "cliente": cliente_de_orden(o), "nro_pedido": o.get('name', ''), **envio_shopify(o),
                         "provincia": provincia, "fecha_despacho": fecha_despacho
                     })
                 for item in items:
@@ -176,7 +199,7 @@ class ShopifyManager:
                         "fulfillment_status": o.get('fulfillment_status') or 'pending',
                         "img_url": p_info['img'], "url_web": p_info['link'],
                         "subtotal_producto": precio_unitario * cantidad, "medio_pago": medio_pago,
-                        "cuotas": cuotas, "descuento": descuento, "tags": tags_raw, "cliente": cliente_de_orden(o),
+                        "cuotas": cuotas, "descuento": descuento, "tags": tags_raw, "cliente": cliente_de_orden(o), "nro_pedido": o.get('name', ''), **envio_shopify(o),
                         "provincia": provincia, "fecha_despacho": fecha_despacho
                     })
         except Exception as e:
