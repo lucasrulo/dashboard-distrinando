@@ -24,15 +24,15 @@
   "MercadoLibre": {
     "Columbia": {
       "unidades": 0,
-      "facturacion": 0
+      "facturacion": 140000000
     },
     "Crocs": {
       "unidades": 0,
-      "facturacion": 0
+      "facturacion": 215000000
     },
     "Kappa": {
       "unidades": 0,
-      "facturacion": 0
+      "facturacion": 110000000
     },
     "Piccadilly": {
       "unidades": 0,
@@ -40,7 +40,7 @@
     },
     "Reebok": {
       "unidades": 0,
-      "facturacion": 0
+      "facturacion": 175000000
     }
   }
 }
