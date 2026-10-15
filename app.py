@@ -21,7 +21,7 @@ from streamlit_autorefresh import st_autorefresh
 # ==============================================================================
 # 1. CONFIGURACIÓN
 # ==============================================================================
-st.set_page_config(page_title="Distrinando | Centro de datos", page_icon="📊",
+st.set_page_config(page_title="Distrinando | Centro de Comando", page_icon="📊",
                    layout="wide", initial_sidebar_state="expanded")
 
 REPO_DATOS = "lucasrulo/dashboard-distrinando"
@@ -634,7 +634,7 @@ def pantalla_login():
     </style>""")
     html("<div style='text-align:center;margin-bottom:22px'>"
          "<div style='font-family:Space Grotesk, sans-serif;font-size:30px;font-weight:700;letter-spacing:2px;color:#F8FAFC'>DISTRINANDO</div>"
-         "<div style='font-size:11px;color:#8B95A7;letter-spacing:3px;text-transform:uppercase;margin-top:4px'>E-commerce · Centro de datos</div></div>")
+         "<div style='font-size:11px;color:#8B95A7;letter-spacing:3px;text-transform:uppercase;margin-top:4px'>E-commerce · Centro de Comando</div></div>")
     usuarios = _usuarios()
     bloqueado_hasta = st.session_state.get("login_bloqueo", 0)
     with st.form("login", clear_on_submit=False):
@@ -763,7 +763,7 @@ hay_prev = (not P_prev.empty) and p0 >= f_min
 rango_txt = f"{d0:%d/%m}" if d0 == d1 else f"{d0:%d/%m} → {d1:%d/%m/%Y}"
 canales_con_datos = [c for c in CANALES if (df_raw["canal"] == c).any()]
 html("<div class='hero'><div><div class='hero-eyebrow'>Distrinando · E-commerce</div>"
-     "<div class='hero-title'>Centro de datos</div>"
+     "<div class='hero-title'>Centro de Comando</div>"
      f"<div class='hero-sub'>Venta neta consolidada · <b>{' + '.join(canales_con_datos)}</b> · <b>{len(marcas_sel)}</b> marcas · <b>{rango_txt}</b></div></div>"
      f"<div class='live'><span class='live-dot'></span>EN VIVO · {ahora:%H:%M} hs</div></div>")
 
@@ -1496,6 +1496,22 @@ with tab_ads:
     a_camp = load_aux("meli_ads_campanias.csv")
     a_dia = load_aux("meli_ads_diario.csv")
     a_items = load_aux("meli_ads_items.csv")
+    _mets = ["cost", "prints", "clicks", "total_amount", "direct_amount", "indirect_amount", "units_quantity",
+             "direct_units_quantity", "indirect_units_quantity", "organic_units_quantity", "organic_units_amount"]
+    # Plan B: si MeLi no devolvió campañas o el diario, se arma todo con los anuncios (métricas de 30 días)
+    if a_camp.empty and not a_items.empty:
+        _act = a_items.assign(_a=(a_items["estado_ad"] == "active").astype(int)).groupby(["marca", "campaign_id"])["_a"].sum().reset_index()
+        a_camp = _act.assign(nombre=_act["marca"] + " · Campaña " + _act["campaign_id"].astype(str),
+                             estado=np.where(_act["_a"] > 0, "active", "sin anuncios activos")).drop(columns="_a")
+    modo30 = a_dia.empty or "marca" not in a_dia.columns or "fecha" not in a_dia.columns
+    if modo30 and not a_items.empty:
+        _upd = pd.to_datetime(a_items["actualizado"].iloc[0], errors="coerce") if "actualizado" in a_items.columns else pd.NaT
+        _fin = (_upd.date() if pd.notna(_upd) else hoy) - timedelta(days=1)
+        a_dia = a_items[["marca", "campaign_id"]].copy()
+        for m_ in _mets:
+            a_dia[m_] = pd.to_numeric(a_items.get(f"m30_{m_}", 0), errors="coerce").fillna(0)
+        a_dia["fecha"] = _fin.isoformat()
+
     if a_dia.empty and a_items.empty:
         st.info("Todavía no hay datos de publicidad. Se generan con el workflow diario (Publicidad de MercadoLibre). "
                 "Si el log muestra error 403, hay que habilitar el permiso de 'Publicidad' en la app de MeLi.")
@@ -1505,9 +1521,13 @@ with tab_ads:
         a_camp = a_camp[a_camp["marca"].isin(marcas_sel)].copy() if not a_camp.empty else a_camp
         nombres_c = dict(zip(a_camp["campaign_id"], a_camp["nombre"])) if not a_camp.empty else {}
         f_ads_min, f_ads_max = a_dia["dia"].min(), a_dia["dia"].max()
-        a0, a1 = max(d0, f_ads_min), min(d1, f_ads_max)
-        if a0 > a1:
-            a0, a1 = max(f_ads_min, f_ads_max - timedelta(days=29)), f_ads_max
+        if modo30:
+            a0, a1 = f_ads_max - timedelta(days=29), f_ads_max
+            a_dia["dia"] = a1
+        else:
+            a0, a1 = max(d0, f_ads_min), min(d1, f_ads_max)
+            if a0 > a1:
+                a0, a1 = max(f_ads_min, f_ads_max - timedelta(days=29)), f_ads_max
         nd = (a1 - a0).days + 1
         pa0, pa1 = a0 - timedelta(days=nd), a0 - timedelta(days=1)
 
@@ -1521,6 +1541,9 @@ with tab_ads:
                  f"MeLi consolida la publicidad 1 vez por día (datos hasta {f_ads_max:%d/%m}).</div>")
         dsel = a_dia[a_dia["campaign_id"].isin(camp_sel)]
         cur = dsel[(dsel["dia"] >= a0) & (dsel["dia"] <= a1)]
+        if modo30:
+            st.warning("MeLi todavía no devolvió el detalle diario de campañas: se muestran los **últimos 30 días** "
+                       "sumando los anuncios (sin comparación con el período anterior ni gráfico diario).")
         prv = dsel[(dsel["dia"] >= pa0) & (dsel["dia"] <= pa1)]
         k, kp = _ads_kpis(cur), _ads_kpis(prv)
         hay_prev_ads = (not prv.empty) and pa0 >= f_ads_min
@@ -1536,7 +1559,7 @@ with tab_ads:
         tacos_p = kp["cost"] / vm_p * 100 if vm_p else None
 
         # ---------- KPIs ----------
-        seccion("Mercado Ads", "Rendimiento de la inversión", f"Product Ads de MercadoLibre · comparado con los {nd} días anteriores.")
+        seccion("Mercado Ads", "Rendimiento de la inversión", "Product Ads de MercadoLibre · últimos 30 días." if modo30 else f"Product Ads de MercadoLibre · comparado con los {nd} días anteriores.")
         cc = st.columns(6)
         cc[0].markdown(kpi_card("Inversión", fmt_kpi(k["cost"]), delta_html(k["cost"], pv("cost")), "", "#F472B6", sm=True), unsafe_allow_html=True)
         cc[1].markdown(kpi_card("Ventas por publicidad", fmt_kpi(k["total_amount"]), delta_html(k["total_amount"], pv("total_amount")),
@@ -1560,6 +1583,9 @@ with tab_ads:
         from plotly.subplots import make_subplots
         g1, g2 = st.columns([1.7, 1])
         with g1:
+          if modo30:
+            st.info("El gráfico diario aparece cuando el extractor traiga el detalle por día de las campañas.")
+          else:
             td = cur.groupby("dia")[["cost", "total_amount"]].sum().reset_index()
             td["acos"] = np.where(td["total_amount"] > 0, td["cost"] / td["total_amount"] * 100, np.nan)
             fig = make_subplots(specs=[[{"secondary_y": True}]])
@@ -1572,8 +1598,10 @@ with tab_ads:
             st.plotly_chart(estilo(fig, 400), width="stretch")
         with g2:
             fig = go.Figure(go.Funnel(y=["Impresiones", "Clics", "Unidades vendidas"],
-                                      x=[k["prints"], k["clicks"], k["units_quantity"]], textinfo="text+percent previous",
-                                      text=[fmt_compact(k["prints"], moneda=False), fmt_num(k["clicks"]), fmt_num(k["units_quantity"])],
+                                      x=[k["prints"], k["clicks"], k["units_quantity"]], textinfo="text",
+                                      text=[fmt_compact(k["prints"], moneda=False) + "<br>100%",
+                                            fmt_num(k["clicks"]) + f"<br>CTR {fmt_dec(k['ctr'], 2)}%",
+                                            fmt_num(k["units_quantity"]) + f"<br>CVR {fmt_dec(k['cvr'], 2)}%"],
                                       marker=dict(color=["#38BDF8", "#A78BFA", "#34D399"]),
                                       connector=dict(line=dict(color="rgba(148,163,184,.25)"))))
             fig.update_layout(title="Embudo publicitario")
@@ -1638,7 +1666,7 @@ with tab_ads:
                 filas += (f"<tr><td class='strong' style='text-align:left'><span class='dot' style='background:{PALETA_MARCAS.get(r['marca'], '#94A3B8')}'></span>{r['nombre']}</td>"
                           f"<td style='text-align:left;white-space:normal;min-width:230px'><span class='pill {cls}'>{rec}</span></td>"
                           f"<td><span class='pill {est_cls}'>{r.get('estado', '')}</span></td><td>{str(r.get('estrategia', '')).title()}</td>"
-                          f"<td>{fmt_ars(pd.to_numeric(r.get('presupuesto'), errors='coerce') or 0)}</td>"
+                          f"<td>{fmt_ars(pd.to_numeric(r.get('presupuesto'), errors='coerce')) if pd.notna(pd.to_numeric(r.get('presupuesto'), errors='coerce')) else '—'}</td>"
                           f"<td>{fpct(obj)}</td><td class='strong'>{fpct(acos_r)}</td>"
                           f"<td>{fmt_dec(r['total_amount'] / r['cost'], 1) + 'x' if r['cost'] else '—'}</td>"
                           f"<td>{fmt_ars(r['cost'])}</td><td>{fmt_ars(r['total_amount'])}</td>"
@@ -1682,7 +1710,7 @@ with tab_ads:
             it["cobertura"] = np.where(it["vel"] > 0, it["stock_ref"] / it["vel"], np.inf)
             it["acos30"] = np.where(it["m30_total_amount"] > 0, it["m30_cost"] / it["m30_total_amount"] * 100, np.nan)
             it["cvr30"] = np.where(it["m30_clicks"] > 0, it["m30_units_quantity"] / it["m30_clicks"] * 100, np.nan)
-            obj_c = dict(zip(a_camp["campaign_id"], pd.to_numeric(a_camp["acos_objetivo"], errors="coerce"))) if not a_camp.empty else {}
+            obj_c = dict(zip(a_camp["campaign_id"], pd.to_numeric(a_camp["acos_objetivo"], errors="coerce"))) if "acos_objetivo" in a_camp.columns else {}
             it["acos_obj"] = it["campaign_id"].map(obj_c)
             gasto_ref = it.loc[it["m30_cost"] > 0, "m30_cost"].quantile(0.75) if (it["m30_cost"] > 0).any() else 0
 
