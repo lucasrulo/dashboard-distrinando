@@ -65,30 +65,64 @@ def anunciantes(c):
     return [a for a in advs if a.get("site_id", SITE) == SITE] or advs
 
 
+def _rutas_campanias(adv):
+    return [f"{BASE}/advertisers/{adv}/product_ads/campaigns/search",
+            f"/advertising/advertisers/{adv}/product_ads/campaigns",
+            f"{BASE}/advertisers/{adv}/product_ads/campaigns"]
+
+
+def _rutas_detalle(cid):
+    return [f"{BASE}/product_ads/campaigns/{cid}", f"/advertising/product_ads/campaigns/{cid}"]
+
+
+RUTA_OK = {}  # recuerda qué variante de URL respondió bien, para no probar todas cada vez
+
+
+def get_con_alternativas(c, clave, rutas, params):
+    """Prueba las variantes de URL de la API de Product Ads hasta que una responda 200."""
+    errores = []
+    orden = [RUTA_OK[clave]] if clave in RUTA_OK else []
+    orden += [i for i in range(len(rutas)) if i not in orden]
+    for i in orden:
+        r = api_get(c, rutas[i], params)
+        if r is not None and r.status_code == 200:
+            RUTA_OK[clave] = i
+            return r
+        errores.append(f"{rutas[i]} -> HTTP {getattr(r, 'status_code', '?')} {getattr(r, 'text', '')[:150]}")
+    return errores
+
+
 def campanias(c, adv, desde, hasta):
     out, offset = [], 0
     while True:
-        r = api_get(c, f"{BASE}/advertisers/{adv}/product_ads/campaigns",
-                    {"limit": 50, "offset": offset, "date_from": desde, "date_to": hasta, "metrics": MET_CAMP})
-        if r is None or r.status_code != 200:
-            print(f"   🚨 {c.marca}: campaigns HTTP {getattr(r, 'status_code', '?')} {getattr(r, 'text', '')[:300]}")
+        r = get_con_alternativas(c, "camp", _rutas_campanias(adv),
+                                 {"limit": 50, "offset": offset, "date_from": desde, "date_to": hasta, "metrics": MET_CAMP})
+        if isinstance(r, list):
+            print(f"   🚨 {c.marca}: no pude listar campañas:")
+            for e in r:
+                print(f"        {e}")
             break
         d = r.json()
-        res = d.get("results", [])
+        res = d.get("results", []) if isinstance(d, dict) else d
         out.extend(res)
         offset += len(res)
-        if not res or offset >= (d.get("paging") or {}).get("total", 0):
+        if not res or offset >= ((d.get("paging") or {}).get("total", 0) if isinstance(d, dict) else 0):
             break
     return out
 
 
 def diario_campania(c, cid, desde, hasta):
-    r = api_get(c, f"{BASE}/product_ads/campaigns/{cid}",
-                {"date_from": desde, "date_to": hasta, "metrics": MET_CAMP, "aggregation_type": "DAILY"})
-    if r is None or r.status_code != 200:
+    r = get_con_alternativas(c, "det", _rutas_detalle(cid),
+                             {"date_from": desde, "date_to": hasta, "metrics": MET_CAMP, "aggregation_type": "DAILY"})
+    if isinstance(r, list):
+        if not getattr(diario_campania, "avisado", False):
+            print(f"   ⚠️ {c.marca}: sin detalle diario de la campaña {cid}:")
+            for e in r:
+                print(f"        {e}")
+            diario_campania.avisado = True
         return []
     d = r.json()
-    filas = d if isinstance(d, list) else (d.get("results") or d.get("metrics") or [])
+    filas = d if isinstance(d, list) else (d.get("results") or d.get("metrics") or d.get("daily") or [])
     out = []
     for f in filas if isinstance(filas, list) else []:
         fecha = f.get("date") or f.get("day")
@@ -97,9 +131,28 @@ def diario_campania(c, cid, desde, hasta):
     return out
 
 
+def detalle_campania(c, cid, desde, hasta):
+    """Datos de la campaña (nombre, estado, presupuesto...) + participación de impresiones."""
+    r = get_con_alternativas(c, "det", _rutas_detalle(cid), {"date_from": desde, "date_to": hasta, "metrics": MET_IS})
+    if isinstance(r, list):
+        return {}
+    d = r.json()
+    return d if isinstance(d, dict) else {}
+
+
+def fila_campania(marca, adv, cp, share):
+    fila = {"marca": marca, "advertiser_id": adv, "campaign_id": cp.get("id") or cp.get("campaign_id"),
+            "nombre": cp.get("name", ""), "estado": cp.get("status", ""), "estrategia": cp.get("strategy", ""),
+            "presupuesto": cp.get("budget"), "acos_objetivo": cp.get("acos_target"),
+            "presupuesto_automatico": cp.get("automatic_budget"),
+            "creada": cp.get("date_created", ""), "actualizada": cp.get("last_updated", "")}
+    fila.update({f"is_{k}": v for k, v in share.items()})
+    return fila
+
+
 def share_campania(c, cid, desde, hasta):
-    r = api_get(c, f"{BASE}/product_ads/campaigns/{cid}", {"date_from": desde, "date_to": hasta, "metrics": MET_IS})
-    if r is None or r.status_code != 200:
+    r = get_con_alternativas(c, "det", _rutas_detalle(cid), {"date_from": desde, "date_to": hasta, "metrics": MET_IS})
+    if isinstance(r, list):
         return {}
     return metricas(r.json())
 
@@ -148,18 +201,21 @@ def sync():
                 camps = campanias(c, adv, d30, hasta)
                 for cp in camps:
                     cid = cp.get("id")
-                    fila = {"marca": marca, "advertiser_id": adv, "campaign_id": cid, "nombre": cp.get("name", ""),
-                            "estado": cp.get("status", ""), "estrategia": cp.get("strategy", ""),
-                            "presupuesto": cp.get("budget"), "acos_objetivo": cp.get("acos_target"),
-                            "presupuesto_automatico": cp.get("automatic_budget"),
-                            "creada": cp.get("date_created", ""), "actualizada": cp.get("last_updated", "")}
-                    fila.update({f"is_{k}": v for k, v in share_campania(c, cid, d30, hasta).items()})
-                    camp_rows.append(fila)
+                    camp_rows.append(fila_campania(marca, adv, cp, share_campania(c, cid, d30, hasta)))
                     for dfila in diario_campania(c, cid, d90, hasta):
                         dia_rows.append({"marca": marca, "campaign_id": cid, **dfila})
                     time.sleep(0.1)
                 a30 = anuncios(c, adv, d30, hasta)
                 a7 = anuncios(c, adv, d7, hasta)
+                # Si el listado de campañas falló, igual se trae el diario de las campañas que aparecen en los anuncios
+                if not camps:
+                    for cid in sorted({a.get("campaign_id") for a in a30.values() if a.get("campaign_id")}):
+                        det = detalle_campania(c, cid, d30, hasta)
+                        if det:
+                            camp_rows.append(fila_campania(marca, adv, {"id": cid, **det}, metricas(det)))
+                        for dfila in diario_campania(c, cid, d90, hasta):
+                            dia_rows.append({"marca": marca, "campaign_id": cid, **dfila})
+                        time.sleep(0.1)
                 for iid, ad in a30.items():
                     fila = {"marca": marca, "item_id": iid, "campaign_id": ad.get("campaign_id"),
                             "titulo": ad.get("title", ""), "estado_ad": ad.get("status", ""), "precio": ad.get("price"),
