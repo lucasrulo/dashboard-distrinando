@@ -1,4 +1,4 @@
-name: Actualizador diario (Publicaciones MeLi + Clientes)
+name: Actualizador diario (Publicaciones + Publicidad MeLi + Clientes)
 
 on:
   schedule:
@@ -44,6 +44,18 @@ jobs:
           GH_PAT_SECRETS: ${{ secrets.GH_PAT_SECRETS }}
         run: python extractor_meli_publicaciones.py
 
+      - name: Publicidad de MercadoLibre (Product Ads)
+        continue-on-error: true
+        env:
+          MELI_APP_ID: ${{ secrets.MELI_APP_ID }}
+          MELI_CLIENT_SECRET: ${{ secrets.MELI_CLIENT_SECRET }}
+          MELI_REEBOK: ${{ secrets.MELI_REEBOK }}
+          MELI_CROCS: ${{ secrets.MELI_CROCS }}
+          MELI_KAPPA: ${{ secrets.MELI_KAPPA }}
+          MELI_COLUMBIA: ${{ secrets.MELI_COLUMBIA }}
+          GH_PAT_SECRETS: ${{ secrets.GH_PAT_SECRETS }}
+        run: python extractor_meli_ads.py
+
       - name: Resumen de clientes
         continue-on-error: true
         run: python extractor_clientes.py
@@ -52,13 +64,13 @@ jobs:
         run: |
           git config --global user.name "Robot Distrinando"
           git config --global user.email "robot@distrinando.com"
-          for f in meli_publicaciones.csv clientes_resumen.csv clientes_cohortes.csv; do
+          for f in meli_publicaciones.csv clientes_resumen.csv clientes_cohortes.csv meli_ads_campanias.csv meli_ads_diario.csv meli_ads_items.csv; do
             if [ -f "$f" ]; then git add "$f"; fi
           done
           if git diff --staged --quiet; then
             echo "ℹ️ Sin cambios."
           else
-            git commit -m "📊 Datos diarios: publicaciones MeLi y clientes [$(date +'%d/%m %H:%M')]"
+            git commit -m "📊 Datos diarios: publicaciones, publicidad MeLi y clientes [$(date +'%d/%m %H:%M')]"
             git pull --rebase origin main
             git push
           fi
