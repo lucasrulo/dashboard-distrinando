@@ -131,6 +131,25 @@ def diario_campania(c, cid, desde, hasta):
     return out
 
 
+def detalle_campania(c, cid, desde, hasta):
+    """Datos de la campaña (nombre, estado, presupuesto...) + participación de impresiones."""
+    r = get_con_alternativas(c, "det", _rutas_detalle(cid), {"date_from": desde, "date_to": hasta, "metrics": MET_IS})
+    if isinstance(r, list):
+        return {}
+    d = r.json()
+    return d if isinstance(d, dict) else {}
+
+
+def fila_campania(marca, adv, cp, share):
+    fila = {"marca": marca, "advertiser_id": adv, "campaign_id": cp.get("id") or cp.get("campaign_id"),
+            "nombre": cp.get("name", ""), "estado": cp.get("status", ""), "estrategia": cp.get("strategy", ""),
+            "presupuesto": cp.get("budget"), "acos_objetivo": cp.get("acos_target"),
+            "presupuesto_automatico": cp.get("automatic_budget"),
+            "creada": cp.get("date_created", ""), "actualizada": cp.get("last_updated", "")}
+    fila.update({f"is_{k}": v for k, v in share.items()})
+    return fila
+
+
 def share_campania(c, cid, desde, hasta):
     r = get_con_alternativas(c, "det", _rutas_detalle(cid), {"date_from": desde, "date_to": hasta, "metrics": MET_IS})
     if isinstance(r, list):
@@ -182,13 +201,7 @@ def sync():
                 camps = campanias(c, adv, d30, hasta)
                 for cp in camps:
                     cid = cp.get("id")
-                    fila = {"marca": marca, "advertiser_id": adv, "campaign_id": cid, "nombre": cp.get("name", ""),
-                            "estado": cp.get("status", ""), "estrategia": cp.get("strategy", ""),
-                            "presupuesto": cp.get("budget"), "acos_objetivo": cp.get("acos_target"),
-                            "presupuesto_automatico": cp.get("automatic_budget"),
-                            "creada": cp.get("date_created", ""), "actualizada": cp.get("last_updated", "")}
-                    fila.update({f"is_{k}": v for k, v in share_campania(c, cid, d30, hasta).items()})
-                    camp_rows.append(fila)
+                    camp_rows.append(fila_campania(marca, adv, cp, share_campania(c, cid, d30, hasta)))
                     for dfila in diario_campania(c, cid, d90, hasta):
                         dia_rows.append({"marca": marca, "campaign_id": cid, **dfila})
                     time.sleep(0.1)
@@ -197,6 +210,9 @@ def sync():
                 # Si el listado de campañas falló, igual se trae el diario de las campañas que aparecen en los anuncios
                 if not camps:
                     for cid in sorted({a.get("campaign_id") for a in a30.values() if a.get("campaign_id")}):
+                        det = detalle_campania(c, cid, d30, hasta)
+                        if det:
+                            camp_rows.append(fila_campania(marca, adv, {"id": cid, **det}, metricas(det)))
                         for dfila in diario_campania(c, cid, d90, hasta):
                             dia_rows.append({"marca": marca, "campaign_id": cid, **dfila})
                         time.sleep(0.1)
