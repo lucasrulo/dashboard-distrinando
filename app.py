@@ -21,7 +21,7 @@ from streamlit_autorefresh import st_autorefresh
 # ==============================================================================
 # 1. CONFIGURACIÓN
 # ==============================================================================
-st.set_page_config(page_title="Distrinando | Centro de Comando", page_icon="📊",
+st.set_page_config(page_title="Distrinando | Centro de datos", page_icon="📊",
                    layout="wide", initial_sidebar_state="expanded")
 
 REPO_DATOS = "lucasrulo/dashboard-distrinando"
@@ -634,7 +634,7 @@ def pantalla_login():
     </style>""")
     html("<div style='text-align:center;margin-bottom:22px'>"
          "<div style='font-family:Space Grotesk, sans-serif;font-size:30px;font-weight:700;letter-spacing:2px;color:#F8FAFC'>DISTRINANDO</div>"
-         "<div style='font-size:11px;color:#8B95A7;letter-spacing:3px;text-transform:uppercase;margin-top:4px'>E-commerce · Centro de Comando</div></div>")
+         "<div style='font-size:11px;color:#8B95A7;letter-spacing:3px;text-transform:uppercase;margin-top:4px'>E-commerce · Centro de datos</div></div>")
     usuarios = _usuarios()
     bloqueado_hasta = st.session_state.get("login_bloqueo", 0)
     with st.form("login", clear_on_submit=False):
@@ -763,7 +763,7 @@ hay_prev = (not P_prev.empty) and p0 >= f_min
 rango_txt = f"{d0:%d/%m}" if d0 == d1 else f"{d0:%d/%m} → {d1:%d/%m/%Y}"
 canales_con_datos = [c for c in CANALES if (df_raw["canal"] == c).any()]
 html("<div class='hero'><div><div class='hero-eyebrow'>Distrinando · E-commerce</div>"
-     "<div class='hero-title'>Centro de Comando</div>"
+     "<div class='hero-title'>Centro de datos</div>"
      f"<div class='hero-sub'>Venta neta consolidada · <b>{' + '.join(canales_con_datos)}</b> · <b>{len(marcas_sel)}</b> marcas · <b>{rango_txt}</b></div></div>"
      f"<div class='live'><span class='live-dot'></span>EN VIVO · {ahora:%H:%M} hs</div></div>")
 
