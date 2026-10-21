@@ -1,7 +1,7 @@
 canal,cohorte,mes_n,clientes
-MercadoLibre,2026-09,0,3686
-MercadoLibre,2026-09,1,104
-MercadoLibre,2026-10,0,6229
+MercadoLibre,2026-09,0,3684
+MercadoLibre,2026-09,1,106
+MercadoLibre,2026-10,0,6249
 Tienda Online,2025-09,0,1
 Tienda Online,2025-09,11,1
 Tienda Online,2025-09,13,1
@@ -14,7 +14,7 @@ Tienda Online,2026-01,5,201
 Tienda Online,2026-01,6,251
 Tienda Online,2026-01,7,179
 Tienda Online,2026-01,8,137
-Tienda Online,2026-01,9,73
+Tienda Online,2026-01,9,76
 Tienda Online,2026-02,0,8820
 Tienda Online,2026-02,1,321
 Tienda Online,2026-02,2,183
@@ -38,7 +38,7 @@ Tienda Online,2026-04,2,220
 Tienda Online,2026-04,3,264
 Tienda Online,2026-04,4,176
 Tienda Online,2026-04,5,107
-Tienda Online,2026-04,6,84
+Tienda Online,2026-04,6,86
 Tienda Online,2026-05,0,12813
 Tienda Online,2026-05,1,402
 Tienda Online,2026-05,2,377
@@ -59,4 +59,4 @@ Tienda Online,2026-08,1,244
 Tienda Online,2026-08,2,114
 Tienda Online,2026-09,0,7107
 Tienda Online,2026-09,1,131
-Tienda Online,2026-10,0,4998
+Tienda Online,2026-10,0,5038
