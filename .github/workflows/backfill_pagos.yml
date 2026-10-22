@@ -1,0 +1,46 @@
+name: Backfill pagos (correr UNA vez)
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: actualizador-datos-shopify
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Instalar librerías
+        run: pip install -r requirements.txt
+
+      - name: Completar estado de pago en las ventas de Shopify
+        env:
+          CLIENTES_SALT: ${{ secrets.CLIENTES_SALT }}
+          TOKEN_REEBOK: ${{ secrets.TOKEN_REEBOK }}
+          TOKEN_COLUMBIA: ${{ secrets.TOKEN_COLUMBIA }}
+          TOKEN_CROCS: ${{ secrets.TOKEN_CROCS }}
+          TOKEN_KAPPA: ${{ secrets.TOKEN_KAPPA }}
+          TOKEN_PICCADILLY: ${{ secrets.TOKEN_PICCADILLY }}
+        run: python backfill_pagos.py
+
+      - name: Guardar en GitHub
+        run: |
+          git config --global user.name "Robot Distrinando"
+          git config --global user.email "robot@distrinando.com"
+          for f in ventas_hot_sale.csv ventas_historico.csv; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
+          git diff --staged --quiet || (git commit -m "💳 Backfill de estado de pago" && git pull --rebase origin main && git push)
