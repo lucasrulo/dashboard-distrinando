@@ -180,6 +180,7 @@ class ShopifyManager:
                         "img_url": "", "url_web": "#",
                         "subtotal_producto": 0.0, "medio_pago": medio_pago,
                         "cuotas": cuotas, "descuento": descuento, "tags": tags_raw, "cliente": cliente_de_orden(o), "nro_pedido": o.get('name', ''), **envio_shopify(o),
+                        "estado_pago": o.get('financial_status') or '',
                         "provincia": provincia, "fecha_despacho": fecha_despacho
                     })
                 for item in items:
@@ -200,6 +201,7 @@ class ShopifyManager:
                         "img_url": p_info['img'], "url_web": p_info['link'],
                         "subtotal_producto": precio_unitario * cantidad, "medio_pago": medio_pago,
                         "cuotas": cuotas, "descuento": descuento, "tags": tags_raw, "cliente": cliente_de_orden(o), "nro_pedido": o.get('name', ''), **envio_shopify(o),
+                        "estado_pago": o.get('financial_status') or '',
                         "provincia": provincia, "fecha_despacho": fecha_despacho
                     })
         except Exception as e:
@@ -249,6 +251,49 @@ class ShopifyManager:
             all_rows.extend(batch_updated)
         return all_rows
 
+def refrescar_pagos(df):
+    """Pedidos con pago pendiente (últimos 30 días): se re-consulta su estado de pago.
+    Así un pago que se acredita, vence o se cancela se actualiza aunque haya pasado de día."""
+    if df.empty or "estado_pago" not in df.columns:
+        return df
+    fechas = pd.to_datetime(df["fecha"], errors="coerce", format="mixed", utc=True)
+    corte = pd.Timestamp.now(tz="UTC") - pd.Timedelta(days=30)
+    pend = df[(df["estado_pago"].fillna("").astype(str).isin(["pending", "authorized", "partially_paid"])) & (fechas >= corte)]
+    if pend.empty:
+        return df
+    cambios = 0
+    for name, info in STORES.items():
+        ids = sorted(set(pend.loc[pend["marca"] == name, "id_pedido"].astype("int64")))
+        if not info["token"] or not ids:
+            continue
+        url = f"https://{info['url']}.myshopify.com/admin/api/{API_VERSION}/orders.json"
+        h = {"X-Shopify-Access-Token": info["token"]}
+        for i in range(0, len(ids), 250):
+            lote = ids[i:i + 250]
+            r = None
+            for _ in range(4):
+                r = requests.get(url, headers=h, timeout=30, params={"ids": ",".join(map(str, lote)), "status": "any",
+                                                                     "limit": 250, "fields": "id,financial_status,cancelled_at"})
+                if r.status_code != 429:
+                    break
+                time.sleep(3)
+            if r is None or r.status_code != 200:
+                print(f"   ⚠️ {name}: no pude refrescar pagos (HTTP {getattr(r, 'status_code', '?')})")
+                continue
+            for o in r.json().get("orders", []):
+                msk = df["id_pedido"].astype("int64") == int(o["id"])
+                nuevo = o.get("financial_status") or ""
+                if (df.loc[msk, "estado_pago"].astype(str) != nuevo).any():
+                    cambios += 1
+                df.loc[msk, "estado_pago"] = nuevo
+                if o.get("cancelled_at"):
+                    df.loc[msk, "envio_estado"] = "Cancelado"
+                    df.loc[msk, "envio_detalle"] = "cancelled"
+            time.sleep(0.5)
+    print(f"   💳 Pagos pendientes revisados: {len(pend['id_pedido'].unique()):,} pedidos, {cambios} cambiaron de estado.")
+    return df
+
+
 def sync():
     print(f"\n--- 🕒 SINCRO: {datetime.now(ZONA_AR).strftime('%H:%M:%S')} (ARG) ---")
     
@@ -279,6 +324,7 @@ def sync():
             
         # Limpieza monolítica estricta por ID de pedido y SKU
         df_final = df_final.drop_duplicates(subset=['id_pedido', 'sku'], keep='last')
+        df_final = refrescar_pagos(df_final)
 
         # ======================================================================
         # 🗄️ ARCHIVADO: separamos lo reciente (vivo) de lo viejo (histórico)
