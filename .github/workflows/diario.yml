@@ -1,61 +1,39 @@
-name: Actualizador de Datos Shopify
+name: Actualizador diario (Publicaciones + Publicidad MeLi + Clientes)
 
 on:
   schedule:
-    # Ventas: cada 5 minutos
-    - cron: '*/5 * * * *' 
-    # Catálogo: cada 2 horas
-    - cron: '0 */2 * * *' 
-  workflow_dispatch: # Botón manual de emergencia
+    # 06:10 y 14:10 hora Argentina (09:10 y 17:10 UTC)
+    - cron: '10 9,17 * * *'
+  workflow_dispatch:
 
-# 🔒 Si una corrida tarda más de 5 min (ej: poniéndose al día con un backlog grande),
-# esto evita que el cron siguiente arranque encima y se pisen entre sí. Se hace cola.
+# Misma cola que el actualizador de ventas: nunca corren a la vez
+# (así no se pisan los commits ni la renovación de tokens de MeLi).
 concurrency:
   group: actualizador-datos-shopify
   cancel-in-progress: false
 
 jobs:
-  actualizar-csv:
+  diario:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
       - name: Descargar el código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main   # siempre la última versión (no la del momento en que se encoló)
 
       - name: Preparar Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.12'
           cache: 'pip'
 
       - name: Instalar librerías
         run: pip install -r requirements.txt
 
-      - name: Ejecutar el Extractor de Ventas
-        env:
-          TOKEN_REEBOK: ${{ secrets.TOKEN_REEBOK }}
-          TOKEN_COLUMBIA: ${{ secrets.TOKEN_COLUMBIA }}
-          TOKEN_CROCS: ${{ secrets.TOKEN_CROCS }}
-          TOKEN_KAPPA: ${{ secrets.TOKEN_KAPPA }}
-          TOKEN_PICCADILLY: ${{ secrets.TOKEN_PICCADILLY }}
-          CLIENTES_SALT: ${{ secrets.CLIENTES_SALT }}
-        run: python extractor.py
-
-      - name: Ejecutar el Extractor de Catálogo (Stock y Precios)
-        env:
-          TOKEN_REEBOK: ${{ secrets.TOKEN_REEBOK }}
-          TOKEN_COLUMBIA: ${{ secrets.TOKEN_COLUMBIA }}
-          TOKEN_CROCS: ${{ secrets.TOKEN_CROCS }}
-          TOKEN_KAPPA: ${{ secrets.TOKEN_KAPPA }}
-          TOKEN_PICCADILLY: ${{ secrets.TOKEN_PICCADILLY }}
-        run: python extractor_catalogo.py
-
-      - name: Ejecutar el Extractor de MercadoLibre
-        continue-on-error: true   # si MeLi falla, Shopify igual se publica
+      - name: Publicaciones de MercadoLibre
+        continue-on-error: true
         env:
           MELI_APP_ID: ${{ secrets.MELI_APP_ID }}
           MELI_CLIENT_SECRET: ${{ secrets.MELI_CLIENT_SECRET }}
@@ -65,29 +43,36 @@ jobs:
           MELI_COLUMBIA: ${{ secrets.MELI_COLUMBIA }}
           MELI_PICCADILLY: ${{ secrets.MELI_PICCADILLY }}
           GH_PAT_SECRETS: ${{ secrets.GH_PAT_SECRETS }}
-          CLIENTES_SALT: ${{ secrets.CLIENTES_SALT }}
-          # Cada 2 hs (cron del catálogo) también actualiza envíos en camino -> entregados
-          MELI_REFRESCAR_ENTREGAS: ${{ (github.event.schedule == '0 */2 * * *' || github.event_name == 'workflow_dispatch') && '1' || '0' }}
-        run: python extractor_meli.py
+        run: python extractor_meli_publicaciones.py
 
-      - name: Guardar los nuevos CSV en GitHub
+      - name: Publicidad de MercadoLibre (Product Ads)
+        continue-on-error: true
+        env:
+          MELI_APP_ID: ${{ secrets.MELI_APP_ID }}
+          MELI_CLIENT_SECRET: ${{ secrets.MELI_CLIENT_SECRET }}
+          MELI_REEBOK: ${{ secrets.MELI_REEBOK }}
+          MELI_CROCS: ${{ secrets.MELI_CROCS }}
+          MELI_KAPPA: ${{ secrets.MELI_KAPPA }}
+          MELI_COLUMBIA: ${{ secrets.MELI_COLUMBIA }}
+          MELI_PICCADILLY: ${{ secrets.MELI_PICCADILLY }}
+          GH_PAT_SECRETS: ${{ secrets.GH_PAT_SECRETS }}
+        run: python extractor_meli_ads.py
+
+      - name: Resumen de clientes
+        continue-on-error: true
+        run: python extractor_clientes.py
+
+      - name: Guardar en GitHub
         run: |
           git config --global user.name "Robot Distrinando"
           git config --global user.email "robot@distrinando.com"
-          
-          # Agregamos ventas, histórico y catálogo
-          git add ventas_hot_sale.csv catalogo_stock.csv
-          for f in ventas_historico.csv ventas_meli.csv ventas_meli_historico.csv; do
+          for f in meli_publicaciones.csv clientes_resumen.csv clientes_cohortes.csv meli_ads_campanias.csv meli_ads_diario.csv meli_ads_items.csv; do
             if [ -f "$f" ]; then git add "$f"; fi
           done
-          
-          # Lógica: Solo hace commit si hubo cambios reales en cualquiera de los archivos
           if git diff --staged --quiet; then
-            echo "ℹ️ No hay datos nuevos (ventas o stock). El repositorio se mantiene igual."
+            echo "ℹ️ Sin cambios."
           else
-            git commit -m "🔄 Datos actualizados: Ventas (Shopify+MeLi) y Catálogo [$(date +'%d/%m %H:%M:%S')]"
-            # Por si entró otro commit mientras corría (ej: metas guardadas desde el dashboard)
+            git commit -m "📊 Datos diarios: publicaciones, publicidad MeLi y clientes [$(date +'%d/%m %H:%M')]"
             git pull --rebase origin main
             git push
-            echo "✅ Nuevos datos subidos exitosamente a la nube."
           fi
