@@ -63,6 +63,7 @@ jobs:
           MELI_CROCS: ${{ secrets.MELI_CROCS }}
           MELI_KAPPA: ${{ secrets.MELI_KAPPA }}
           MELI_COLUMBIA: ${{ secrets.MELI_COLUMBIA }}
+          MELI_PICCADILLY: ${{ secrets.MELI_PICCADILLY }}
           GH_PAT_SECRETS: ${{ secrets.GH_PAT_SECRETS }}
           CLIENTES_SALT: ${{ secrets.CLIENTES_SALT }}
           # Cada 2 hs (cron del catálogo) también actualiza envíos en camino -> entregados
