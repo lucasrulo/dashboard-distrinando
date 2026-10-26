@@ -38,6 +38,7 @@ CUENTAS = {
     "Crocs": "MELI_CROCS",
     "Kappa": "MELI_KAPPA",
     "Columbia": "MELI_COLUMBIA",
+    "Piccadilly": "MELI_PICCADILLY",
 }
 
 CLIENTES_SALT = os.environ.get("CLIENTES_SALT", "")
