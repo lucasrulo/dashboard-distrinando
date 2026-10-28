@@ -11,6 +11,7 @@ Secrets necesarios en GitHub Actions:
 """
 import os
 import json
+import tempfile
 import time
 import hashlib
 import subprocess
@@ -128,6 +129,16 @@ class MeliCuenta:
         if not raw:
             raise RuntimeError(f"Secret {secret_name} vacío")
         self.tok = json.loads(raw)
+        # Si un paso anterior del mismo workflow ya renovó el token, el secret de este paso quedó viejo
+        # (el refresh_token es de un solo uso): se usa la copia local más nueva.
+        self._cache = os.path.join(tempfile.gettempdir(), f"meli_tok_{secret_name}.json")
+        try:
+            with open(self._cache) as fh:
+                loc = json.load(fh)
+            if loc.get("expires_at", 0) > self.tok.get("expires_at", 0):
+                self.tok = loc
+        except Exception:
+            pass
         self.s = requests.Session()
 
     @property
@@ -159,6 +170,11 @@ class MeliCuenta:
         # 🚨 Primero se guarda, después se usa: si el guardado falla, el refresh viejo ya no sirve
         guardar_secret(self.secret_name, json.dumps(nuevo))
         self.tok = nuevo
+        try:
+            with open(self._cache, "w") as fh:
+                json.dump(nuevo, fh)
+        except Exception:
+            pass
         print(f"   🔑 {self.marca}: token renovado y guardado")
 
     def get(self, path, params=None):
