@@ -198,7 +198,15 @@ def reclamos(c, desde):
                 "res_beneficiado": ",".join(res.get("benefited") or []) if isinstance(res.get("benefited"), list) else (res.get("benefited") or ""),
                 "res_cerrado_por": res.get("closed_by") or "", "res_cobertura": res.get("applied_coverage")}
         fila.update(razon(c, rid))
-        if fila["recurso"] in ("order", "purchase", "") and fila["orden_meli"]:
+        fila["recurso_id"] = fila["orden_meli"]
+        # El reclamo puede colgar de la orden, del envío o del pago: siempre se resuelve a la ORDEN
+        if fila["recurso"] == "shipment" and fila["orden_meli"]:
+            r = c.get(f"/shipments/{fila['orden_meli']}")
+            fila["orden_meli"] = (r.json().get("order_id") or "") if _ok(r) else ""
+        elif fila["recurso"] == "payment" and fila["orden_meli"]:
+            r = c.get(f"/v1/payments/{fila['orden_meli']}")
+            fila["orden_meli"] = ((r.json().get("order") or {}).get("id") or "") if _ok(r) else ""
+        if fila["orden_meli"]:
             fila.update(orden_info(c, fila["orden_meli"]))
         fila.update(devolucion(c, cid))
         filas.append(fila)
