@@ -1,7 +1,7 @@
 canal,cohorte,mes_n,clientes
-MercadoLibre,2026-09,0,3672
-MercadoLibre,2026-09,1,127
-MercadoLibre,2026-10,0,8102
+MercadoLibre,2026-09,0,3671
+MercadoLibre,2026-09,1,126
+MercadoLibre,2026-10,0,8164
 Tienda Online,2025-09,0,1
 Tienda Online,2025-09,11,1
 Tienda Online,2025-09,13,1
@@ -14,7 +14,7 @@ Tienda Online,2026-01,5,201
 Tienda Online,2026-01,6,251
 Tienda Online,2026-01,7,179
 Tienda Online,2026-01,8,137
-Tienda Online,2026-01,9,91
+Tienda Online,2026-01,9,92
 Tienda Online,2026-02,0,8820
 Tienda Online,2026-02,1,321
 Tienda Online,2026-02,2,183
@@ -23,7 +23,7 @@ Tienda Online,2026-02,4,171
 Tienda Online,2026-02,5,225
 Tienda Online,2026-02,6,194
 Tienda Online,2026-02,7,110
-Tienda Online,2026-02,8,73
+Tienda Online,2026-02,8,74
 Tienda Online,2026-03,0,9369
 Tienda Online,2026-03,1,275
 Tienda Online,2026-03,2,269
@@ -31,14 +31,14 @@ Tienda Online,2026-03,3,153
 Tienda Online,2026-03,4,242
 Tienda Online,2026-03,5,171
 Tienda Online,2026-03,6,139
-Tienda Online,2026-03,7,101
+Tienda Online,2026-03,7,102
 Tienda Online,2026-04,0,7595
 Tienda Online,2026-04,1,339
 Tienda Online,2026-04,2,220
 Tienda Online,2026-04,3,264
 Tienda Online,2026-04,4,176
 Tienda Online,2026-04,5,107
-Tienda Online,2026-04,6,103
+Tienda Online,2026-04,6,105
 Tienda Online,2026-05,0,12813
 Tienda Online,2026-05,1,402
 Tienda Online,2026-05,2,377
@@ -49,7 +49,7 @@ Tienda Online,2026-06,0,9170
 Tienda Online,2026-06,1,497
 Tienda Online,2026-06,2,215
 Tienda Online,2026-06,3,144
-Tienda Online,2026-06,4,114
+Tienda Online,2026-06,4,115
 Tienda Online,2026-07,0,11246
 Tienda Online,2026-07,1,392
 Tienda Online,2026-07,2,168
@@ -59,4 +59,4 @@ Tienda Online,2026-08,1,244
 Tienda Online,2026-08,2,141
 Tienda Online,2026-09,0,7107
 Tienda Online,2026-09,1,163
-Tienda Online,2026-10,0,6478
+Tienda Online,2026-10,0,6509
