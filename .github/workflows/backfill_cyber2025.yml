@@ -1,0 +1,52 @@
+name: Backfill Cyber 2025 (correr UNA vez)
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: actualizador-datos-shopify
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Instalar librerías
+        run: pip install -r requirements.txt
+
+      - name: Bajar ventas del Cyber Monday 2025 (Shopify + MercadoLibre)
+        env:
+          TOKEN_REEBOK: ${{ secrets.TOKEN_REEBOK }}
+          TOKEN_COLUMBIA: ${{ secrets.TOKEN_COLUMBIA }}
+          TOKEN_CROCS: ${{ secrets.TOKEN_CROCS }}
+          TOKEN_KAPPA: ${{ secrets.TOKEN_KAPPA }}
+          TOKEN_PICCADILLY: ${{ secrets.TOKEN_PICCADILLY }}
+          MELI_APP_ID: ${{ secrets.MELI_APP_ID }}
+          MELI_CLIENT_SECRET: ${{ secrets.MELI_CLIENT_SECRET }}
+          MELI_REEBOK: ${{ secrets.MELI_REEBOK }}
+          MELI_CROCS: ${{ secrets.MELI_CROCS }}
+          MELI_KAPPA: ${{ secrets.MELI_KAPPA }}
+          MELI_COLUMBIA: ${{ secrets.MELI_COLUMBIA }}
+          MELI_PICCADILLY: ${{ secrets.MELI_PICCADILLY }}
+          GH_PAT_SECRETS: ${{ secrets.GH_PAT_SECRETS }}
+          CLIENTES_SALT: ${{ secrets.CLIENTES_SALT }}
+        run: python backfill_cyber_2025.py
+
+      - name: Guardar en GitHub
+        run: |
+          git config --global user.name "Robot Distrinando"
+          git config --global user.email "robot@distrinando.com"
+          if [ -f cyber_2025.csv ]; then git add cyber_2025.csv; fi
+          git diff --staged --quiet || (git commit -m "🔥 Ventas Cyber Monday 2025" && git pull --rebase origin main && git push)
