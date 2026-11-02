@@ -42,5 +42,8 @@
       "unidades": 0,
       "facturacion": 175000000
     }
+  },
+  "cyber": {
+    "facturacion": 1430000000
   }
 }
