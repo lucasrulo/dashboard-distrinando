@@ -44,7 +44,7 @@
     }
   },
   "cyber": {
-    "facturacion": 1560000000,
+    "facturacion": 1818800000,
     "detalle": {
       "Tienda Online": {
         "Reebok": 413000000,
@@ -54,11 +54,11 @@
         "Piccadilly": 100000000
       },
       "MercadoLibre": {
-        "Reebok": 282000000,
-        "Columbia": 54000000,
-        "Crocs": 63000000,
-        "Kappa": 152000000,
-        "Piccadilly": 30000000
+        "Reebok": 460000000,
+        "Columbia": 82800000,
+        "Crocs": 85000000,
+        "Kappa": 193000000,
+        "Piccadilly": 19000000
       }
     }
   }
