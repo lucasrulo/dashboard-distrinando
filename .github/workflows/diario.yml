@@ -2,8 +2,8 @@ name: Actualizador diario (Publicaciones + Publicidad MeLi + Clientes)
 
 on:
   schedule:
-    # 06:10 y 14:10 hora Argentina (09:10 y 17:10 UTC)
-    - cron: '10 9,17 * * *'
+    # 06:10, 11:10 y 17:10 hora Argentina (MeLi consolida la publicidad de ayer a las 10:00)
+    - cron: '10 9,14,20 * * *'
   workflow_dispatch:
 
 # Misma cola que el actualizador de ventas: nunca corren a la vez
