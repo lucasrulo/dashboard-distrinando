@@ -285,6 +285,96 @@ def cruzar_productos(df, mapa):
     return df
 
 
+# ============================================================================== SHOPIFY: de dónde vino cada pedido
+ORIGEN_ARCHIVO = "shopify_origen.csv"
+ORIGEN_DIAS = 120
+
+
+def clasificar_origen(landing, referer, source_name):
+    """Último clic según Shopify: Google Ads / Google orgánico / Meta / Email / Directo / Otros."""
+    from urllib.parse import urlparse, parse_qs
+    q = {}
+    try:
+        q = {k.lower(): v[0] for k, v in parse_qs(urlparse(str(landing or "")).query).items()}
+    except Exception:
+        pass
+    ref = str(referer or "").lower()
+    us, um = q.get("utm_source", "").lower(), q.get("utm_medium", "").lower()
+    pago_google = (any(k in q for k in ("gclid", "gbraid", "wbraid", "gad_source", "gad_campaignid"))
+                   or (("google" in us or us in ("adwords", "pmax")) and um in ("cpc", "ppc", "paid", "pmax", "shopping", "paidsearch", "paid_search")))
+    if pago_google:
+        o = "Google Ads"
+    elif "fbclid" in q or us in ("fb", "ig") or any(x in us for x in ("facebook", "instagram", "meta")) or any(x in ref for x in ("facebook.", "instagram.")):
+        o = "Meta (FB/IG)"
+    elif "email" in um or "mail" in us or "klaviyo" in us or "doppler" in us or "mailchimp" in us:
+        o = "Email"
+    elif "whatsapp" in us or "whatsapp" in ref or "wa.me" in ref:
+        o = "WhatsApp"
+    elif "google." in ref or "googleusercontent" in ref:
+        o = "Google orgánico"
+    elif any(x in ref for x in ("bing.", "yahoo.", "duckduckgo.")):
+        o = "Otros buscadores"
+    elif us or ref:
+        o = "Otros"
+    else:
+        o = "Directo / sin dato"
+    return {"origen": o, "utm_source": q.get("utm_source", ""), "utm_medium": q.get("utm_medium", ""),
+            "utm_campaign": q.get("utm_campaign", "")[:120], "gad_campaignid": _limpio(q.get("gad_campaignid", "")),
+            "referente": (urlparse(ref).netloc if ref.startswith("http") else ref)[:80]}
+
+
+def origen_shopify():
+    """Trae landing_site / referring_site de los pedidos de Shopify (incremental, últimos 120 días)."""
+    try:
+        from extractor import STORES, API_VERSION
+    except Exception as e:
+        print(f"   ⚠️ No pude leer las tiendas de Shopify: {e}")
+        return
+    ahora = datetime.now(ZONA_AR)
+    viejo = pd.read_csv(ORIGEN_ARCHIVO, dtype={"id_pedido": str, "gad_campaignid": str}) if os.path.exists(ORIGEN_ARCHIVO) else pd.DataFrame()
+    filas = []
+    for marca, info in STORES.items():
+        if not info.get("token"):
+            continue
+        desde = ahora - timedelta(days=ORIGEN_DIAS)
+        if not viejo.empty and (viejo["marca"] == marca).any():
+            ult = pd.to_datetime(viejo.loc[viejo["marca"] == marca, "fecha"], errors="coerce", utc=True).max()
+            if pd.notna(ult):
+                desde = max(desde, ult.tz_convert(ZONA_AR).to_pydatetime() - timedelta(days=2))
+        url = f"https://{info['url']}.myshopify.com/admin/api/{API_VERSION}/orders.json"
+        params = {"limit": 250, "status": "any", "created_at_min": desde.isoformat(),
+                  "fields": "id,created_at,landing_site,referring_site,source_name"}
+        h = {"X-Shopify-Access-Token": info["token"]}
+        n = 0
+        for _ in range(400):
+            r = requests.get(url, headers=h, params=params, timeout=60)
+            if r.status_code == 429:
+                time.sleep(3)
+                continue
+            if r.status_code != 200:
+                print(f"   ⚠️ Origen Shopify {marca}: HTTP {r.status_code}")
+                break
+            for o in r.json().get("orders", []):
+                f = {"marca": marca, "id_pedido": str(o["id"]), "fecha": o.get("created_at"), "canal_shopify": o.get("source_name") or ""}
+                f.update(clasificar_origen(o.get("landing_site"), o.get("referring_site"), o.get("source_name")))
+                filas.append(f)
+                n += 1
+            url = r.links.get("next", {}).get("url")
+            params = None
+            if not url:
+                break
+            time.sleep(0.5)
+        print(f"   🧭 Origen Shopify {marca}: {n:,} pedidos revisados")
+    df = pd.concat([viejo, pd.DataFrame(filas)], ignore_index=True) if filas else viejo
+    if df.empty:
+        return
+    df = df.drop_duplicates(["marca", "id_pedido"], keep="last")
+    f_ = pd.to_datetime(df["fecha"], errors="coerce", utc=True)
+    df = df[f_ >= pd.Timestamp.now(tz="UTC") - pd.Timedelta(days=ORIGEN_DIAS)]
+    df.to_csv(ORIGEN_ARCHIVO, index=False)
+    print(f"🚀 {ORIGEN_ARCHIVO}: {len(df):,} pedidos · " + ", ".join(f"{k} {v:.0%}" for k, v in df["origen"].value_counts(normalize=True).head(5).items()))
+
+
 # ============================================================================== MAIN
 def sync():
     ahora = datetime.now(ZONA_AR)
@@ -348,6 +438,10 @@ def sync():
             filas["actualizado"] = ts
             filas.to_csv(nombre, index=False)
             print(f"🚀 {nombre}: {len(filas):,} filas")
+    try:
+        origen_shopify()
+    except Exception as e:
+        print(f"   ⚠️ Origen de pedidos Shopify: {e}")
 
 
 if __name__ == "__main__":
