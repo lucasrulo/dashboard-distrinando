@@ -1,7 +1,7 @@
 marca,modelo_color,sku,stock,precio,titulo,url_web
 Reebok,RBK2100241910,RBK2100241910-2XL,0,45499.00,Biker Reebok,https://reebok-ar.myshopify.com/products/short-biker-reebok-rbk2100241910
 Reebok,RBK2100241910,RBK2100241910-2XS,0,45499.00,Biker Reebok,https://reebok-ar.myshopify.com/products/short-biker-reebok-rbk2100241910
-Reebok,RBK2100241910,RBK2100241910-L,6,45499.00,Biker Reebok,https://reebok-ar.myshopify.com/products/short-biker-reebok-rbk2100241910
+Reebok,RBK2100241910,RBK2100241910-L,5,45499.00,Biker Reebok,https://reebok-ar.myshopify.com/products/short-biker-reebok-rbk2100241910
 Reebok,RBK2100241910,RBK2100241910-M,3,45499.00,Biker Reebok,https://reebok-ar.myshopify.com/products/short-biker-reebok-rbk2100241910
 Reebok,RBK2100241910,RBK2100241910-S,2,45499.00,Biker Reebok,https://reebok-ar.myshopify.com/products/short-biker-reebok-rbk2100241910
 Reebok,RBK2100241910,RBK2100241910-XL,4,45499.00,Biker Reebok,https://reebok-ar.myshopify.com/products/short-biker-reebok-rbk2100241910
@@ -804,7 +804,7 @@ Reebok,RBK2100241932,RBK2100241932-XS,5,83799.00,Calza High Rise Full,https://re
 Reebok,RBK2100241932,RBK2100241932-S,0,83799.00,Calza High Rise Full,https://reebok-ar.myshopify.com/products/calza-high-rise-full-length-tights-black-rbk2100241932
 Reebok,RBK2100241932,RBK2100241932-M,0,83799.00,Calza High Rise Full,https://reebok-ar.myshopify.com/products/calza-high-rise-full-length-tights-black-rbk2100241932
 Reebok,RBK2100241932,RBK2100241932-L,0,83799.00,Calza High Rise Full,https://reebok-ar.myshopify.com/products/calza-high-rise-full-length-tights-black-rbk2100241932
-Reebok,RBK2100241932,RBK2100241932-XL,7,83799.00,Calza High Rise Full,https://reebok-ar.myshopify.com/products/calza-high-rise-full-length-tights-black-rbk2100241932
+Reebok,RBK2100241932,RBK2100241932-XL,6,83799.00,Calza High Rise Full,https://reebok-ar.myshopify.com/products/calza-high-rise-full-length-tights-black-rbk2100241932
 Reebok,RBK2100241932,RBK2100241932-2XL,0,83799.00,Calza High Rise Full,https://reebok-ar.myshopify.com/products/calza-high-rise-full-length-tights-black-rbk2100241932
 Reebok,RBK2100243267,RBK2100243267-XS,6,67299.00,Calza Lux,https://reebok-ar.myshopify.com/products/calza-lux-high-rise-booty-short-black-rbk2100243267
 Reebok,RBK2100243267,RBK2100243267-S,0,67299.00,Calza Lux,https://reebok-ar.myshopify.com/products/calza-lux-high-rise-booty-short-black-rbk2100243267
@@ -831,7 +831,7 @@ Reebok,RBK2100076153,RBK2100076153-XL,2,67299.00,Calza Lux High Rise Bike,https:
 Reebok,RBK2100254371,RBK2100254371-XS,4,54999.00,Calza Reebok Ciclista ID Train,https://reebok-ar.myshopify.com/products/short-reebok-ciclista-id-train-rbk2100254371
 Reebok,RBK2100254371,RBK2100254371-S,0,54999.00,Calza Reebok Ciclista ID Train,https://reebok-ar.myshopify.com/products/short-reebok-ciclista-id-train-rbk2100254371
 Reebok,RBK2100254371,RBK2100254371-M,0,54999.00,Calza Reebok Ciclista ID Train,https://reebok-ar.myshopify.com/products/short-reebok-ciclista-id-train-rbk2100254371
-Reebok,RBK2100254371,RBK2100254371-L,2,54999.00,Calza Reebok Ciclista ID Train,https://reebok-ar.myshopify.com/products/short-reebok-ciclista-id-train-rbk2100254371
+Reebok,RBK2100254371,RBK2100254371-L,1,54999.00,Calza Reebok Ciclista ID Train,https://reebok-ar.myshopify.com/products/short-reebok-ciclista-id-train-rbk2100254371
 Reebok,RBK2100254371,RBK2100254371-XL,3,54999.00,Calza Reebok Ciclista ID Train,https://reebok-ar.myshopify.com/products/short-reebok-ciclista-id-train-rbk2100254371
 Reebok,RBK2100254371,RBK2100254371-XXL,4,54999.00,Calza Reebok Ciclista ID Train,https://reebok-ar.myshopify.com/products/short-reebok-ciclista-id-train-rbk2100254371
 Reebok,RBK21000AR4709,RBK21000AR4709-2XS,0,67299.00,Calza Reebok Classic,https://reebok-ar.myshopify.com/products/calza-reebok-classic-rbk21000ar4709
@@ -2434,7 +2434,7 @@ Reebok,RBK2100240752,RBK2100240752-XS,4,41399.00,Remera Cooper Ss Tee,https://re
 Reebok,RBK2100240752,RBK2100240752-S,3,41399.00,Remera Cooper Ss Tee,https://reebok-ar.myshopify.com/products/remera-cooper-ss-tee-vector-red-rbk2100240752
 Reebok,RBK2100240752,RBK2100240752-M,2,41399.00,Remera Cooper Ss Tee,https://reebok-ar.myshopify.com/products/remera-cooper-ss-tee-vector-red-rbk2100240752
 Reebok,RBK2100240752,RBK2100240752-L,2,41399.00,Remera Cooper Ss Tee,https://reebok-ar.myshopify.com/products/remera-cooper-ss-tee-vector-red-rbk2100240752
-Reebok,RBK2100240752,RBK2100240752-XL,1,41399.00,Remera Cooper Ss Tee,https://reebok-ar.myshopify.com/products/remera-cooper-ss-tee-vector-red-rbk2100240752
+Reebok,RBK2100240752,RBK2100240752-XL,0,41399.00,Remera Cooper Ss Tee,https://reebok-ar.myshopify.com/products/remera-cooper-ss-tee-vector-red-rbk2100240752
 Reebok,RBK2100240752,RBK2100240752-2XL,5,41399.00,Remera Cooper Ss Tee,https://reebok-ar.myshopify.com/products/remera-cooper-ss-tee-vector-red-rbk2100240752
 Reebok,RBK2100240715,RBK2100240715-2XL,0,39299.00,Remera Crewneck Reebok,https://reebok-ar.myshopify.com/products/remera-crewneck-reebok-rbk2100240715
 Reebok,RBK2100240715,RBK2100240715-2XS,0,39299.00,Remera Crewneck Reebok,https://reebok-ar.myshopify.com/products/remera-crewneck-reebok-rbk2100240715
@@ -2728,7 +2728,7 @@ Reebok,RBK2100AR7673,RBK2100AR7673-XS,20,44999.00,Remera Reebok Capsula Fútbol,
 Reebok,RBK2100AR7673,RBK2100AR7673-S,20,44999.00,Remera Reebok Capsula Fútbol,https://reebok-ar.myshopify.com/products/remera-reebok-capsula-futbol-rbk2100ar7673
 Reebok,RBK2100AR7673,RBK2100AR7673-M,18,44999.00,Remera Reebok Capsula Fútbol,https://reebok-ar.myshopify.com/products/remera-reebok-capsula-futbol-rbk2100ar7673
 Reebok,RBK2100AR7673,RBK2100AR7673-L,13,44999.00,Remera Reebok Capsula Fútbol,https://reebok-ar.myshopify.com/products/remera-reebok-capsula-futbol-rbk2100ar7673
-Reebok,RBK2100AR7673,RBK2100AR7673-XL,13,44999.00,Remera Reebok Capsula Fútbol,https://reebok-ar.myshopify.com/products/remera-reebok-capsula-futbol-rbk2100ar7673
+Reebok,RBK2100AR7673,RBK2100AR7673-XL,12,44999.00,Remera Reebok Capsula Fútbol,https://reebok-ar.myshopify.com/products/remera-reebok-capsula-futbol-rbk2100ar7673
 Reebok,RBK2100AR7673,RBK2100AR7673-2XL,11,44999.00,Remera Reebok Capsula Fútbol,https://reebok-ar.myshopify.com/products/remera-reebok-capsula-futbol-rbk2100ar7673
 Reebok,RBK2100AR7674,RBK2100AR7674-2XL,14,44999.00,Remera Reebok Capsula Fútbol,https://reebok-ar.myshopify.com/products/remera-capsulta-reebok-futbol-rbk2100ar7674
 Reebok,RBK2100AR7674,RBK2100AR7674-XS,20,44999.00,Remera Reebok Capsula Fútbol,https://reebok-ar.myshopify.com/products/remera-capsulta-reebok-futbol-rbk2100ar7674
@@ -2931,7 +2931,7 @@ Reebok,RBK2100070677,RBK2100070677-S,0,39299.00,Remera Reebok Identity Small Log
 Reebok,RBK2100070677,RBK2100070677-M,0,39299.00,Remera Reebok Identity Small Logo,https://reebok-ar.myshopify.com/products/remera-reebok-identity-small-logo-rbk2100070677
 Reebok,RBK2100070677,RBK2100070677-L,0,39299.00,Remera Reebok Identity Small Logo,https://reebok-ar.myshopify.com/products/remera-reebok-identity-small-logo-rbk2100070677
 Reebok,RBK2100070677,RBK2100070677-XL,0,39299.00,Remera Reebok Identity Small Logo,https://reebok-ar.myshopify.com/products/remera-reebok-identity-small-logo-rbk2100070677
-Reebok,RBK2100070677,RBK2100070677-2XL,1,39299.00,Remera Reebok Identity Small Logo,https://reebok-ar.myshopify.com/products/remera-reebok-identity-small-logo-rbk2100070677
+Reebok,RBK2100070677,RBK2100070677-2XL,0,39299.00,Remera Reebok Identity Small Logo,https://reebok-ar.myshopify.com/products/remera-reebok-identity-small-logo-rbk2100070677
 Reebok,RBK2100064838,RBK2100064838-2XS,0,39299.00,Remera Reebok Identity Small Logo,https://reebok-ar.myshopify.com/products/remera-reebok-identity-small-logo-rbk2100064838
 Reebok,RBK2100064838,RBK2100064838-XS,6,39299.00,Remera Reebok Identity Small Logo,https://reebok-ar.myshopify.com/products/remera-reebok-identity-small-logo-rbk2100064838
 Reebok,RBK2100064838,RBK2100064838-S,0,39299.00,Remera Reebok Identity Small Logo,https://reebok-ar.myshopify.com/products/remera-reebok-identity-small-logo-rbk2100064838
@@ -3014,7 +3014,7 @@ Reebok,RBK2100206059,RBK2100206059-XS,0,53799.00,Remera Reebok No Matter The Dis
 Reebok,RBK2100206059,RBK2100206059-S,0,53799.00,Remera Reebok No Matter The Distance Gfx,https://reebok-ar.myshopify.com/products/remera-reebok-no-matter-the-distance-gfx-rbk2100206059
 Reebok,RBK2100206059,RBK2100206059-L,0,53799.00,Remera Reebok No Matter The Distance Gfx,https://reebok-ar.myshopify.com/products/remera-reebok-no-matter-the-distance-gfx-rbk2100206059
 Reebok,RBK2100206059,RBK2100206059-M,0,53799.00,Remera Reebok No Matter The Distance Gfx,https://reebok-ar.myshopify.com/products/remera-reebok-no-matter-the-distance-gfx-rbk2100206059
-Reebok,RBK2100206059,RBK2100206059-2XL,2,53799.00,Remera Reebok No Matter The Distance Gfx,https://reebok-ar.myshopify.com/products/remera-reebok-no-matter-the-distance-gfx-rbk2100206059
+Reebok,RBK2100206059,RBK2100206059-2XL,1,53799.00,Remera Reebok No Matter The Distance Gfx,https://reebok-ar.myshopify.com/products/remera-reebok-no-matter-the-distance-gfx-rbk2100206059
 Reebok,RBK2100206059,RBK2100206059-XL,0,53799.00,Remera Reebok No Matter The Distance Gfx,https://reebok-ar.myshopify.com/products/remera-reebok-no-matter-the-distance-gfx-rbk2100206059
 Reebok,RBK2100206058,RBK2100206058-2XS,0,53799.00,Remera Reebok No Matter The Distance Gfx,https://reebok-ar.myshopify.com/products/remera-reebok-no-matter-the-distance-gfx-rbk2100206058
 Reebok,RBK2100206058,RBK2100206058-XS,4,53799.00,Remera Reebok No Matter The Distance Gfx,https://reebok-ar.myshopify.com/products/remera-reebok-no-matter-the-distance-gfx-rbk2100206058
@@ -3404,7 +3404,7 @@ Reebok,RBK2100215053,RBK2100215053-2XS,0,94999.00,Short Reebok Athlete Strength,
 Reebok,RBK2100215053,RBK2100215053-XS,6,94999.00,Short Reebok Athlete Strength,https://reebok-ar.myshopify.com/products/short-reebok-athlete-strength-rbk2100215053
 Reebok,RBK2100215053,RBK2100215053-S,6,94999.00,Short Reebok Athlete Strength,https://reebok-ar.myshopify.com/products/short-reebok-athlete-strength-rbk2100215053
 Reebok,RBK2100215053,RBK2100215053-L,6,94999.00,Short Reebok Athlete Strength,https://reebok-ar.myshopify.com/products/short-reebok-athlete-strength-rbk2100215053
-Reebok,RBK2100215053,RBK2100215053-M,5,94999.00,Short Reebok Athlete Strength,https://reebok-ar.myshopify.com/products/short-reebok-athlete-strength-rbk2100215053
+Reebok,RBK2100215053,RBK2100215053-M,4,94999.00,Short Reebok Athlete Strength,https://reebok-ar.myshopify.com/products/short-reebok-athlete-strength-rbk2100215053
 Reebok,RBK2100215053,RBK2100215053-2XL,6,94999.00,Short Reebok Athlete Strength,https://reebok-ar.myshopify.com/products/short-reebok-athlete-strength-rbk2100215053
 Reebok,RBK2100215053,RBK2100215053-XL,6,94999.00,Short Reebok Athlete Strength,https://reebok-ar.myshopify.com/products/short-reebok-athlete-strength-rbk2100215053
 Reebok,RBK2100072751,RBK2100072751-2XS,0,62099.00,Short Reebok Básquet,https://reebok-ar.myshopify.com/products/short-reebok-basquet-rbk2100072751
@@ -3527,7 +3527,7 @@ Reebok,RBK2100205473,RBK2100205473-XL,0,62099.00,Short Reebok Crosscheck,https:/
 Reebok,RBK2100205472,RBK2100205472-XS,6,62099.00,Short Reebok Crosschek,https://reebok-ar.myshopify.com/products/short-reebok-crosschek-rbk2100205472
 Reebok,RBK2100205472,RBK2100205472-S,5,62099.00,Short Reebok Crosschek,https://reebok-ar.myshopify.com/products/short-reebok-crosschek-rbk2100205472
 Reebok,RBK2100205472,RBK2100205472-L,5,62099.00,Short Reebok Crosschek,https://reebok-ar.myshopify.com/products/short-reebok-crosschek-rbk2100205472
-Reebok,RBK2100205472,RBK2100205472-M,5,62099.00,Short Reebok Crosschek,https://reebok-ar.myshopify.com/products/short-reebok-crosschek-rbk2100205472
+Reebok,RBK2100205472,RBK2100205472-M,4,62099.00,Short Reebok Crosschek,https://reebok-ar.myshopify.com/products/short-reebok-crosschek-rbk2100205472
 Reebok,RBK2100205472,RBK2100205472-2XL,6,62099.00,Short Reebok Crosschek,https://reebok-ar.myshopify.com/products/short-reebok-crosschek-rbk2100205472
 Reebok,RBK2100205472,RBK2100205472-XL,6,62099.00,Short Reebok Crosschek,https://reebok-ar.myshopify.com/products/short-reebok-crosschek-rbk2100205472
 Reebok,RBK2100070367,RBK2100070367-2XS,0,44499.00,Short Reebok De Malla Para Basquet,https://reebok-ar.myshopify.com/products/short-reebok-de-malla-para-basquet-rbk2100070367
@@ -3602,7 +3602,7 @@ Reebok,RBK2100240038,RBK2100240038-XL,0,45499.00,Short Reebok London,https://ree
 Reebok,RBK2100240038,RBK2100240038-XXL,8,45499.00,Short Reebok London,https://reebok-ar.myshopify.com/products/short-reebok-london-rbk2100240038
 Reebok,RBK2100240039,RBK2100240039-XS,5,45499.00,Short Reebok London,https://reebok-ar.myshopify.com/products/short-reebok-london-rbk2100240039
 Reebok,RBK2100240039,RBK2100240039-S,6,45499.00,Short Reebok London,https://reebok-ar.myshopify.com/products/short-reebok-london-rbk2100240039
-Reebok,RBK2100240039,RBK2100240039-M,4,45499.00,Short Reebok London,https://reebok-ar.myshopify.com/products/short-reebok-london-rbk2100240039
+Reebok,RBK2100240039,RBK2100240039-M,3,45499.00,Short Reebok London,https://reebok-ar.myshopify.com/products/short-reebok-london-rbk2100240039
 Reebok,RBK2100240039,RBK2100240039-L,0,45499.00,Short Reebok London,https://reebok-ar.myshopify.com/products/short-reebok-london-rbk2100240039
 Reebok,RBK2100240039,RBK2100240039-XL,0,45499.00,Short Reebok London,https://reebok-ar.myshopify.com/products/short-reebok-london-rbk2100240039
 Reebok,RBK2100240039,RBK2100240039-XXL,0,45499.00,Short Reebok London,https://reebok-ar.myshopify.com/products/short-reebok-london-rbk2100240039
@@ -3784,7 +3784,7 @@ Reebok,RBK2100256704,RBK2100256704-XL,0,99999.00,Short Reebok Woven,https://reeb
 Reebok,RBK2100256704,RBK2100256704-XXL,0,99999.00,Short Reebok Woven,https://reebok-ar.myshopify.com/products/short-reebok-woven-rbk2100256704
 Reebok,RBK2100256705,RBK2100256705-XS,6,89999.00,Short Reebok Woven,https://reebok-ar.myshopify.com/products/short-reebok-woven-rbk2100256705
 Reebok,RBK2100256705,RBK2100256705-S,2,89999.00,Short Reebok Woven,https://reebok-ar.myshopify.com/products/short-reebok-woven-rbk2100256705
-Reebok,RBK2100256705,RBK2100256705-M,1,89999.00,Short Reebok Woven,https://reebok-ar.myshopify.com/products/short-reebok-woven-rbk2100256705
+Reebok,RBK2100256705,RBK2100256705-M,0,89999.00,Short Reebok Woven,https://reebok-ar.myshopify.com/products/short-reebok-woven-rbk2100256705
 Reebok,RBK2100256705,RBK2100256705-L,5,89999.00,Short Reebok Woven,https://reebok-ar.myshopify.com/products/short-reebok-woven-rbk2100256705
 Reebok,RBK2100256705,RBK2100256705-XL,0,89999.00,Short Reebok Woven,https://reebok-ar.myshopify.com/products/short-reebok-woven-rbk2100256705
 Reebok,RBK2100256705,RBK2100256705-XXL,4,89999.00,Short Reebok Woven,https://reebok-ar.myshopify.com/products/short-reebok-woven-rbk2100256705
@@ -4127,7 +4127,7 @@ Reebok,RBK2100254349,RBK2100254349-S,7,89999.00,Top Reebok Lab Medium,https://re
 Reebok,RBK2100254349,RBK2100254349-M,5,89999.00,Top Reebok Lab Medium,https://reebok-ar.myshopify.com/products/top-reebok-lab-medium-rbk2100254349
 Reebok,RBK2100254349,RBK2100254349-L,6,89999.00,Top Reebok Lab Medium,https://reebok-ar.myshopify.com/products/top-reebok-lab-medium-rbk2100254349
 Reebok,RBK2100254349,RBK2100254349-XL,6,89999.00,Top Reebok Lab Medium,https://reebok-ar.myshopify.com/products/top-reebok-lab-medium-rbk2100254349
-Reebok,RBK2100254349,RBK2100254349-XXL,6,89999.00,Top Reebok Lab Medium,https://reebok-ar.myshopify.com/products/top-reebok-lab-medium-rbk2100254349
+Reebok,RBK2100254349,RBK2100254349-XXL,5,89999.00,Top Reebok Lab Medium,https://reebok-ar.myshopify.com/products/top-reebok-lab-medium-rbk2100254349
 Reebok,RBK2100205823,RBK2100205823-2XS,0,51699.00,Top Reebok Lux,https://reebok-ar.myshopify.com/products/top-reebok-lux-rbk2100205823
 Reebok,RBK2100205823,RBK2100205823-XS,6,51699.00,Top Reebok Lux,https://reebok-ar.myshopify.com/products/top-reebok-lux-rbk2100205823
 Reebok,RBK2100205823,RBK2100205823-S,0,51699.00,Top Reebok Lux,https://reebok-ar.myshopify.com/products/top-reebok-lux-rbk2100205823
@@ -4421,7 +4421,7 @@ Reebok,RBK1100033316,RBK1100033316-10,1,149999.00,Zapatillas BB 4000 II,https://
 Reebok,RBK1100033316,RBK1100033316-10.5,0,149999.00,Zapatillas BB 4000 II,https://reebok-ar.myshopify.com/products/zapatillas-bb-4000-ii-rbk1100033316
 Reebok,RBK1100033316,RBK1100033316-11,0,149999.00,Zapatillas BB 4000 II,https://reebok-ar.myshopify.com/products/zapatillas-bb-4000-ii-rbk1100033316
 Reebok,RBK1100033316,RBK1100033316-11.5,1,149999.00,Zapatillas BB 4000 II,https://reebok-ar.myshopify.com/products/zapatillas-bb-4000-ii-rbk1100033316
-Reebok,RBK1100201157,RBK1100201157-4,9,144999.00,Zapatillas BB 4000 II Mid,https://reebok-ar.myshopify.com/products/zapatillas-bb-4000-ii-mid-rbk1100201157
+Reebok,RBK1100201157,RBK1100201157-4,8,144999.00,Zapatillas BB 4000 II Mid,https://reebok-ar.myshopify.com/products/zapatillas-bb-4000-ii-mid-rbk1100201157
 Reebok,RBK1100201157,RBK1100201157-4.5,0,144999.00,Zapatillas BB 4000 II Mid,https://reebok-ar.myshopify.com/products/zapatillas-bb-4000-ii-mid-rbk1100201157
 Reebok,RBK1100201157,RBK1100201157-5,1,144999.00,Zapatillas BB 4000 II Mid,https://reebok-ar.myshopify.com/products/zapatillas-bb-4000-ii-mid-rbk1100201157
 Reebok,RBK1100201157,RBK1100201157-5.5,0,144999.00,Zapatillas BB 4000 II Mid,https://reebok-ar.myshopify.com/products/zapatillas-bb-4000-ii-mid-rbk1100201157
@@ -4639,7 +4639,7 @@ Reebok,RBK1100BR8495,RBK1100BR8495-9,0,119999.00,Zapatillas Classic Leather,http
 Reebok,RBK1100BR8495,RBK1100BR8495-9.5,0,119999.00,Zapatillas Classic Leather,https://reebok-ar.myshopify.com/products/zapatillas-classic-leather-rbk1100br8495
 Reebok,RBK1100BR8495,RBK1100BR8495-10,11,119999.00,Zapatillas Classic Leather,https://reebok-ar.myshopify.com/products/zapatillas-classic-leather-rbk1100br8495
 Reebok,RBK1100BR8495,RBK1100BR8495-10.5,0,119999.00,Zapatillas Classic Leather,https://reebok-ar.myshopify.com/products/zapatillas-classic-leather-rbk1100br8495
-Reebok,RBK1100BR8495,RBK1100BR8495-11,8,119999.00,Zapatillas Classic Leather,https://reebok-ar.myshopify.com/products/zapatillas-classic-leather-rbk1100br8495
+Reebok,RBK1100BR8495,RBK1100BR8495-11,7,119999.00,Zapatillas Classic Leather,https://reebok-ar.myshopify.com/products/zapatillas-classic-leather-rbk1100br8495
 Reebok,RBK1100BR8495,RBK1100BR8495-11.5,7,119999.00,Zapatillas Classic Leather,https://reebok-ar.myshopify.com/products/zapatillas-classic-leather-rbk1100br8495
 Reebok,RBK1100BR8495,RBK1100BR8495-12,0,119999.00,Zapatillas Classic Leather,https://reebok-ar.myshopify.com/products/zapatillas-classic-leather-rbk1100br8495
 Reebok,RBK1100BR8495,RBK1100BR8495-12.5,0,119999.00,Zapatillas Classic Leather,https://reebok-ar.myshopify.com/products/zapatillas-classic-leather-rbk1100br8495
@@ -4765,7 +4765,7 @@ Reebok,RBK1100208986,RBK1100208986-7,0,119999.00,Zapatillas Club C 85,https://re
 Reebok,RBK1100208986,RBK1100208986-7.5,5,119999.00,Zapatillas Club C 85,https://reebok-ar.myshopify.com/products/zapatillas-club-c-85-rbk1100208986
 Reebok,RBK1100208986,RBK1100208986-8,7,119999.00,Zapatillas Club C 85,https://reebok-ar.myshopify.com/products/zapatillas-club-c-85-rbk1100208986
 Reebok,RBK1100208986,RBK1100208986-8.5,0,119999.00,Zapatillas Club C 85,https://reebok-ar.myshopify.com/products/zapatillas-club-c-85-rbk1100208986
-Reebok,RBK1100208986,RBK1100208986-9,2,119999.00,Zapatillas Club C 85,https://reebok-ar.myshopify.com/products/zapatillas-club-c-85-rbk1100208986
+Reebok,RBK1100208986,RBK1100208986-9,1,119999.00,Zapatillas Club C 85,https://reebok-ar.myshopify.com/products/zapatillas-club-c-85-rbk1100208986
 Reebok,RBK1100208986,RBK1100208986-9.5,0,119999.00,Zapatillas Club C 85,https://reebok-ar.myshopify.com/products/zapatillas-club-c-85-rbk1100208986
 Reebok,RBK1100208986,RBK1100208986-10,0,119999.00,Zapatillas Club C 85,https://reebok-ar.myshopify.com/products/zapatillas-club-c-85-rbk1100208986
 Reebok,RBK1100208986,RBK1100208986-10.5,0,119999.00,Zapatillas Club C 85,https://reebok-ar.myshopify.com/products/zapatillas-club-c-85-rbk1100208986
@@ -4942,7 +4942,7 @@ Reebok,RBK1100033109,RBK1100033109-10.5,0,119999.00,Zapatillas Club C Extra,http
 Reebok,RBK1100033109,RBK1100033109-11,0,119999.00,Zapatillas Club C Extra,https://reebok-ar.myshopify.com/products/zapatillas-club-c-extra-rbk1100033109
 Reebok,RBK1100208961,RBK1100208961-5.5,2,119999.00,Zapatillas Club C Extra,https://reebok-ar.myshopify.com/products/zapatillas-club-c-extra-rbk1100208961
 Reebok,RBK1100208961,RBK1100208961-6.5,5,119999.00,Zapatillas Club C Extra,https://reebok-ar.myshopify.com/products/zapatillas-club-c-extra-rbk1100208961
-Reebok,RBK1100208961,RBK1100208961-7.5,6,119999.00,Zapatillas Club C Extra,https://reebok-ar.myshopify.com/products/zapatillas-club-c-extra-rbk1100208961
+Reebok,RBK1100208961,RBK1100208961-7.5,5,119999.00,Zapatillas Club C Extra,https://reebok-ar.myshopify.com/products/zapatillas-club-c-extra-rbk1100208961
 Reebok,RBK1100208961,RBK1100208961-8,6,119999.00,Zapatillas Club C Extra,https://reebok-ar.myshopify.com/products/zapatillas-club-c-extra-rbk1100208961
 Reebok,RBK1100208961,RBK1100208961-9,3,119999.00,Zapatillas Club C Extra,https://reebok-ar.myshopify.com/products/zapatillas-club-c-extra-rbk1100208961
 Reebok,RBK1100208961,RBK1100208961-9.5,2,119999.00,Zapatillas Club C Extra,https://reebok-ar.myshopify.com/products/zapatillas-club-c-extra-rbk1100208961
@@ -5108,7 +5108,7 @@ Reebok,RBK1100033964,RBK1100033964-9,0,99999.00,Zapatillas Energen Run 3,https:/
 Reebok,RBK1100033964,RBK1100033964-9.5,0,99999.00,Zapatillas Energen Run 3,https://reebok-ar.myshopify.com/products/zapatillas-energen-run-3-rbk1100033964
 Reebok,RBK1100033964,RBK1100033964-10,2,99999.00,Zapatillas Energen Run 3,https://reebok-ar.myshopify.com/products/zapatillas-energen-run-3-rbk1100033964
 Reebok,RBK1100033964,RBK1100033964-10.5,0,99999.00,Zapatillas Energen Run 3,https://reebok-ar.myshopify.com/products/zapatillas-energen-run-3-rbk1100033964
-Reebok,RBK1100033964,RBK1100033964-11,4,99999.00,Zapatillas Energen Run 3,https://reebok-ar.myshopify.com/products/zapatillas-energen-run-3-rbk1100033964
+Reebok,RBK1100033964,RBK1100033964-11,3,99999.00,Zapatillas Energen Run 3,https://reebok-ar.myshopify.com/products/zapatillas-energen-run-3-rbk1100033964
 Reebok,RBK1100033964,RBK1100033964-11.5,0,99999.00,Zapatillas Energen Run 3,https://reebok-ar.myshopify.com/products/zapatillas-energen-run-3-rbk1100033964
 Reebok,RBK1100033964,RBK1100033964-12,6,99999.00,Zapatillas Energen Run 3,https://reebok-ar.myshopify.com/products/zapatillas-energen-run-3-rbk1100033964
 Reebok,RBK1100033964,RBK1100033964-13,0,99999.00,Zapatillas Energen Run 3,https://reebok-ar.myshopify.com/products/zapatillas-energen-run-3-rbk1100033964
@@ -5183,15 +5183,15 @@ Reebok,RBK1100210246,RBK1100210246-11.5,0,139999.00,Zapatillas Floatzig Symmetro
 Reebok,RBK1100210246,RBK1100210246-12,0,139999.00,Zapatillas Floatzig Symmetros,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-symmetros-rbk1100210246
 Reebok,RBK1100210246,RBK1100210246-13,0,139999.00,Zapatillas Floatzig Symmetros,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-symmetros-rbk1100210246
 Reebok,RBK1100227787,RBK1100227787-4,45,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
-Reebok,RBK1100227787,RBK1100227787-5,53,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
-Reebok,RBK1100227787,RBK1100227787-6,49,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
-Reebok,RBK1100227787,RBK1100227787-6.5,30,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
-Reebok,RBK1100227787,RBK1100227787-7.5,26,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
+Reebok,RBK1100227787,RBK1100227787-5,52,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
+Reebok,RBK1100227787,RBK1100227787-6,47,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
+Reebok,RBK1100227787,RBK1100227787-6.5,29,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
+Reebok,RBK1100227787,RBK1100227787-7.5,25,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
 Reebok,RBK1100227787,RBK1100227787-8,0,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
 Reebok,RBK1100227787,RBK1100227787-9,11,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
-Reebok,RBK1100227787,RBK1100227787-9.5,20,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
+Reebok,RBK1100227787,RBK1100227787-9.5,18,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
 Reebok,RBK1100227787,RBK1100227787-10,24,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
-Reebok,RBK1100227787,RBK1100227787-11,22,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
+Reebok,RBK1100227787,RBK1100227787-11,21,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
 Reebok,RBK1100227787,RBK1100227787-11.5,8,139999.00,Zapatillas Floatzig X1,https://reebok-ar.myshopify.com/products/zapatillas-floatzig-1-rbk1100227787
 Reebok,RBK1100209053,RBK1100209053-4,1,119999.00,Zapatillas Hammer Street,https://reebok-ar.myshopify.com/products/zapatillas-hammer-street-rbk1100209053
 Reebok,RBK1100209053,RBK1100209053-4.5,0,119999.00,Zapatillas Hammer Street,https://reebok-ar.myshopify.com/products/zapatillas-hammer-street-rbk1100209053
@@ -5381,7 +5381,7 @@ Reebok,RBK1100209094,RBK1100209094-10,96,144999.00,Zapatillas Reebok BB 4000 II 
 Reebok,RBK1100209094,RBK1100209094-11,63,144999.00,Zapatillas Reebok BB 4000 II Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4000-ii-mid-rbk1100209094
 Reebok,RBK1100209094,RBK1100209094-11.5,31,144999.00,Zapatillas Reebok BB 4000 II Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4000-ii-mid-rbk1100209094
 Reebok,RBK1100211858,RBK1100211858-8,0,144999.00,Zapatillas Reebok BB 4000 II Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4000-ii-mid-rbk1100211858
-Reebok,RBK1100211858,RBK1100211858-9,6,144999.00,Zapatillas Reebok BB 4000 II Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4000-ii-mid-rbk1100211858
+Reebok,RBK1100211858,RBK1100211858-9,5,144999.00,Zapatillas Reebok BB 4000 II Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4000-ii-mid-rbk1100211858
 Reebok,RBK1100211858,RBK1100211858-9.5,35,144999.00,Zapatillas Reebok BB 4000 II Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4000-ii-mid-rbk1100211858
 Reebok,RBK1100211858,RBK1100211858-10,43,144999.00,Zapatillas Reebok BB 4000 II Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4000-ii-mid-rbk1100211858
 Reebok,RBK1100211858,RBK1100211858-11,29,144999.00,Zapatillas Reebok BB 4000 II Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4000-ii-mid-rbk1100211858
@@ -5469,7 +5469,7 @@ Reebok,RBK1100209133,RBK1100209133-7.5,0,119999.00,Zapatillas Reebok BB 4500 DMX
 Reebok,RBK1100209133,RBK1100209133-8,0,119999.00,Zapatillas Reebok BB 4500 DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4500-dmx-rbk1100209133
 Reebok,RBK1100209133,RBK1100209133-8.5,0,119999.00,Zapatillas Reebok BB 4500 DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4500-dmx-rbk1100209133
 Reebok,RBK1100209133,RBK1100209133-9,0,119999.00,Zapatillas Reebok BB 4500 DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4500-dmx-rbk1100209133
-Reebok,RBK1100209133,RBK1100209133-9.5,1,119999.00,Zapatillas Reebok BB 4500 DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4500-dmx-rbk1100209133
+Reebok,RBK1100209133,RBK1100209133-9.5,0,119999.00,Zapatillas Reebok BB 4500 DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4500-dmx-rbk1100209133
 Reebok,RBK1100209133,RBK1100209133-10,0,119999.00,Zapatillas Reebok BB 4500 DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4500-dmx-rbk1100209133
 Reebok,RBK1100209133,RBK1100209133-10.5,0,119999.00,Zapatillas Reebok BB 4500 DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4500-dmx-rbk1100209133
 Reebok,RBK1100209133,RBK1100209133-11,0,119999.00,Zapatillas Reebok BB 4500 DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-bb-4500-dmx-rbk1100209133
@@ -5657,7 +5657,7 @@ Reebok,RBK1100209689,RBK1100209689-9.5,0,119999.00,Zapatillas Reebok Classic Nyl
 Reebok,RBK1100009273,RBK1100009273-7.5,1,119999.00,Zapatillas Reebok Classic Nylon,https://reebok-ar.myshopify.com/products/zapatillas-reebok-classic-nylon-rbk1100009273
 Reebok,RBK1100009273,RBK1100009273-8,4,119999.00,Zapatillas Reebok Classic Nylon,https://reebok-ar.myshopify.com/products/zapatillas-reebok-classic-nylon-rbk1100009273
 Reebok,RBK1100009273,RBK1100009273-8.5,0,119999.00,Zapatillas Reebok Classic Nylon,https://reebok-ar.myshopify.com/products/zapatillas-reebok-classic-nylon-rbk1100009273
-Reebok,RBK1100009273,RBK1100009273-9,4,119999.00,Zapatillas Reebok Classic Nylon,https://reebok-ar.myshopify.com/products/zapatillas-reebok-classic-nylon-rbk1100009273
+Reebok,RBK1100009273,RBK1100009273-9,3,119999.00,Zapatillas Reebok Classic Nylon,https://reebok-ar.myshopify.com/products/zapatillas-reebok-classic-nylon-rbk1100009273
 Reebok,RBK1100009273,RBK1100009273-9.5,5,119999.00,Zapatillas Reebok Classic Nylon,https://reebok-ar.myshopify.com/products/zapatillas-reebok-classic-nylon-rbk1100009273
 Reebok,RBK1100009273,RBK1100009273-10,5,119999.00,Zapatillas Reebok Classic Nylon,https://reebok-ar.myshopify.com/products/zapatillas-reebok-classic-nylon-rbk1100009273
 Reebok,RBK1100009273,RBK1100009273-10.5,0,119999.00,Zapatillas Reebok Classic Nylon,https://reebok-ar.myshopify.com/products/zapatillas-reebok-classic-nylon-rbk1100009273
@@ -5834,7 +5834,7 @@ Reebok,RBK1100208901,RBK1100208901-6.5,0,119999.00,Zapatillas Reebok Court Advan
 Reebok,RBK1100208901,RBK1100208901-7.5,0,119999.00,Zapatillas Reebok Court Advance,https://reebok-ar.myshopify.com/products/zapatillas-reebok-court-advance-rbk1100208901
 Reebok,RBK1100208901,RBK1100208901-8,0,119999.00,Zapatillas Reebok Court Advance,https://reebok-ar.myshopify.com/products/zapatillas-reebok-court-advance-rbk1100208901
 Reebok,RBK1100208901,RBK1100208901-9,0,119999.00,Zapatillas Reebok Court Advance,https://reebok-ar.myshopify.com/products/zapatillas-reebok-court-advance-rbk1100208901
-Reebok,RBK1100208901,RBK1100208901-9.5,1,119999.00,Zapatillas Reebok Court Advance,https://reebok-ar.myshopify.com/products/zapatillas-reebok-court-advance-rbk1100208901
+Reebok,RBK1100208901,RBK1100208901-9.5,0,119999.00,Zapatillas Reebok Court Advance,https://reebok-ar.myshopify.com/products/zapatillas-reebok-court-advance-rbk1100208901
 Reebok,RBK1100208901,RBK1100208901-10,0,119999.00,Zapatillas Reebok Court Advance,https://reebok-ar.myshopify.com/products/zapatillas-reebok-court-advance-rbk1100208901
 Reebok,RBK1100208901,RBK1100208901-11,5,119999.00,Zapatillas Reebok Court Advance,https://reebok-ar.myshopify.com/products/zapatillas-reebok-court-advance-rbk1100208901
 Reebok,RBK1100208901,RBK1100208901-11.5,0,119999.00,Zapatillas Reebok Court Advance,https://reebok-ar.myshopify.com/products/zapatillas-reebok-court-advance-rbk1100208901
@@ -6179,7 +6179,7 @@ Reebok,RBK1100227492,RBK1100227492-5.5,32,169999.00,Zapatillas Reebok ERS Traine
 Reebok,RBK1100227492,RBK1100227492-6.5,54,169999.00,Zapatillas Reebok ERS Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-trainer-rbk1100227492
 Reebok,RBK1100227492,RBK1100227492-7.5,74,169999.00,Zapatillas Reebok ERS Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-trainer-rbk1100227492
 Reebok,RBK1100227492,RBK1100227492-8,76,169999.00,Zapatillas Reebok ERS Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-trainer-rbk1100227492
-Reebok,RBK1100227492,RBK1100227492-9,48,169999.00,Zapatillas Reebok ERS Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-trainer-rbk1100227492
+Reebok,RBK1100227492,RBK1100227492-9,47,169999.00,Zapatillas Reebok ERS Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-trainer-rbk1100227492
 Reebok,RBK1100227492,RBK1100227492-9.5,26,169999.00,Zapatillas Reebok ERS Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-trainer-rbk1100227492
 Reebok,RBK1100228484,RBK1100228484-8,10,169999.00,Zapatillas Reebok ERS Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-trainer-rbk1100228484
 Reebok,RBK1100228484,RBK1100228484-9,10,169999.00,Zapatillas Reebok ERS Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-trainer-rbk1100228484
@@ -6194,12 +6194,12 @@ Reebok,RBK1100230445,RBK1100230445-4.5,0,144999.00,Zapatillas Reebok ERS World,h
 Reebok,RBK1100230445,RBK1100230445-5,19,144999.00,Zapatillas Reebok ERS World,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-world-rbk1100230445
 Reebok,RBK1100230445,RBK1100230445-5.5,0,144999.00,Zapatillas Reebok ERS World,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-world-rbk1100230445
 Reebok,RBK1100230445,RBK1100230445-6,19,144999.00,Zapatillas Reebok ERS World,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-world-rbk1100230445
-Reebok,RBK1100230445,RBK1100230445-6.5,9,144999.00,Zapatillas Reebok ERS World,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-world-rbk1100230445
+Reebok,RBK1100230445,RBK1100230445-6.5,7,144999.00,Zapatillas Reebok ERS World,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-world-rbk1100230445
 Reebok,RBK1100230445,RBK1100230445-7,0,144999.00,Zapatillas Reebok ERS World,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-world-rbk1100230445
 Reebok,RBK1100230445,RBK1100230445-7.5,0,144999.00,Zapatillas Reebok ERS World,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-world-rbk1100230445
 Reebok,RBK1100230445,RBK1100230445-8,23,144999.00,Zapatillas Reebok ERS World,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-world-rbk1100230445
 Reebok,RBK1100230445,RBK1100230445-8.5,0,144999.00,Zapatillas Reebok ERS World,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-world-rbk1100230445
-Reebok,RBK1100230445,RBK1100230445-9,42,144999.00,Zapatillas Reebok ERS World,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-world-rbk1100230445
+Reebok,RBK1100230445,RBK1100230445-9,41,144999.00,Zapatillas Reebok ERS World,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-world-rbk1100230445
 Reebok,RBK1100230445,RBK1100230445-9.5,38,144999.00,Zapatillas Reebok ERS World,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-world-rbk1100230445
 Reebok,RBK1100230445,RBK1100230445-10,6,144999.00,Zapatillas Reebok ERS World,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-world-rbk1100230445
 Reebok,RBK1100230445,RBK1100230445-10.5,0,144999.00,Zapatillas Reebok ERS World,https://reebok-ar.myshopify.com/products/zapatillas-reebok-ers-world-rbk1100230445
@@ -6232,7 +6232,7 @@ Reebok,RBK1100229873,RBK1100229873-8,0,99999.00,Zapatillas Reebok Finale,https:/
 Reebok,RBK1100229873,RBK1100229873-8.5,0,99999.00,Zapatillas Reebok Finale,https://reebok-ar.myshopify.com/products/zapatillas-reebok-finale-rbk1100229873
 Reebok,RBK1100229873,RBK1100229873-9,0,99999.00,Zapatillas Reebok Finale,https://reebok-ar.myshopify.com/products/zapatillas-reebok-finale-rbk1100229873
 Reebok,RBK1100229873,RBK1100229873-9.5,0,99999.00,Zapatillas Reebok Finale,https://reebok-ar.myshopify.com/products/zapatillas-reebok-finale-rbk1100229873
-Reebok,RBK1100229873,RBK1100229873-10,4,99999.00,Zapatillas Reebok Finale,https://reebok-ar.myshopify.com/products/zapatillas-reebok-finale-rbk1100229873
+Reebok,RBK1100229873,RBK1100229873-10,3,99999.00,Zapatillas Reebok Finale,https://reebok-ar.myshopify.com/products/zapatillas-reebok-finale-rbk1100229873
 Reebok,RBK1100229873,RBK1100229873-10.5,0,99999.00,Zapatillas Reebok Finale,https://reebok-ar.myshopify.com/products/zapatillas-reebok-finale-rbk1100229873
 Reebok,RBK1100229873,RBK1100229873-11,2,99999.00,Zapatillas Reebok Finale,https://reebok-ar.myshopify.com/products/zapatillas-reebok-finale-rbk1100229873
 Reebok,RBK1100229873,RBK1100229873-11.5,0,99999.00,Zapatillas Reebok Finale,https://reebok-ar.myshopify.com/products/zapatillas-reebok-finale-rbk1100229873
@@ -6330,7 +6330,7 @@ Reebok,RBK1100225470,RBK1100225470-8,0,134999.00,Zapatillas Reebok Flex Trainer,
 Reebok,RBK1100225470,RBK1100225470-8.5,0,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225470
 Reebok,RBK1100225470,RBK1100225470-9,0,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225470
 Reebok,RBK1100225470,RBK1100225470-9.5,0,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225470
-Reebok,RBK1100225470,RBK1100225470-10,4,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225470
+Reebok,RBK1100225470,RBK1100225470-10,3,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225470
 Reebok,RBK1100225470,RBK1100225470-10.5,0,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225470
 Reebok,RBK1100225470,RBK1100225470-11,3,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225470
 Reebok,RBK1100225470,RBK1100225470-11.5,2,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225470
@@ -6341,7 +6341,7 @@ Reebok,RBK1100225472,RBK1100225472-4,0,134999.00,Zapatillas Reebok Flex Trainer,
 Reebok,RBK1100225472,RBK1100225472-4.5,0,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225472
 Reebok,RBK1100225472,RBK1100225472-5,26,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225472
 Reebok,RBK1100225472,RBK1100225472-5.5,0,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225472
-Reebok,RBK1100225472,RBK1100225472-6,24,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225472
+Reebok,RBK1100225472,RBK1100225472-6,23,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225472
 Reebok,RBK1100225472,RBK1100225472-6.5,18,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225472
 Reebok,RBK1100225472,RBK1100225472-7,0,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225472
 Reebok,RBK1100225472,RBK1100225472-7.5,0,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225472
@@ -6358,7 +6358,7 @@ Reebok,RBK1100225472,RBK1100225472-12.5,0,134999.00,Zapatillas Reebok Flex Train
 Reebok,RBK1100225472,RBK1100225472-13,0,134999.00,Zapatillas Reebok Flex Trainer,https://reebok-ar.myshopify.com/products/zapatillas-reebok-flex-trainer-rbk1100225472
 Reebok,RBK110BR00103,RBK110BR00103-5.5,7,99999.00,Zapatillas Reebok Freestyle Hi,https://reebok-ar.myshopify.com/products/zapatillas-reebok-freestyle-hi-rbk110br00103
 Reebok,RBK110BR00103,RBK110BR00103-6,0,99999.00,Zapatillas Reebok Freestyle Hi,https://reebok-ar.myshopify.com/products/zapatillas-reebok-freestyle-hi-rbk110br00103
-Reebok,RBK110BR00103,RBK110BR00103-6.5,16,99999.00,Zapatillas Reebok Freestyle Hi,https://reebok-ar.myshopify.com/products/zapatillas-reebok-freestyle-hi-rbk110br00103
+Reebok,RBK110BR00103,RBK110BR00103-6.5,15,99999.00,Zapatillas Reebok Freestyle Hi,https://reebok-ar.myshopify.com/products/zapatillas-reebok-freestyle-hi-rbk110br00103
 Reebok,RBK110BR00103,RBK110BR00103-7,0,99999.00,Zapatillas Reebok Freestyle Hi,https://reebok-ar.myshopify.com/products/zapatillas-reebok-freestyle-hi-rbk110br00103
 Reebok,RBK110BR00103,RBK110BR00103-7.5,37,99999.00,Zapatillas Reebok Freestyle Hi,https://reebok-ar.myshopify.com/products/zapatillas-reebok-freestyle-hi-rbk110br00103
 Reebok,RBK110BR00103,RBK110BR00103-8,26,99999.00,Zapatillas Reebok Freestyle Hi,https://reebok-ar.myshopify.com/products/zapatillas-reebok-freestyle-hi-rbk110br00103
@@ -6410,8 +6410,8 @@ Reebok,RBK1100201237,RBK1100201237-12,0,99999.00,Zapatillas Reebok GL1100,https:
 Reebok,RBK1100201237,RBK1100201237-12.5,0,99999.00,Zapatillas Reebok GL1100,https://reebok-ar.myshopify.com/products/zapatillas-reebok-gl1100-rbk1100201237
 Reebok,RBK1100201237,RBK1100201237-13,0,99999.00,Zapatillas Reebok GL1100,https://reebok-ar.myshopify.com/products/zapatillas-reebok-gl1100-rbk1100201237
 Reebok,RBK1100230912,RBK1100230912-5.5,5,99999.00,Zapatillas Reebok GL1100,https://reebok-ar.myshopify.com/products/zapatillas-reebok-gl1100-rbk1100230912
-Reebok,RBK1100230912,RBK1100230912-6.5,6,99999.00,Zapatillas Reebok GL1100,https://reebok-ar.myshopify.com/products/zapatillas-reebok-gl1100-rbk1100230912
-Reebok,RBK1100230912,RBK1100230912-7.5,21,99999.00,Zapatillas Reebok GL1100,https://reebok-ar.myshopify.com/products/zapatillas-reebok-gl1100-rbk1100230912
+Reebok,RBK1100230912,RBK1100230912-6.5,5,99999.00,Zapatillas Reebok GL1100,https://reebok-ar.myshopify.com/products/zapatillas-reebok-gl1100-rbk1100230912
+Reebok,RBK1100230912,RBK1100230912-7.5,20,99999.00,Zapatillas Reebok GL1100,https://reebok-ar.myshopify.com/products/zapatillas-reebok-gl1100-rbk1100230912
 Reebok,RBK1100230912,RBK1100230912-8,0,99999.00,Zapatillas Reebok GL1100,https://reebok-ar.myshopify.com/products/zapatillas-reebok-gl1100-rbk1100230912
 Reebok,RBK1100230912,RBK1100230912-9,32,99999.00,Zapatillas Reebok GL1100,https://reebok-ar.myshopify.com/products/zapatillas-reebok-gl1100-rbk1100230912
 Reebok,RBK1100230912,RBK1100230912-9.5,0,99999.00,Zapatillas Reebok GL1100,https://reebok-ar.myshopify.com/products/zapatillas-reebok-gl1100-rbk1100230912
@@ -6590,7 +6590,7 @@ Reebok,RBK1100239317,RBK1100239317-9,0,99999.00,Zapatillas Reebok Glide,https://
 Reebok,RBK1100239317,RBK1100239317-9.5,0,99999.00,Zapatillas Reebok Glide,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-rbk1100239317
 Reebok,RBK1100239317,RBK1100239317-10,11,99999.00,Zapatillas Reebok Glide,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-rbk1100239317
 Reebok,RBK1100230904,RBK1100230904-5.5,4,99999.00,Zapatillas Reebok Glide,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-rbk1100230904
-Reebok,RBK1100230904,RBK1100230904-6.5,2,99999.00,Zapatillas Reebok Glide,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-rbk1100230904
+Reebok,RBK1100230904,RBK1100230904-6.5,1,99999.00,Zapatillas Reebok Glide,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-rbk1100230904
 Reebok,RBK1100230904,RBK1100230904-7.5,2,99999.00,Zapatillas Reebok Glide,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-rbk1100230904
 Reebok,RBK1100230904,RBK1100230904-8,0,99999.00,Zapatillas Reebok Glide,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-rbk1100230904
 Reebok,RBK1100230904,RBK1100230904-9,2,99999.00,Zapatillas Reebok Glide,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-rbk1100230904
@@ -6629,7 +6629,7 @@ Reebok,RBK1100209990,RBK1100209990-6,0,99999.00,Zapatillas Reebok Glide DMX,http
 Reebok,RBK1100209990,RBK1100209990-6.5,0,99999.00,Zapatillas Reebok Glide DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-dmx-rbk1100209990
 Reebok,RBK1100209990,RBK1100209990-7.5,0,99999.00,Zapatillas Reebok Glide DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-dmx-rbk1100209990
 Reebok,RBK1100209990,RBK1100209990-8,0,99999.00,Zapatillas Reebok Glide DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-dmx-rbk1100209990
-Reebok,RBK1100209990,RBK1100209990-9,3,99999.00,Zapatillas Reebok Glide DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-dmx-rbk1100209990
+Reebok,RBK1100209990,RBK1100209990-9,2,99999.00,Zapatillas Reebok Glide DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-dmx-rbk1100209990
 Reebok,RBK1100209990,RBK1100209990-9.5,7,99999.00,Zapatillas Reebok Glide DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-dmx-rbk1100209990
 Reebok,RBK1100209990,RBK1100209990-10,8,99999.00,Zapatillas Reebok Glide DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-dmx-rbk1100209990
 Reebok,RBK1100209990,RBK1100209990-11,5,99999.00,Zapatillas Reebok Glide DMX,https://reebok-ar.myshopify.com/products/zapatillas-reebok-glide-dmx-rbk1100209990
@@ -6826,7 +6826,7 @@ Reebok,RBK1100208631,RBK1100208631-9.5,0,119999.00,Zapatillas Reebok Nano Gym,ht
 Reebok,RBK1100208631,RBK1100208631-10,0,119999.00,Zapatillas Reebok Nano Gym,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-gym-rbk1100208631
 Reebok,RBK1100208631,RBK1100208631-10.5,0,119999.00,Zapatillas Reebok Nano Gym,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-gym-rbk1100208631
 Reebok,RBK1100208631,RBK1100208631-11,0,119999.00,Zapatillas Reebok Nano Gym,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-gym-rbk1100208631
-Reebok,RBK1100208631,RBK1100208631-11.5,2,119999.00,Zapatillas Reebok Nano Gym,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-gym-rbk1100208631
+Reebok,RBK1100208631,RBK1100208631-11.5,1,119999.00,Zapatillas Reebok Nano Gym,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-gym-rbk1100208631
 Reebok,RBK1100225438,RBK1100225438-8,0,149999.00,Zapatillas Reebok Nano Gym,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-gym-rbk1100225438
 Reebok,RBK1100225438,RBK1100225438-9,0,149999.00,Zapatillas Reebok Nano Gym,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-gym-rbk1100225438
 Reebok,RBK1100225438,RBK1100225438-9.5,0,149999.00,Zapatillas Reebok Nano Gym,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-gym-rbk1100225438
@@ -6834,7 +6834,7 @@ Reebok,RBK1100225438,RBK1100225438-10,22,149999.00,Zapatillas Reebok Nano Gym,ht
 Reebok,RBK1100225438,RBK1100225438-11,28,149999.00,Zapatillas Reebok Nano Gym,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-gym-rbk1100225438
 Reebok,RBK1100225438,RBK1100225438-11.5,10,149999.00,Zapatillas Reebok Nano Gym,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-gym-rbk1100225438
 Reebok,RBK1100225438,RBK1100225438-12,12,149999.00,Zapatillas Reebok Nano Gym,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-gym-rbk1100225438
-Reebok,RBK1100225438,RBK1100225438-13,8,149999.00,Zapatillas Reebok Nano Gym,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-gym-rbk1100225438
+Reebok,RBK1100225438,RBK1100225438-13,7,149999.00,Zapatillas Reebok Nano Gym,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-gym-rbk1100225438
 Reebok,RBK110S236074,RBK110S236074-10.5,0,119999.00,Zapatillas Reebok Nano X3,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-x3-rbk110s236074
 Reebok,RBK110S236074,RBK110S236074-11,37,119999.00,Zapatillas Reebok Nano X3,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-x3-rbk110s236074
 Reebok,RBK110S236074,RBK110S236074-12,45,119999.00,Zapatillas Reebok Nano X3,https://reebok-ar.myshopify.com/products/zapatillas-reebok-nano-x3-rbk110s236074
@@ -6973,14 +6973,14 @@ Reebok,RBK1100239770,RBK1100239770-8,0,89999.00,Zapatillas Reebok Prime,https://
 Reebok,RBK1100239770,RBK1100239770-9,0,89999.00,Zapatillas Reebok Prime,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-rbk1100239770
 Reebok,RBK1100239770,RBK1100239770-9.5,0,89999.00,Zapatillas Reebok Prime,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-rbk1100239770
 Reebok,RBK1100239763,RBK1100239763-6.5,8,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239763
-Reebok,RBK1100239763,RBK1100239763-7.5,6,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239763
-Reebok,RBK1100239763,RBK1100239763-8,57,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239763
-Reebok,RBK1100239763,RBK1100239763-9,36,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239763
-Reebok,RBK1100239763,RBK1100239763-9.5,44,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239763
+Reebok,RBK1100239763,RBK1100239763-7.5,5,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239763
+Reebok,RBK1100239763,RBK1100239763-8,55,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239763
+Reebok,RBK1100239763,RBK1100239763-9,35,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239763
+Reebok,RBK1100239763,RBK1100239763-9.5,43,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239763
 Reebok,RBK1100239763,RBK1100239763-10,36,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239763
 Reebok,RBK1100239763,RBK1100239763-11,19,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239763
 Reebok,RBK1100239763,RBK1100239763-11.5,9,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239763
-Reebok,RBK1100239756,RBK1100239756-6.5,4,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239756
+Reebok,RBK1100239756,RBK1100239756-6.5,3,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239756
 Reebok,RBK1100239756,RBK1100239756-5.5,3,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239756
 Reebok,RBK1100239756,RBK1100239756-7.5,0,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239756
 Reebok,RBK1100239756,RBK1100239756-8,0,89999.00,Zapatillas Reebok Prime Serve,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-serve-rbk1100239756
@@ -7021,7 +7021,7 @@ Reebok,RBK1100230436,RBK1100230436-7.5,4,89999.00,Zapatillas Reebok Prime Set,ht
 Reebok,RBK1100230436,RBK1100230436-8.5,17,89999.00,Zapatillas Reebok Prime Set,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-set-rbk1100230436
 Reebok,RBK1100230436,RBK1100230436-8,4,89999.00,Zapatillas Reebok Prime Set,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-set-rbk1100230436
 Reebok,RBK1100230436,RBK1100230436-9,22,89999.00,Zapatillas Reebok Prime Set,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-set-rbk1100230436
-Reebok,RBK1100230436,RBK1100230436-9.5,36,89999.00,Zapatillas Reebok Prime Set,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-set-rbk1100230436
+Reebok,RBK1100230436,RBK1100230436-9.5,35,89999.00,Zapatillas Reebok Prime Set,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-set-rbk1100230436
 Reebok,RBK1100230436,RBK1100230436-10,42,89999.00,Zapatillas Reebok Prime Set,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-set-rbk1100230436
 Reebok,RBK1100230436,RBK1100230436-11,31,89999.00,Zapatillas Reebok Prime Set,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-set-rbk1100230436
 Reebok,RBK1100230436,RBK1100230436-11.5,18,89999.00,Zapatillas Reebok Prime Set,https://reebok-ar.myshopify.com/products/zapatillas-reebok-prime-set-rbk1100230436
@@ -7042,8 +7042,8 @@ Reebok,RBK510BR00120,RBK510BR00120-5.5,0,69999.00,Zapatillas Reebok Princess Neg
 Reebok,RBK510BR00120,RBK510BR00120-6,0,69999.00,Zapatillas Reebok Princess Negras,https://reebok-ar.myshopify.com/products/zapatillas-reebok-princess-negras-rbk510br00120
 Reebok,RBK1100239542,RBK1100239542-4,8,99999.00,Zapatillas Reebok R400,https://reebok-ar.myshopify.com/products/zapatillas-reebok-r400-rbk1100239542
 Reebok,RBK1100239542,RBK1100239542-5,10,99999.00,Zapatillas Reebok R400,https://reebok-ar.myshopify.com/products/zapatillas-reebok-r400-rbk1100239542
-Reebok,RBK1100239542,RBK1100239542-6,5,99999.00,Zapatillas Reebok R400,https://reebok-ar.myshopify.com/products/zapatillas-reebok-r400-rbk1100239542
-Reebok,RBK1100239542,RBK1100239542-6.5,5,99999.00,Zapatillas Reebok R400,https://reebok-ar.myshopify.com/products/zapatillas-reebok-r400-rbk1100239542
+Reebok,RBK1100239542,RBK1100239542-6,4,99999.00,Zapatillas Reebok R400,https://reebok-ar.myshopify.com/products/zapatillas-reebok-r400-rbk1100239542
+Reebok,RBK1100239542,RBK1100239542-6.5,4,99999.00,Zapatillas Reebok R400,https://reebok-ar.myshopify.com/products/zapatillas-reebok-r400-rbk1100239542
 Reebok,RBK1100239542,RBK1100239542-7.5,5,99999.00,Zapatillas Reebok R400,https://reebok-ar.myshopify.com/products/zapatillas-reebok-r400-rbk1100239542
 Reebok,RBK1100239542,RBK1100239542-8,0,99999.00,Zapatillas Reebok R400,https://reebok-ar.myshopify.com/products/zapatillas-reebok-r400-rbk1100239542
 Reebok,RBK1100239542,RBK1100239542-9,0,99999.00,Zapatillas Reebok R400,https://reebok-ar.myshopify.com/products/zapatillas-reebok-r400-rbk1100239542
@@ -7275,7 +7275,7 @@ Reebok,RBK1100200232,RBK1100200232-8.5,0,119999.00,Zapatillas Reebok Workout Pro
 Reebok,RBK1100200232,RBK1100200232-9,0,119999.00,Zapatillas Reebok Workout Pro Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-workout-pro-mid-rbk1100200232
 Reebok,RBK1100200232,RBK1100200232-9.5,7,119999.00,Zapatillas Reebok Workout Pro Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-workout-pro-mid-rbk1100200232
 Reebok,RBK1100200232,RBK1100200232-10,7,119999.00,Zapatillas Reebok Workout Pro Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-workout-pro-mid-rbk1100200232
-Reebok,RBK1100200232,RBK1100200232-10.5,2,119999.00,Zapatillas Reebok Workout Pro Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-workout-pro-mid-rbk1100200232
+Reebok,RBK1100200232,RBK1100200232-10.5,1,119999.00,Zapatillas Reebok Workout Pro Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-workout-pro-mid-rbk1100200232
 Reebok,RBK1100200232,RBK1100200232-11,0,119999.00,Zapatillas Reebok Workout Pro Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-workout-pro-mid-rbk1100200232
 Reebok,RBK1100200232,RBK1100200232-11.5,9,119999.00,Zapatillas Reebok Workout Pro Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-workout-pro-mid-rbk1100200232
 Reebok,RBK1100200232,RBK1100200232-12,8,119999.00,Zapatillas Reebok Workout Pro Mid,https://reebok-ar.myshopify.com/products/zapatillas-reebok-workout-pro-mid-rbk1100200232
@@ -7340,8 +7340,8 @@ Reebok,RBK1100251859,RBK1100251859-7.5,0,99999.00,Zapatillas Reebok World 70,htt
 Reebok,RBK1100251859,RBK1100251859-8,0,99999.00,Zapatillas Reebok World 70,https://reebok-ar.myshopify.com/products/zapatillas-reebok-world-70-rbk1100251859
 Reebok,RBK1100251859,RBK1100251859-9,0,99999.00,Zapatillas Reebok World 70,https://reebok-ar.myshopify.com/products/zapatillas-reebok-world-70-rbk1100251859
 Reebok,RBK1100251859,RBK1100251859-9.5,0,99999.00,Zapatillas Reebok World 70,https://reebok-ar.myshopify.com/products/zapatillas-reebok-world-70-rbk1100251859
-Reebok,RBK1100251859,RBK1100251859-10,12,99999.00,Zapatillas Reebok World 70,https://reebok-ar.myshopify.com/products/zapatillas-reebok-world-70-rbk1100251859
-Reebok,RBK1100251859,RBK1100251859-10.5,13,99999.00,Zapatillas Reebok World 70,https://reebok-ar.myshopify.com/products/zapatillas-reebok-world-70-rbk1100251859
+Reebok,RBK1100251859,RBK1100251859-10,11,99999.00,Zapatillas Reebok World 70,https://reebok-ar.myshopify.com/products/zapatillas-reebok-world-70-rbk1100251859
+Reebok,RBK1100251859,RBK1100251859-10.5,12,99999.00,Zapatillas Reebok World 70,https://reebok-ar.myshopify.com/products/zapatillas-reebok-world-70-rbk1100251859
 Reebok,RBK1100251859,RBK1100251859-11,7,99999.00,Zapatillas Reebok World 70,https://reebok-ar.myshopify.com/products/zapatillas-reebok-world-70-rbk1100251859
 Reebok,RBK1100251859,RBK1100251859-11.5,7,99999.00,Zapatillas Reebok World 70,https://reebok-ar.myshopify.com/products/zapatillas-reebok-world-70-rbk1100251859
 Reebok,RBK1100211303,RBK1100211303-4,0,134999.00,Zapatillas Reebok Zig Dynamica 5,https://reebok-ar.myshopify.com/products/zapatillas-reebok-zig-dynamica-5-rbk1100211303
@@ -7411,7 +7411,7 @@ Reebok,RBK1100074636,RBK1100074636-13,8,139999.00,Zapatillas Royal BB 4000 II Mi
 Reebok,RBK1100074731,RBK1100074731-8,0,119999.00,Zapatillas Royal BB 4500,https://reebok-ar.myshopify.com/products/zapatillas-royal-bb-4500-rbk1100074731
 Reebok,RBK1100074731,RBK1100074731-8.5,0,119999.00,Zapatillas Royal BB 4500,https://reebok-ar.myshopify.com/products/zapatillas-royal-bb-4500-rbk1100074731
 Reebok,RBK1100074731,RBK1100074731-9,0,119999.00,Zapatillas Royal BB 4500,https://reebok-ar.myshopify.com/products/zapatillas-royal-bb-4500-rbk1100074731
-Reebok,RBK1100074731,RBK1100074731-9.5,4,119999.00,Zapatillas Royal BB 4500,https://reebok-ar.myshopify.com/products/zapatillas-royal-bb-4500-rbk1100074731
+Reebok,RBK1100074731,RBK1100074731-9.5,3,119999.00,Zapatillas Royal BB 4500,https://reebok-ar.myshopify.com/products/zapatillas-royal-bb-4500-rbk1100074731
 Reebok,RBK1100074731,RBK1100074731-10,3,119999.00,Zapatillas Royal BB 4500,https://reebok-ar.myshopify.com/products/zapatillas-royal-bb-4500-rbk1100074731
 Reebok,RBK1100074731,RBK1100074731-10.5,0,119999.00,Zapatillas Royal BB 4500,https://reebok-ar.myshopify.com/products/zapatillas-royal-bb-4500-rbk1100074731
 Reebok,RBK1100074731,RBK1100074731-11,7,119999.00,Zapatillas Royal BB 4500,https://reebok-ar.myshopify.com/products/zapatillas-royal-bb-4500-rbk1100074731
@@ -7463,7 +7463,7 @@ Reebok,RBK1100208246,RBK1100208246-4,0,119999.00,Zapatillas Smash Edge,https://r
 Reebok,RBK1100208246,RBK1100208246-4.5,0,119999.00,Zapatillas Smash Edge,https://reebok-ar.myshopify.com/products/zapatillas-smash-edge-rbk1100208246
 Reebok,RBK1100208246,RBK1100208246-5,0,119999.00,Zapatillas Smash Edge,https://reebok-ar.myshopify.com/products/zapatillas-smash-edge-rbk1100208246
 Reebok,RBK1100208246,RBK1100208246-5.5,0,119999.00,Zapatillas Smash Edge,https://reebok-ar.myshopify.com/products/zapatillas-smash-edge-rbk1100208246
-Reebok,RBK1100208246,RBK1100208246-6,5,119999.00,Zapatillas Smash Edge,https://reebok-ar.myshopify.com/products/zapatillas-smash-edge-rbk1100208246
+Reebok,RBK1100208246,RBK1100208246-6,4,119999.00,Zapatillas Smash Edge,https://reebok-ar.myshopify.com/products/zapatillas-smash-edge-rbk1100208246
 Reebok,RBK1100208246,RBK1100208246-6.5,0,119999.00,Zapatillas Smash Edge,https://reebok-ar.myshopify.com/products/zapatillas-smash-edge-rbk1100208246
 Reebok,RBK1100208246,RBK1100208246-7,17,119999.00,Zapatillas Smash Edge,https://reebok-ar.myshopify.com/products/zapatillas-smash-edge-rbk1100208246
 Reebok,RBK1100208246,RBK1100208246-7.5,9,119999.00,Zapatillas Smash Edge,https://reebok-ar.myshopify.com/products/zapatillas-smash-edge-rbk1100208246
@@ -7769,7 +7769,7 @@ Columbia,COL12099891053,COL12099891053-37,2,239999.00,Botas de senderismo Fireca
 Columbia,COL12099891053,COL12099891053-37.5,0,239999.00,Botas de senderismo Firecamp™ Boot de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-de-senderismo-firecamp-boot-de-columbia-para-mujer-graphite-faded-sky
 Columbia,COL12099891053,COL12099891053-38,0,239999.00,Botas de senderismo Firecamp™ Boot de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-de-senderismo-firecamp-boot-de-columbia-para-mujer-graphite-faded-sky
 Columbia,COL12099891053,COL12099891053-39,0,239999.00,Botas de senderismo Firecamp™ Boot de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-de-senderismo-firecamp-boot-de-columbia-para-mujer-graphite-faded-sky
-Columbia,COL12099891053,COL12099891053-40,3,239999.00,Botas de senderismo Firecamp™ Boot de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-de-senderismo-firecamp-boot-de-columbia-para-mujer-graphite-faded-sky
+Columbia,COL12099891053,COL12099891053-40,2,239999.00,Botas de senderismo Firecamp™ Boot de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-de-senderismo-firecamp-boot-de-columbia-para-mujer-graphite-faded-sky
 Columbia,COL12099891053,COL12099891053-40.5,2,239999.00,Botas de senderismo Firecamp™ Boot de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-de-senderismo-firecamp-boot-de-columbia-para-mujer-graphite-faded-sky
 Columbia,COL12099891053,COL12099891053-41,5,239999.00,Botas de senderismo Firecamp™ Boot de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-de-senderismo-firecamp-boot-de-columbia-para-mujer-graphite-faded-sky
 Columbia,COL12100641089,COL12100641089-40,0,239999.00,Botas impermeables de senderismo Crestwood™ Mid Waterproof de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-crestwood-mid-waterproof-de-columbia-para-hombre-dark-grey-deep-rust
@@ -7829,7 +7829,7 @@ Columbia,COL12128861342,COL12128861342-45,6,299999.00,Botas Newton Alpine PT™ 
 Columbia,COL12128861011,COL12128861011-40,4,299999.00,Botas Newton Alpine PT™ para hombre,https://columbia-ar.myshopify.com/products/botas-newton-alpine-pt-para-hombre-negro
 Columbia,COL12128861011,COL12128861011-41,5,299999.00,Botas Newton Alpine PT™ para hombre,https://columbia-ar.myshopify.com/products/botas-newton-alpine-pt-para-hombre-negro
 Columbia,COL12128861011,COL12128861011-42,6,299999.00,Botas Newton Alpine PT™ para hombre,https://columbia-ar.myshopify.com/products/botas-newton-alpine-pt-para-hombre-negro
-Columbia,COL12128861011,COL12128861011-43,6,299999.00,Botas Newton Alpine PT™ para hombre,https://columbia-ar.myshopify.com/products/botas-newton-alpine-pt-para-hombre-negro
+Columbia,COL12128861011,COL12128861011-43,5,299999.00,Botas Newton Alpine PT™ para hombre,https://columbia-ar.myshopify.com/products/botas-newton-alpine-pt-para-hombre-negro
 Columbia,COL12128861011,COL12128861011-44,6,299999.00,Botas Newton Alpine PT™ para hombre,https://columbia-ar.myshopify.com/products/botas-newton-alpine-pt-para-hombre-negro
 Columbia,COL12128861011,COL12128861011-45,6,299999.00,Botas Newton Alpine PT™ para hombre,https://columbia-ar.myshopify.com/products/botas-newton-alpine-pt-para-hombre-negro
 Columbia,COL12109441231,COL12109441231-40,5,279999.00,Botas para caminar Newton Wander™ de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-para-caminar-newton-wander-de-columbia-para-hombre-cordovan-spice
@@ -11555,7 +11555,7 @@ Columbia,COL22093111556,COL22093111556-XS,3,63999.00,Short Backcast™ II con pr
 Columbia,COL22093111556,COL22093111556-S,0,63999.00,Short Backcast™ II con protección solar Columbia para mujer,https://columbia-ar.myshopify.com/products/short-con-proteccion-solar-new-moon
 Columbia,COL22093111556,COL22093111556-M,0,63999.00,Short Backcast™ II con protección solar Columbia para mujer,https://columbia-ar.myshopify.com/products/short-con-proteccion-solar-new-moon
 Columbia,COL22093111556,COL22093111556-L,0,63999.00,Short Backcast™ II con protección solar Columbia para mujer,https://columbia-ar.myshopify.com/products/short-con-proteccion-solar-new-moon
-Columbia,COL22093111556,COL22093111556-XL,2,63999.00,Short Backcast™ II con protección solar Columbia para mujer,https://columbia-ar.myshopify.com/products/short-con-proteccion-solar-new-moon
+Columbia,COL22093111556,COL22093111556-XL,1,63999.00,Short Backcast™ II con protección solar Columbia para mujer,https://columbia-ar.myshopify.com/products/short-con-proteccion-solar-new-moon
 Columbia,COL22093111556,COL22093111556-XXL,0,63999.00,Short Backcast™ II con protección solar Columbia para mujer,https://columbia-ar.myshopify.com/products/short-con-proteccion-solar-new-moon
 Columbia,COL22093111556,COL22093111556-XXXL,0,63999.00,Short Backcast™ II con protección solar Columbia para mujer,https://columbia-ar.myshopify.com/products/short-con-proteccion-solar-new-moon
 Columbia,COL22093111010,COL22093111010-XS,5,63999.00,Short Backcast™ II con protección solar Columbia para mujer,https://columbia-ar.myshopify.com/products/short-con-proteccion-solar-black-women
@@ -12173,7 +12173,7 @@ Columbia,COL12063101482,COL12063101482-45,2,219999.00,Zapatillas Columbia Castba
 Columbia,COL11781181011,COL11781181011-40,0,189999.00,Zapatillas de senderismo Crestwood™   de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-de-senderismo-crestwood-de-columbia-para-hombre-shark-columbia-grey
 Columbia,COL11781181011,COL11781181011-41,2,189999.00,Zapatillas de senderismo Crestwood™   de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-de-senderismo-crestwood-de-columbia-para-hombre-shark-columbia-grey
 Columbia,COL11781181011,COL11781181011-42,4,189999.00,Zapatillas de senderismo Crestwood™   de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-de-senderismo-crestwood-de-columbia-para-hombre-shark-columbia-grey
-Columbia,COL11781181011,COL11781181011-43,2,189999.00,Zapatillas de senderismo Crestwood™   de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-de-senderismo-crestwood-de-columbia-para-hombre-shark-columbia-grey
+Columbia,COL11781181011,COL11781181011-43,1,189999.00,Zapatillas de senderismo Crestwood™   de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-de-senderismo-crestwood-de-columbia-para-hombre-shark-columbia-grey
 Columbia,COL11781181011,COL11781181011-44,2,189999.00,Zapatillas de senderismo Crestwood™   de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-de-senderismo-crestwood-de-columbia-para-hombre-shark-columbia-grey
 Columbia,COL11781181011,COL11781181011-45,0,189999.00,Zapatillas de senderismo Crestwood™   de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-de-senderismo-crestwood-de-columbia-para-hombre-shark-columbia-grey
 Columbia,COL11781181203,COL11781181203-40,0,189999.00,Zapatillas de senderismo Crestwood™   de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-de-senderismo-crestwood-de-columbia-para-hombre-dark-brown-baker
@@ -12302,7 +12302,7 @@ Columbia,COL12100651255,COL12100651255-44,3,199999.00,Zapatillas impermeables de
 Columbia,COL12100651255,COL12100651255-45,0,199999.00,Zapatillas impermeables de senderismo Crestwood™ Waterproof de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-crestwood-mid-waterproof-de-columbia-para-hombre-mud-squash
 Columbia,COL12100651013,COL12100651013-40,2,199999.00,Zapatillas impermeables de senderismo Crestwood™ Waterproof de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-crestwood-mid-waterproof-de-columbia-para-hombre-black-columbia-grey
 Columbia,COL12100651013,COL12100651013-41,3,199999.00,Zapatillas impermeables de senderismo Crestwood™ Waterproof de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-crestwood-mid-waterproof-de-columbia-para-hombre-black-columbia-grey
-Columbia,COL12100651013,COL12100651013-42,3,199999.00,Zapatillas impermeables de senderismo Crestwood™ Waterproof de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-crestwood-mid-waterproof-de-columbia-para-hombre-black-columbia-grey
+Columbia,COL12100651013,COL12100651013-42,2,199999.00,Zapatillas impermeables de senderismo Crestwood™ Waterproof de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-crestwood-mid-waterproof-de-columbia-para-hombre-black-columbia-grey
 Columbia,COL12100651013,COL12100651013-43,0,199999.00,Zapatillas impermeables de senderismo Crestwood™ Waterproof de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-crestwood-mid-waterproof-de-columbia-para-hombre-black-columbia-grey
 Columbia,COL12100651013,COL12100651013-44,1,199999.00,Zapatillas impermeables de senderismo Crestwood™ Waterproof de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-crestwood-mid-waterproof-de-columbia-para-hombre-black-columbia-grey
 Columbia,COL12100651013,COL12100651013-45,3,199999.00,Zapatillas impermeables de senderismo Crestwood™ Waterproof de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-crestwood-mid-waterproof-de-columbia-para-hombre-black-columbia-grey
@@ -12345,18 +12345,18 @@ Columbia,COL12076891033,COL12076891033-45,5,199999.00,Zapatillas impermeables de
 Columbia,COL12076891231,COL12076891231-40,3,199999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-hombre-cordovan-golden-yellow
 Columbia,COL12076891231,COL12076891231-41,2,199999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-hombre-cordovan-golden-yellow
 Columbia,COL12076891231,COL12076891231-42,6,199999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-hombre-cordovan-golden-yellow
-Columbia,COL12076891231,COL12076891231-43,3,199999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-hombre-cordovan-golden-yellow
+Columbia,COL12076891231,COL12076891231-43,2,199999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-hombre-cordovan-golden-yellow
 Columbia,COL12076891231,COL12076891231-44,3,199999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-hombre-cordovan-golden-yellow
 Columbia,COL12076891231,COL12076891231-45,0,199999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-hombre-cordovan-golden-yellow
 Columbia,COL12076891053,COL12076891053-40,4,199999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para Hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-mid-de-columbia-para-hombre-gris-negro
 Columbia,COL12076891053,COL12076891053-41,4,199999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para Hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-mid-de-columbia-para-hombre-gris-negro
-Columbia,COL12076891053,COL12076891053-42,6,199999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para Hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-mid-de-columbia-para-hombre-gris-negro
-Columbia,COL12076891053,COL12076891053-43,1,199999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para Hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-mid-de-columbia-para-hombre-gris-negro
+Columbia,COL12076891053,COL12076891053-42,5,199999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para Hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-mid-de-columbia-para-hombre-gris-negro
+Columbia,COL12076891053,COL12076891053-43,0,199999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para Hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-mid-de-columbia-para-hombre-gris-negro
 Columbia,COL12076891053,COL12076891053-44,5,199999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para Hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-mid-de-columbia-para-hombre-gris-negro
 Columbia,COL12076891053,COL12076891053-45,2,199999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para Hombre,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-mid-de-columbia-para-hombre-gris-negro
 Columbia,COL12078551010,COL12078551010-35,9,189999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-mujer-black-juicy
 Columbia,COL12078551010,COL12078551010-36,6,189999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-mujer-black-juicy
-Columbia,COL12078551010,COL12078551010-37,8,189999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-mujer-black-juicy
+Columbia,COL12078551010,COL12078551010-37,7,189999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-mujer-black-juicy
 Columbia,COL12078551010,COL12078551010-38,3,189999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-mujer-black-juicy
 Columbia,COL12078551010,COL12078551010-39,2,189999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-mujer-black-juicy
 Columbia,COL12078551010,COL12078551010-40,5,189999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-mujer-black-juicy
@@ -12367,7 +12367,7 @@ Columbia,COL12078551252,COL12078551252-38,0,189999.00,Zapatillas impermeables de
 Columbia,COL12078551252,COL12078551252-39,0,189999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-mujer-wet-sand-berry-patch
 Columbia,COL12078551252,COL12078551252-40,0,189999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-impermeables-de-senderismo-strata-trail-de-columbia-para-mujer-wet-sand-berry-patch
 Columbia,COL12078551607,COL12078551607-35,1,189999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/zapatillas-impermeables-de-senderismo-strata-trail-de-columbia-para-mujer-rojo
-Columbia,COL12078551607,COL12078551607-36,3,189999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/zapatillas-impermeables-de-senderismo-strata-trail-de-columbia-para-mujer-rojo
+Columbia,COL12078551607,COL12078551607-36,2,189999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/zapatillas-impermeables-de-senderismo-strata-trail-de-columbia-para-mujer-rojo
 Columbia,COL12078551607,COL12078551607-37,3,189999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/zapatillas-impermeables-de-senderismo-strata-trail-de-columbia-para-mujer-rojo
 Columbia,COL12078551607,COL12078551607-38,0,189999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/zapatillas-impermeables-de-senderismo-strata-trail-de-columbia-para-mujer-rojo
 Columbia,COL12078551607,COL12078551607-39,0,189999.00,Zapatillas impermeables de senderismo Strata Trail™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/zapatillas-impermeables-de-senderismo-strata-trail-de-columbia-para-mujer-rojo
@@ -12401,7 +12401,7 @@ Columbia,COL12125531036,COL12125531036-36,10,269999.00,Zapatillas para caminar N
 Columbia,COL12125531036,COL12125531036-37,6,269999.00,Zapatillas para caminar Newton Wander™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-para-caminar-newton-wander-de-columbia-para-mujer-monument-teal
 Columbia,COL12125531036,COL12125531036-38,7,269999.00,Zapatillas para caminar Newton Wander™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-para-caminar-newton-wander-de-columbia-para-mujer-monument-teal
 Columbia,COL12125531036,COL12125531036-39,6,269999.00,Zapatillas para caminar Newton Wander™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-para-caminar-newton-wander-de-columbia-para-mujer-monument-teal
-Columbia,COL12125531036,COL12125531036-40,5,269999.00,Zapatillas para caminar Newton Wander™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-para-caminar-newton-wander-de-columbia-para-mujer-monument-teal
+Columbia,COL12125531036,COL12125531036-40,4,269999.00,Zapatillas para caminar Newton Wander™ de Columbia para mujer,https://columbia-ar.myshopify.com/products/botas-para-caminar-newton-wander-de-columbia-para-mujer-monument-teal
 Columbia,COL12115301010,COL12115301010-40,2,197999.00,Zapatillas Terrastride™ ARO de Columbia para hombre,https://columbia-ar.myshopify.com/products/zapatillas-terrastride-aro-de-columbia-para-hombre-black-tusk
 Columbia,COL12115301010,COL12115301010-41,1,197999.00,Zapatillas Terrastride™ ARO de Columbia para hombre,https://columbia-ar.myshopify.com/products/zapatillas-terrastride-aro-de-columbia-para-hombre-black-tusk
 Columbia,COL12115301010,COL12115301010-42,7,197999.00,Zapatillas Terrastride™ ARO de Columbia para hombre,https://columbia-ar.myshopify.com/products/zapatillas-terrastride-aro-de-columbia-para-hombre-black-tusk
@@ -12527,7 +12527,7 @@ Crocs,C10001-C001,C10001-C001-M5/W7,22,59999.00,Classic Clog,https://crocs-ar.my
 Crocs,C10001-C001,C10001-C001-M6/W8,58,59999.00,Classic Clog,https://crocs-ar.myshopify.com/products/classic-clog-c10001-c001
 Crocs,C10001-C001,C10001-C001-M7/W9,17,59999.00,Classic Clog,https://crocs-ar.myshopify.com/products/classic-clog-c10001-c001
 Crocs,C10001-C001,C10001-C001-M8/W10,30,59999.00,Classic Clog,https://crocs-ar.myshopify.com/products/classic-clog-c10001-c001
-Crocs,C10001-C001,C10001-C001-M9/W11,35,59999.00,Classic Clog,https://crocs-ar.myshopify.com/products/classic-clog-c10001-c001
+Crocs,C10001-C001,C10001-C001-M9/W11,34,59999.00,Classic Clog,https://crocs-ar.myshopify.com/products/classic-clog-c10001-c001
 Crocs,C10001-C001,C10001-C001-M10/W12,30,59999.00,Classic Clog,https://crocs-ar.myshopify.com/products/classic-clog-c10001-c001
 Crocs,C10001-C001,C10001-C001-M11,16,59999.00,Classic Clog,https://crocs-ar.myshopify.com/products/classic-clog-c10001-c001
 Crocs,C10001-C001,C10001-C001-M12,13,59999.00,Classic Clog,https://crocs-ar.myshopify.com/products/classic-clog-c10001-c001
@@ -12711,7 +12711,7 @@ Crocs,C10006-C5BX,C10006-C5BX-C4/5,8,49999.00,Classic Clog Kids,https://crocs-ar
 Crocs,C10006-C5BX,C10006-C5BX-C6/7,3,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/crocs-classic-clog-kids-c10006-c5bx
 Crocs,C10006-C5BX,C10006-C5BX-C8/9,12,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/crocs-classic-clog-kids-c10006-c5bx
 Crocs,C10006-C5BX,C10006-C5BX-C10/11,9,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/crocs-classic-clog-kids-c10006-c5bx
-Crocs,C10006-C5BX,C10006-C5BX-C12/13,9,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/crocs-classic-clog-kids-c10006-c5bx
+Crocs,C10006-C5BX,C10006-C5BX-C12/13,10,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/crocs-classic-clog-kids-c10006-c5bx
 Crocs,C10006-C5BX,C10006-C5BX-J1,8,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/crocs-classic-clog-kids-c10006-c5bx
 Crocs,C10006-C5BX,C10006-C5BX-J2,1,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/crocs-classic-clog-kids-c10006-c5bx
 Crocs,C10006-C5BX,C10006-C5BX-J3,1,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/crocs-classic-clog-kids-c10006-c5bx
@@ -12735,7 +12735,7 @@ Crocs,C10006-C6TW,C10006-C6TW-C4/5,15,49999.00,Classic Clog Kids,https://crocs-a
 Crocs,C10006-C6TW,C10006-C6TW-C6/7,15,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/classic-clog-kids-c10006-c6tw
 Crocs,C10006-C6TW,C10006-C6TW-C8/9,14,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/classic-clog-kids-c10006-c6tw
 Crocs,C10006-C6TW,C10006-C6TW-C10/11,7,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/classic-clog-kids-c10006-c6tw
-Crocs,C10006-C6TW,C10006-C6TW-C12/13,5,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/classic-clog-kids-c10006-c6tw
+Crocs,C10006-C6TW,C10006-C6TW-C12/13,6,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/classic-clog-kids-c10006-c6tw
 Crocs,C10006-C6TW,C10006-C6TW-J1,1,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/classic-clog-kids-c10006-c6tw
 Crocs,C10006-C6TW,C10006-C6TW-J2,13,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/classic-clog-kids-c10006-c6tw
 Crocs,C10006-C6TW,C10006-C6TW-J3,7,49999.00,Classic Clog Kids,https://crocs-ar.myshopify.com/products/classic-clog-kids-c10006-c6tw
@@ -12815,7 +12815,7 @@ Crocs,C210626-C0LH,C210626-C0LH-C6/7,5,44999.00,Classic Fisherman T Kids,https:/
 Crocs,C210626-C0LH,C210626-C0LH-C8/9,14,44999.00,Classic Fisherman T Kids,https://crocs-ar.myshopify.com/products/classic-fisherman-t-kids-c210626-c0lh
 Crocs,C210626-C0LH,C210626-C0LH-C10/11,8,44999.00,Classic Fisherman T Kids,https://crocs-ar.myshopify.com/products/classic-fisherman-t-kids-c210626-c0lh
 Crocs,C206772-C143,C206772-C143-M4/W6,1,59999.00,Classic Hiker Clog,https://crocs-ar.myshopify.com/products/classic-hiker-clog-c206772-c143
-Crocs,C206772-C143,C206772-C143-M5/W7,3,59999.00,Classic Hiker Clog,https://crocs-ar.myshopify.com/products/classic-hiker-clog-c206772-c143
+Crocs,C206772-C143,C206772-C143-M5/W7,2,59999.00,Classic Hiker Clog,https://crocs-ar.myshopify.com/products/classic-hiker-clog-c206772-c143
 Crocs,C206772-C143,C206772-C143-M6/W8,23,59999.00,Classic Hiker Clog,https://crocs-ar.myshopify.com/products/classic-hiker-clog-c206772-c143
 Crocs,C206772-C143,C206772-C143-M7/W9,39,59999.00,Classic Hiker Clog,https://crocs-ar.myshopify.com/products/classic-hiker-clog-c206772-c143
 Crocs,C206772-C143,C206772-C143-M8/W10,72,59999.00,Classic Hiker Clog,https://crocs-ar.myshopify.com/products/classic-hiker-clog-c206772-c143
@@ -12902,21 +12902,21 @@ Crocs,C209423-C6WQ,C209423-C6WQ-C13,0,59999.00,Crocband Cruiser Sandal K,https:/
 Crocs,C209423-C6WQ,C209423-C6WQ-J1,1,59999.00,Crocband Cruiser Sandal K,https://crocs-ar.myshopify.com/products/crocband-cruiser-sandal-k-c209423-c6wq
 Crocs,C209423-C6WQ,C209423-C6WQ-J2,0,59999.00,Crocband Cruiser Sandal K,https://crocs-ar.myshopify.com/products/crocband-cruiser-sandal-k-c209423-c6wq
 Crocs,C209423-C6WQ,C209423-C6WQ-J3,0,59999.00,Crocband Cruiser Sandal K,https://crocs-ar.myshopify.com/products/crocband-cruiser-sandal-k-c209423-c6wq
-Crocs,C11016-C001,C11016-C001-M4/W6,84,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c001
+Crocs,C11016-C001,C11016-C001-M4/W6,83,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c001
 Crocs,C11016-C001,C11016-C001-M5/W7,146,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c001
 Crocs,C11016-C001,C11016-C001-M6/W8,144,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c001
-Crocs,C11016-C001,C11016-C001-M7/W9,122,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c001
+Crocs,C11016-C001,C11016-C001-M7/W9,121,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c001
 Crocs,C11016-C001,C11016-C001-M8/W10,136,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c001
 Crocs,C11016-C001,C11016-C001-M9/W11,77,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c001
 Crocs,C11016-C001,C11016-C001-M10/W12,51,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c001
 Crocs,C11016-C001,C11016-C001-M11,53,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c001
-Crocs,C11016-C001,C11016-C001-M12,20,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c001
+Crocs,C11016-C001,C11016-C001-M12,19,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c001
 Crocs,C11016-C001,C11016-C001-M13,16,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c001
 Crocs,C11016-C410,C11016-C410-M4/W6,96,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c410
 Crocs,C11016-C410,C11016-C410-M5/W7,78,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c410
 Crocs,C11016-C410,C11016-C410-M6/W8,139,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c410
 Crocs,C11016-C410,C11016-C410-M7/W9,100,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c410
-Crocs,C11016-C410,C11016-C410-M8/W10,92,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c410
+Crocs,C11016-C410,C11016-C410-M8/W10,91,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c410
 Crocs,C11016-C410,C11016-C410-M9/W11,79,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c410
 Crocs,C11016-C410,C11016-C410-M10/W12,74,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c410
 Crocs,C11016-C410,C11016-C410-M11,45,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c410
@@ -12934,7 +12934,7 @@ Crocs,C11016-C1AS,C11016-C1AS-M12,0,74999.00,Crocband™ Clog,https://crocs-ar.m
 Crocs,C11016-C1AS,C11016-C1AS-M13,0,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband-clog-c11016-c1as
 Crocs,C11016-C1WW,C11016-C1WW-M4/W6,17,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c1ww
 Crocs,C11016-C1WW,C11016-C1WW-M5/W7,12,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c1ww
-Crocs,C11016-C1WW,C11016-C1WW-M6/W8,8,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c1ww
+Crocs,C11016-C1WW,C11016-C1WW-M6/W8,7,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c1ww
 Crocs,C11016-C1WW,C11016-C1WW-M7/W9,7,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c1ww
 Crocs,C11016-C1WW,C11016-C1WW-M8/W10,9,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c1ww
 Crocs,C11016-C1WW,C11016-C1WW-M9/W11,10,74999.00,Crocband™ Clog,https://crocs-ar.myshopify.com/products/crocband™-clog-c11016-c1ww
@@ -12958,7 +12958,7 @@ Crocs,C10998-C001,C10998-C001-C8/9,49,59999.00,Crocband™ Clog Kids,https://cro
 Crocs,C10998-C001,C10998-C001-C10/11,19,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c001
 Crocs,C10998-C001,C10998-C001-C12/13,9,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c001
 Crocs,C10998-C001,C10998-C001-J1,11,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c001
-Crocs,C10998-C001,C10998-C001-J2,17,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c001
+Crocs,C10998-C001,C10998-C001-J2,16,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c001
 Crocs,C10998-C001,C10998-C001-J3,5,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c001
 Crocs,C10998-C410,C10998-C410-C4/5,27,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c410
 Crocs,C10998-C410,C10998-C410-C6/7,14,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c410
@@ -13006,7 +13006,7 @@ Crocs,C10998-C1WH,C10998-C1WH-C8/9,4,59999.00,Crocband™ Clog Kids,https://croc
 Crocs,C10998-C1WH,C10998-C1WH-C10/11,20,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c1wh
 Crocs,C10998-C1WH,C10998-C1WH-C12/13,8,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c1wh
 Crocs,C10998-C1WH,C10998-C1WH-J1,24,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c1wh
-Crocs,C10998-C1WH,C10998-C1WH-J2,25,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c1wh
+Crocs,C10998-C1WH,C10998-C1WH-J2,24,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c1wh
 Crocs,C10998-C1WH,C10998-C1WH-J3,13,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c1wh
 Crocs,C10998-C6WU,C10998-C6WU-C4/5,2,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c6wu
 Crocs,C10998-C6WU,C10998-C6WU-C6/7,11,59999.00,Crocband™ Clog Kids,https://crocs-ar.myshopify.com/products/crocband™-clog-kids-c10998-c6wu
@@ -14272,7 +14272,7 @@ Crocs,C10006995,C10006995-C99,10,8999.00,Jibbitz Letra B,https://crocs-ar.myshop
 Crocs,C10006996,C10006996-C99,8,8999.00,Jibbitz Letra C,https://crocs-ar.myshopify.com/products/jibbitz-letra-c-c10006996-c99
 Crocs,C10006997,C10006997-C99,11,8999.00,Jibbitz Letra D,https://crocs-ar.myshopify.com/products/jibbitz-letra-d-c10006997-c99
 Crocs,C10007008,C10007008-C99,7,8999.00,Jibbitz Letra O,https://crocs-ar.myshopify.com/products/jibbitz-letra-o-c10007008-c99
-Crocs,C10007009,C10007009-C99,16,8999.00,Jibbitz Letra P,https://crocs-ar.myshopify.com/products/jibbitz-letra-p-c10007009-c99
+Crocs,C10007009,C10007009-C99,14,8999.00,Jibbitz Letra P,https://crocs-ar.myshopify.com/products/jibbitz-letra-p-c10007009-c99
 Crocs,C10007013,C10007013-C99,14,8999.00,Jibbitz Letra T,https://crocs-ar.myshopify.com/products/jibbitz-letra-t-c10007013-c99
 Crocs,C10007015,C10007015-C99,7,8999.00,Jibbitz Letra V,https://crocs-ar.myshopify.com/products/jibbitz-letra-v-c10007015-c99
 Crocs,C10007005,C10007005-C99,1,8999.00,Jibbitz Letter L,https://crocs-ar.myshopify.com/products/jibbitz-letter-l-c10007005-c99
@@ -14292,7 +14292,7 @@ Crocs,C10018390,C10018390-C99,19,8999.00,Jibbitz Pet Fish,https://crocs-ar.mysho
 Crocs,C10019632,C10019632-C99,13,11999.00,Jibbitz Pink and Green Gem Circle,https://crocs-ar.myshopify.com/products/jibbitz-pink-and-green-gem-circle-c10019632-c99
 Crocs,C10018421,C10018421-C99,16,11999.00,Jibbitz Pink Cotton Candy,https://crocs-ar.myshopify.com/products/jibbitz-pink-cotton-candy-c10018421-c99
 Crocs,C10019322,C10019322-C99,21,11999.00,Jibbitz Pink Pearl Heart,https://crocs-ar.myshopify.com/products/jibbitz-pink-pearl-heart-c10019322-c99
-Crocs,C10017652,C10017652-C99,18,11999.00,Jibbitz Pink Squishy Lips,https://crocs-ar.myshopify.com/products/jibbitz-pink-squishy-lips-c10017652-c99
+Crocs,C10017652,C10017652-C99,17,11999.00,Jibbitz Pink Squishy Lips,https://crocs-ar.myshopify.com/products/jibbitz-pink-squishy-lips-c10017652-c99
 Crocs,C10017957,C10017957-C99,20,8999.00,Jibbitz Pink Yoshi Full Body,https://crocs-ar.myshopify.com/products/jibbitz-pink-yoshi-full-body-c10017957-c99
 Crocs,C10018414,C10018414-C99,20,33999.00,Jibbitz Posed Figurine 5 Pack,https://crocs-ar.myshopify.com/products/jibbitz-posed-figurine-5-pack-c10018414-c99
 Crocs,C10018439,C10018439-C99,8,8999.00,Jibbitz Puffy Pink Flower,https://crocs-ar.myshopify.com/products/jibbitz-puffy-pink-flower-c10018439-c99
@@ -14313,7 +14313,7 @@ Crocs,C10019171,C10019171-C99,20,8999.00,Jibbitz Spooky Burger,https://crocs-ar.
 Crocs,C10019170,C10019170-C99,23,8999.00,Jibbitz Spooky Burger,https://crocs-ar.myshopify.com/products/jibbitz-spooky-burger-c10019170-c99
 Crocs,C10019174,C10019174-C99,20,8999.00,Jibbitz Spooky Soda,https://crocs-ar.myshopify.com/products/jibbitz-spooky-soda-c10019174-c99
 Crocs,C10018456,C10018456-C99,47,11999.00,Jibbitz Star Chain,https://crocs-ar.myshopify.com/products/jibbitz-star-chain-c10018456-c99
-Crocs,C10019133,C10019133-C99,11,8999.00,Jibbitz Stormy Lightning Bolt,https://crocs-ar.myshopify.com/products/bbitz-stormy-lightning-bolt-c10019133-c99
+Crocs,C10019133,C10019133-C99,10,8999.00,Jibbitz Stormy Lightning Bolt,https://crocs-ar.myshopify.com/products/bbitz-stormy-lightning-bolt-c10019133-c99
 Crocs,C10019289,C10019289-C99,15,11999.00,Jibbitz Sugared Cherries,https://crocs-ar.myshopify.com/products/jibbitz-sugared-cherries-c10019289-c99
 Crocs,C10019288,C10019288-C99,15,11999.00,Jibbitz Sugared Strawberry,https://crocs-ar.myshopify.com/products/jibbitz-sugared-strawberry-c10019288-c99
 Crocs,C10019290,C10019290-C99,17,11999.00,Jibbitz Sugared Watermelon,https://crocs-ar.myshopify.com/products/jibbitz-sugared-watermelon-c10019290-c99
@@ -14686,7 +14686,7 @@ Kappa,K2361Y2QW-KY07,K2361Y2QW-KY07-XXXL,0,72499.00,Bermuda De Salida Tigre,http
 Kappa,K2322D7DW-KWX1Q,K2322D7DW-KWX1Q-XS,6,69999.00,Bermuda Kappa Mafio Aldosivi,https://kappa-ar.myshopify.com/products/bermuda-kappa-mafio-aldosivi-k2322d7dw-kwx1q
 Kappa,K2322D7DW-KWX1Q,K2322D7DW-KWX1Q-S,6,69999.00,Bermuda Kappa Mafio Aldosivi,https://kappa-ar.myshopify.com/products/bermuda-kappa-mafio-aldosivi-k2322d7dw-kwx1q
 Kappa,K2322D7DW-KWX1Q,K2322D7DW-KWX1Q-M,0,69999.00,Bermuda Kappa Mafio Aldosivi,https://kappa-ar.myshopify.com/products/bermuda-kappa-mafio-aldosivi-k2322d7dw-kwx1q
-Kappa,K2322D7DW-KWX1Q,K2322D7DW-KWX1Q-L,1,69999.00,Bermuda Kappa Mafio Aldosivi,https://kappa-ar.myshopify.com/products/bermuda-kappa-mafio-aldosivi-k2322d7dw-kwx1q
+Kappa,K2322D7DW-KWX1Q,K2322D7DW-KWX1Q-L,0,69999.00,Bermuda Kappa Mafio Aldosivi,https://kappa-ar.myshopify.com/products/bermuda-kappa-mafio-aldosivi-k2322d7dw-kwx1q
 Kappa,K2322D7DW-KWX1Q,K2322D7DW-KWX1Q-XL,0,69999.00,Bermuda Kappa Mafio Aldosivi,https://kappa-ar.myshopify.com/products/bermuda-kappa-mafio-aldosivi-k2322d7dw-kwx1q
 Kappa,K2322D7DW-KWX1Q,K2322D7DW-KWX1Q-XXL,1,69999.00,Bermuda Kappa Mafio Aldosivi,https://kappa-ar.myshopify.com/products/bermuda-kappa-mafio-aldosivi-k2322d7dw-kwx1q
 Kappa,K2322D7DW-KWX1Q,K2322D7DW-KWX1Q-XXXL,5,69999.00,Bermuda Kappa Mafio Aldosivi,https://kappa-ar.myshopify.com/products/bermuda-kappa-mafio-aldosivi-k2322d7dw-kwx1q
@@ -16096,7 +16096,7 @@ Kappa,K2332C48W-KY07,K2332C48W-KY07-L,29,134999.00,Camiseta Kombat Home Regular 
 Kappa,K2332C48W-KY07,K2332C48W-KY07-XL,13,134999.00,Camiseta Kombat Home Regular Tigre,https://kappa-ar.myshopify.com/products/camiseta-kombat-home-regular-tigre-k2332c48w-ky07
 Kappa,K2332C48W-KY07,K2332C48W-KY07-XXL,7,134999.00,Camiseta Kombat Home Regular Tigre,https://kappa-ar.myshopify.com/products/camiseta-kombat-home-regular-tigre-k2332c48w-ky07
 Kappa,K2332C48W-KY07,K2332C48W-KY07-XXXL,9,134999.00,Camiseta Kombat Home Regular Tigre,https://kappa-ar.myshopify.com/products/camiseta-kombat-home-regular-tigre-k2332c48w-ky07
-Kappa,K2341Y4YW-KROO,K2341Y4YW-KROO-10,5,77699.00,Camiseta Kombat Home San Martín De Tucumán Kids,https://kappa-ar.myshopify.com/products/camiseta-kombat-home-san-martin-de-tucuman-kids-k2341y4yw-kroo
+Kappa,K2341Y4YW-KROO,K2341Y4YW-KROO-10,4,77699.00,Camiseta Kombat Home San Martín De Tucumán Kids,https://kappa-ar.myshopify.com/products/camiseta-kombat-home-san-martin-de-tucuman-kids-k2341y4yw-kroo
 Kappa,K2341Y4YW-KROO,K2341Y4YW-KROO-12,0,77699.00,Camiseta Kombat Home San Martín De Tucumán Kids,https://kappa-ar.myshopify.com/products/camiseta-kombat-home-san-martin-de-tucuman-kids-k2341y4yw-kroo
 Kappa,K2341Y4YW-KROO,K2341Y4YW-KROO-6,0,77699.00,Camiseta Kombat Home San Martín De Tucumán Kids,https://kappa-ar.myshopify.com/products/camiseta-kombat-home-san-martin-de-tucuman-kids-k2341y4yw-kroo
 Kappa,K2341Y4YW-KROO,K2341Y4YW-KROO-8,5,77699.00,Camiseta Kombat Home San Martín De Tucumán Kids,https://kappa-ar.myshopify.com/products/camiseta-kombat-home-san-martin-de-tucuman-kids-k2341y4yw-kroo
@@ -16611,7 +16611,7 @@ Kappa,K2341G4SW-KPAA00,K2341G4SW-KPAA00-XXL,0,50799.00,Chomba Kappa 4 Chiolo,htt
 Kappa,K2341G4SW-KPAA00,K2341G4SW-KPAA00-XXXL,0,50799.00,Chomba Kappa 4 Chiolo,https://kappa-ar.myshopify.com/products/chomba-kappa-4-chiolo-k2341g4sw-kpaa00
 Kappa,K2372I65W-KA03B,K2372I65W-KA03B-M,0,124999.00,Chomba Kappa Retro Club Atletico San Martín de Tucumán,https://kappa-ar.myshopify.com/products/chomba-kappa-retro-club-atletico-san-martin-de-tucuman-k2372i65w-ka03b
 Kappa,K2372I65W-KA03B,K2372I65W-KA03B-L,0,124999.00,Chomba Kappa Retro Club Atletico San Martín de Tucumán,https://kappa-ar.myshopify.com/products/chomba-kappa-retro-club-atletico-san-martin-de-tucuman-k2372i65w-ka03b
-Kappa,K2372I65W-KA03B,K2372I65W-KA03B-XL,2,124999.00,Chomba Kappa Retro Club Atletico San Martín de Tucumán,https://kappa-ar.myshopify.com/products/chomba-kappa-retro-club-atletico-san-martin-de-tucuman-k2372i65w-ka03b
+Kappa,K2372I65W-KA03B,K2372I65W-KA03B-XL,1,124999.00,Chomba Kappa Retro Club Atletico San Martín de Tucumán,https://kappa-ar.myshopify.com/products/chomba-kappa-retro-club-atletico-san-martin-de-tucuman-k2372i65w-ka03b
 Kappa,K2372F7TW-KA0VF,K2372F7TW-KA0VF-M,2,124999.00,Chomba Kappa Retro Club Atletico Tucumán,https://kappa-ar.myshopify.com/products/chomba-kappa-retro-club-atletico-tucuman-k2372f7tw-ka0vf
 Kappa,K2372F7TW-KA0VF,K2372F7TW-KA0VF-L,4,124999.00,Chomba Kappa Retro Club Atletico Tucumán,https://kappa-ar.myshopify.com/products/chomba-kappa-retro-club-atletico-tucuman-k2372f7tw-ka0vf
 Kappa,K2372F7TW-KA0VF,K2372F7TW-KA0VF-XL,1,124999.00,Chomba Kappa Retro Club Atletico Tucumán,https://kappa-ar.myshopify.com/products/chomba-kappa-retro-club-atletico-tucuman-k2372f7tw-ka0vf
@@ -17141,7 +17141,7 @@ Kappa,K2382M2JW-KWX1Q,K2382M2JW-KWX1Q-S,5,65999.00,Polo Kappa Minditti Aldosivi,
 Kappa,K2382M2JW-KWX1Q,K2382M2JW-KWX1Q-M,5,65999.00,Polo Kappa Minditti Aldosivi,https://kappa-ar.myshopify.com/products/polo-kappa-minditti-aldosivi-k2382m2jw-kwx1q
 Kappa,K2382M2JW-KWX1Q,K2382M2JW-KWX1Q-L,6,65999.00,Polo Kappa Minditti Aldosivi,https://kappa-ar.myshopify.com/products/polo-kappa-minditti-aldosivi-k2382m2jw-kwx1q
 Kappa,K2382M2JW-KWX1Q,K2382M2JW-KWX1Q-XL,6,65999.00,Polo Kappa Minditti Aldosivi,https://kappa-ar.myshopify.com/products/polo-kappa-minditti-aldosivi-k2382m2jw-kwx1q
-Kappa,K2382M2JW-KWX1Q,K2382M2JW-KWX1Q-XXL,3,65999.00,Polo Kappa Minditti Aldosivi,https://kappa-ar.myshopify.com/products/polo-kappa-minditti-aldosivi-k2382m2jw-kwx1q
+Kappa,K2382M2JW-KWX1Q,K2382M2JW-KWX1Q-XXL,2,65999.00,Polo Kappa Minditti Aldosivi,https://kappa-ar.myshopify.com/products/polo-kappa-minditti-aldosivi-k2382m2jw-kwx1q
 Kappa,K2382M2JW-KWX1Q,K2382M2JW-KWX1Q-XXXL,5,65999.00,Polo Kappa Minditti Aldosivi,https://kappa-ar.myshopify.com/products/polo-kappa-minditti-aldosivi-k2382m2jw-kwx1q
 Kappa,K2352538W-KA03H,K2352538W-KA03H-S,8,65999.00,Polo Kappa Minditti Club Atlético Tucumán,https://kappa-ar.myshopify.com/products/remera-kappa-minditti-club-atletico-tucuman-k2352538w-ka03h
 Kappa,K2352538W-KA03H,K2352538W-KA03H-M,6,65999.00,Polo Kappa Minditti Club Atlético Tucumán,https://kappa-ar.myshopify.com/products/remera-kappa-minditti-club-atletico-tucuman-k2352538w-ka03h
@@ -18607,11 +18607,11 @@ Kappa,K136237JW-KPA03D,K136237JW-KPA03D-35,1,89999.00,Zapatillas Authentic Ceres
 Kappa,K136237JW-KPA03D,K136237JW-KPA03D-36,0,89999.00,Zapatillas Authentic Ceresol 2,https://kappa-ar.myshopify.com/products/zapatillas-authentic-ceresol-2-k136237jw-kpa03d
 Kappa,K136237JW-KPA03D,K136237JW-KPA03D-37,0,89999.00,Zapatillas Authentic Ceresol 2,https://kappa-ar.myshopify.com/products/zapatillas-authentic-ceresol-2-k136237jw-kpa03d
 Kappa,K136237JW-KPA03D,K136237JW-KPA03D-38,0,89999.00,Zapatillas Authentic Ceresol 2,https://kappa-ar.myshopify.com/products/zapatillas-authentic-ceresol-2-k136237jw-kpa03d
-Kappa,K136237JW-KPA03D,K136237JW-KPA03D-39,13,89999.00,Zapatillas Authentic Ceresol 2,https://kappa-ar.myshopify.com/products/zapatillas-authentic-ceresol-2-k136237jw-kpa03d
+Kappa,K136237JW-KPA03D,K136237JW-KPA03D-39,12,89999.00,Zapatillas Authentic Ceresol 2,https://kappa-ar.myshopify.com/products/zapatillas-authentic-ceresol-2-k136237jw-kpa03d
 Kappa,K136237JW-KPA03D,K136237JW-KPA03D-40,31,89999.00,Zapatillas Authentic Ceresol 2,https://kappa-ar.myshopify.com/products/zapatillas-authentic-ceresol-2-k136237jw-kpa03d
 Kappa,K136237JW-KPA03D,K136237JW-KPA03D-41,32,89999.00,Zapatillas Authentic Ceresol 2,https://kappa-ar.myshopify.com/products/zapatillas-authentic-ceresol-2-k136237jw-kpa03d
 Kappa,K136237JW-KPA03D,K136237JW-KPA03D-42,48,89999.00,Zapatillas Authentic Ceresol 2,https://kappa-ar.myshopify.com/products/zapatillas-authentic-ceresol-2-k136237jw-kpa03d
-Kappa,K136237JW-KPA03D,K136237JW-KPA03D-43,25,89999.00,Zapatillas Authentic Ceresol 2,https://kappa-ar.myshopify.com/products/zapatillas-authentic-ceresol-2-k136237jw-kpa03d
+Kappa,K136237JW-KPA03D,K136237JW-KPA03D-43,23,89999.00,Zapatillas Authentic Ceresol 2,https://kappa-ar.myshopify.com/products/zapatillas-authentic-ceresol-2-k136237jw-kpa03d
 Kappa,K136237JW-KPA03D,K136237JW-KPA03D-44,7,89999.00,Zapatillas Authentic Ceresol 2,https://kappa-ar.myshopify.com/products/zapatillas-authentic-ceresol-2-k136237jw-kpa03d
 Kappa,K136237JW-KPA03D,K136237JW-KPA03D-45,3,89999.00,Zapatillas Authentic Ceresol 2,https://kappa-ar.myshopify.com/products/zapatillas-authentic-ceresol-2-k136237jw-kpa03d
 Kappa,K136237JW-KPA04A,K136237JW-KPA04A-35,7,89999.00,Zapatillas Authentic Ceresol 2,https://kappa-ar.myshopify.com/products/zapatillas-authentic-ceresol-2-k136237jw-kpa04a
@@ -19221,7 +19221,7 @@ Kappa,K1382K1SW-KPAA02,K1382K1SW-KPAA02-45,0,79999.00,Zapatillas Kappa Logo Cala
 Kappa,K1382K1SW-KQ66,K1382K1SW-KQ66-35,0,79999.00,Zapatillas Kappa Logo Calabria,https://kappa-ar.myshopify.com/products/zapatilla-kappa-logo-calabria-k1382k1sw-kq66
 Kappa,K1382K1SW-KQ66,K1382K1SW-KQ66-36,0,79999.00,Zapatillas Kappa Logo Calabria,https://kappa-ar.myshopify.com/products/zapatilla-kappa-logo-calabria-k1382k1sw-kq66
 Kappa,K1382K1SW-KQ66,K1382K1SW-KQ66-37,4,79999.00,Zapatillas Kappa Logo Calabria,https://kappa-ar.myshopify.com/products/zapatilla-kappa-logo-calabria-k1382k1sw-kq66
-Kappa,K1382K1SW-KQ66,K1382K1SW-KQ66-38,3,79999.00,Zapatillas Kappa Logo Calabria,https://kappa-ar.myshopify.com/products/zapatilla-kappa-logo-calabria-k1382k1sw-kq66
+Kappa,K1382K1SW-KQ66,K1382K1SW-KQ66-38,2,79999.00,Zapatillas Kappa Logo Calabria,https://kappa-ar.myshopify.com/products/zapatilla-kappa-logo-calabria-k1382k1sw-kq66
 Kappa,K1382K1SW-KQ66,K1382K1SW-KQ66-39,6,79999.00,Zapatillas Kappa Logo Calabria,https://kappa-ar.myshopify.com/products/zapatilla-kappa-logo-calabria-k1382k1sw-kq66
 Kappa,K1382K1SW-KQ66,K1382K1SW-KQ66-40,8,79999.00,Zapatillas Kappa Logo Calabria,https://kappa-ar.myshopify.com/products/zapatilla-kappa-logo-calabria-k1382k1sw-kq66
 Kappa,K1382K1SW-KQ66,K1382K1SW-KQ66-41,6,79999.00,Zapatillas Kappa Logo Calabria,https://kappa-ar.myshopify.com/products/zapatilla-kappa-logo-calabria-k1382k1sw-kq66
@@ -19247,9 +19247,9 @@ Kappa,K137254IW-KA0TF,K137254IW-KA0TF-38,0,79999.00,Zapatillas Kappa Logo Cillia
 Kappa,K137254IW-KA0TF,K137254IW-KA0TF-39,0,79999.00,Zapatillas Kappa Logo Cillian,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-cillian-k137254iw-ka0tf
 Kappa,K137254IW-KA0TF,K137254IW-KA0TF-40,7,79999.00,Zapatillas Kappa Logo Cillian,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-cillian-k137254iw-ka0tf
 Kappa,K137254IW-KA0TF,K137254IW-KA0TF-41,10,79999.00,Zapatillas Kappa Logo Cillian,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-cillian-k137254iw-ka0tf
-Kappa,K137254IW-KA0TF,K137254IW-KA0TF-42,31,79999.00,Zapatillas Kappa Logo Cillian,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-cillian-k137254iw-ka0tf
+Kappa,K137254IW-KA0TF,K137254IW-KA0TF-42,30,79999.00,Zapatillas Kappa Logo Cillian,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-cillian-k137254iw-ka0tf
 Kappa,K137254IW-KA0TF,K137254IW-KA0TF-43,35,79999.00,Zapatillas Kappa Logo Cillian,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-cillian-k137254iw-ka0tf
-Kappa,K137254IW-KA0TF,K137254IW-KA0TF-44,17,79999.00,Zapatillas Kappa Logo Cillian,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-cillian-k137254iw-ka0tf
+Kappa,K137254IW-KA0TF,K137254IW-KA0TF-44,16,79999.00,Zapatillas Kappa Logo Cillian,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-cillian-k137254iw-ka0tf
 Kappa,K137254IW-KA0TF,K137254IW-KA0TF-45,7,79999.00,Zapatillas Kappa Logo Cillian,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-cillian-k137254iw-ka0tf
 Kappa,K137254IW-KPA0P,K137254IW-KPA0P-35,9,79999.00,Zapatillas Kappa Logo Cillian,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-cillian-k137254iw-kpa0p
 Kappa,K137254IW-KPA0P,K137254IW-KPA0P-36,21,79999.00,Zapatillas Kappa Logo Cillian,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-cillian-k137254iw-kpa0p
@@ -19736,7 +19736,7 @@ Kappa,K1382H2UW-K005,K1382H2UW-K005-38,0,84999.00,Zapatillas Kappa Logo Molara,h
 Kappa,K1382H2UW-K005,K1382H2UW-K005-39,2,84999.00,Zapatillas Kappa Logo Molara,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-molara-k1382h2uw-k005
 Kappa,K1382H2UW-K005,K1382H2UW-K005-40,0,84999.00,Zapatillas Kappa Logo Molara,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-molara-k1382h2uw-k005
 Kappa,K1382H2UW-K005,K1382H2UW-K005-41,6,84999.00,Zapatillas Kappa Logo Molara,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-molara-k1382h2uw-k005
-Kappa,K1382H2UW-K005,K1382H2UW-K005-42,7,84999.00,Zapatillas Kappa Logo Molara,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-molara-k1382h2uw-k005
+Kappa,K1382H2UW-K005,K1382H2UW-K005-42,6,84999.00,Zapatillas Kappa Logo Molara,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-molara-k1382h2uw-k005
 Kappa,K1382H2UW-K005,K1382H2UW-K005-43,5,84999.00,Zapatillas Kappa Logo Molara,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-molara-k1382h2uw-k005
 Kappa,K1382H2UW-K005,K1382H2UW-K005-44,4,84999.00,Zapatillas Kappa Logo Molara,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-molara-k1382h2uw-k005
 Kappa,K1382H2UW-K005,K1382H2UW-K005-45,3,84999.00,Zapatillas Kappa Logo Molara,https://kappa-ar.myshopify.com/products/zapatillas-kappa-logo-molara-k1382h2uw-k005
@@ -20215,7 +20215,7 @@ Kappa,K1341K4WW-K005,K1341K4WW-K005-43,3,79999.00,Zapatillas Kappa Ostuni,https:
 Kappa,K1341K4WW-K005,K1341K4WW-K005-45,2,79999.00,Zapatillas Kappa Ostuni,https://kappa-ar.myshopify.com/products/zapatillas-kappa-ostuni-k1341k4ww-k005
 Kappa,K133193KW-KA25,K133193KW-KA25-36,1,69999.00,Zapatillas Kappa Paco,https://kappa-ar.myshopify.com/products/zapatillas-kappa-paco-k133193kw-ka25
 Kappa,K133193KW-KA25,K133193KW-KA25-38,0,69999.00,Zapatillas Kappa Paco,https://kappa-ar.myshopify.com/products/zapatillas-kappa-paco-k133193kw-ka25
-Kappa,K133193KW-KA25,K133193KW-KA25-39,1,69999.00,Zapatillas Kappa Paco,https://kappa-ar.myshopify.com/products/zapatillas-kappa-paco-k133193kw-ka25
+Kappa,K133193KW-KA25,K133193KW-KA25-39,0,69999.00,Zapatillas Kappa Paco,https://kappa-ar.myshopify.com/products/zapatillas-kappa-paco-k133193kw-ka25
 Kappa,K5382B3VW-KA02O,K5382B3VW-KA02O-32,0,59999.00,Zapatillas Kappa Rernal 2,https://kappa-ar.myshopify.com/products/zapatillas-kappa-rernal-2-k5382b3vw-ka02o
 Kappa,K5382B3VW-KA02O,K5382B3VW-KA02O-33,4,59999.00,Zapatillas Kappa Rernal 2,https://kappa-ar.myshopify.com/products/zapatillas-kappa-rernal-2-k5382b3vw-ka02o
 Kappa,K5382B3VW-KA02O,K5382B3VW-KA02O-34,0,59999.00,Zapatillas Kappa Rernal 2,https://kappa-ar.myshopify.com/products/zapatillas-kappa-rernal-2-k5382b3vw-ka02o
@@ -20285,7 +20285,7 @@ Kappa,K1341X2EW-KPA00,K1341X2EW-KPA00-38,0,69999.00,Zapatillas Kappa Rernal 2 Md
 Kappa,K1341X2EW-KPA00,K1341X2EW-KPA00-39,0,69999.00,Zapatillas Kappa Rernal 2 Md,https://kappa-ar.myshopify.com/products/zapatillas-kappa-rernal-2-md-k1341x2ew-kpa00
 Kappa,K1341X2EW-KPA00,K1341X2EW-KPA00-40,0,69999.00,Zapatillas Kappa Rernal 2 Md,https://kappa-ar.myshopify.com/products/zapatillas-kappa-rernal-2-md-k1341x2ew-kpa00
 Kappa,K1341X2EW-KPA00,K1341X2EW-KPA00-41,0,69999.00,Zapatillas Kappa Rernal 2 Md,https://kappa-ar.myshopify.com/products/zapatillas-kappa-rernal-2-md-k1341x2ew-kpa00
-Kappa,K1341X2EW-KPA00,K1341X2EW-KPA00-42,5,69999.00,Zapatillas Kappa Rernal 2 Md,https://kappa-ar.myshopify.com/products/zapatillas-kappa-rernal-2-md-k1341x2ew-kpa00
+Kappa,K1341X2EW-KPA00,K1341X2EW-KPA00-42,4,69999.00,Zapatillas Kappa Rernal 2 Md,https://kappa-ar.myshopify.com/products/zapatillas-kappa-rernal-2-md-k1341x2ew-kpa00
 Kappa,K1341X2EW-KPA00,K1341X2EW-KPA00-43,16,69999.00,Zapatillas Kappa Rernal 2 Md,https://kappa-ar.myshopify.com/products/zapatillas-kappa-rernal-2-md-k1341x2ew-kpa00
 Kappa,K1341X2EW-KPA00,K1341X2EW-KPA00-44,14,69999.00,Zapatillas Kappa Rernal 2 Md,https://kappa-ar.myshopify.com/products/zapatillas-kappa-rernal-2-md-k1341x2ew-kpa00
 Kappa,K1341X2EW-KPA00,K1341X2EW-KPA00-45,1,69999.00,Zapatillas Kappa Rernal 2 Md,https://kappa-ar.myshopify.com/products/zapatillas-kappa-rernal-2-md-k1341x2ew-kpa00
@@ -21192,7 +21192,7 @@ Kappa,K133281PW-KA2E,K133281PW-KA2E-45,0,74999.00,Zapatillas Logo Salento,https:
 Kappa,K536153ZW-KA4E,K536153ZW-KA4E-28,2,45599.00,Zapatillas Logo Sanpuerto El kid,https://kappa-ar.myshopify.com/products/zapatillas-logo-sanpuerto-el-kid-k536153zw-ka4e
 Kappa,K536153ZW-KA4E,K536153ZW-KA4E-29,1,45599.00,Zapatillas Logo Sanpuerto El kid,https://kappa-ar.myshopify.com/products/zapatillas-logo-sanpuerto-el-kid-k536153zw-ka4e
 Kappa,K536153ZW-KA4E,K536153ZW-KA4E-30,2,45599.00,Zapatillas Logo Sanpuerto El kid,https://kappa-ar.myshopify.com/products/zapatillas-logo-sanpuerto-el-kid-k536153zw-ka4e
-Kappa,K536153ZW-KA4E,K536153ZW-KA4E-32,3,45599.00,Zapatillas Logo Sanpuerto El kid,https://kappa-ar.myshopify.com/products/zapatillas-logo-sanpuerto-el-kid-k536153zw-ka4e
+Kappa,K536153ZW-KA4E,K536153ZW-KA4E-32,2,45599.00,Zapatillas Logo Sanpuerto El kid,https://kappa-ar.myshopify.com/products/zapatillas-logo-sanpuerto-el-kid-k536153zw-ka4e
 Kappa,K536153ZW-KA1UA,K536153ZW-KA1UA-27,0,45599.00,Zapatillas Logo Sanpuerto El kid,https://kappa-ar.myshopify.com/products/zapatillas-logo-sanpuerto-el-kid-k536153zw-ka1ua
 Kappa,K536153ZW-KA1UA,K536153ZW-KA1UA-28,1,45599.00,Zapatillas Logo Sanpuerto El kid,https://kappa-ar.myshopify.com/products/zapatillas-logo-sanpuerto-el-kid-k536153zw-ka1ua
 Kappa,K536153ZW-KA1UA,K536153ZW-KA1UA-29,0,45599.00,Zapatillas Logo Sanpuerto El kid,https://kappa-ar.myshopify.com/products/zapatillas-logo-sanpuerto-el-kid-k536153zw-ka1ua
@@ -24112,7 +24112,7 @@ Piccadilly,P24900100000008SS26,P24900100000008SS26-40,4,75999.00,Zueco Nathalia,
 Piccadilly,P24900100000008SS26,P24900100000008SS26-41,0,75999.00,Zueco Nathalia,https://piccadilly-ar.myshopify.com/products/sandalia-nathalia-p24900100000008ss26
 Piccadilly,P24900900000001SS27,P24900900000001SS27-35,1,93999.00,Zueco Nathalia,https://piccadilly-ar.myshopify.com/products/sueco-nathalia-p24900900000001ss27
 Piccadilly,P24900900000001SS27,P24900900000001SS27-36,1,93999.00,Zueco Nathalia,https://piccadilly-ar.myshopify.com/products/sueco-nathalia-p24900900000001ss27
-Piccadilly,P24900900000001SS27,P24900900000001SS27-37,2,93999.00,Zueco Nathalia,https://piccadilly-ar.myshopify.com/products/sueco-nathalia-p24900900000001ss27
+Piccadilly,P24900900000001SS27,P24900900000001SS27-37,1,93999.00,Zueco Nathalia,https://piccadilly-ar.myshopify.com/products/sueco-nathalia-p24900900000001ss27
 Piccadilly,P24900900000001SS27,P24900900000001SS27-38,2,93999.00,Zueco Nathalia,https://piccadilly-ar.myshopify.com/products/sueco-nathalia-p24900900000001ss27
 Piccadilly,P24900900000001SS27,P24900900000001SS27-39,1,93999.00,Zueco Nathalia,https://piccadilly-ar.myshopify.com/products/sueco-nathalia-p24900900000001ss27
 Piccadilly,P24900900000001SS27,P24900900000001SS27-40,1,93999.00,Zueco Nathalia,https://piccadilly-ar.myshopify.com/products/sueco-nathalia-p24900900000001ss27
@@ -24169,7 +24169,7 @@ Piccadilly,P25028500000004SS27,P25028500000004SS27-40,5,85999.00,Zueco Raquel,ht
 Piccadilly,P25028500000004SS27,P25028500000004SS27-41,1,85999.00,Zueco Raquel,https://piccadilly-ar.myshopify.com/products/chatita-raquel-p25028500000004ss27
 Piccadilly,P48000800000001SS27,P48000800000001SS27-35,0,97999.00,Zueco Renata,https://piccadilly-ar.myshopify.com/products/sueco-renata-p48000800000001ss27
 Piccadilly,P48000800000001SS27,P48000800000001SS27-36,7,97999.00,Zueco Renata,https://piccadilly-ar.myshopify.com/products/sueco-renata-p48000800000001ss27
-Piccadilly,P48000800000001SS27,P48000800000001SS27-37,9,97999.00,Zueco Renata,https://piccadilly-ar.myshopify.com/products/sueco-renata-p48000800000001ss27
+Piccadilly,P48000800000001SS27,P48000800000001SS27-37,8,97999.00,Zueco Renata,https://piccadilly-ar.myshopify.com/products/sueco-renata-p48000800000001ss27
 Piccadilly,P48000800000001SS27,P48000800000001SS27-38,7,97999.00,Zueco Renata,https://piccadilly-ar.myshopify.com/products/sueco-renata-p48000800000001ss27
 Piccadilly,P48000800000001SS27,P48000800000001SS27-39,5,97999.00,Zueco Renata,https://piccadilly-ar.myshopify.com/products/sueco-renata-p48000800000001ss27
 Piccadilly,P48000800000001SS27,P48000800000001SS27-40,6,97999.00,Zueco Renata,https://piccadilly-ar.myshopify.com/products/sueco-renata-p48000800000001ss27
