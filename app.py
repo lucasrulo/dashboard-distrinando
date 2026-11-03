@@ -811,7 +811,7 @@ _tabs = [":material/space_dashboard: Resumen", ":material/flag: Metas & Forecast
          ":material/inventory_2: Stock & Publicaciones", ":material/payments: Comercial", ":material/campaign: Publicidad MeLi",
          ":material/group: Clientes"]
 # Post-venta MeLi (devoluciones, reclamos, cancelaciones): solo estos usuarios
-VER_POSTVENTA = {"afredes", "lruiz"}
+VER_POSTVENTA = {"afredes", "lruiz", "maguirre"}
 VE_PV = str(AUTH.get("usuario", "")).lower() in VER_POSTVENTA
 VE_CYBER = VE_PV   # Cyber Monday: mismos usuarios (lruiz y afredes)
 if VE_CYBER:
