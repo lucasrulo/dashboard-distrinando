@@ -61,5 +61,14 @@
         "Piccadilly": 19000000
       }
     }
+  },
+  "gads_presupuesto": {
+    "2026-11": {
+      "Reebok": 9000000,
+      "Columbia": 4500000,
+      "Crocs": 4000000,
+      "Kappa": 2500000,
+      "Piccadilly": 2500000
+    }
   }
 }
