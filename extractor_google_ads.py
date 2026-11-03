@@ -40,36 +40,103 @@ def access_token():
     return r.json()["access_token"]
 
 
-def gaql(tok, cid, query):
-    """Corre una consulta GAQL con searchStream y devuelve la lista de filas."""
-    global VERSION_OK
+LOGIN_OK = {}        # cuenta -> login-customer-id que funcionó ("" = sin login)
+CANDIDATOS_LOGIN = []
+
+
+def _headers(tok, login):
     h = {"Authorization": f"Bearer {tok}", "Content-Type": "application/json"}
-    login = _limpio(os.environ.get("GADS_LOGIN_CUSTOMER_ID"))
     if login:
         h["login-customer-id"] = login
     if os.environ.get("GADS_DEVELOPER_TOKEN"):        # opcional desde sept/2026
         h["developer-token"] = os.environ["GADS_DEVELOPER_TOKEN"]
+    return h
+
+
+def _msg(r):
+    try:
+        d = r.json()
+        d = d[0] if isinstance(d, list) else d
+        errs = (((d.get("error") or {}).get("details") or [{}])[0].get("errors") or [])
+        if errs:
+            return f"{list(errs[0].get('errorCode', {}).values())[0]}: {errs[0].get('message', '')[:200]}"
+        return (d.get("error") or {}).get("message", r.text[:300])
+    except Exception:
+        return r.text[:300]
+
+
+def _post(tok, cid, query, login):
+    global VERSION_OK
     versiones = [VERSION_OK] if VERSION_OK else VERSIONES
-    ultimo = ""
+    r = None
     for v in versiones:
         for intento in range(3):
             r = requests.post(f"https://googleads.googleapis.com/{v}/customers/{cid}/googleAds:searchStream",
-                              headers=h, json={"query": query}, timeout=120)
+                              headers=_headers(tok, login), json={"query": query}, timeout=120)
             if r.status_code in (429, 500, 503):
                 time.sleep(5 * (intento + 1))
                 continue
             break
+        if r.status_code == 404 and not VERSION_OK:
+            continue
+        if r.status_code == 200:
+            VERSION_OK = v
+        return r
+    return r
+
+
+def gaql(tok, cid, query):
+    """Corre una consulta GAQL con searchStream. Si la cuenta da 'sin permiso', prueba con cada cuenta
+    administradora accesible como login-customer-id (y sin login) y recuerda la que funcionó."""
+    if cid in LOGIN_OK:
+        orden = [LOGIN_OK[cid]]
+    else:
+        orden = []
+        for x in [_limpio(os.environ.get("GADS_LOGIN_CUSTOMER_ID"))] + CANDIDATOS_LOGIN + [""]:
+            if x not in orden and x != cid:
+                orden.append(x)
+        orden.append(cid)     # la cuenta como su propio login
+    errores = []
+    for login in orden:
+        r = _post(tok, cid, query, login)
+        if r is not None and r.status_code == 200:
+            LOGIN_OK[cid] = login
+            filas = []
+            for bloque in r.json():
+                filas.extend(bloque.get("results", []))
+            return filas
+        errores.append(f"login={login or 'ninguno'} -> HTTP {getattr(r, 'status_code', '?')} {_msg(r) if r is not None else ''}")
+        if r is not None and r.status_code not in (401, 403):
+            break
+    raise RuntimeError(" | ".join(errores))
+
+
+def diagnostico(tok):
+    """Lista las cuentas a las que tiene acceso el usuario que generó el refresh token."""
+    global VERSION_OK
+    ids = []
+    for v in ([VERSION_OK] if VERSION_OK else VERSIONES):
+        r = requests.get(f"https://googleads.googleapis.com/{v}/customers:listAccessibleCustomers",
+                         headers=_headers(tok, ""), timeout=60)
         if r.status_code == 404:
-            ultimo = f"{v}: 404"
             continue
         if r.status_code != 200:
-            raise RuntimeError(f"HTTP {r.status_code} ({v}): {r.text[:600]}")
+            print(f"   ⚠️ No pude listar las cuentas accesibles: HTTP {r.status_code} {_msg(r)}")
+            return
         VERSION_OK = v
-        filas = []
-        for bloque in r.json():
-            filas.extend(bloque.get("results", []))
-        return filas
-    raise RuntimeError(f"Ninguna versión de la API respondió ({ultimo})")
+        ids = [x.split("/")[-1] for x in r.json().get("resourceNames", [])]
+        break
+    print(f"   👤 El usuario del token accede directo a {len(ids)} cuenta(s) (API {VERSION_OK}):")
+    for i in ids:
+        try:
+            r = _post(tok, i, "SELECT customer.id, customer.descriptive_name, customer.manager FROM customer", i)
+            d = (r.json()[0].get("results") or [{}])[0].get("customer", {}) if r.status_code == 200 else {}
+            es_mcc = bool(d.get("manager"))
+            print(f"      · {i}  {d.get('descriptiveName', '(sin nombre)')}  {'[ADMINISTRADORA]' if es_mcc else ''}")
+            if es_mcc and i not in CANDIDATOS_LOGIN:
+                CANDIDATOS_LOGIN.append(i)
+        except Exception as e:
+            print(f"      · {i}  (no pude leer el nombre: {e})")
 
 
 def _g(d, ruta, default=None):
@@ -236,6 +303,7 @@ def sync():
         print("🚨 Falta el secreto GADS_CUENTAS, por ejemplo {\"Reebok\": \"1234567890\"}")
         return
     tok = access_token()
+    diagnostico(tok)
     hoy = ahora.date()
     desde = (hoy - timedelta(days=DIAS_HISTORIA)).isoformat()
     camp, prods, terms, recs = [], [], [], []
