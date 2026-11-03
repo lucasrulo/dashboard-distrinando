@@ -48,7 +48,7 @@ jobs:
         run: |
           git config --global user.name "Robot Distrinando"
           git config --global user.email "robot@distrinando.com"
-          for f in gads_campanias_diario.csv gads_productos.csv gads_terminos.csv gads_recomendaciones.csv; do
+          for f in gads_campanias_diario.csv gads_productos.csv gads_terminos.csv gads_recomendaciones.csv shopify_origen.csv; do
             if [ -f "$f" ]; then git add "$f"; fi
           done
           if git diff --staged --quiet; then
