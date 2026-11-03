@@ -226,20 +226,11 @@ def terminos(tok, marca, cid):
 
 
 def recomendaciones(tok, marca, cid):
-    q = """
-        SELECT recommendation.type, recommendation.campaign,
-               recommendation.impact.base_metrics.conversions, recommendation.impact.potential_metrics.conversions,
-               recommendation.impact.base_metrics.conversions_value, recommendation.impact.potential_metrics.conversions_value,
-               recommendation.impact.base_metrics.cost_micros, recommendation.impact.potential_metrics.cost_micros
-        FROM recommendation"""
+    q = "SELECT recommendation.type, recommendation.campaign FROM recommendation"
     out = []
     for r in gaql(tok, cid, q):
         rec = r.get("recommendation", {})
-        b, p = _g(rec, "impact.baseMetrics", {}), _g(rec, "impact.potentialMetrics", {})
-        out.append({"marca": marca, "tipo": rec.get("type", ""), "campaign_id": str(rec.get("campaign", "")).split("/")[-1],
-                    "conv_hoy": _num(b.get("conversions")), "conv_potencial": _num(p.get("conversions")),
-                    "valor_hoy": _num(b.get("conversionsValue")), "valor_potencial": _num(p.get("conversionsValue")),
-                    "costo_hoy": _num(b.get("costMicros")) / 1e6, "costo_potencial": _num(p.get("costMicros")) / 1e6})
+        out.append({"marca": marca, "tipo": rec.get("type", ""), "campaign_id": str(rec.get("campaign", "")).split("/")[-1]})
     return out
 
 
@@ -336,7 +327,21 @@ def sync():
     ts = ahora.strftime("%Y-%m-%dT%H:%M:%S-03:00")
     dp = pd.DataFrame(prods)
     if not dp.empty:
+        dp = dp[dp["item_id"].astype(str) != ""]
+        info = dp.groupby(["marca", "item_id"], as_index=False).agg(titulo=("titulo", "first"),
+                                                                    campania=("campania", lambda x: " | ".join(sorted(set(map(str, x))))[:150]))
+        met = ["inversion", "impresiones", "clics", "conversiones", "valor_conv"]
+        pv = dp.groupby(["marca", "item_id", "periodo"])[met].sum().unstack("periodo").fillna(0)
+        pv.columns = [f"{m}_{per}" for m, per in pv.columns]
+        dp = info.merge(pv.reset_index(), on=["marca", "item_id"], how="left").fillna(0)
+        for c_ in [f"{m}_{per}" for m in met for per in ("7d", "30d")]:
+            if c_ not in dp.columns:
+                dp[c_] = 0.0
+        dp = dp[(dp["inversion_30d"] > 0) | (dp["valor_conv_30d"] > 0)]
         dp = cruzar_productos(dp, variantes_shopify())
+        for c_ in dp.columns:
+            if c_.startswith(("inversion", "valor_conv", "conversiones")):
+                dp[c_] = dp[c_].round(2)
     for filas, nombre in [(pd.DataFrame(camp), "gads_campanias_diario.csv"), (dp, "gads_productos.csv"),
                           (pd.DataFrame(terms), "gads_terminos.csv"), (pd.DataFrame(recs), "gads_recomendaciones.csv")]:
         if len(filas):
