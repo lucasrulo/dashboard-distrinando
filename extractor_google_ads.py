@@ -189,6 +189,27 @@ def campanias_diario(tok, marca, cid, desde, hasta):
     return out
 
 
+CONV_COMPRA = [x.strip().lower() for x in (os.environ.get("GADS_CONVERSION_COMPRA") or "Google Shopping App Purchase").split("|") if x.strip()]
+
+
+def conversiones_por_accion(tok, marca, cid, desde, hasta):
+    """Conversiones por acción de conversión y día. Se usa all_conversions para contar la COMPRA aunque
+    la campaña (Demand Gen, YouTube) tenga otro objetivo principal."""
+    q = f"""
+        SELECT segments.date, campaign.id, segments.conversion_action_name,
+               metrics.all_conversions, metrics.all_conversions_value, metrics.conversions, metrics.conversions_value
+        FROM campaign
+        WHERE segments.date BETWEEN '{desde}' AND '{hasta}' AND campaign.status != 'REMOVED'"""
+    out = []
+    for r in gaql(tok, cid, q):
+        m = r.get("metrics", {})
+        out.append({"marca": marca, "fecha": _g(r, "segments.date"), "campaign_id": _g(r, "campaign.id"),
+                    "accion": _g(r, "segments.conversionActionName", ""),
+                    "todas_conv": _num(m.get("allConversions")), "todas_valor": _num(m.get("allConversionsValue")),
+                    "conv_principal": _num(m.get("conversions")), "valor_principal": _num(m.get("conversionsValue"))})
+    return out
+
+
 def productos(tok, marca, cid, periodo):
     q = f"""
         SELECT segments.product_item_id, segments.product_title, campaign.id, campaign.name,
@@ -387,11 +408,26 @@ def sync():
     diagnostico(tok)
     hoy = ahora.date()
     desde = (hoy - timedelta(days=DIAS_HISTORIA)).isoformat()
-    camp, prods, terms, recs = [], [], [], []
+    camp, prods, terms, recs, acciones = [], [], [], [], []
     pares = [(m, _limpio(c)) for m, v in cuentas.items() for c in (v if isinstance(v, list) else [v])]
     for marca, cid in pares:   # una marca puede tener varias cuentas: se suman
         try:
             c = campanias_diario(tok, marca, cid, desde, hoy.isoformat())
+            try:
+                acc = conversiones_por_accion(tok, marca, cid, desde, hoy.isoformat())
+                acciones.extend(acc)
+                da = pd.DataFrame(acc)
+                if len(da):
+                    es_compra = da["accion"].str.lower().apply(lambda n: any(k in n for k in CONV_COMPRA))
+                    cp = da[es_compra].groupby(["fecha", "campaign_id"])[["todas_conv", "todas_valor"]].sum()
+                    for f in c:
+                        k = (f["fecha"], f["campaign_id"])
+                        f["compras"] = float(cp["todas_conv"].get(k, 0.0)) if len(cp) else 0.0
+                        f["valor_compras"] = float(cp["todas_valor"].get(k, 0.0)) if len(cp) else 0.0
+                    if not es_compra.any():
+                        print(f"   ⚠️ {marca} ({cid}): no encontré la acción de compra {CONV_COMPRA}. Acciones: {sorted(da['accion'].unique())[:15]}")
+            except Exception as e:
+                print(f"   ⚠️ {marca} conversiones por acción: {e}")
             camp.extend(c)
             print(f"   ✅ {marca} ({cid}): {len(c):,} filas campaña-día · API {VERSION_OK}")
         except Exception as e:
@@ -432,7 +468,12 @@ def sync():
         for c_ in dp.columns:
             if c_.startswith(("inversion", "valor_conv", "conversiones")):
                 dp[c_] = dp[c_].round(2)
-    for filas, nombre in [(pd.DataFrame(camp), "gads_campanias_diario.csv"), (dp, "gads_productos.csv"),
+    da = pd.DataFrame(acciones)
+    if len(da):   # resumen de acciones de conversión (últimos 30 días) para revisar la configuración
+        da = da[pd.to_datetime(da["fecha"]) >= pd.Timestamp(hoy - timedelta(days=30))]
+        da = da.groupby(["marca", "accion"], as_index=False)[["todas_conv", "todas_valor", "conv_principal", "valor_principal"]].sum()
+        da["es_compra"] = da["accion"].str.lower().apply(lambda n: any(k in n for k in CONV_COMPRA))
+    for filas, nombre in [(pd.DataFrame(camp), "gads_campanias_diario.csv"), (dp, "gads_productos.csv"), (da, "gads_acciones_conversion.csv"),
                           (pd.DataFrame(terms), "gads_terminos.csv"), (pd.DataFrame(recs), "gads_recomendaciones.csv")]:
         if len(filas):
             filas["actualizado"] = ts
