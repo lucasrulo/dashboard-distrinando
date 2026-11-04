@@ -31,6 +31,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Google Ads
+        continue-on-error: true
         env:
           GADS_CLIENT_ID: ${{ secrets.GADS_CLIENT_ID }}
           GADS_CLIENT_SECRET: ${{ secrets.GADS_CLIENT_SECRET }}
@@ -44,11 +45,20 @@ jobs:
           TOKEN_PICCADILLY: ${{ secrets.TOKEN_PICCADILLY }}
         run: python extractor_google_ads.py
 
+      - name: Google Analytics 4
+        continue-on-error: true
+        env:
+          GADS_CLIENT_ID: ${{ secrets.GADS_CLIENT_ID }}
+          GADS_CLIENT_SECRET: ${{ secrets.GADS_CLIENT_SECRET }}
+          GADS_REFRESH_TOKEN: ${{ secrets.GADS_REFRESH_TOKEN }}
+          GA4_PROPIEDADES: ${{ secrets.GA4_PROPIEDADES }}
+        run: python extractor_ga4.py
+
       - name: Guardar en GitHub
         run: |
           git config --global user.name "Robot Distrinando"
           git config --global user.email "robot@distrinando.com"
-          for f in gads_campanias_diario.csv gads_productos.csv gads_terminos.csv gads_recomendaciones.csv gads_acciones_conversion.csv shopify_origen.csv; do
+          for f in gads_campanias_diario.csv gads_productos.csv gads_terminos.csv gads_recomendaciones.csv gads_acciones_conversion.csv shopify_origen.csv ga4_canales_diario.csv ga4_embudo_diario.csv ga4_dispositivo_diario.csv ga4_landing.csv ga4_fuente.csv ga4_region.csv; do
             if [ -f "$f" ]; then git add "$f"; fi
           done
           if git diff --staged --quiet; then
