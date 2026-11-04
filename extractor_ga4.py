@@ -118,6 +118,10 @@ def sync():
             if "403" in str(e):
                 print("        -> el mail del token no tiene acceso a esta propiedad, o la propiedad no es la correcta.")
             continue
+        if c.empty:
+            print(f"   ⚠️ {marca} ({pid}): la propiedad no tiene datos en los últimos {DIAS} días. "
+                  "¿Es la propiedad que usa hoy la tienda de Shopify? (ver app Google & YouTube en Shopify)")
+            continue
         c = _fecha(c).rename(columns=RENOMBRE)
         c["canal"] = c["canal"].map(TRAD_CANAL).fillna(c["canal"])
         c.insert(0, "marca", marca)
@@ -136,6 +140,8 @@ def sync():
         for nombre, dims, mets, d0, filtro, orden, lim in pasos:
             try:
                 df = _fecha(reporte(tok, pid, dims, mets, d0, filtro=filtro, orden=orden, limite=lim)).rename(columns=RENOMBRE)
+                if df.empty:
+                    continue
                 if "dispositivo" in df.columns:
                     df["dispositivo"] = df["dispositivo"].map(TRAD_DISP).fillna(df["dispositivo"])
                 df.insert(0, "marca", marca)
