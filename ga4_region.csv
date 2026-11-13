@@ -1,401 +1,101 @@
 marca,region,sesiones,compras,ingresos,actualizado
-Columbia,Buenos Aires Province,103636.0,632.0,128497417.65,2026-11-12T22:19:12-03:00
-Columbia,Buenos Aires,75336.0,576.0,123096792.56,2026-11-12T22:19:12-03:00
-Columbia,Cordoba Province,29448.0,212.0,47426860.7,2026-11-12T22:19:12-03:00
-Columbia,Santa Fe Province,24926.0,151.0,33359209.07,2026-11-12T22:19:12-03:00
-Columbia,Mendoza Province,12760.0,73.0,18370002.8,2026-11-12T22:19:12-03:00
-Columbia,Tucuman Province,10175.0,50.0,11508330.9,2026-11-12T22:19:12-03:00
-Columbia,Neuquen Province,9871.0,69.0,16403404.28,2026-11-12T22:19:12-03:00
-Columbia,Salta Province,6889.0,47.0,12161137.58,2026-11-12T22:19:12-03:00
-Columbia,Entre Rios Province,5966.0,37.0,10422394.35,2026-11-12T22:19:12-03:00
-Columbia,Rio Negro Province,5442.0,56.0,13972115.62,2026-11-12T22:19:12-03:00
-Columbia,Corrientes Province,5406.0,27.0,5178363.9,2026-11-12T22:19:12-03:00
-Columbia,Chubut Province,4773.0,35.0,8117753.1,2026-11-12T22:19:12-03:00
-Columbia,Chaco Province,3866.0,16.0,3159075.5,2026-11-12T22:19:12-03:00
-Columbia,Misiones Province,3841.0,24.0,10608836.65,2026-11-12T22:19:12-03:00
-Columbia,Jujuy Province,3466.0,14.0,3451085.06,2026-11-12T22:19:12-03:00
-Columbia,San Juan Province,3436.0,22.0,4659272.6,2026-11-12T22:19:12-03:00
-Columbia,Santa Cruz Province,3229.0,17.0,2811681.7,2026-11-12T22:19:12-03:00
-Columbia,La Pampa Province,2653.0,14.0,3614683.04,2026-11-12T22:19:12-03:00
-Columbia,San Luis Province,2626.0,15.0,3614880.7,2026-11-12T22:19:12-03:00
-Columbia,Santiago del Estero Province,2591.0,8.0,2644988.8,2026-11-12T22:19:12-03:00
-Columbia,Catamarca Province,2100.0,10.0,1829488.25,2026-11-12T22:19:12-03:00
-Columbia,La Rioja Province,1835.0,5.0,955392.6,2026-11-12T22:19:12-03:00
-Columbia,Tierra del Fuego Province,1379.0,5.0,1195494.4,2026-11-12T22:19:12-03:00
-Columbia,Formosa Province,1340.0,8.0,1744987.9,2026-11-12T22:19:12-03:00
-Columbia,(not set),835.0,215.0,40675791.35,2026-11-12T22:19:12-03:00
-Columbia,New York,471.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Ohio,356.0,2.0,367396.1,2026-11-12T22:19:12-03:00
-Columbia,State of Sao Paulo,252.0,2.0,1201190.45,2026-11-12T22:19:12-03:00
-Columbia,State of Espirito Santo,232.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Virginia,208.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Oregon,204.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,State of Para,192.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Illinois,170.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Montevideo Department,168.0,2.0,517998.7,2026-11-12T22:19:12-03:00
-Columbia,Florida,162.0,1.0,194999.4,2026-11-12T22:19:12-03:00
-Columbia,North Sumatra,141.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Santiago Metropolitan Region,141.0,1.0,86399.2,2026-11-12T22:19:12-03:00
-Columbia,California,120.0,1.0,191998.8,2026-11-12T22:19:12-03:00
-Columbia,Colorado,117.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Hauts-de-France,83.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Washington,83.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Community of Madrid,82.0,1.0,18496.3,2026-11-12T22:19:12-03:00
-Columbia,Friesland,78.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Texas,67.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,State of Rio de Janeiro,66.0,1.0,171498.6,2026-11-12T22:19:12-03:00
-Columbia,Ho Chi Minh,64.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Catalonia,63.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,England,60.0,1.0,153999.3,2026-11-12T22:19:12-03:00
-Columbia,State of Santa Catarina,52.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Maldonado Department,48.0,1.0,405998.6,2026-11-12T22:19:12-03:00
-Columbia,Norrbotten County,47.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,State of Minas Gerais,47.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,State of Rio Grande do Sul,47.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Bogota,46.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Iowa,46.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Lima Province,46.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Ha Noi,44.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,State of Parana,44.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Andalusia,42.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,County Dublin,42.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,North Carolina,39.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Michigan,38.0,1.0,186598.8,2026-11-12T22:19:12-03:00
-Columbia,Quebec,36.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Punjab,35.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,State of Bahia,35.0,1.0,293998.6,2026-11-12T22:19:12-03:00
-Columbia,Georgia,34.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,La Altagracia Province,34.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Mexico City,32.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Valparaiso,30.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,,29.0,8.0,1084988.3,2026-11-12T22:19:12-03:00
-Columbia,Cochabamba Department,29.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Kansas,28.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Nebraska,28.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Special Region of Yogyakarta,28.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Provence-Alpes-Cote d'Azur,27.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Valencian Community,27.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Tokyo,26.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Asuncion,25.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Balearic Islands,24.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Nduga Regency,24.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,State of Mexico,24.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Araucania,23.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Ile-de-France,23.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Baden-Wurttemberg,22.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Galicia,19.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,West Java,19.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Antioquia,18.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Ontario,18.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Pennsylvania,18.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Bavaria,17.0,1.0,76999.3,2026-11-12T22:19:12-03:00
-Columbia,Canelones Department,17.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Indiana,17.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Lazio,17.0,1.0,19996.0,2026-11-12T22:19:12-03:00
-Columbia,San Jose Province,17.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,South Carolina,17.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,State of Pernambuco,17.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Tennessee,17.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Cusco,16.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Hessen,16.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Columbia,Los Lagos,16.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Buenos Aires Province,252751.0,1057.0,113837165.24,2026-11-12T22:19:12-03:00
-Crocs,Buenos Aires,128122.0,742.0,83235676.44,2026-11-12T22:19:12-03:00
-Crocs,Santa Fe Province,58262.0,268.0,30414706.39,2026-11-12T22:19:12-03:00
-Crocs,Cordoba Province,53082.0,234.0,25174401.81,2026-11-12T22:19:12-03:00
-Crocs,Tucuman Province,32595.0,95.0,11055975.64,2026-11-12T22:19:12-03:00
-Crocs,Mendoza Province,23370.0,74.0,7441772.35,2026-11-12T22:19:12-03:00
-Crocs,Corrientes Province,18166.0,70.0,6595905.5,2026-11-12T22:19:12-03:00
-Crocs,Salta Province,17268.0,54.0,6207985.84,2026-11-12T22:19:12-03:00
-Crocs,Neuquen Province,16154.0,90.0,10717702.55,2026-11-12T22:19:12-03:00
-Crocs,Misiones Province,15451.0,46.0,5868816.85,2026-11-12T22:19:12-03:00
-Crocs,Entre Rios Province,14211.0,55.0,6220703.65,2026-11-12T22:19:12-03:00
-Crocs,Chaco Province,12280.0,32.0,3220192.6,2026-11-12T22:19:12-03:00
-Crocs,San Juan Province,10723.0,31.0,3003350.9,2026-11-12T22:19:12-03:00
-Crocs,Santiago del Estero Province,9327.0,22.0,2767446.7,2026-11-12T22:19:12-03:00
-Crocs,Jujuy Province,9046.0,40.0,4815755.55,2026-11-12T22:19:12-03:00
-Crocs,Rio Negro Province,7972.0,47.0,5993902.25,2026-11-12T22:19:12-03:00
-Crocs,Chubut Province,7052.0,28.0,3172941.65,2026-11-12T22:19:12-03:00
-Crocs,Formosa Province,6144.0,22.0,2137335.35,2026-11-12T22:19:12-03:00
-Crocs,San Luis Province,5732.0,19.0,2040469.95,2026-11-12T22:19:12-03:00
-Crocs,La Rioja Province,4551.0,22.0,3588742.5,2026-11-12T22:19:12-03:00
-Crocs,Catamarca Province,4088.0,18.0,1823971.1,2026-11-12T22:19:12-03:00
-Crocs,Santa Cruz Province,3959.0,27.0,3126702.35,2026-11-12T22:19:12-03:00
-Crocs,La Pampa Province,3588.0,16.0,1837453.3,2026-11-12T22:19:12-03:00
-Crocs,Tierra del Fuego Province,1708.0,8.0,616987.1,2026-11-12T22:19:12-03:00
-Crocs,(not set),1488.0,243.0,25449027.2,2026-11-12T22:19:12-03:00
-Crocs,State of Espirito Santo,817.0,2.0,224997.0,2026-11-12T22:19:12-03:00
-Crocs,New York,801.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Oregon,576.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,State of Para,552.0,6.0,502990.3,2026-11-12T22:19:12-03:00
-Crocs,North Sumatra,486.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Ohio,408.0,5.0,532986.5,2026-11-12T22:19:12-03:00
-Crocs,California,406.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,State of Sao Paulo,378.0,5.0,486990.75,2026-11-12T22:19:12-03:00
-Crocs,Montevideo Department,297.0,1.0,69999.0,2026-11-12T22:19:12-03:00
-Crocs,Virginia,269.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Illinois,249.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Friesland,233.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Santiago Metropolitan Region,217.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Florida,204.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,State of Rio de Janeiro,143.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Asuncion,136.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Texas,116.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Santa Cruz Department,114.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Lima Province,111.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Abu Dhabi,109.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Colorado,109.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,State of Parana,106.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,La Altagracia Province,95.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Hauts-de-France,93.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Quebec,88.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,,87.0,29.0,3401417.3,2026-11-12T22:19:12-03:00
-Crocs,Xinjiang,84.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Bogota,79.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Ontario,74.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Quintana Roo,73.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,State of Santa Catarina,72.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,State of Minas Gerais,70.0,1.0,59999.0,2026-11-12T22:19:12-03:00
-Crocs,Georgia,68.0,2.0,323992.0,2026-11-12T22:19:12-03:00
-Crocs,State of Rio Grande do Sul,66.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Central Department,57.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Iowa,57.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,San Jose Province,57.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Nuevo Leon,56.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Maldonado Department,55.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Nevada,53.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Catalonia,51.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Mexico City,51.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,North Carolina,49.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Cochabamba Department,47.0,1.0,109999.0,2026-11-12T22:19:12-03:00
-Crocs,Nduga Regency,45.0,1.0,98999.1,2026-11-12T22:19:12-03:00
-Crocs,Washington,45.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,La Libertad,43.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,New Jersey,43.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Norrbotten County,43.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Shanghai,42.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Kansas,41.0,1.0,69998.6,2026-11-12T22:19:12-03:00
-Crocs,Michigan,41.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,County Dublin,39.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Valparaiso,39.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Alto Parana Department,38.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Itapua Department,38.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,La Paz Department,38.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,State of Bahia,38.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Baden-Wurttemberg,37.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Guatemala Department,37.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,State of Pernambuco,35.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Community of Madrid,34.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,State of Alagoas,32.0,1.0,109999.0,2026-11-12T22:19:12-03:00
-Crocs,England,31.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,San Juan,31.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Valencian Community,31.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Limburg,30.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Provence-Alpes-Cote d'Azur,30.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Yucatan,30.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Pays de la Loire,29.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,West Java,29.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Andalusia,27.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Dubai,27.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Crocs,Guayas,27.0,1.0,77997.0,2026-11-12T22:19:12-03:00
-Crocs,Tarija Department,27.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Buenos Aires Province,113688.0,567.0,62843234.96,2026-11-12T22:19:12-03:00
-Kappa,Buenos Aires,65668.0,503.0,55086929.59,2026-11-12T22:19:12-03:00
-Kappa,Tucuman Province,28241.0,200.0,26279730.81,2026-11-12T22:19:12-03:00
-Kappa,Cordoba Province,19412.0,77.0,6330198.1,2026-11-12T22:19:12-03:00
-Kappa,Santa Fe Province,18045.0,76.0,7175286.35,2026-11-12T22:19:12-03:00
-Kappa,Salta Province,8791.0,43.0,5042263.3,2026-11-12T22:19:12-03:00
-Kappa,Mendoza Province,7693.0,25.0,2618341.05,2026-11-12T22:19:12-03:00
-Kappa,Entre Rios Province,6395.0,19.0,1811894.2,2026-11-12T22:19:12-03:00
-Kappa,Corrientes Province,6202.0,33.0,4067847.0,2026-11-12T22:19:12-03:00
-Kappa,Chaco Province,5720.0,15.0,1092324.65,2026-11-12T22:19:12-03:00
-Kappa,Misiones Province,5541.0,14.0,1403798.1,2026-11-12T22:19:12-03:00
-Kappa,Jujuy Province,4681.0,20.0,2877192.35,2026-11-12T22:19:12-03:00
-Kappa,Santiago del Estero Province,4374.0,10.0,700561.05,2026-11-12T22:19:12-03:00
-Kappa,Neuquen Province,4290.0,17.0,1677680.5,2026-11-12T22:19:12-03:00
-Kappa,San Juan Province,3246.0,7.0,862548.9,2026-11-12T22:19:12-03:00
-Kappa,Rio Negro Province,3065.0,8.0,911638.2,2026-11-12T22:19:12-03:00
-Kappa,Chubut Province,2457.0,5.0,527000.05,2026-11-12T22:19:12-03:00
-Kappa,Formosa Province,2397.0,4.0,597111.2,2026-11-12T22:19:12-03:00
-Kappa,San Luis Province,2311.0,7.0,624589.3,2026-11-12T22:19:12-03:00
-Kappa,Xinjiang,2201.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,La Rioja Province,1983.0,4.0,376952.4,2026-11-12T22:19:12-03:00
-Kappa,Catamarca Province,1940.0,5.0,368834.25,2026-11-12T22:19:12-03:00
-Kappa,Santa Cruz Province,1903.0,15.0,2037263.0,2026-11-12T22:19:12-03:00
-Kappa,La Pampa Province,1415.0,7.0,632642.05,2026-11-12T22:19:12-03:00
-Kappa,Tierra del Fuego Province,942.0,5.0,456143.0,2026-11-12T22:19:12-03:00
-Kappa,(not set),609.0,154.0,15284868.55,2026-11-12T22:19:12-03:00
-Kappa,State of Espirito Santo,402.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,New York,377.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Virginia,266.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,North Sumatra,249.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Oregon,244.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,State of Para,218.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Illinois,125.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Friesland,118.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Ohio,109.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,State of Sao Paulo,106.0,1.0,49999.5,2026-11-12T22:19:12-03:00
-Kappa,Texas,82.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,California,79.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Colorado,70.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Lima Province,64.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Florida,60.0,1.0,425084.7,2026-11-12T22:19:12-03:00
-Kappa,Norrbotten County,60.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,County Dublin,53.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Iowa,53.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Montevideo Department,52.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Santiago Metropolitan Region,51.0,1.0,47219.4,2026-11-12T22:19:12-03:00
-Kappa,Bogota,49.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,North Carolina,47.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Community of Madrid,38.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Hauts-de-France,37.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Heilongjiang,36.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Beijing,34.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Catalonia,32.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Georgia,32.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Mexico City,31.0,1.0,147598.2,2026-11-12T22:19:12-03:00
-Kappa,Quebec,30.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Ontario,29.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,,28.0,1.0,54718.8,2026-11-12T22:19:12-03:00
-Kappa,Washington,28.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Michigan,25.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,State of Rio de Janeiro,25.0,1.0,152497.9,2026-11-12T22:19:12-03:00
-Kappa,Limburg,24.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,New Jersey,24.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Baden-Wurttemberg,22.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Antioquia,21.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Asuncion,21.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Bavaria,20.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Andalusia,18.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Nduga Regency,18.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,State of Mexico,18.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,State of Santa Catarina,18.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Stockholm County,17.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Valencian Community,17.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Nebraska,16.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Pays de la Loire,16.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Zhejiang,16.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,England,14.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,La Altagracia Province,14.0,1.0,135998.0,2026-11-12T22:19:12-03:00
-Kappa,State of Parana,14.0,1.0,102798.5,2026-11-12T22:19:12-03:00
-Kappa,State of Rio Grande do Sul,14.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Tennessee,14.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Wyoming,14.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Central Department,13.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Kansas,13.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,State of Minas Gerais,13.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Valle del Cauca,13.0,1.0,178997.7,2026-11-12T22:19:12-03:00
-Kappa,Inner Mongolia,12.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Provence-Alpes-Cote d'Azur,12.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Sichuan,12.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Arizona,11.0,2.0,1107133.8,2026-11-12T22:19:12-03:00
-Kappa,Balearic Islands,11.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Canary Islands,11.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Indiana,11.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,La Paz Department,10.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,North Holland,10.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,State of Bahia,9.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Basque Country,8.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Guangdong Province,8.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,Hunan,8.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Kappa,New South Wales,8.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Buenos Aires Province,105206.0,352.0,42430193.57,2026-11-12T22:19:12-03:00
-Piccadilly,Buenos Aires,62004.0,213.0,27559067.44,2026-11-12T22:19:12-03:00
-Piccadilly,Cordoba Province,31422.0,95.0,12006261.35,2026-11-12T22:19:12-03:00
-Piccadilly,Santa Fe Province,29089.0,75.0,8973100.9,2026-11-12T22:19:12-03:00
-Piccadilly,Mendoza Province,14327.0,40.0,6381471.6,2026-11-12T22:19:12-03:00
-Piccadilly,Tucuman Province,11596.0,35.0,5265835.75,2026-11-12T22:19:12-03:00
-Piccadilly,Entre Rios Province,8671.0,32.0,5038644.75,2026-11-12T22:19:12-03:00
-Piccadilly,Neuquen Province,6472.0,32.0,4254748.45,2026-11-12T22:19:12-03:00
-Piccadilly,Salta Province,5553.0,18.0,2191872.95,2026-11-12T22:19:12-03:00
-Piccadilly,Rio Negro Province,5103.0,22.0,3220063.15,2026-11-12T22:19:12-03:00
-Piccadilly,Corrientes Province,4628.0,21.0,2888367.05,2026-11-12T22:19:12-03:00
-Piccadilly,Chaco Province,4440.0,7.0,795290.15,2026-11-12T22:19:12-03:00
-Piccadilly,San Juan Province,4412.0,12.0,1562682.1,2026-11-12T22:19:12-03:00
-Piccadilly,Misiones Province,3899.0,20.0,3203064.15,2026-11-12T22:19:12-03:00
-Piccadilly,Santiago del Estero Province,3501.0,7.0,1027887.2,2026-11-12T22:19:12-03:00
-Piccadilly,Chubut Province,3099.0,9.0,1019088.9,2026-11-12T22:19:12-03:00
-Piccadilly,Jujuy Province,2706.0,7.0,959990.0,2026-11-12T22:19:12-03:00
-Piccadilly,La Rioja Province,2607.0,6.0,1119387.7,2026-11-12T22:19:12-03:00
-Piccadilly,San Luis Province,2556.0,4.0,503493.35,2026-11-12T22:19:12-03:00
-Piccadilly,La Pampa Province,2524.0,4.0,581992.5,2026-11-12T22:19:12-03:00
-Piccadilly,Catamarca Province,1645.0,7.0,849989.9,2026-11-12T22:19:12-03:00
-Piccadilly,Santa Cruz Province,1404.0,3.0,407795.3,2026-11-12T22:19:12-03:00
-Piccadilly,Formosa Province,1256.0,2.0,135998.0,2026-11-12T22:19:12-03:00
-Piccadilly,New York,1151.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Tierra del Fuego Province,614.0,1.0,61999.0,2026-11-12T22:19:12-03:00
-Piccadilly,(not set),534.0,54.0,7922502.15,2026-11-12T22:19:12-03:00
-Piccadilly,Xinjiang,350.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Illinois,343.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,State of Para,266.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,State of Espirito Santo,232.0,1.0,379796.4,2026-11-12T22:19:12-03:00
-Piccadilly,North Sumatra,137.0,1.0,211998.0,2026-11-12T22:19:12-03:00
-Piccadilly,Oregon,126.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Ohio,111.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Hauts-de-France,81.0,2.0,199797.8,2026-11-12T22:19:12-03:00
-Piccadilly,State of Sao Paulo,71.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Montevideo Department,66.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Virginia,62.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Santiago Metropolitan Region,60.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,,52.0,5.0,617993.0,2026-11-12T22:19:12-03:00
-Piccadilly,Quebec,49.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,State of Santa Catarina,47.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Florida,45.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Friesland,43.0,1.0,55999.2,2026-11-12T22:19:12-03:00
-Piccadilly,Community of Madrid,41.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,California,40.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Catalonia,36.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,State of Rio de Janeiro,33.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,North Carolina,32.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Texas,32.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,New Jersey,30.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,West Java,28.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Nduga Regency,27.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,State of Rio Grande do Sul,26.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Washington,26.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Asuncion,25.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Lima Province,25.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Valencian Community,23.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Central Department,20.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Norrbotten County,20.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Provence-Alpes-Cote d'Azur,20.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,State of Parana,20.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Colorado,19.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,County Dublin,19.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Maharashtra,18.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Baden-Wurttemberg,17.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Georgia,16.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Iowa,16.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,State of Minas Gerais,16.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Uppsala County,16.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Andalusia,15.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,State of Alagoas,15.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Stockholm County,15.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Kansas,14.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,La Altagracia Province,14.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Pichincha,14.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Skane County,14.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,State of Pernambuco,14.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Lazio,12.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Liaoning,12.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Limburg,12.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Santa Cruz Department,12.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Beijing,11.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Ontario,11.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Guangdong Province,10.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Guatemala Department,10.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,La Paz Department,10.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Nebraska,10.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Sichuan,10.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Bavaria,9.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Hunan,9.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Ile-de-France,9.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Michigan,9.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Tennessee,9.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Zulia,9.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Bio Bio,8.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Dubai,8.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Galicia,8.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Lombardy,8.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Mexico City,8.0,0.0,0.0,2026-11-12T22:19:12-03:00
-Piccadilly,Araucania,7.0,0.0,0.0,2026-11-12T22:19:12-03:00
+Crocs,Buenos Aires Province,251185.0,1034.0,111736141.43,2026-11-13T06:50:31-03:00
+Crocs,Buenos Aires,126208.0,723.0,80687908.38,2026-11-13T06:50:31-03:00
+Crocs,Santa Fe Province,57724.0,260.0,29553120.34,2026-11-13T06:50:31-03:00
+Crocs,Cordoba Province,52722.0,230.0,24940406.51,2026-11-13T06:50:31-03:00
+Crocs,Tucuman Province,32181.0,91.0,10670980.64,2026-11-13T06:50:31-03:00
+Crocs,Mendoza Province,23042.0,71.0,7050776.95,2026-11-13T06:50:31-03:00
+Crocs,Corrientes Province,17941.0,71.0,6771909.5,2026-11-13T06:50:31-03:00
+Crocs,Salta Province,16991.0,55.0,6279984.84,2026-11-13T06:50:31-03:00
+Crocs,Neuquen Province,15789.0,89.0,10457705.55,2026-11-13T06:50:31-03:00
+Crocs,Misiones Province,15063.0,43.0,5552319.75,2026-11-13T06:50:31-03:00
+Crocs,Entre Rios Province,14011.0,54.0,6172105.45,2026-11-13T06:50:31-03:00
+Crocs,Chaco Province,12149.0,28.0,2635103.8,2026-11-13T06:50:31-03:00
+Crocs,San Juan Province,10615.0,30.0,2943351.9,2026-11-13T06:50:31-03:00
+Crocs,Santiago del Estero Province,9272.0,21.0,2668450.3,2026-11-13T06:50:31-03:00
+Crocs,Jujuy Province,8980.0,37.0,4447759.35,2026-11-13T06:50:31-03:00
+Crocs,Rio Negro Province,7799.0,46.0,5943402.8,2026-11-13T06:50:31-03:00
+Crocs,Chubut Province,6901.0,29.0,3422939.65,2026-11-13T06:50:31-03:00
+Crocs,Formosa Province,6104.0,21.0,2062336.35,2026-11-13T06:50:31-03:00
+Crocs,San Luis Province,5651.0,17.0,1757972.95,2026-11-13T06:50:31-03:00
+Crocs,La Rioja Province,4494.0,21.0,3115750.5,2026-11-13T06:50:31-03:00
+Crocs,Catamarca Province,3998.0,17.0,1624971.1,2026-11-13T06:50:31-03:00
+Crocs,Santa Cruz Province,3915.0,23.0,2607959.6,2026-11-13T06:50:31-03:00
+Crocs,La Pampa Province,3541.0,16.0,1837453.3,2026-11-13T06:50:31-03:00
+Crocs,Tierra del Fuego Province,1670.0,8.0,616987.1,2026-11-13T06:50:31-03:00
+Crocs,(not set),1412.0,233.0,24494792.2,2026-11-13T06:50:31-03:00
+Crocs,State of Espirito Santo,809.0,2.0,224997.0,2026-11-13T06:50:31-03:00
+Crocs,New York,782.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Oregon,559.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,State of Para,551.0,6.0,502990.3,2026-11-13T06:50:31-03:00
+Crocs,North Sumatra,474.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Ohio,403.0,5.0,532986.5,2026-11-13T06:50:31-03:00
+Crocs,California,370.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,State of Sao Paulo,370.0,5.0,486990.75,2026-11-13T06:50:31-03:00
+Crocs,Montevideo Department,290.0,1.0,69999.0,2026-11-13T06:50:31-03:00
+Crocs,Virginia,263.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Friesland,236.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Illinois,236.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Santiago Metropolitan Region,215.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Florida,199.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,State of Rio de Janeiro,139.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Asuncion,136.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Texas,114.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Lima Province,111.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Santa Cruz Department,111.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Abu Dhabi,106.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,State of Parana,104.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,,102.0,35.0,4235408.4,2026-11-13T06:50:31-03:00
+Crocs,Hauts-de-France,95.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,La Altagracia Province,95.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Quebec,82.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Xinjiang,81.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Bogota,76.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Quintana Roo,76.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Ontario,73.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,State of Santa Catarina,70.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Georgia,68.0,2.0,323992.0,2026-11-13T06:50:31-03:00
+Crocs,State of Minas Gerais,68.0,1.0,59999.0,2026-11-13T06:50:31-03:00
+Crocs,State of Rio Grande do Sul,64.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Colorado,62.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,San Jose Province,57.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Maldonado Department,56.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Central Department,55.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Iowa,55.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Nuevo Leon,55.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Nevada,51.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Mexico City,50.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Catalonia,49.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Cochabamba Department,47.0,1.0,109999.0,2026-11-13T06:50:31-03:00
+Crocs,Nduga Regency,45.0,1.0,98999.1,2026-11-13T06:50:31-03:00
+Crocs,North Carolina,45.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,La Libertad,43.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,New Jersey,43.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Norrbotten County,43.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Kansas,41.0,1.0,69998.6,2026-11-13T06:50:31-03:00
+Crocs,Michigan,40.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Shanghai,40.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,County Dublin,38.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,State of Bahia,38.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Washington,38.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Alto Parana Department,37.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Baden-Wurttemberg,37.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Guatemala Department,37.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Itapua Department,37.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,La Paz Department,37.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Valparaiso,37.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,State of Pernambuco,33.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Community of Madrid,32.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,State of Alagoas,32.0,1.0,109999.0,2026-11-13T06:50:31-03:00
+Crocs,San Juan,31.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Valencian Community,31.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Yucatan,31.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Limburg,30.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Pays de la Loire,29.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,West Java,29.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Andalusia,28.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,England,28.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Dubai,27.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Guayas,27.0,1.0,77997.0,2026-11-13T06:50:31-03:00
+Crocs,Provence-Alpes-Cote d'Azur,27.0,0.0,0.0,2026-11-13T06:50:31-03:00
+Crocs,Tarija Department,26.0,0.0,0.0,2026-11-13T06:50:31-03:00
