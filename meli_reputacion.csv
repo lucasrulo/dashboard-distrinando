@@ -1,6 +1,6 @@
 marca,nivel,mercadolider,nivel_real,proteccion_hasta,ventas_periodo,periodo,historico_total,historico_canceladas,calif_positivas,calif_negativas,reclamos_tasa,reclamos_cant,reclamos_real_tasa,reclamos_real_cant,cancelaciones_tasa,cancelaciones_cant,cancelaciones_real_tasa,cancelaciones_real_cant,demoras_tasa,demoras_cant,demoras_real_tasa,demoras_real_cant,actualizado
-Reebok,5_green,platinum,red,2026-11-17T20:00:00.000-04:00,13246,60 days,17204,1968,0,1.0,0.0,0,0.0045,68.0,0.0,0,0.0023,35.0,0.0,0,0.3234,3442.0,2026-11-17T02:39:02-03:00
-Crocs,3_yellow,,,,3289,60 days,3845,497,0,1.0,0.009,34,,,0.0174,66,,,0.0572,132,,,2026-11-17T02:39:02-03:00
-Kappa,5_green,platinum,red,2026-11-18T20:00:00.000-04:00,6178,60 days,7812,807,0,0.46,0.0,0,0.0048,33.0,0.0,0,0.0033,23.0,0.0,0,0.4255,2202.0,2026-11-17T02:39:02-03:00
-Columbia,5_green,platinum,red,2026-11-20T20:00:00.000-04:00,2424,60 days,2824,294,0,1.0,0.0,0,0.0081,22.0,0.0,0,0.004,11.0,0.0,0,0.3161,587.0,2026-11-17T02:39:02-03:00
-Piccadilly,5_green,silver,red,2026-11-27T20:00:00.000-04:00,139,60 days,147,8,0,0.0,0.0,0,0.0,0.0,0.0,0,0.0,0.0,0.0,0,0.2222,18.0,2026-11-17T02:39:02-03:00
+Reebok,5_green,platinum,red,2026-11-17T20:00:00.000-04:00,13294,60 days,17283,1999,0,1.0,0.0,0,0.0047,71.0,0.0,0,0.0023,35.0,0.0,0,0.3374,3616.0,2026-11-17T16:29:05-03:00
+Crocs,3_yellow,,,,3317,60 days,3882,506,0,1.0,0.0094,36,,,0.0173,66,,,0.1292,302,,,2026-11-17T16:29:05-03:00
+Kappa,5_green,platinum,red,2026-11-18T20:00:00.000-04:00,6180,60 days,7824,817,0,0.46,0.0,0,0.0047,33.0,0.0,0,0.0033,23.0,0.0,0,0.4313,2237.0,2026-11-17T16:29:05-03:00
+Columbia,5_green,platinum,red,2026-11-20T20:00:00.000-04:00,2429,60 days,2833,298,0,1.0,0.0,0,0.0081,22.0,0.0,0,0.004,11.0,0.0,0,0.3606,673.0,2026-11-17T16:29:05-03:00
+Piccadilly,5_green,silver,,,142,60 days,150,8,0,0.0,0.0,0,,,0.0,0,,,0.0303,2,,,2026-11-17T16:29:05-03:00
