@@ -16,12 +16,13 @@ import os
 import time
 from datetime import datetime, timedelta
 
+import numpy as np
 import pandas as pd
 
 from extractor_meli import MeliCuenta, CUENTAS, ZONA_AR
 
 DIAS = 60
-TOPE_ENVIOS_POR_CORRIDA = int(os.environ.get("MELI_TOPE_ENVIOS", "4000"))
+TOPE_ENVIOS_POR_CORRIDA = int(os.environ.get("MELI_TOPE_ENVIOS", "30000"))
 ARCH_DEM = "meli_demoras.csv"
 ARCH_HIST = "meli_reputacion_hist.csv"
 
@@ -72,76 +73,120 @@ def reclamos_reputacion(c, rec):
 
 
 # ============================================================================== DEMORAS DE DESPACHO
-def _limite(s):
-    for ruta in (("lead_time", "estimated_handling_limit", "date"), ("shipping_option", "estimated_handling_limit", "date")):
-        d = s
-        for k in ruta:
-            d = (d or {}).get(k) if isinstance(d, dict) else None
-        if d:
-            return d
+# Fuente: la propia API de envíos de MeLi
+#   /shipments/{id}/delays    -> MeLi marca 'handling_delayed' cuando el despacho fue tarde (lo que cuenta en la reputación)
+#   /shipments/{id}/lead_time -> estimated_handling_limit.date = fecha límite para despachar
+import requests
+from concurrent.futures import ThreadPoolExecutor
+
+API = "https://api.mercadolibre.com"
+HILOS = 8
+VERSION_DEM = 2      # si cambia la forma de calcular, se vuelve a consultar todo
+
+
+def _get_json(tok, path):
+    for intento in range(4):
+        try:
+            r = requests.get(f"{API}{path}", headers={"Authorization": f"Bearer {tok}"}, timeout=30)
+        except Exception:
+            time.sleep(1 + intento)
+            continue
+        if r.status_code == 429 or r.status_code >= 500:
+            time.sleep(2 * (intento + 1))
+            continue
+        return r.json() if r.status_code == 200 else None
     return None
 
 
-def envio_demora(c, sid):
-    r = c.get(f"/shipments/{sid}")
-    if not _ok(r):
-        return None
-    s = r.json()
-    h = s.get("status_history") or {}
-    return {"limite_despacho": _limite(s), "fecha_despacho": h.get("date_shipped") or h.get("date_handling_completed"),
-            "estado": s.get("status") or "", "subestado": s.get("substatus") or ""}
+def consultar_envio(tok, sid, pendiente):
+    d = _get_json(tok, f"/shipments/{sid}/delays")
+    dels = (d or {}).get("delays") or []
+    hd = [x for x in dels if "handling" in str(x.get("type", ""))]
+    out = {"meli_demora": (bool(hd) if d is not None else None), "tipo_demora": ",".join(sorted({str(x.get("type")) for x in dels})),
+           "fecha_demora": (hd[0].get("date") if hd else None), "consultado": True, "version": VERSION_DEM}
+    lt = _get_json(tok, f"/shipments/{sid}/lead_time") or {}
+    out["limite_despacho"] = ((lt.get("estimated_handling_limit") or {}).get("date"))
+    return out
 
 
 def demoras(cuentas_ok):
     if not os.path.exists("ventas_meli.csv"):
         print("   ⚠️ No está ventas_meli.csv: no puedo calcular demoras.")
         return
-    v = pd.read_csv("ventas_meli.csv", usecols=lambda c_: c_ in {"marca", "orden_meli", "nro_pedido", "shipping_id", "fecha", "logistica", "total_orden_meli", "producto"},
-                    low_memory=False)
+    v = pd.read_csv("ventas_meli.csv", low_memory=False,
+                    usecols=lambda c_: c_ in {"marca", "orden_meli", "nro_pedido", "shipping_id", "fecha", "logistica", "total_orden_meli",
+                                               "producto", "fecha_despacho", "envio_estado", "envio_detalle", "provincia"})
     v["f"] = pd.to_datetime(v["fecha"], errors="coerce", format="mixed", utc=True)
     v = v[(v["f"] >= pd.Timestamp.now(tz="UTC") - pd.Timedelta(days=DIAS)) & v["shipping_id"].notna() & (v["logistica"].astype(str) != "Full")]
     v["shipping_id"] = pd.to_numeric(v["shipping_id"], errors="coerce").astype("Int64").astype(str)
+    prod = v.groupby(["marca", "shipping_id"])["producto"].agg(lambda x: " | ".join(dict.fromkeys(map(str, x)))[:200])
     v = v.sort_values("f", ascending=False).drop_duplicates(["marca", "shipping_id"])
-    viejo = pd.read_csv(ARCH_DEM, dtype={"shipping_id": str}) if os.path.exists(ARCH_DEM) else pd.DataFrame(columns=["marca", "shipping_id"])
-    cache = {(m, s): r for m, s, r in zip(viejo["marca"], viejo["shipping_id"], viejo.to_dict("records"))}
-    ahora = pd.Timestamp.now(tz="UTC")
-    filas, consultas = [], 0
+    v["producto"] = [prod.get((m, s_), "") for m, s_ in zip(v["marca"], v["shipping_id"])]
+
+    viejo = pd.read_csv(ARCH_DEM, dtype={"shipping_id": str}) if os.path.exists(ARCH_DEM) else pd.DataFrame()
+    cache = {}
+    if len(viejo) and "version" in viejo.columns:
+        viejo = viejo[pd.to_numeric(viejo["version"], errors="coerce") == VERSION_DEM]
+        cache = {(m, s_): r for m, s_, r in zip(viejo["marca"], viejo["shipping_id"], viejo.to_dict("records"))}
+
+    pend_est = {"Pendiente", "Listo para despachar", ""}
+    v["pendiente"] = v["fecha_despacho"].isna() & v["envio_estado"].fillna("").isin(pend_est)
+    # qué consultar: pendientes (siempre) + despachados que todavía no están en el cache; los más recientes primero
+    tareas = []
     for _, x in v.iterrows():
         k = (x["marca"], x["shipping_id"])
-        prev = cache.get(k)
-        terminado = prev is not None and (pd.notna(prev.get("fecha_despacho")) and str(prev.get("fecha_despacho")) != "" or
-                                          str(prev.get("estado")) in ("cancelled", "not_delivered"))
-        base = {"marca": x["marca"], "orden_meli": x.get("orden_meli"), "nro_pedido": x.get("nro_pedido"), "shipping_id": x["shipping_id"],
-                "fecha_venta": x["fecha"], "logistica": x.get("logistica"), "monto": x.get("total_orden_meli"), "producto": str(x.get("producto", ""))[:120]}
-        if terminado or x["marca"] not in cuentas_ok or consultas >= TOPE_ENVIOS_POR_CORRIDA:
-            if prev is not None:
-                filas.append({**prev, **base})
+        if x["marca"] not in cuentas_ok:
             continue
-        e = envio_demora(cuentas_ok[x["marca"]], x["shipping_id"])
-        consultas += 1
-        if e is None:
-            if prev is not None:
-                filas.append({**prev, **base})
+        if x["pendiente"] or k not in cache or str(cache[k].get("meli_demora")).lower() not in ("true", "false"):
+            tareas.append((k, x["pendiente"]))
+    tareas = tareas[:TOPE_ENVIOS_POR_CORRIDA]
+    print(f"   🔎 Demoras: {len(tareas):,} envíos a consultar ({HILOS} en paralelo)…")
+    t0 = time.time()
+
+    def _job(t):
+        (m, s_), pend = t
+        return (m, s_), consultar_envio(cuentas_ok[m].tok["access_token"], s_, pend)
+
+    nuevos = {}
+    with ThreadPoolExecutor(HILOS) as ex:
+        for k, r in ex.map(_job, tareas):
+            nuevos[k] = r
+    print(f"   ⏱️ {len(nuevos):,} envíos consultados en {time.time() - t0:.0f}s")
+
+    filas = []
+    for _, x in v.iterrows():
+        k = (x["marca"], x["shipping_id"])
+        info = nuevos.get(k) or cache.get(k)
+        if info is None:
             continue
-        filas.append({**base, **e})
-        time.sleep(0.05)
+        filas.append({"marca": x["marca"], "orden_meli": x["orden_meli"], "nro_pedido": x["nro_pedido"], "shipping_id": x["shipping_id"],
+                      "fecha_venta": x["fecha"], "logistica": x["logistica"], "monto": x["total_orden_meli"], "producto": x["producto"],
+                      "provincia": x.get("provincia"), "estado_envio": x["envio_estado"], "fecha_despacho": x["fecha_despacho"],
+                      "limite_despacho": info.get("limite_despacho"), "meli_demora": info.get("meli_demora"),
+                      "tipo_demora": info.get("tipo_demora"), "fecha_demora": info.get("fecha_demora"), "version": VERSION_DEM})
     df = pd.DataFrame(filas)
     if df.empty:
         return
-    lim = pd.to_datetime(df["limite_despacho"], errors="coerce", utc=True)
-    des = pd.to_datetime(df["fecha_despacho"], errors="coerce", utc=True)
+    ahora = pd.Timestamp.now(tz="UTC")
+    # MeLi: del límite solo vale la FECHA (la hora es de relleno) -> se toma el fin de ese día
+    lim = (pd.to_datetime(df["limite_despacho"], errors="coerce", utc=True).dt.tz_convert(ZONA_AR).dt.normalize()
+           + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)).dt.tz_convert("UTC")
+    des = pd.to_datetime(df["fecha_despacho"], errors="coerce", format="mixed", utc=True)
     df["demora_horas"] = ((des - lim).dt.total_seconds() / 3600).round(1)
-    df["demorado"] = (df["demora_horas"] > 0)
-    sin = des.isna() & ~df["estado"].astype(str).isin(["cancelled", "not_delivered", "delivered"])
+    md = df["meli_demora"].astype(str).str.lower()
+    # Lo que dice MeLi manda; si MeLi no respondió, se calcula con límite vs. despacho
+    df["demorado"] = md.eq("true") | (~md.isin(["true", "false"]) & (df["demora_horas"] > 0))
+    df["fuente_demora"] = np.where(md.isin(["true", "false"]), "MeLi", "Calculada")
+    sin = des.isna() & df["estado_envio"].fillna("").isin(pend_est)
     df["en_riesgo"] = sin & lim.notna() & (lim <= ahora + pd.Timedelta(hours=24))
     df["vencido_sin_despachar"] = sin & lim.notna() & (lim < ahora)
     df.to_csv(ARCH_DEM, index=False)
-    print(f"🚀 {ARCH_DEM}: {len(df):,} envíos ({consultas:,} consultados en esta corrida) · "
-          f"{int(df['demorado'].sum()):,} despachados tarde · {int(df['vencido_sin_despachar'].sum()):,} vencidos sin despachar · "
-          f"{int(df['en_riesgo'].sum()):,} en riesgo")
-    pend = len(v) - len(df)
-    if pend > 0:
-        print(f"   ⏳ Faltan {pend:,} envíos por revisar: se completan en las próximas corridas.")
+    print(f"🚀 {ARCH_DEM}: {len(df):,} envíos · {int(df['demorado'].sum()):,} con demora según MeLi · "
+          f"{int(df['vencido_sin_despachar'].sum()):,} vencidos sin despachar · {int(df['en_riesgo'].sum()):,} en riesgo")
+    print("   " + " · ".join(f"{m}: {int(g['demorado'].sum())}/{len(g)}" for m, g in df.groupby("marca")))
+    falta = len(v) - len(df)
+    if falta > 0:
+        print(f"   ⏳ Faltan {falta:,} envíos por revisar: se completan en la próxima corrida.")
 
 
 def sync():
