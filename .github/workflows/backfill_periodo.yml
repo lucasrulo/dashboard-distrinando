@@ -1,0 +1,63 @@
+name: Backfill de un período (ventas año anterior)
+
+on:
+  workflow_dispatch:
+    inputs:
+      desde:
+        description: 'Desde (AAAA-MM-DD)'
+        required: true
+        default: '2025-11-01'
+      hasta:
+        description: 'Hasta (AAAA-MM-DD)'
+        required: true
+        default: '2025-12-31'
+
+concurrency:
+  group: actualizador-datos-shopify
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Instalar librerías
+        run: pip install -r requirements.txt
+
+      - name: Bajar ventas del período (Shopify + MercadoLibre)
+        env:
+          BACKFILL_DESDE: ${{ github.event.inputs.desde }}
+          BACKFILL_HASTA: ${{ github.event.inputs.hasta }}
+          TOKEN_REEBOK: ${{ secrets.TOKEN_REEBOK }}
+          TOKEN_COLUMBIA: ${{ secrets.TOKEN_COLUMBIA }}
+          TOKEN_CROCS: ${{ secrets.TOKEN_CROCS }}
+          TOKEN_KAPPA: ${{ secrets.TOKEN_KAPPA }}
+          TOKEN_PICCADILLY: ${{ secrets.TOKEN_PICCADILLY }}
+          MELI_APP_ID: ${{ secrets.MELI_APP_ID }}
+          MELI_CLIENT_SECRET: ${{ secrets.MELI_CLIENT_SECRET }}
+          MELI_REEBOK: ${{ secrets.MELI_REEBOK }}
+          MELI_CROCS: ${{ secrets.MELI_CROCS }}
+          MELI_KAPPA: ${{ secrets.MELI_KAPPA }}
+          MELI_COLUMBIA: ${{ secrets.MELI_COLUMBIA }}
+          MELI_PICCADILLY: ${{ secrets.MELI_PICCADILLY }}
+          GH_PAT_SECRETS: ${{ secrets.GH_PAT_SECRETS }}
+          CLIENTES_SALT: ${{ secrets.CLIENTES_SALT }}
+        run: python backfill_periodo.py
+
+      - name: Guardar en GitHub
+        run: |
+          git config --global user.name "Robot Distrinando"
+          git config --global user.email "robot@distrinando.com"
+          for f in ventas_2*_2*.csv; do if [ -f "$f" ]; then git add "$f"; fi; done
+          git diff --staged --quiet || (git commit -m "📦 Backfill de ventas ${{ github.event.inputs.desde }} a ${{ github.event.inputs.hasta }}" && git pull --rebase origin main && git push)
