@@ -344,7 +344,7 @@ def sync():
     if not APP_ID or not CLIENT_SECRET:
         print("🚨 Faltan MELI_APP_ID / MELI_CLIENT_SECRET")
         return
-    df_old = pd.read_csv(FILENAME) if os.path.exists(FILENAME) else pd.DataFrame()
+    df_old = pd.read_csv(FILENAME, low_memory=False) if os.path.exists(FILENAME) else pd.DataFrame()
     ahora = datetime.now(ZONA_AR)
     nuevas = []
 
@@ -415,7 +415,7 @@ def sync():
 
     if not viejo.empty:
         if os.path.exists(FILENAME_HISTORICO):
-            viejo = pd.concat([pd.read_csv(FILENAME_HISTORICO), viejo], ignore_index=True)
+            viejo = pd.concat([pd.read_csv(FILENAME_HISTORICO, low_memory=False), viejo], ignore_index=True)
         viejo.drop_duplicates(subset=["orden_meli", "sku"], keep="last").to_csv(FILENAME_HISTORICO, index=False)
 
     vivo.to_csv(FILENAME, index=False)

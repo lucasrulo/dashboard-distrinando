@@ -297,7 +297,7 @@ def refrescar_pagos(df):
 def sync():
     print(f"\n--- 🕒 SINCRO: {datetime.now(ZONA_AR).strftime('%H:%M:%S')} (ARG) ---")
     
-    df_old = pd.read_csv(FILENAME) if os.path.exists(FILENAME) else pd.DataFrame()
+    df_old = pd.read_csv(FILENAME, low_memory=False) if os.path.exists(FILENAME) else pd.DataFrame()
     
     if FORZAR_RECARGA_COMPLETA:
         print("⚠️ ALERTA: Modo Recarga Completa activo. Extrayendo todo el historial viejo...")
@@ -344,7 +344,7 @@ def sync():
 
         if not df_para_archivar.empty:
             if os.path.exists(FILENAME_HISTORICO):
-                df_hist_viejo = pd.read_csv(FILENAME_HISTORICO)
+                df_hist_viejo = pd.read_csv(FILENAME_HISTORICO, low_memory=False)
                 df_para_archivar = pd.concat([df_hist_viejo, df_para_archivar], ignore_index=True)
             df_para_archivar = df_para_archivar.drop_duplicates(subset=['id_pedido', 'sku'], keep='last')
             df_para_archivar.to_csv(FILENAME_HISTORICO, index=False)
